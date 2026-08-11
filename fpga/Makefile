@@ -105,7 +105,7 @@ ifeq ($(SUB_PROJECT),u55c)
 	MODEL             ?= U55CFPGATestHarness
 	VLOG_MODEL        ?= U55CFPGATestHarness
 	MODEL_PACKAGE     ?= chipyard.fpga.u55c
-	CONFIG            ?= FSAU55CConfig
+	CONFIG            ?= EmptyU55CConfig
 	CONFIG_PACKAGE    ?= chipyard.fpga.u55c
 	GENERATOR_PACKAGE ?= chipyard
 	TB                ?= none # unused
@@ -114,6 +114,19 @@ ifeq ($(SUB_PROJECT),u55c)
 	FPGA_BRAND        ?= xilinx
 endif
 
+ifeq ($(SUB_PROJECT),u280)
+	SBT_PROJECT       ?= chipyard_fpga
+	MODEL             ?= U280FPGATestHarness
+	VLOG_MODEL        ?= U280FPGATestHarness
+	MODEL_PACKAGE     ?= chipyard.fpga.u280
+	CONFIG            ?= EmptyU280Config
+	CONFIG_PACKAGE    ?= chipyard.fpga.u280
+	GENERATOR_PACKAGE ?= chipyard
+	TB                ?= none # unused
+	TOP               ?= EmptyChipTop
+	BOARD             ?= u280
+	FPGA_BRAND        ?= xilinx
+endif
 
 export USE_CHISEL6=1
 

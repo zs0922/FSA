@@ -1,0 +1,37 @@
+diff --git a/python/fsa/xdma_mmio.py b/python/fsa/xdma_mmio.py
+index b74a3c0..b1fabe5 100644
+--- a/python/fsa/xdma_mmio.py
++++ b/python/fsa/xdma_mmio.py
+@@ -16,13 +16,13 @@ PROT_READ = 0x1
+ PROT_WRITE = 0x2
+ MAP_SHARED = 0x01
+ 
+-# Find and load the standard C library
++# Find and load the standard C library (use_errno=True enables ctypes.get_errno())
+ try:
+-    libc = ctypes.CDLL(ctypes.util.find_library('c'))
++    libc = ctypes.CDLL(ctypes.util.find_library('c'), use_errno=True)
+ except (FileNotFoundError, OSError):
+     try:
+         # Fallback for some systems where find_library might fail
+-        libc = ctypes.CDLL('libc.so.6')
++        libc = ctypes.CDLL('libc.so.6', use_errno=True)
+     except OSError as e:
+         print(f"Error: Could not find or load the C standard library (libc). {e}", file=sys.stderr)
+         sys.exit(1)
+diff --git a/python/main.py b/python/main.py
+index 50bfb03..610d72d 100644
+--- a/python/main.py
++++ b/python/main.py
+@@ -189,7 +189,10 @@ if __name__ == "__main__":
+             build_dir = os.path.join('..', '..', '..', 'fpga')
+         else:
+             build_dir = args.build_dir
+-        long_name = 'chipyard.fpga.u55c.U55CFPGATestHarness.' + args.config
++        if 'U280' in args.config or 'u280' in args.config.lower():
++            long_name = 'chipyard.fpga.u280.U280FPGATestHarness.' + args.config
++        else:
++            long_name = 'chipyard.fpga.u55c.U55CFPGATestHarness.' + args.config
+         config_file = os.path.join(
+             build_dir, 'generated-src', long_name,
+             long_name + '.FSAConfig.json'

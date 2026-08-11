@@ -126,7 +126,16 @@ ifeq ($(SUB_PROJECT),u280)
 	TOP               ?= EmptyChipTop
 	BOARD             ?= u280
 	FPGA_BRAND        ?= xilinx
+	U280_PATCHES      ?= apply-u280-patches
 endif
+
+# The U280 build depends on fpga-shells/generators-version patches that are
+# kept in this repo (fpga/patches/u280) instead of being committed to the
+# upstream submodule repos. Apply them to the submodule working trees before
+# any u280 build step. See scripts/apply-u280-patches.sh.
+.PHONY: apply-u280-patches
+apply-u280-patches:
+	$(base_dir)/scripts/apply-u280-patches.sh
 
 export USE_CHISEL6=1
 
@@ -180,7 +189,7 @@ $(synth_list_f): $(sim_common_files) $(all_vsrcs)
 
 ifeq ($(FPGA_BRAND),xilinx)
 BIT_FILE := $(build_dir)/obj/$(MODEL).bit
-$(BIT_FILE): $(synth_list_f)
+$(BIT_FILE): $(synth_list_f) | $(U280_PATCHES)
 	cd $(build_dir); vivado \
 		-nojournal -mode batch \
 		-source $(fpga_common_script_dir)/vivado.tcl \

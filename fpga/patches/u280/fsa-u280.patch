@@ -1,3 +1,74 @@
+diff --git a/python/fsa/engine.py b/python/fsa/engine.py
+index f683e64..cac0b46 100644
+--- a/python/fsa/engine.py
++++ b/python/fsa/engine.py
+@@ -12,6 +12,66 @@ from .dtype import to_numpy_dtype
+ from .xdma import dev_read, dev_write
+ from .xdma_mmio import MMIO
+ 
++def detect_fsa_devices(vendor_id: int = 0x10ee, device_id: int = 0x9038) -> tuple[str, str, str]:
++    """
++    Locate the FSA FPGA PCI device (default: Xilinx 0x9038, the U280) and map it to its
++    /dev/xdma<N>_* device nodes. Returns (control_dev, mem_read_dev, mem_write_dev).
++
++    The xdma index is not stable: other Xilinx cards bound by an xdma driver (e.g. an
++    NM37 at 0x903f) can shift the U280's index to xdma1. This resolves the index from the
++    PCI bus/device/function instead of assuming xdma0.
++    """
++    sysfs_pci = '/sys/bus/pci/devices'
++    if not os.path.isdir(sysfs_pci):
++        raise RuntimeError(f"PCI sysfs directory not found: {sysfs_pci}")
++
++    bdfs = []
++    for bdf in os.listdir(sysfs_pci):
++        try:
++            vendor_path = os.path.join(sysfs_pci, bdf, 'vendor')
++            device_path = os.path.join(sysfs_pci, bdf, 'device')
++            if not (os.path.isfile(vendor_path) and os.path.isfile(device_path)):
++                continue
++            with open(vendor_path) as f:
++                v = int(f.read().strip(), 16)
++            with open(device_path) as f:
++                d = int(f.read().strip(), 16)
++        except (ValueError, OSError):
++            continue
++        if v == vendor_id and d == device_id:
++            bdfs.append(bdf)
++
++    if not bdfs:
++        raise RuntimeError(
++            f"No PCI device with vendor=0x{vendor_id:04x} device=0x{device_id:04x} "
++            f"(FSA U280) found in {sysfs_pci}"
++        )
++
++    class_dir = '/sys/class/xdma'
++    if not os.path.isdir(class_dir):
++        raise RuntimeError(f"xdma device class not found: {class_dir}")
++
++    for bdf in bdfs:
++        for node in os.listdir(class_dir):
++            if not (node.startswith('xdma') and node.endswith('_user')):
++                continue
++            link = os.path.join(class_dir, node)
++            if not os.path.islink(link):
++                continue
++            if bdf in os.readlink(link):
++                idx = node[len('xdma'):-len('_user')]
++                control = f"/dev/xdma{idx}_user"
++                mem_read = f"/dev/xdma{idx}_c2h_0"
++                mem_write = f"/dev/xdma{idx}_h2c_0"
++                missing = [p for p in (control, mem_read, mem_write) if not os.path.exists(p)]
++                if missing:
++                    raise RuntimeError(f"xdma device nodes missing for {bdf}: {missing}")
++                return control, mem_read, mem_write
++
++    raise RuntimeError(
++        f"Found PCI device(s) {bdfs} but none has an xdma user device node under {class_dir}"
++    )
++
+ class BaseEngine(ABC):
+     @abstractmethod
+     def execute(self, kernel: Kernel) -> None | MTile | list[MTile]:
 diff --git a/python/fsa/xdma_mmio.py b/python/fsa/xdma_mmio.py
 index b74a3c0..b1fabe5 100644
 --- a/python/fsa/xdma_mmio.py
@@ -20,10 +91,18 @@ index b74a3c0..b1fabe5 100644
          print(f"Error: Could not find or load the C standard library (libc). {e}", file=sys.stderr)
          sys.exit(1)
 diff --git a/python/main.py b/python/main.py
-index 50bfb03..610d72d 100644
+index 50bfb03..f5b91b2 100644
 --- a/python/main.py
 +++ b/python/main.py
-@@ -189,7 +189,10 @@ if __name__ == "__main__":
+@@ -149,6 +149,7 @@ if __name__ == "__main__":
+     parser.add_argument('--simulator_bin', type=str, default=None, help='[VerilatorOnly] Path to the simulator binary')
+     parser.add_argument('--vcdfile', type=str, default=None, help='[VerilatorOnly] Path to the VCD file')
+     parser.add_argument('--numactl', type=str, default=None, help='[VerilatorOnly] Command to run the simulator with NUMA control')
++    parser.add_argument('--fpga_dev', type=str, default=None, help='[FPGAOnly] Force xdma device prefix, e.g. "xdma1" (default: auto-detect the U280 by PCI device id)')
+     parser.add_argument('--max_cycles', type=int, default=0, help='[VerilatorOnly] Maximum number of cycles to run the simulation')
+     args = parser.parse_args()
+ 
+@@ -189,12 +190,24 @@ if __name__ == "__main__":
              build_dir = os.path.join('..', '..', '..', 'fpga')
          else:
              build_dir = args.build_dir
@@ -35,3 +114,18 @@ index 50bfb03..610d72d 100644
          config_file = os.path.join(
              build_dir, 'generated-src', long_name,
              long_name + '.FSAConfig.json'
+         )
+-        engine = F.FPGA()
++        if args.fpga_dev is not None:
++            control_dev = f"/dev/{args.fpga_dev}_user"
++            mem_read_dev = f"/dev/{args.fpga_dev}_c2h_0"
++            mem_write_dev = f"/dev/{args.fpga_dev}_h2c_0"
++            print(f"Using FPGA devices (forced): control={control_dev} read={mem_read_dev} write={mem_write_dev}")
++            engine = F.FPGA(control_dev=control_dev, mem_read_dev=mem_read_dev, mem_write_dev=mem_write_dev)
++        else:
++            control_dev, mem_read_dev, mem_write_dev = F.engine.detect_fsa_devices()
++            print(f"Detected FSA FPGA devices: control={control_dev} read={mem_read_dev} write={mem_write_dev}")
++            engine = F.FPGA(control_dev=control_dev, mem_read_dev=mem_read_dev, mem_write_dev=mem_write_dev)
+     else:
+         assert f"{args.engine} is not supported yet."
+ 

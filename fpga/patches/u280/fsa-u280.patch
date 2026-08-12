@@ -1,5 +1,5 @@
 diff --git a/python/fsa/engine.py b/python/fsa/engine.py
-index f683e64..cac0b46 100644
+index f683e64..32d9e00 100644
 --- a/python/fsa/engine.py
 +++ b/python/fsa/engine.py
 @@ -12,6 +12,66 @@ from .dtype import to_numpy_dtype
@@ -69,6 +69,26 @@ index f683e64..cac0b46 100644
  class BaseEngine(ABC):
      @abstractmethod
      def execute(self, kernel: Kernel) -> None | MTile | list[MTile]:
+@@ -136,13 +196,14 @@ class FPGA(BaseEngine):
+                 dev_write(self.mem_write_dev, tensor.data_ptr, numpy_array)
+                 numpy_array.tofile(f"/tmp/{hex(tensor.data_ptr)}")
+         
+-        # make sure device in idle state
++        # Device may be idle (0, first run) or done (2, a previous run finished);
++        # the RTL state machine never returns to idle. Writing SET_ACTIVE from
++        # done moves the device back to active and resets the perf counters.
+         state = self.MMIO.dev_mmio_read(self.STATE_OFFSET)
++        if state not in (0, 2):
++            raise RuntimeError(f"Device is not ready (must be idle or done), current state: {state}")
+ 
+-        if state != 0:
+-            raise RuntimeError(f"Device is not idle, current state: {state}")
+-        
+-        # activate device
++        # activate device (idle -> active; done -> active + perf counters reset)
+         self.MMIO.dev_mmio_write(self.SET_ACTIVE_OFFSET, 0xffffffff)
+ 
+         # make sure device is active
 diff --git a/python/fsa/xdma_mmio.py b/python/fsa/xdma_mmio.py
 index b74a3c0..b1fabe5 100644
 --- a/python/fsa/xdma_mmio.py

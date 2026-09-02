@@ -129,6 +129,21 @@ ifeq ($(SUB_PROJECT),u280)
 	U280_PATCHES      ?= apply-u280-patches
 endif
 
+ifeq ($(SUB_PROJECT),nm37)
+	SBT_PROJECT       ?= chipyard_fpga
+	MODEL             ?= NM37FPGATestHarness
+	VLOG_MODEL        ?= NM37FPGATestHarness
+	MODEL_PACKAGE     ?= chipyard.fpga.nm37
+	CONFIG            ?= EmptyNM37Config
+	CONFIG_PACKAGE    ?= chipyard.fpga.nm37
+	GENERATOR_PACKAGE ?= chipyard
+	TB                ?= none # unused
+	TOP               ?= EmptyChipTop
+	BOARD             ?= nm37
+	FPGA_BRAND        ?= xilinx
+	NM37_PATCHES      ?= apply-nm37-patches
+endif
+
 # The U280 build depends on fpga-shells/generators-version patches that are
 # kept in this repo (fpga/patches/u280) instead of being committed to the
 # upstream submodule repos. Apply them to the submodule working trees before
@@ -136,6 +151,11 @@ endif
 .PHONY: apply-u280-patches
 apply-u280-patches:
 	$(base_dir)/scripts/apply-u280-patches.sh
+
+# NM37 patches: same mechanism as U280 (see scripts/apply-nm37-patches.sh).
+.PHONY: apply-nm37-patches
+apply-nm37-patches: apply-u280-patches
+	$(base_dir)/scripts/apply-nm37-patches.sh
 
 export USE_CHISEL6=1
 
@@ -189,7 +209,7 @@ $(synth_list_f): $(sim_common_files) $(all_vsrcs)
 
 ifeq ($(FPGA_BRAND),xilinx)
 BIT_FILE := $(build_dir)/obj/$(MODEL).bit
-$(BIT_FILE): $(synth_list_f) | $(U280_PATCHES)
+$(BIT_FILE): $(synth_list_f) | $(U280_PATCHES) $(NM37_PATCHES)
 	cd $(build_dir); vivado \
 		-nojournal -mode batch \
 		-source $(fpga_common_script_dir)/vivado.tcl \

@@ -1,0 +1,29 @@
+diff --git a/xilinx/nm37/constraints/nm37-config.xdc b/xilinx/nm37/constraints/nm37-config.xdc
+new file mode 100644
+index 0000000..69d93ff
+--- /dev/null
++++ b/xilinx/nm37/constraints/nm37-config.xdc
+@@ -0,0 +1,4 @@
++set_property -dict [list \
++	CONFIG_VOLTAGE {1.8} \
++	CFGBVS {GND} \
++	] [current_design]
+diff --git a/xilinx/nm37/tcl/board.tcl b/xilinx/nm37/tcl/board.tcl
+new file mode 100644
+index 0000000..9e8dafd
+--- /dev/null
++++ b/xilinx/nm37/tcl/board.tcl
+@@ -0,0 +1,6 @@
++set name {nm37}
++# The NM37 board carries an xcvu37p_CIV (engineering-sample silicon, different
++# JTAG IDCODE than production xcvu37p). The bitstream must be built for the
++# CIV part or Labtools rejects it ("Incorrect bitstream assigned to device").
++set part_fpga {xcvu37p_CIV-fsvh2892-2L-e}
++set part_board {}
+diff --git a/xilinx/nm37/tcl/ip.tcl b/xilinx/nm37/tcl/ip.tcl
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/xilinx/nm37/tcl/ip.tcl
+@@ -0,0 +1 @@
++

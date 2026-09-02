@@ -1,0 +1,117 @@
+diff --git a/python/fsa/engine.py b/python/fsa/engine.py
+index 32d9e00..b68f155 100644
+--- a/python/fsa/engine.py
++++ b/python/fsa/engine.py
+@@ -12,14 +12,13 @@ from .dtype import to_numpy_dtype
+ from .xdma import dev_read, dev_write
+ from .xdma_mmio import MMIO
+ 
+-def detect_fsa_devices(vendor_id: int = 0x10ee, device_id: int = 0x9038) -> tuple[str, str, str]:
++def detect_all_fsa_devices(vendor_id: int = 0x10ee, device_ids: tuple[int, ...] = (0x9038, 0x903f)) -> list[tuple[str, int, str, str, str]]:
+     """
+-    Locate the FSA FPGA PCI device (default: Xilinx 0x9038, the U280) and map it to its
+-    /dev/xdma<N>_* device nodes. Returns (control_dev, mem_read_dev, mem_write_dev).
++    Scan the PCI tree for Xilinx XDMA cards matching any of the given device IDs
++    (0x9038: XDMA default, U280/FSA images; 0x903f: NM37 Xiangshan shell image)
++    and map each to its /dev/xdma<N>_* device nodes.
+ 
+-    The xdma index is not stable: other Xilinx cards bound by an xdma driver (e.g. an
+-    NM37 at 0x903f) can shift the U280's index to xdma1. This resolves the index from the
+-    PCI bus/device/function instead of assuming xdma0.
++    Returns a list of (bdf, device_id, control_dev, mem_read_dev, mem_write_dev).
+     """
+     sysfs_pci = '/sys/bus/pci/devices'
+     if not os.path.isdir(sysfs_pci):
+@@ -38,20 +37,21 @@ def detect_fsa_devices(vendor_id: int = 0x10ee, device_id: int = 0x9038) -> tupl
+                 d = int(f.read().strip(), 16)
+         except (ValueError, OSError):
+             continue
+-        if v == vendor_id and d == device_id:
+-            bdfs.append(bdf)
++        if v == vendor_id and d in device_ids:
++            bdfs.append((bdf, d))
+ 
+     if not bdfs:
++        ids = ', '.join(f"0x{d:04x}" for d in device_ids)
+         raise RuntimeError(
+-            f"No PCI device with vendor=0x{vendor_id:04x} device=0x{device_id:04x} "
+-            f"(FSA U280) found in {sysfs_pci}"
++            f"No PCI device with vendor=0x{vendor_id:04x} device in ({ids}) found in {sysfs_pci}"
+         )
+ 
+     class_dir = '/sys/class/xdma'
+     if not os.path.isdir(class_dir):
+         raise RuntimeError(f"xdma device class not found: {class_dir}")
+ 
+-    for bdf in bdfs:
++    found = []
++    for bdf, d in bdfs:
+         for node in os.listdir(class_dir):
+             if not (node.startswith('xdma') and node.endswith('_user')):
+                 continue
+@@ -66,11 +66,26 @@ def detect_fsa_devices(vendor_id: int = 0x10ee, device_id: int = 0x9038) -> tupl
+                 missing = [p for p in (control, mem_read, mem_write) if not os.path.exists(p)]
+                 if missing:
+                     raise RuntimeError(f"xdma device nodes missing for {bdf}: {missing}")
+-                return control, mem_read, mem_write
++                found.append((bdf, d, control, mem_read, mem_write))
++
++    if not found:
++        raise RuntimeError(
++            f"Found PCI device(s) {bdfs} but none has an xdma user device node under {class_dir}"
++        )
++    return found
+ 
+-    raise RuntimeError(
+-        f"Found PCI device(s) {bdfs} but none has an xdma user device node under {class_dir}"
+-    )
++def detect_fsa_devices(vendor_id: int = 0x10ee, device_id: int = 0x9038) -> tuple[str, str, str]:
++    """
++    Locate the FSA FPGA PCI device (default: Xilinx 0x9038, the U280) and map it to its
++    /dev/xdma<N>_* device nodes. Returns (control_dev, mem_read_dev, mem_write_dev).
++
++    The xdma index is not stable: other Xilinx cards bound by an xdma driver (e.g. an
++    NM37 at 0x903f) can shift the U280's index to xdma1. This resolves the index from the
++    PCI bus/device/function instead of assuming xdma0.
++    """
++    found = detect_all_fsa_devices(vendor_id, (device_id,))
++    # exactly-one is enforced by the single device_id; still prefer an unambiguous pick
++    return found[0][2], found[0][3], found[0][4]
+ 
+ class BaseEngine(ABC):
+     @abstractmethod
+diff --git a/python/main.py b/python/main.py
+index f5b91b2..350a0a7 100644
+--- a/python/main.py
++++ b/python/main.py
+@@ -192,6 +192,8 @@ if __name__ == "__main__":
+             build_dir = args.build_dir
+         if 'U280' in args.config or 'u280' in args.config.lower():
+             long_name = 'chipyard.fpga.u280.U280FPGATestHarness.' + args.config
++        elif 'nm37' in args.config.lower():
++            long_name = 'chipyard.fpga.nm37.NM37FPGATestHarness.' + args.config
+         else:
+             long_name = 'chipyard.fpga.u55c.U55CFPGATestHarness.' + args.config
+         config_file = os.path.join(
+@@ -204,6 +206,21 @@ if __name__ == "__main__":
+             mem_write_dev = f"/dev/{args.fpga_dev}_h2c_0"
+             print(f"Using FPGA devices (forced): control={control_dev} read={mem_read_dev} write={mem_write_dev}")
+             engine = F.FPGA(control_dev=control_dev, mem_read_dev=mem_read_dev, mem_write_dev=mem_write_dev)
++        elif 'nm37' in args.config.lower():
++            # The NM37 FSA image uses the XDMA default device id (0x9038), the
++            # stock Xiangshan shell image on the same board shows 0x903f. If an
++            # FSA U280 is also plugged in, both match 0x9038 and the pick is
++            # ambiguous: require an explicit --fpga_dev then.
++            candidates = F.engine.detect_all_fsa_devices(0x10ee, (0x903f, 0x9038))
++            if len(candidates) > 1:
++                pretty = '\n'.join(f"  {bdf} (device 0x{d:04x}) -> {c}" for bdf, d, c, r, w in candidates)
++                raise RuntimeError(
++                    f"Multiple candidate FSA FPGA devices found:\n{pretty}\n"
++                    f"Disambiguate with --fpga_dev <xdmaN>."
++                )
++            bdf, d, control_dev, mem_read_dev, mem_write_dev = candidates[0]
++            print(f"Detected FSA FPGA devices: control={control_dev} read={mem_read_dev} write={mem_write_dev}")
++            engine = F.FPGA(control_dev=control_dev, mem_read_dev=mem_read_dev, mem_write_dev=mem_write_dev)
+         else:
+             control_dev, mem_read_dev, mem_write_dev = F.engine.detect_fsa_devices()
+             print(f"Detected FSA FPGA devices: control={control_dev} read={mem_read_dev} write={mem_write_dev}")

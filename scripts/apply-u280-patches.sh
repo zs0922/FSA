@@ -71,6 +71,17 @@ fi
 echo "[apply-u280-patches] Patching generators/fsa for U280..."
 apply_patch "$FSA_GEN" "$PATCH_DIR/fsa-u280.patch"
 
+# P2 RTL optimization patch (mxControl output pipeline registers)
+P2_DIR="$CYDIR/fpga/patches/p2"
+if [ -f "$P2_DIR/fsa-p2.patch" ]; then
+  if grep -q "Pipe(sp_read_all)" "$FSA_GEN/src/main/scala/fsa/MatrixEngineController.scala" 2>/dev/null; then
+    echo "[apply-u280-patches] P2 output pipeline registers already applied, skipping"
+  else
+    echo "[apply-u280-patches] Applying P2 RTL optimization patch..."
+    apply_patch "$FSA_GEN" "$P2_DIR/fsa-p2.patch"
+  fi
+fi
+
 # P0+P1 optimization patch (seed, directives, reports, constraints)
 P0P1_DIR="$CYDIR/fpga/patches/p0p1"
 if [ -f "$P0P1_DIR/fpga-shells-p0p1.patch" ]; then

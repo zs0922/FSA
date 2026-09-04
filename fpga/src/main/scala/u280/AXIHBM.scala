@@ -51,7 +51,7 @@ class XilinxHBM
        |    CONFIG.USER_HBM_STACK {1} \\
         |    CONFIG.USER_MC_ENABLE_APB_01 {FALSE} \\
         |    CONFIG.USER_SWITCH_ENABLE_01 {FALSE} \\
-       |    CONFIG.USER_XSDB_INTF_EN {TRUE} ] \\
+        |    CONFIG.USER_XSDB_INTF_EN {FALSE} ] \\
        |[get_ips ${desiredName}]
        |""".stripMargin)
 }

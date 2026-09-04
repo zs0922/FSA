@@ -70,10 +70,9 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
     // HBM PHY reference clock: 100MHz from the board oscillator (IBUFDS path)
     ram.HBMRefClockNode := sysClkBroadcast
 
-    xbar.node := chipyard.fpga.u280.AXI4ILA("fsa_master") := fsa.memNode
+    xbar.node := fsa.memNode
 
     fsa.configNode :=
-      chipyard.fpga.u280.AXI4ILA("fsa_config") :=
       AXI4Fragmenter() :=
       AXI4Buffer() :=
       placedXDMA.overlayOutput.masterLite

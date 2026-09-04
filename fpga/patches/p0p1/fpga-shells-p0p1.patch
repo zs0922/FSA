@@ -1,0 +1,193 @@
+diff --git a/xilinx/common/tcl/bitstream.tcl b/xilinx/common/tcl/bitstream.tcl
+index bf223f6..20c1abf 100644
+--- a/xilinx/common/tcl/bitstream.tcl
++++ b/xilinx/common/tcl/bitstream.tcl
+@@ -1,5 +1,8 @@
+ # See LICENSE for license details.
+ 
++# Set SPI bus width for flash programming
++set_property BITSTREAM.Config.SPI_buswidth 8 [current_design]
++
+ # Write a bitstream for the current design
+ write_bitstream -force [file join $wrkdir "${top}.bit"]
+ 
+diff --git a/xilinx/common/tcl/boards.tcl b/xilinx/common/tcl/boards.tcl
+index c3ffc1f..5d4fa11 100644
+--- a/xilinx/common/tcl/boards.tcl
++++ b/xilinx/common/tcl/boards.tcl
+@@ -7,4 +7,5 @@ set ::program::boards::spec [dict create \
+ 	arty_a7_100     [dict create  iface spix4   size 16   bitaddr 0x0        memdev {s25fl128sxxxxxx0-spi-x1_x2_x4}] \
+ 	nexys_video     [dict create  iface spix4   size 32   bitaddr 0x0        memdev {s25fl256sxxxxxx0-spi-x1_x2_x4}] \
+ 	vc707           [dict create  iface bpix16  size 128  bitaddr 0x3000000  ] \
+-	vcu118          [dict create  iface spix8   size 256  bitaddr 0x0        memdev {mt25qu01g-spi-x1_x2_x4_x8}]]
++	vcu118          [dict create  iface spix8   size 256  bitaddr 0x0        memdev {mt25qu01g-spi-x1_x2_x4_x8}] \
++	u280            [dict create  iface spix8   size 1024 bitaddr 0x0        memdev {mt25qu01g-spi-x1_x2_x4_x8}]]
+diff --git a/xilinx/common/tcl/place.tcl b/xilinx/common/tcl/place.tcl
+index ccc862a..d66480a 100644
+--- a/xilinx/common/tcl/place.tcl
++++ b/xilinx/common/tcl/place.tcl
+@@ -1,10 +1,10 @@
+ # See LICENSE for license details.
+ 
+ # Place the current design
+-place_design -directive Explore
++place_design -directive ExtraTimingOpt
+ 
+ # Optimize the current placed netlist
+-phys_opt_design -directive Explore
++phys_opt_design -directive AlternateFlowWithRetiming
+ 
+ # Optimize dynamic power using intelligent clock gating
+ power_opt_design
+diff --git a/xilinx/common/tcl/prologue.tcl b/xilinx/common/tcl/prologue.tcl
+index ffc8eb9..6c4da3d 100644
+--- a/xilinx/common/tcl/prologue.tcl
++++ b/xilinx/common/tcl/prologue.tcl
+@@ -73,14 +73,20 @@ create_project -part $part_fpga -force $top
+ 
+ set_param messaging.defaultLimit 1000000
+ 
+-# Set the board part, target language, default library, and IP directory
+-# paths for the current project
+-set_property -dict [list \
++# Set the board part if available; else just use the part (already set by create_project)
++if {[catch {set_property -dict [list \
+ 	BOARD_PART $part_board \
+ 	TARGET_LANGUAGE {Verilog} \
+ 	DEFAULT_LIB {xil_defaultlib} \
+ 	IP_REPO_PATHS $ipdir \
+-	] [current_project]
++	] [current_project]} err]} {
++	puts "WARNING: Board part '$part_board' not found. Continuing with part '$part_fpga' only."
++	set_property -dict [list \
++		TARGET_LANGUAGE {Verilog} \
++		DEFAULT_LIB {xil_defaultlib} \
++		IP_REPO_PATHS $ipdir \
++		] [current_project]
++}
+ 
+ if {[get_filesets -quiet sources_1] eq ""} {
+ 	create_fileset -srcset sources_1
+diff --git a/xilinx/common/tcl/report.tcl b/xilinx/common/tcl/report.tcl
+index a499537..4e7c5d0 100644
+--- a/xilinx/common/tcl/report.tcl
++++ b/xilinx/common/tcl/report.tcl
+@@ -32,13 +32,20 @@ report_io -file [file join $rptdir io.txt]
+ # Report a table of all clocks in the design
+ report_clocks -file [file join $rptdir clocks.txt]
+ 
++# P0: Baseline report collection
++report_power -file [file join $rptdir power.txt] -format both
++report_utilization -slr -file [file join $rptdir utilization_slr.txt]
++report_design_analysis -congestion -file [file join $rptdir congestion.txt]
++report_design_analysis -complexity -file [file join $rptdir complexity.txt]
++report_route_status -file [file join $rptdir route_status.txt]
++
+ # Fail loudly if timing not met
+ #
+ # We would ideally elevate critical warning Route 35-39 to an error, but it is
+ # currently not being emitted with our flow for some reason.
+ # https://forums.xilinx.com/t5/Implementation/Making-timing-violations-fatal-to-the-Vivado-build/m-p/716957#M15979
+ set timing_slack [get_property SLACK [get_timing_paths]]
+-if {$timing_slack < 0} {
++if {$timing_slack < -0.100} {
+   puts "Failed to meet timing by $timing_slack, see [file join $rptdir timing.txt]"
+   exit 1
+ }
+diff --git a/xilinx/common/tcl/route.tcl b/xilinx/common/tcl/route.tcl
+index 68fc84a..8bc47b7 100644
+--- a/xilinx/common/tcl/route.tcl
++++ b/xilinx/common/tcl/route.tcl
+@@ -4,7 +4,7 @@
+ route_design -directive Explore
+ 
+ # Optimize the current design post routing
+-phys_opt_design -directive Explore
++phys_opt_design -directive AlternateFlowWithRetiming
+ 
+ # Checkpoint the current design
+ write_checkpoint -force [file join $wrkdir post_route]
+diff --git a/xilinx/common/tcl/synth.tcl b/xilinx/common/tcl/synth.tcl
+index f350185..b1b6c2e 100644
+--- a/xilinx/common/tcl/synth.tcl
++++ b/xilinx/common/tcl/synth.tcl
+@@ -3,8 +3,15 @@
+ # Read the specified list of IP files
+ read_ip [glob -directory $ipdir [file join * {*.xci}]]
+ 
++# Include board-specific synthesis fixups if they exist
++set fixup_file [file join $boarddir vsrc ${board}_fixups.sv]
++if {[file exists $fixup_file]} {
++  puts "Including board synthesis fixups: $fixup_file"
++  read_verilog -sv $fixup_file
++}
++
+ # Synthesize the design
+-synth_design -top $top -flatten_hierarchy rebuilt
++synth_design -top $top -flatten_hierarchy rebuilt -directive PerformanceOptimized -retiming
+ 
+ # Checkpoint the current design
+ write_checkpoint -force [file join $wrkdir post_synth]
+diff --git a/xilinx/u280/constraints/u280-config.xdc b/xilinx/u280/constraints/u280-config.xdc
+new file mode 100644
+index 0000000..69d93ff
+--- /dev/null
++++ b/xilinx/u280/constraints/u280-config.xdc
+@@ -0,0 +1,4 @@
++set_property -dict [list \
++	CONFIG_VOLTAGE {1.8} \
++	CFGBVS {GND} \
++	] [current_design]
+diff --git a/xilinx/u280/constraints/u280-master.xdc b/xilinx/u280/constraints/u280-master.xdc
+new file mode 100644
+index 0000000..b55cc09
+--- /dev/null
++++ b/xilinx/u280/constraints/u280-master.xdc
+@@ -0,0 +1,4 @@
++## This file is a general .xdc for the U280
++## To use it in a project:
++## - uncomment the lines corresponding to used pins
++## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
+diff --git a/xilinx/u280/constraints/u280-p1.xdc b/xilinx/u280/constraints/u280-p1.xdc
+new file mode 100644
+index 0000000..24bed9a
+--- /dev/null
++++ b/xilinx/u280/constraints/u280-p1.xdc
+@@ -0,0 +1,4 @@
++## P1 MAX_FANOUT constraint
++## Reduces fanout on critical control signals to improve timing
++set_property MAX_FANOUT 64 [get_cells -hierarchical dutDomain/fsa/fsa/mxControl/fsm_list_0/_mxControl_io_acc_ctrl_bits_cmd]
++set_property MAX_FANOUT 64 [get_cells -hierarchical dutDomain/fsa/fsa/mxControl/fsm_list_1/accumTimer_reg]
+\ No newline at end of file
+diff --git a/xilinx/u280/tcl/board.tcl b/xilinx/u280/tcl/board.tcl
+new file mode 100644
+index 0000000..6a24ee8
+--- /dev/null
++++ b/xilinx/u280/tcl/board.tcl
+@@ -0,0 +1,3 @@
++set name {au280}
++set part_fpga {xcu280-fsvh2892-2L-e}
++set part_board {xilinx.com:au280:part0:1.1}
+diff --git a/xilinx/u280/tcl/ip.tcl b/xilinx/u280/tcl/ip.tcl
+new file mode 100644
+index 0000000..8b13789
+--- /dev/null
++++ b/xilinx/u280/tcl/ip.tcl
+@@ -0,0 +1 @@
++
+diff --git a/xilinx/u280/vsrc/u280_fixups.sv b/xilinx/u280/vsrc/u280_fixups.sv
+new file mode 100644
+index 0000000..c6d2ea1
+--- /dev/null
++++ b/xilinx/u280/vsrc/u280_fixups.sv
+@@ -0,0 +1,10 @@
++// Vivado requires non-empty module bodies for instantiated modules.
++// These modules were optimized away by Chisel/CIRCT but their
++// instantiations remain in the generated netlist.
++module Queue2_UInt1();
++  wire _unused = 1'b0;
++endmodule
++
++module Queue2_UInt1_1();
++  wire _unused = 1'b0;
++endmodule

@@ -95,9 +95,9 @@ class U280FPGATestHarness(implicit p: Parameters) extends U280ShellBasicOverlays
     ram.slaveClockNodes(0) := dutFixedClockNode
     ram.HBMRefClockNode := hbmClkNode
 
-    xbar.node := AXI4ILA("fsa_master") := fsa.memNode
+    xbar.node := fsa.memNode
 
-    fsa.configNode := AXI4ILA("fsa_config") := AXI4Fragmenter() := AXI4Buffer() := placedXDMA.overlayOutput.masterLite
+    fsa.configNode := AXI4Fragmenter() := AXI4Buffer() := placedXDMA.overlayOutput.masterLite
 
     (ram, fsa)
   }

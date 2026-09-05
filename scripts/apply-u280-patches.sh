@@ -82,6 +82,26 @@ if [ -f "$P2_DIR/fsa-p2.patch" ]; then
   fi
 fi
 
+# P3 RTL optimization patch (accumulator FMA pipelining)
+P3_DIR="$CYDIR/fpga/patches/p3"
+EFLOAT_GEN="$CYDIR/generators/easyfloat"
+if [ -f "$P3_DIR/fsa-p3.patch" ]; then
+  if grep -q "pipeline = true" "$FSA_GEN/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala" 2>/dev/null; then
+    echo "[apply-u280-patches] P3 accumulator FMA pipelining already applied, skipping"
+  else
+    echo "[apply-u280-patches] Applying P3 RTL optimization patch..."
+    apply_patch "$FSA_GEN" "$P3_DIR/fsa-p3.patch"
+  fi
+fi
+if [ -f "$P3_DIR/easyfloat-p3.patch" ]; then
+  if grep -q "nStages" "$EFLOAT_GEN/src/main/scala/easyfloat/FMA.scala" 2>/dev/null; then
+    echo "[apply-u280-patches] P3 easyfloat FMA pipeline already applied, skipping"
+  else
+    echo "[apply-u280-patches] Applying P3 easyfloat patch..."
+    apply_patch "$EFLOAT_GEN" "$P3_DIR/easyfloat-p3.patch"
+  fi
+fi
+
 # P0+P1 optimization patch (seed, directives, reports, constraints)
 P0P1_DIR="$CYDIR/fpga/patches/p0p1"
 if [ -f "$P0P1_DIR/fpga-shells-p0p1.patch" ]; then

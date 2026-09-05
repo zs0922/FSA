@@ -1,0 +1,399 @@
+diff --git a/src/main/scala/easyfloat/Exp2.scala b/src/main/scala/easyfloat/Exp2.scala
+index f2c33de..ec7f9b7 100644
+--- a/src/main/scala/easyfloat/Exp2.scala
++++ b/src/main/scala/easyfloat/Exp2.scala
+@@ -67,13 +67,15 @@ class RawFloat_MulAddExp2
+ (
+   mulExpWidth: Int, mulMantissaWidth: Int,
+   addExpWidth: Int, addMantissaWidth: Int,
+-  pwlConst: Either[Seq[(BigInt, BigInt)], Int]
++  pwlConst: Either[Seq[(BigInt, BigInt)], Int],
++  pipeline: Boolean = false
+ ) extends Module {
+ 
+   val fma = Module(new RawFloat_FMA(
+     aEW = mulExpWidth, aMW = mulMantissaWidth,
+     bEW = mulExpWidth, bMW = mulMantissaWidth,
+-    cEW = addExpWidth, cMW = addMantissaWidth
++    cEW = addExpWidth, cMW = addMantissaWidth,
++    nStages = if (pipeline) 2 else 0
+   ))
+ 
+   val io = IO(new Bundle {
+@@ -96,17 +98,16 @@ class RawFloat_MulAddExp2
+   }
+ 
+   split.io.in := io.in_a
+-  fma.io.a := io.in_a
+-  fma.io.b := io.in_b
+-  fma.io.c := io.in_c
+-  io.out := fma.io.out
+-  io.exp2_frac_msb := split.io.outFracMSBs
++
++  // FMA operands after exp2 piecewise-linear overrides (stage-0 combinational)
++  val fa = Wire(chiselTypeOf(io.in_a))
++  val fb = Wire(chiselTypeOf(io.in_b))
++  val fc = Wire(chiselTypeOf(io.in_c))
++  fa := io.in_a
++  fb := io.in_b
++  fc := io.in_c
+   when(io.in_exp2) {
+-    fma.io.a := split.io.outRawFloat
+-    io.out.sign := false.B
+-    io.out.isInf := false.B
+-    io.out.isZero := fma.io.out.isInf
+-    io.out.exp := split.io.outInt + fma.io.out.exp
++    fa := split.io.outRawFloat
+   }
+   pwlConst match {
+     case Left(seq) =>
+@@ -116,12 +117,46 @@ class RawFloat_MulAddExp2
+       val fSlopes = VecInit(slopes.map(_.U(mulIEEEWidth.W)).reverse)
+       val fIntercepts = VecInit(intercepts.map(_.U(addIEEEWidth.W)).reverse)
+       when(io.in_exp2) {
+-        fma.io.b.fromIEEE(fSlopes(split.io.outFracMSBs), mulExpWidth - 1, mulMantissaWidth - 1)
+-        fma.io.c.fromIEEE(fIntercepts(split.io.outFracMSBs), addExpWidth - 1, addMantissaWidth - 1)
++        fb.fromIEEE(fSlopes(split.io.outFracMSBs), mulExpWidth - 1, mulMantissaWidth - 1)
++        fc.fromIEEE(fIntercepts(split.io.outFracMSBs), addExpWidth - 1, addMantissaWidth - 1)
+       }
+     case Right(n) =>
+       // slopes and intercepts are provided outside
+   }
++
++  io.exp2_frac_msb := split.io.outFracMSBs
++
++  if (pipeline) {
++    // entry pipeline register (1 cycle) in front of the (also pipelined) FMA
++    val faR = Reg(chiselTypeOf(fa)); faR := fa
++    val fbR = Reg(chiselTypeOf(fb)); fbR := fb
++    val fcR = Reg(chiselTypeOf(fc)); fcR := fc
++    fma.io.a := faR
++    fma.io.b := fbR
++    fma.io.c := fcR
++    // delay-match the split integer part to the FMA output:
++    // total latency = 1 (entry reg) + 2 (FMA internal regs) = 3
++    val inExp2D = ShiftRegister(io.in_exp2, 3)
++    val outIntD = ShiftRegister(split.io.outInt, 3)
++    io.out := fma.io.out
++    when(inExp2D) {
++      io.out.sign := false.B
++      io.out.isInf := false.B
++      io.out.isZero := fma.io.out.isInf
++      io.out.exp := outIntD + fma.io.out.exp
++    }
++  } else {
++    fma.io.a := fa
++    fma.io.b := fb
++    fma.io.c := fc
++    io.out := fma.io.out
++    when(io.in_exp2) {
++      io.out.sign := false.B
++      io.out.isInf := false.B
++      io.out.isZero := fma.io.out.isInf
++      io.out.exp := split.io.outInt + fma.io.out.exp
++    }
++  }
+ }
+ 
+ class MulAddExp2(expWidth: Int, mantissaWidth: Int, pwlConst: Seq[(BigInt, BigInt)]) extends Module {
+diff --git a/src/main/scala/easyfloat/FMA.scala b/src/main/scala/easyfloat/FMA.scala
+index b74c763..8fb251a 100644
+--- a/src/main/scala/easyfloat/FMA.scala
++++ b/src/main/scala/easyfloat/FMA.scala
+@@ -7,13 +7,16 @@ import chisel3.util._
+ class RawFloat_FMA(
+   aEW: Int, aMW: Int,
+   bEW: Int, bMW: Int,
+-  cEW: Int, cMW: Int
++  cEW: Int, cMW: Int,
++  nStages: Int = 0
+ ) extends Module {
+ 
+   /* TODO: this can be optimized if
+       we are sure that the output raw float will be directly rounded,
+       so we can detect overflow/underflow earlier.
+   */
++  require(nStages == 0 || nStages == 2, "RawFloat_FMA supports 0 or 2 pipeline stages")
++
+   val outEW = Seq(aEW + 2, bEW + 2, cEW).max
+ 
+   val io = IO(new Bundle {
+@@ -32,26 +35,62 @@ class RawFloat_FMA(
+ 
+      000000000000000000000000000100000111001010100000100011111001100100000000001
+      1111111111111111111111110000000000000000000000000000000000000000000000000000
+-    */
++  */
++  // ---------------- Stage A (combinational): multiplier + exponent diff + C alignment ----------------
+   val prodPadBits = (cMW + 1) - (aMW + bMW - 2)
+-  val prodMantissa = if (prodPadBits > 0) {
++  val prodMantissa_s1 = if (prodPadBits > 0) {
+     Cat(a.mantissa * b.mantissa, 0.U(prodPadBits.W))
+   } else {
+     a.mantissa * b.mantissa
+   }
+-  val adderWidth = cMW + 2 + prodMantissa.getWidth + 1
+-  val prodExp = a.exp +& b.exp
+-  val prodSign = a.sign ^ b.sign
+-  val prodIsZero = a.isZero || b.isZero
+-  val doSub = prodSign ^ c.sign
++  val adderWidth = cMW + 2 + prodMantissa_s1.getWidth + 1
++  val prodExp_s1 = a.exp +& b.exp
++  val prodSign_s1 = a.sign ^ b.sign
++  val prodIsZero_s1 = a.isZero || b.isZero
+ 
+   val initialExpDiff = cMW + 3
+-  val expDiff = prodExp +& initialExpDiff.S -& c.exp
++  val expDiff_s1 = prodExp_s1 +& initialExpDiff.S -& c.exp
++
++  val initialCMantissa = Cat(Mux(c.isZero, 0.U(cMW.W), c.mantissa), 0.U(2.W), 0.U(prodMantissa_s1.getWidth.W))
++  val keepC_s1 = expDiff_s1 < 0.S || prodIsZero_s1
++  val alignShiftAmt_s1 = Mux(keepC_s1, 0.U, expDiff_s1.tail(1))
++  val (cShift_s1, cSticky_s1) = ShiftRightJam(initialCMantissa, alignShiftAmt_s1)
++
++  // pipeline registers between stage A and stage B
++  private val pipelined = nStages > 0
++  // NOTE: must materialize the register with the cloned (statically-widthed)
++  // type of x -- a bare RegNext(x) has inferred width, which breaks the
++  // .tail/.take width computation downstream in Chisel 6
++  def stageReg[T <: Data](x: T): T = {
++    if (!pipelined) {
++      x
++    } else {
++      val r = Reg(chiselTypeOf(x))
++      r := x
++      r
++    }
++  }
+ 
+-  val initialCMantissa = Cat(Mux(c.isZero, 0.U(cMW.W), c.mantissa), 0.U(2.W), 0.U(prodMantissa.getWidth.W))
+-  val keepC = expDiff < 0.S || prodIsZero
+-  val alignShiftAmt = Mux(keepC, 0.U, expDiff.tail(1))
+-  val (cShift, cSticky) = ShiftRightJam(initialCMantissa, alignShiftAmt)
++  val prodMantissa = stageReg(prodMantissa_s1)
++  val prodExp = stageReg(prodExp_s1)
++  val prodSign = stageReg(prodSign_s1)
++  val prodIsZero = stageReg(prodIsZero_s1)
++  val expDiff = stageReg(expDiff_s1)
++  val alignShiftAmt = stageReg(alignShiftAmt_s1)
++  val cShift = stageReg(cShift_s1)
++  val cSticky = stageReg(cSticky_s1)
++  val cSign = stageReg(c.sign)
++  val cExp = stageReg(c.exp)
++  val cIsZero = stageReg(c.isZero)
++  val cIsInf = stageReg(c.isInf)
++  val cIsNaN = stageReg(c.isNaN)
++  val aIsNaN = stageReg(a.isNaN)
++  val bIsNaN = stageReg(b.isNaN)
++  val aIsInf = stageReg(a.isInf)
++  val bIsInf = stageReg(b.isInf)
++
++  // ---------------- Stage B1 (combinational): adders ----------------
++  val doSub = prodSign ^ cSign
+ 
+   val addProd = Mux(prodIsZero, 0.U(adderWidth.W), prodMantissa ## 0.U(1.W)).zext
+   val addC = (cShift ## cSticky).zext
+@@ -59,11 +98,34 @@ class RawFloat_FMA(
+   val pMinusC = Mux(doSub, -addC, addC) + addProd
+ 
+   val cGtProd = pMinusC.head(1).asBool
+-  val adderOutAbs = Mux(cGtProd, cMinusP.tail(1), pMinusC.tail(1))
+-
++  val adderOutAbs_s1 = Mux(cGtProd, cMinusP.tail(1), pMinusC.tail(1))
++
++  // second pipeline cut: after the adders (so nStages == 2 really means
++  // mult | add | normalize, i.e. 2 internal registers)
++  val adderOutAbs = stageReg(adderOutAbs_s1)
++  private def stageReg2[T <: Data](x: T): T = if (pipelined) {
++    val r = Reg(chiselTypeOf(x)); r := x; r
++  } else x
++  val cGtProd2 = stageReg2(cGtProd)
++  val expDiff2 = stageReg2(expDiff)
++  val alignShiftAmt2 = stageReg2(alignShiftAmt)
++  val cSign2 = stageReg2(cSign)
++  val cExp2 = stageReg2(cExp)
++  val cIsZero2 = stageReg2(cIsZero)
++  val cIsInf2 = stageReg2(cIsInf)
++  val cIsNaN2 = stageReg2(cIsNaN)
++  val prodSign2 = stageReg2(prodSign)
++  val prodIsZero2 = stageReg2(prodIsZero)
++  val prodExp2 = stageReg2(prodExp)
++  val hasNaN2 = stageReg2(aIsNaN || bIsNaN || cIsNaN)
++  val prodHasInf2 = stageReg2(aIsInf || bIsInf)
++  val addInfInvalid2 = stageReg2(cIsInf && (aIsInf || bIsInf) && (cSign ^ prodSign))
++  val mulInfInvalid2 = stageReg2(prodIsZero && (aIsInf || bIsInf))
++
++  // ---------------- Stage B2 (combinational): normalization + special cases ----------------
+   // addend-anchored
+-  val cAnchored = (!c.isZero && expDiff <= cMW.S) || prodIsZero
+-  val cAnchoredMantissa = (adderOutAbs << alignShiftAmt).take(adderWidth + 1)
++  val cAnchored = (!cIsZero2 && expDiff2 <= cMW.S) || prodIsZero2
++  val cAnchoredMantissa = (adderOutAbs << alignShiftAmt2).take(adderWidth + 1)
+   val cAnchoredMantissaMSBs = cAnchoredMantissa.head(2)
+   val cAnchoredNormMantissa = Mux(cAnchoredMantissaMSBs(1).asBool,
+     cAnchoredMantissa,
+@@ -73,8 +135,8 @@ class RawFloat_FMA(
+     )
+   )
+   val cAnchoredExp = Mux(cAnchoredMantissaMSBs(1).asBool,
+-    c.exp + 1.S,
+-    Mux(cAnchoredMantissaMSBs(0), c.exp, c.exp - 1.S)
++    cExp2 + 1.S,
++    Mux(cAnchoredMantissaMSBs(0), cExp2, cExp2 - 1.S)
+   )
+ 
+ 
+@@ -82,26 +144,19 @@ class RawFloat_FMA(
+   val pAnchoredMantissa = adderOutAbs.tail(cMW)
+   val pAnchoredIsZero = pAnchoredMantissa === 0.U
+   val lzc = PriorityEncoder(pAnchoredMantissa.asBools.reverse)
+-  val pAnchoredExp = (prodExp +& 3.S) - lzc.zext
++  val pAnchoredExp = (prodExp2 +& 3.S) - lzc.zext
+   val pAnchoredNormMantissa = (pAnchoredMantissa << lzc).take(adderWidth - cMW)
+ 
+-  val hasNaN = a.isNaN || b.isNaN || c.isNaN
+-  val prodHasInf = a.isInf || b.isInf
+-  // +/-Inf + -/+ Inf is invalid
+-  val addInfInvalid = c.isInf && prodHasInf && (c.sign ^ prodSign)
+-  // 0 * Inf is invalid
+-  val mulInfInvalid = prodIsZero && prodHasInf
+-
+-  io.out.sign := Mux(c.isInf,
+-    c.sign,
+-    Mux(prodHasInf,
+-      prodSign,
+-      Mux(c.isZero && prodIsZero,
+-        c.sign && prodSign,
++  io.out.sign := Mux(cIsInf2,
++    cSign2,
++    Mux(prodHasInf2,
++      prodSign2,
++      Mux(cIsZero2 && prodIsZero2,
++        cSign2 && prodSign2,
+         // (c.sign && prodSign) || ((c.sign | prodSign) && RM==RDN),
+         Mux(!cAnchored && pAnchoredIsZero,
+           false.B,
+-          Mux(cGtProd, c.sign, prodSign)
++          Mux(cGtProd2, cSign2, prodSign2)
+         )
+       )
+     )
+@@ -111,9 +166,9 @@ class RawFloat_FMA(
+     cAnchoredNormMantissa.head(cMW + 1) ## cAnchoredNormMantissa.tail(cMW + 1).orR,
+     pAnchoredNormMantissa.head(cMW + 1) ## pAnchoredNormMantissa.tail(cMW + 1).orR
+   )
+-  io.out.isZero := (c.isZero && prodIsZero) || (!cAnchored && pAnchoredIsZero)
+-  io.out.isInf := !io.out.isNaN && (c.isInf || prodHasInf)
+-  io.out.isNaN := hasNaN || addInfInvalid || mulInfInvalid
++  io.out.isZero := (cIsZero2 && prodIsZero2) || (!cAnchored && pAnchoredIsZero)
++  io.out.isInf := !io.out.isNaN && (cIsInf2 || prodHasInf2)
++  io.out.isNaN := hasNaN2 || addInfInvalid2 || mulInfInvalid2
+ }
+ 
+ // a * b + c
+diff --git a/src/main/scala/easyfloat/Reciprocal.scala b/src/main/scala/easyfloat/Reciprocal.scala
+index 547f15d..ad9b2c9 100644
+--- a/src/main/scala/easyfloat/Reciprocal.scala
++++ b/src/main/scala/easyfloat/Reciprocal.scala
+@@ -17,9 +17,12 @@ R[j+1] = R[j](2 - R[j]d)
+ Important!!!
+ 1. The module itself doesn't hold io.in!!!
+     io.in must remain unchanged from in_valid to out.valid
+-2. The module is not pipelined
++2. The module is not pipelined (one Newton-Raphson op in flight at a time),
++   but it tolerates a pipelined host FMA: with fmaLatency = L, each FMA
++   result arrives L cycles after its operands are presented, so dependent
++   ops are issued every (L + 1) cycles.
+ */
+-class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
++class Reciprocal(expWidth: Int, mantissaWidth: Int, fmaLatency: Int = 0) extends Module {
+ 
+   val io = IO(new Bundle {
+     val in = Input(UInt((1 + expWidth + mantissaWidth).W))
+@@ -34,7 +37,7 @@ class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
+   /* x = 1.xxx * 2^exp = (1.xxx * 2^0) * (1.0 * 2^exp)
+      xm = 1.xxx * 2^0
+      xe = 1.0 * 2^exp
+-  */
++   */
+   val xRaw = Wire(new RawFloat(1 + expWidth, 1 + mantissaWidth))
+   val xm = WireInit(xRaw)
+   val xe = WireInit(xRaw)
+@@ -49,14 +52,25 @@ class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
+   xe.isInf := xRaw.isZero
+   xe.isZero := xRaw.isInf
+ 
+-  val nCycles = Reciprocal.nCycles(mantissaWidth)
+-  val cnt = RegInit(0.U(log2Up(nCycles).W))
+-  val done = cnt === (nCycles - 1).U
++  val nCycles = Reciprocal.nCycles(mantissaWidth, fmaLatency)
++  // cnt = index of the FMA op currently presented (0 .. nOps, inclusive)
++  val nOps = 2 * Reciprocal.nIterations(mantissaWidth)
++  val cnt = RegInit(0.U((log2Up(nOps + 1)).W))
++  // age = cycles elapsed since the current op was presented
++  val age = RegInit(0.U((log2Up(fmaLatency + 1)).W))
++  val resultHere = age === fmaLatency.U
++  val done = cnt === nOps.U && resultHere
+ 
+-  when(io.in_valid && !done) {
+-    cnt := cnt + 1.U
+-  }.elsewhen(done) {
++  when(done) {
+     cnt := 0.U
++    age := 0.U
++  }.elsewhen(io.in_valid && resultHere) {
++    // the result of op `cnt` is on fma_rounded_result this cycle:
++    // consume it (below) and present the next op
++    cnt := cnt + 1.U
++    age := 0.U
++  }.elsewhen(io.in_valid) {
++    age := age + 1.U
+   }
+ 
+   // r0 = 1.0 TODO: improve r0
+@@ -80,13 +94,15 @@ class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
+   zero := 0.U.asTypeOf(zero)
+   zero.isZero := true.B
+ 
+-  val reg_r =  RegInit(r0)
++  val reg_r = RegInit(r0)
+   val reg_p = Reg(chiselTypeOf(r0))
+ 
+-  when(done) {
+-    reg_r := r0
+-  }.elsewhen(io.in_valid) {
+-    when(cnt(0)) {
++  when(io.in_valid && resultHere) {
++    when(cnt === nOps.U) {
++      // final result (R * 2^-exp) is on fma_rounded_result;
++      // reset the iteration state for the next reciprocal
++      reg_r := r0
++    }.elsewhen(cnt(0)) {
+       // R[j+1] = R[j] * P[j]
+       reg_r.fromIEEE(io.fma_rounded_result, expWidth, mantissaWidth)
+     }.otherwise({
+@@ -96,7 +112,7 @@ class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
+   }
+ 
+   io.fma_rawA := reg_r
+-  when(done) {
++  when(cnt === nOps.U) {
+     io.fma_rawB := xe
+     io.fma_rawC := zero
+   }.elsewhen(cnt(0)) {
+@@ -115,6 +131,12 @@ class Reciprocal(expWidth: Int, mantissaWidth: Int) extends Module {
+ object Reciprocal {
+   // TODO: 4 is an empirical value to fix the round-off error
+   def nIterations(ieeeMantissaWidth: Int) = log2Up(ieeeMantissaWidth + 1) + 4
+-  // 2 fma per iteration + last fma
+-  def nCycles(ieeeMantissaWidth: Int) = 2 * nIterations(ieeeMantissaWidth) + 1
++  /*
++     2 fma per iteration + last fma. With a pipelined host FMA (fmaLatency = L)
++     each dependent FMA op occupies L + 1 cycles: op k is presented at cycle
++     k * (L + 1) and its result is available at k * (L + 1) + L, so the whole
++     sequence spans (nOps + 1) * (L + 1) cycles = 2*nIterations*(L+1) + L + 1.
++   */
++  def nCycles(ieeeMantissaWidth: Int, fmaLatency: Int = 0) =
++    2 * nIterations(ieeeMantissaWidth) * (fmaLatency + 1) + fmaLatency + 1
+ }
+\ No newline at end of file

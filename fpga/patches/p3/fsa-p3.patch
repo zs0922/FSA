@@ -1,0 +1,256 @@
+diff --git a/src/main/scala/fsa/Accumulator.scala b/src/main/scala/fsa/Accumulator.scala
+index 617bfd1..78444c5 100644
+--- a/src/main/scala/fsa/Accumulator.scala
++++ b/src/main/scala/fsa/Accumulator.scala
+@@ -30,7 +30,8 @@ class Accumulator[A <: Data : Arithmetic]
+ (
+   rows: Int, cols: Int,
+   accType: A,
+-  accGen: () => MacUnit[A, A] with HasMultiCycleIO
++  accGen: () => MacUnit[A, A] with HasMultiCycleIO,
++  accLatency: Int = 0
+ ) extends Module {
+ 
+   val io = IO(new Bundle {
+@@ -62,17 +63,33 @@ class Accumulator[A <: Data : Arithmetic]
+     * set: scale <- sram_in
+   */
+ 
+-  for (((((s, acc), sa_in), sram_in), sram_out) <- scale.zip(accUnit).zip(io.sa_in).zip(io.sram_in).zip(io.sram_out)) {
++  // The accUnit datapath is pipelined (accLatency cycles from inputs to
++  // out_accType).  Operands are consumed combinationally at the command
++  // cycle, but everything that acts on the RESULT (scale writeback, and the
++  // sram_in captured for SET_SCALE) must be delayed by accLatency to line
++  // up with out_accType.
++  val validD = ShiftRegister(valid, accLatency, false.B, true.B)
++  val expS1D = ShiftRegister(exp_s1, accLatency, false.B, true.B)
++  val expS2D = ShiftRegister(exp_s2, accLatency, false.B, true.B)
++  val setD = ShiftRegister(set, accLatency, false.B, true.B)
++  val sramInD = ShiftRegister(io.sram_in, accLatency)
++
++  for (i <- 0 until cols) {
++    val s = scale(i)
++    val acc = accUnit(i)
++    val sa_in = io.sa_in(i)
++    val sram_in = io.sram_in(i)
++    val sram_out = io.sram_out(i)
+     acc.io.in_a := Mux(exp_s1, sa_in, s)
+     acc.io.in_b := Mux(exp_s1, accType.attentionScale(rows), sram_in)
+     acc.io.in_c := Mux(acc_sa, sa_in, accType.zero)
+     acc.io.in_cmd := Mux(exp_s2, MacCMD.EXP2, MacCMD.MAC)
+     acc.multiCycleIO.reciprocal_in_valid := valid && reciprocal
+-    when(valid) {
+-      when(exp_s1 || exp_s2 || acc.multiCycleIO.reciprocal_out_valid) {
++    when(validD) {
++      when(expS1D || expS2D || acc.multiCycleIO.reciprocal_out_valid) {
+         s := acc.io.out_accType
+-      }.elsewhen(set) {
+-        s := sram_in
++      }.elsewhen(setD) {
++        s := sramInD(i)
+       }
+     }
+     sram_out := acc.io.out_accType
+diff --git a/src/main/scala/fsa/ExecutionPlan.scala b/src/main/scala/fsa/ExecutionPlan.scala
+index f3c17f3..83d9bf2 100644
+--- a/src/main/scala/fsa/ExecutionPlan.scala
++++ b/src/main/scala/fsa/ExecutionPlan.scala
+@@ -26,6 +26,9 @@ trait HasEffRange {
+ trait ExecutionPlan {
+   val rows: Int
+   val cols: Int
++  // pipelined accumulator FMA latency; plans that touch the accumulator must
++  // account for it so that drain/writeback stays inside the busy window
++  def accLatency: Int = 0
+   // PE control signals are more complex than spad/acc/cmp control, use a dedicate `ControlGen` to optimize them
+   val pe_signals = (0 until 9).map(_ => ControlGen(rows)).toList
+   val mac :: acc_ui :: load_reg_li :: load_reg_ui :: flow_lr :: flow_ud :: flow_du :: update_reg :: exp2 :: Nil = pe_signals
+@@ -162,7 +165,11 @@ trait ExecutionPlan {
+     }.getOrElse(-1)
+   }
+ 
+-  def accumulateMaxCycle = Seq(acc_read, acc_ctrl).map(x => maxCycle(x.toSeq)).max
++  // inclusive; + accLatency keeps the FSM busy until pipelined writebacks drain
++  def accumulateMaxCycle = {
++    val m = Seq(acc_read, acc_ctrl).map(x => maxCycle(x.toSeq)).max
++    if (m > 0) m + accLatency else m
++  }
+ 
+   def computeDone(timer: UInt) = if (computeMaxCycle == 0) true.B else timer === (computeMaxCycle - 1).U
+ 
+@@ -192,6 +199,7 @@ class LoadStationary(val rows: Int, val cols: Int) extends ExecutionPlan {
+ }
+ 
+ class AttentionScoreExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticParams) extends ExecutionPlan {
++  override val accLatency: Int = ap.accLatency
+   /****** S = Q @ K ******/
+   // read K from spad
+   readScratchPad(0, rows, None)
+@@ -273,7 +281,9 @@ class AttentionScoreExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticPara
+ 
+   // collect diff = row_max(i-1) - row_max(i), and compute exp(diff)
+   setAccumulator(2 * rows + rows + cols + 2, 1, AccumulatorCmd.EXP_S1)
+-  setAccumulator(2 * rows + rows + cols + 3, 1, AccumulatorCmd.EXP_S2)
++  // scale is written back accLatency cycles after EXP_S1's inputs are
++  // consumed, so EXP_S2 (which reads scale) must wait that long
++  setAccumulator(2 * rows + rows + cols + 3 + ap.accLatency, 1, AccumulatorCmd.EXP_S2)
+   // update exp sum
+   // readAccRAM(2 * rows + rows + cols + 3, 1, None)
+   readAccRAM(exp2_end + rows + cols - 1, 1, None)
+@@ -281,7 +291,8 @@ class AttentionScoreExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticPara
+   setAccumulator(exp2_end + rows + cols, 1, AccumulatorCmd.ACC_SA)
+ }
+ 
+-class AttentionValueExecPlan(val rows: Int, val cols: Int) extends ExecutionPlan {
++class AttentionValueExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticParams) extends ExecutionPlan {
++  override val accLatency: Int = ap.accLatency
+   /****** O = P @ V ******/
+   // read V from spad
+   readScratchPad(0, rows, None)
+@@ -313,20 +324,25 @@ class AttentionLseNormScale
+   val cols: Int,
+   ap: HasArithmeticParams
+ ) extends ExecutionPlan {
++  override val accLatency: Int = ap.accLatency
+   readAccRAM(0, 1, None, rmw = false)
+   setAccumulator(1, 1, AccumulatorCmd.SET_SCALE)
+-  setAccumulator(2, ap.reciprocalLatency, AccumulatorCmd.RECIPROCAL)
+-  releaseSemaphore(2 + ap.reciprocalLatency - 1)
++  // scale is registered accLatency cycles after SET_SCALE consumes sram_in,
++  // so the reciprocal (which reads scale) must start accLatency cycles later
++  setAccumulator(2 + ap.accLatency, ap.reciprocalLatency, AccumulatorCmd.RECIPROCAL)
++  releaseSemaphore(2 + ap.accLatency + ap.reciprocalLatency - 1)
+   // This is a blocking instruction
+-  setConflictFree(2 + ap.reciprocalLatency - 1)
++  setConflictFree(2 + ap.accLatency + ap.reciprocalLatency - 1)
+ }
+ 
+ // perform the final lse norm after each flash attention inner loop
+-class AttentionLseNorm(val rows: Int, val cols: Int) extends ExecutionPlan {
++class AttentionLseNorm(val rows: Int, val cols: Int, ap: HasArithmeticParams) extends ExecutionPlan {
++  override val accLatency: Int = ap.accLatency
+   setComparator(0, 1, CmpControlCmd.RESET)
+   readAccRAM(0, rows, None)
+   setAccumulator(1, rows, AccumulatorCmd.ACC)
+-  releaseSemaphore(rows)
++  // pipelined writebacks land rows + accLatency cycles later
++  releaseSemaphore(rows + ap.accLatency)
+   // This is a blocking instruction
+-  setConflictFree(rows)
++  setConflictFree(rows + ap.accLatency)
+ }
+\ No newline at end of file
+diff --git a/src/main/scala/fsa/FSA.scala b/src/main/scala/fsa/FSA.scala
+index 0669a6d..fbec360 100644
+--- a/src/main/scala/fsa/FSA.scala
++++ b/src/main/scala/fsa/FSA.scala
+@@ -30,9 +30,9 @@ case class FSAParams(
+     (rows, cols, ap) => Seq(
+       ISA.MxFunc.LOAD_STATIONARY -> new LoadStationary(rows, cols),
+       ISA.MxFunc.ATTENTION_SCORE_COMPUTE -> new AttentionScoreExecPlan(rows, cols, ap),
+-      ISA.MxFunc.ATTENTION_VALUE_COMPUTE -> new AttentionValueExecPlan(rows, cols),
++      ISA.MxFunc.ATTENTION_VALUE_COMPUTE -> new AttentionValueExecPlan(rows, cols, ap),
+       ISA.MxFunc.ATTENTION_LSE_NORM_SCALE -> new AttentionLseNormScale(rows, cols, ap),
+-      ISA.MxFunc.ATTENTION_LSE_NORM -> new AttentionLseNorm(rows, cols)
++      ISA.MxFunc.ATTENTION_LSE_NORM -> new AttentionLseNorm(rows, cols, ap)
+     )
+   },
+   unitTestBuild: Boolean = false
+@@ -87,7 +87,7 @@ class FSA[E <: Data : Arithmetic, A <: Data : Arithmetic]
+   val inputDelayer = Module(new InputDelayer(SA_ROWS, arithmeticImpl.elemType))
+   val outputDelayer = Module(new OutputDelayer(SA_COLS, arithmeticImpl.accType))
+   val sa = Module(new SystolicArray[E, A](SA_ROWS, SA_COLS))
+-  val accumulator = Module(new Accumulator[A](SA_ROWS, SA_COLS, ev.accType, ev.accUnit _))
++  val accumulator = Module(new Accumulator[A](SA_ROWS, SA_COLS, ev.accType, ev.accUnit _, ev.accLatency))
+ 
+   val spRAM = {
+     val sram = Module(new BankedSRAM(
+@@ -181,8 +181,16 @@ class FSA[E <: Data : Arithmetic, A <: Data : Arithmetic]
+   )
+   accumulator.io.ctrl_in := mxControl.io.acc_ctrl
+ 
+-  accRAM.fullWrite.head.valid := RegNext(mxControl.io.acc_read.valid && mxControl.io.acc_read.bits.rmw, false.B)
+-  accRAM.fullWrite.head.addr := RegNext(mxControl.io.acc_read.bits.addr)
++  // the accumulator FMA is pipelined (ev.accLatency cycles): the write
++  // data (accumulator.io.sram_out) is valid at read_cycle + 1 + accLatency,
++  // so valid/addr must be delayed by the same amount to stay aligned
++  accRAM.fullWrite.head.valid := ShiftRegister(
++    mxControl.io.acc_read.valid && mxControl.io.acc_read.bits.rmw,
++    ev.accLatency + 1, false.B, true.B
++  )
++  accRAM.fullWrite.head.addr := ShiftRegister(
++    mxControl.io.acc_read.bits.addr, ev.accLatency + 1
++  )
+   accRAM.fullWrite.head.data := accumulator.io.sram_out.asTypeOf(accRAM.fullWrite.head.data)
+   accRAM.fullWrite.head.setFullMask()
+ }
+\ No newline at end of file
+diff --git a/src/main/scala/fsa/arithmetic/Arithmetic.scala b/src/main/scala/fsa/arithmetic/Arithmetic.scala
+index ee829a5..c725b02 100644
+--- a/src/main/scala/fsa/arithmetic/Arithmetic.scala
++++ b/src/main/scala/fsa/arithmetic/Arithmetic.scala
+@@ -103,6 +103,9 @@ trait HasMultiCycleIO { this: Module =>
+ trait HasArithmeticParams {
+   val reciprocalLatency: Int
+   val exp2PwlPieces: Int
++  // extra latency (cycles) of the accumulator FMA caused by pipelining;
++  // execution plans use it to keep schedules aligned with the datapath
++  val accLatency: Int
+ }
+ 
+ abstract class ArithmeticImpl[E <: Data : Arithmetic, A <: Data : Arithmetic] extends HasArithmeticParams {
+diff --git a/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala b/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala
+index bd457e0..a13d297 100644
+--- a/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala
++++ b/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala
+@@ -50,14 +50,15 @@ class FPAccUnit(addEW: Int, addMW: Int, pwlPieces: Int) extends
+   val intercepts = PyFPConst.intercepts(addEW, addMW, projectDir = "generators/easyfloat", pieces = pwlPieces)
+   val pwlConst = slopes.zip(intercepts)
+   val mulAddExp2 = Module(new RawFloat_MulAddExp2(
+-    1 + addEW, 1 + addMW, 1 + addEW, 1 + addMW, Left(pwlConst)
++    1 + addEW, 1 + addMW, 1 + addEW, 1 + addMW, Left(pwlConst),
++    pipeline = true
+   ))
+   mulAddExp2.io.in_a.fromIEEE(io.in_a.asUInt, addEW, addMW)
+   mulAddExp2.io.in_b.fromIEEE(io.in_b.asUInt, addEW, addMW)
+   mulAddExp2.io.in_c.fromIEEE(io.in_c.asUInt, addEW, addMW)
+   mulAddExp2.io.in_exp2 := io.in_cmd === MacCMD.EXP2
+ 
+-  val reciprocal = Module(new Reciprocal(addEW, addMW))
++  val reciprocal = Module(new Reciprocal(addEW, addMW, fmaLatency = FPAccUnit.latency))
+   reciprocal.io.in := io.in_a.asUInt
+   reciprocal.io.in_valid := multiCycleIO.reciprocal_in_valid
+   reciprocal.io.fma_rounded_result := io.out_accType.asUInt
+@@ -69,11 +70,22 @@ class FPAccUnit(addEW: Int, addMW: Int, pwlPieces: Int) extends
+   }
+   multiCycleIO.reciprocal_out_valid := reciprocal.io.out.valid
+ 
++  // output: rounding is the combinational tail of the pipeline;
++  // total in->out latency = FPAccUnit.latency
+   io.out_accType := Rounding.round(mulAddExp2.io.out, RoundingMode.RNE, addEW, addMW).asTypeOf(accType)
+   io.out_elemType := io.out_accType
+   io.out_exp2 := mulAddExp2.io.in_exp2
+ }
+ 
++object FPAccUnit {
++  // pipeline depth of the accumulator datapath:
++  //   1 (operand register in RawFloat_MulAddExp2)
++  // + 2 (internal stages of RawFloat_FMA)
++  // NOTE: constrained to 3 by AttentionScore's fixed wavefront budget
++  // (EXP_S1 -> [2L+1] -> ACC_SA must fit in 8 cycles)
++  def latency: Int = 3
++}
++
+ class FPCmpUnit(ew: Int, mw: Int) extends CmpUnit(FloatPoint(ew, mw)) {
+   val fma = Module(new FMA(ew, mw, ew, mw))
+   val negB = WireInit(io.in_b)
+@@ -108,7 +120,8 @@ class FPArithmeticImpl(mulEW: Int, mulMW: Int, addEW: Int, addMW: Int, pwlPieces
+ 
+   override def accCmp: CmpUnit[FloatPoint] = new FPCmpUnit(addEW, addMW)
+ 
+-  override val reciprocalLatency: Int = Reciprocal.nCycles(addMW)
++  override val reciprocalLatency: Int = Reciprocal.nCycles(addMW, FPAccUnit.latency)
++  override val accLatency: Int = FPAccUnit.latency
+ 
+   override val exp2PwlPieces: Int = pwlPieces
+ 

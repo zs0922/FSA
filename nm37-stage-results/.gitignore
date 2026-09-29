@@ -1,0 +1,3 @@
+# .bit 每个约 85MB，不入库（GitHub 100MB 硬限 + 仓库膨胀）；由 build_nm37_stages.sh 一键重产
+*.bit
+driver.pid

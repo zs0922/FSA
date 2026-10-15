@@ -68,6 +68,8 @@
     "fpga/U280_MIGRATION.md": "f682392dd40f8b9695ce6041fd0cee14a4b885f25bdce0dec34cc47e2fb06119",
     "fpga/baselines/nm37-a100/FSAConfig.json": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
     "fpga/baselines/nm37-a100/fpga-shells.patch": "3a9fbf21bc5f287bf7eb11b8ceeb1dad91612a5071cc99b195852f76994372ba",
+    "fpga/baselines/nm37-a110/FSAConfig.json": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+    "fpga/baselines/nm37-a110/fpga-shells.patch": "3a9fbf21bc5f287bf7eb11b8ceeb1dad91612a5071cc99b195852f76994372ba",
     "fpga/bootrom.rv32.img": "7d3bc54883075a619d7a023324b488ea18d017d5dccb3594c79915b84f861d7b",
     "fpga/bootrom.rv64.img": "5185b59e489ee2d27fdd7b989d335636cb91b83fb0c56c3857e967e8634f16dc",
     "fpga/patches/m1/fpga-shells-m1.patch": "2c14df020d5145a9c9771ebb800cfb40a32f8e5e015e2e872f2385528e761533",
@@ -118,7 +120,7 @@
     "fpga/src/main/scala/nexysvideo/HarnessBinders.scala": "fc94b9df0a3c826147c3b2f68045b7c8676dd016f336575c8198ecca50b2d3f3",
     "fpga/src/main/scala/nm37/AXIDDR4.scala": "745e04f7a9023c59fac222de7f82fe98b96f0139a45c17ad143c2190e805eb3f",
     "fpga/src/main/scala/nm37/AXIDataWidthConverter.scala": "977f149757df8d1c68078bd6fabb7e50a0f3271d56fadb026c8b014767c92486",
-    "fpga/src/main/scala/nm37/Configs.scala": "c75d1e42ec7c17742b21e4e7b7905aece6390d1d4ca31af6a0973d6dc5c66b03",
+    "fpga/src/main/scala/nm37/Configs.scala": "f098a768764b5e2f38e73fee648f8061386da6fed2fc20a506a9304e7935b7ef",
     "fpga/src/main/scala/nm37/CustomOverlays.scala": "becabed396ffda8e4ad873cd528d4fd99b8b76509c977c14cf04aa3af41ff03f",
     "fpga/src/main/scala/nm37/HarnessBinders.scala": "0d6312f7353da531056289655500184f18de0b6180c53b8c39d7832f6f00e07d",
     "fpga/src/main/scala/nm37/TestHarness.scala": "7fca0f214361c084995fb0d279580aec802724a8a18ec6d872a1308a1f723630",
@@ -527,6 +529,8 @@
     "fpga/U280_MIGRATION.md": "100644",
     "fpga/baselines/nm37-a100/FSAConfig.json": "100644",
     "fpga/baselines/nm37-a100/fpga-shells.patch": "100644",
+    "fpga/baselines/nm37-a110/FSAConfig.json": "100644",
+    "fpga/baselines/nm37-a110/fpga-shells.patch": "100644",
     "fpga/bootrom.rv32.img": "100755",
     "fpga/bootrom.rv64.img": "100755",
     "fpga/patches/m1/fpga-shells-m1.patch": "100644",
@@ -972,8 +976,11 @@
     "scope": "All tracked files under generators, tools, project, sims, fpga, scripts; root .mk/.sbt/.gitmodules",
     "excluded_from_source_lock": [
       "scripts/nm37-a100/",
+      "scripts/nm37-a110/",
       "fpga/scripts/m1_a100_bitstream.tcl",
-      "fpga/baselines/nm37-a100/source-lock.json"
+      "fpga/scripts/m1_a110_bitstream.tcl",
+      "fpga/baselines/nm37-a100/source-lock.json",
+      "fpga/baselines/nm37-a110/source-lock.json"
     ],
     "generated_directories_excluded_from_untracked_source_scan": [
       ".bsp",

@@ -27,8 +27,10 @@ def write(path, data):
 # Whole tracked input trees, including extensionless resources and helpers.
 # Drivers are independently frozen in build.json; the manifest cannot hash itself.
 SOURCE_PREFIXES = ('generators/', 'tools/', 'project/', 'sims/', 'fpga/', 'scripts/')
-SOURCE_EXCLUDES = ('scripts/nm37-a100/', 'fpga/scripts/m1_a100_bitstream.tcl',
-                   'fpga/baselines/nm37-a100/source-lock.json')
+SOURCE_EXCLUDES = ('scripts/nm37-a100/', 'scripts/nm37-a110/',
+                   'fpga/scripts/m1_a100_bitstream.tcl', 'fpga/scripts/m1_a110_bitstream.tcl',
+                   'fpga/baselines/nm37-a100/source-lock.json',
+                   'fpga/baselines/nm37-a110/source-lock.json')
 GENERATED_DIRS = {'target', '.venv', '__pycache__', '.bsp', '.metals',
                   'generated-src', 'test_run_dir'}
 UNTRACKED_SOURCE_SUFFIXES = {'.scala', '.sbt', '.sc', '.v', '.sv', '.vh', '.svh',

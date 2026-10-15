@@ -1,0 +1,26 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx16G -Xss8M -Djava.io.tmpdir=/home/zhangsi/tmp/FSA-m1/.java_tmp -XX:ActiveProcessorCount=16
+PASS: FPMac delay equivalence 14394 cases; legacy CMP max/diff equivalence 20169 cases.
+PASS: PE EXP2 scans 90 cases (continuous/gapped, all segments, EXP2/MAC/bypass switches).
+Picked up JAVA_TOOL_OPTIONS: -Xmx16G -Xss8M -Djava.io.tmpdir=/home/zhangsi/tmp/FSA-m1/.java_tmp -XX:ActiveProcessorCount=16
+PASS: transported-score and resident-dependency schedules (4,4), (4,8), (8,4), (8,8), (16,16); R16 score load 51..66, score done 115.
+Picked up JAVA_TOOL_OPTIONS: -Xmx16G -Xss8M -Djava.io.tmpdir=/home/zhangsi/tmp/FSA-m1/.java_tmp -XX:ActiveProcessorCount=16
+[36mRun starting. Expected test count is: 5[0m
+[32mControlSignalTest:[0m
+[32m- should handle little overlapped flows (7 seconds, 625 milliseconds)[0m
+[32m- should handle heavily overlapped flows (6 seconds, 548 milliseconds)[0m
+[warn] generators/fsa/src/test/scala/fsa/ControlSignalTest.scala 33:16: [W004] Dynamic index with width 3 is too wide for Vec of size 4 (expected index width 2).
+[warn]     plan_dut(i)(timer) := ctrl(i)
+[warn]                ^
+[warn] There were 1 warning(s) during hardware elaboration.
+[32m- should merge consecutive flows (5 seconds, 640 milliseconds)[0m
+[warn] generators/fsa/src/test/scala/fsa/ControlSignalTest.scala 33:16: [W004] Dynamic index with width 6 is too wide for Vec of size 32 (expected index width 5).
+[warn]     plan_dut(i)(timer) := ctrl(i)
+[warn]                ^
+[warn] There were 1 warning(s) during hardware elaboration.
+[32m- should preserve two-cycle and arbitrary row offsets in generated hardware (6 seconds, 271 milliseconds)[0m
+[32m- should generate the pipelined score row wavefronts (53 seconds, 190 milliseconds)[0m
+[36mRun completed in 1 minute, 19 seconds.[0m
+[36mTotal number of tests run: 5[0m
+[36mSuites: completed 1, aborted 0[0m
+[36mTests: succeeded 5, failed 0, canceled 0, ignored 0, pending 0[0m
+[32mAll tests passed.[0m

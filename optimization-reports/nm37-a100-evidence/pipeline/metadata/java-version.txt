@@ -1,0 +1,4 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx16G -Xss8M -Djava.io.tmpdir=/home/zhangsi/tmp/FSA-m1/.java_tmp -XX:ActiveProcessorCount=16
+openjdk version "20.0.2-internal" 2023-07-18
+OpenJDK Runtime Environment (build 20.0.2-internal-adhoc..src)
+OpenJDK 64-Bit Server VM (build 20.0.2-internal-adhoc..src, mixed mode, sharing)

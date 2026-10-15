@@ -1,0 +1,2046 @@
+{
+  "baseline_A70": {
+    "part": "xcvu37p_CIV-fsvh2892-2L-e",
+    "dut_period": "14.286",
+    "dut_setup_wns": "0.878",
+    "dut_hold_whs": "0.010",
+    "setup_paths": [
+      {
+        "slack_ns": 0.878,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[1]/D",
+        "data_delay_ns": 13.143,
+        "logic_ns": 3.848,
+        "route_ns": 9.295,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 0.907,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[1]/D",
+        "data_delay_ns": 13.114,
+        "logic_ns": 3.861,
+        "route_ns": 9.253,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 0.911,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[4]/D",
+        "data_delay_ns": 13.161,
+        "logic_ns": 3.851,
+        "route_ns": 9.31,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.933,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[8]/D",
+        "data_delay_ns": 13.143,
+        "logic_ns": 3.851,
+        "route_ns": 9.292,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.934,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[3]/D",
+        "data_delay_ns": 13.141,
+        "logic_ns": 3.853,
+        "route_ns": 9.288,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.94,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[5]/D",
+        "data_delay_ns": 13.135,
+        "logic_ns": 3.851,
+        "route_ns": 9.284,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.948,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[2]/D",
+        "data_delay_ns": 13.128,
+        "logic_ns": 3.779,
+        "route_ns": 9.349,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.948,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[19]/D",
+        "data_delay_ns": 13.121,
+        "logic_ns": 3.666,
+        "route_ns": 9.455,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 0.953,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[1]/D",
+        "data_delay_ns": 13.116,
+        "logic_ns": 3.666,
+        "route_ns": 9.45,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 0.961,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[0]/D",
+        "data_delay_ns": 13.053,
+        "logic_ns": 3.801,
+        "route_ns": 9.252,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 0.969,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[6]/D",
+        "data_delay_ns": 13.101,
+        "logic_ns": 3.852,
+        "route_ns": 9.249,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.975,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_605_exp_reg[1]/D",
+        "data_delay_ns": 12.987,
+        "logic_ns": 4.166,
+        "route_ns": 8.821,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 0.982,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[0]/D",
+        "data_delay_ns": 13.092,
+        "logic_ns": 3.779,
+        "route_ns": 9.313,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.989,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[7]/D",
+        "data_delay_ns": 13.075,
+        "logic_ns": 3.816,
+        "route_ns": 9.259,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 0.992,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[4]/D",
+        "data_delay_ns": 13.071,
+        "logic_ns": 3.703,
+        "route_ns": 9.368,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 0.994,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[0]/D",
+        "data_delay_ns": 13.02,
+        "logic_ns": 3.81,
+        "route_ns": 9.21,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.006,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_exp_reg[1]/D",
+        "data_delay_ns": 12.956,
+        "logic_ns": 4.177,
+        "route_ns": 8.779,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.007,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_mantissa_reg[19]/D",
+        "data_delay_ns": 13.061,
+        "logic_ns": 3.668,
+        "route_ns": 9.393,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.009,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_mantissa_reg[1]/D",
+        "data_delay_ns": 13.059,
+        "logic_ns": 3.667,
+        "route_ns": 9.392,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.014,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[1]/D",
+        "data_delay_ns": 13.056,
+        "logic_ns": 3.816,
+        "route_ns": 9.24,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.019,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[15]/D",
+        "data_delay_ns": 13.042,
+        "logic_ns": 3.666,
+        "route_ns": 9.376,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.024,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[20]/D",
+        "data_delay_ns": 13.037,
+        "logic_ns": 3.665,
+        "route_ns": 9.372,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.026,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_mantissa_reg[2]/D",
+        "data_delay_ns": 13.039,
+        "logic_ns": 3.666,
+        "route_ns": 9.373,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.028,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_12_exp_reg[2]/D",
+        "data_delay_ns": 13.052,
+        "logic_ns": 4.205,
+        "route_ns": 8.847,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.028,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[2]/D",
+        "data_delay_ns": 12.931,
+        "logic_ns": 3.928,
+        "route_ns": 9.003,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.031,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_mantissa_reg[4]/D",
+        "data_delay_ns": 13.034,
+        "logic_ns": 3.665,
+        "route_ns": 9.369,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.031,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[21]/D",
+        "data_delay_ns": 13.03,
+        "logic_ns": 3.664,
+        "route_ns": 9.366,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.032,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[2]/D",
+        "data_delay_ns": 13.031,
+        "logic_ns": 3.665,
+        "route_ns": 9.366,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.033,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[0]/D",
+        "data_delay_ns": 12.926,
+        "logic_ns": 3.883,
+        "route_ns": 9.043,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.036,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_12_exp_reg[3]/D",
+        "data_delay_ns": 13.048,
+        "logic_ns": 4.33,
+        "route_ns": 8.718,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.041,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[5]/D",
+        "data_delay_ns": 12.976,
+        "logic_ns": 3.789,
+        "route_ns": 9.187,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.042,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[2]/D",
+        "data_delay_ns": 12.917,
+        "logic_ns": 3.945,
+        "route_ns": 8.972,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.047,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[3]/D",
+        "data_delay_ns": 12.91,
+        "logic_ns": 3.883,
+        "route_ns": 9.027,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.05,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[5]/D",
+        "data_delay_ns": 12.967,
+        "logic_ns": 3.811,
+        "route_ns": 9.156,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.055,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_912_exp_reg[2]/D",
+        "data_delay_ns": 13.025,
+        "logic_ns": 4.22,
+        "route_ns": 8.805,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.057,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[0]/D",
+        "data_delay_ns": 12.902,
+        "logic_ns": 3.893,
+        "route_ns": 9.009,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.061,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_670_exp_reg[6]/D",
+        "data_delay_ns": 12.948,
+        "logic_ns": 3.784,
+        "route_ns": 9.164,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.066,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[3]/D",
+        "data_delay_ns": 12.946,
+        "logic_ns": 3.701,
+        "route_ns": 9.245,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.067,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_912_exp_reg[3]/D",
+        "data_delay_ns": 13.017,
+        "logic_ns": 4.339,
+        "route_ns": 8.678,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.069,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[2]/D",
+        "data_delay_ns": 12.994,
+        "logic_ns": 3.758,
+        "route_ns": 9.236,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.07,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[2]/D",
+        "data_delay_ns": 12.947,
+        "logic_ns": 3.763,
+        "route_ns": 9.184,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.07,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[7]/D",
+        "data_delay_ns": 12.943,
+        "logic_ns": 3.789,
+        "route_ns": 9.154,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.071,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_mantissa_reg[9]/D",
+        "data_delay_ns": 12.993,
+        "logic_ns": 3.779,
+        "route_ns": 9.214,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.071,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[3]/D",
+        "data_delay_ns": 12.886,
+        "logic_ns": 3.893,
+        "route_ns": 8.993,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.072,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[1]/D",
+        "data_delay_ns": 12.886,
+        "logic_ns": 3.884,
+        "route_ns": 9.002,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.079,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[4]/D",
+        "data_delay_ns": 12.938,
+        "logic_ns": 3.807,
+        "route_ns": 9.131,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.079,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[7]/D",
+        "data_delay_ns": 12.934,
+        "logic_ns": 3.811,
+        "route_ns": 9.123,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.086,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_605_exp_reg[5]/D",
+        "data_delay_ns": 12.95,
+        "logic_ns": 4.144,
+        "route_ns": 8.806,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.088,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[2]/D",
+        "data_delay_ns": 12.929,
+        "logic_ns": 3.779,
+        "route_ns": 9.15,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.088,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_673_exp_reg[6]/D",
+        "data_delay_ns": 12.921,
+        "logic_ns": 3.799,
+        "route_ns": 9.122,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.089,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[5]/D",
+        "data_delay_ns": 12.871,
+        "logic_ns": 3.891,
+        "route_ns": 8.98,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.09,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[1]/D",
+        "data_delay_ns": 12.868,
+        "logic_ns": 3.9,
+        "route_ns": 8.968,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.091,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_605_exp_reg[3]/D",
+        "data_delay_ns": 12.871,
+        "logic_ns": 4.097,
+        "route_ns": 8.774,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.093,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[3]/D",
+        "data_delay_ns": 12.919,
+        "logic_ns": 3.716,
+        "route_ns": 9.203,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.097,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_605_exp_reg[4]/D",
+        "data_delay_ns": 12.935,
+        "logic_ns": 4.143,
+        "route_ns": 8.792,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.099,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[4]/D",
+        "data_delay_ns": 12.918,
+        "logic_ns": 3.821,
+        "route_ns": 9.097,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.102,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem_1/banks_subBanks_sram_mem_1_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[1]_rep/C",
+        "destination": "dutDomain/fsa/fsa/sa/io_acc_out_0_pipe_b_exp_reg[5]/D",
+        "data_delay_ns": 13.048,
+        "logic_ns": 3.995,
+        "route_ns": 9.053,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.107,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[5]/D",
+        "data_delay_ns": 12.853,
+        "logic_ns": 3.907,
+        "route_ns": 8.946,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.11,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_670_exp_reg[2]/D",
+        "data_delay_ns": 12.897,
+        "logic_ns": 3.743,
+        "route_ns": 9.154,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.113,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_exp_reg[3]/D",
+        "data_delay_ns": 12.849,
+        "logic_ns": 4.114,
+        "route_ns": 8.735,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.115,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_11_cmd_reg[2]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_out_pipe_b_12_mantissa_reg[5]/D",
+        "data_delay_ns": 12.861,
+        "logic_ns": 4.379,
+        "route_ns": 8.482,
+        "levels": 52.0
+      },
+      {
+        "slack_ns": 1.119,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[6]/D",
+        "data_delay_ns": 12.894,
+        "logic_ns": 3.789,
+        "route_ns": 9.105,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.119,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_exp_reg[5]/D",
+        "data_delay_ns": 12.917,
+        "logic_ns": 4.153,
+        "route_ns": 8.764,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.121,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_670_exp_reg[1]/D",
+        "data_delay_ns": 12.919,
+        "logic_ns": 3.91,
+        "route_ns": 9.009,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.123,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_12_exp_reg[1]/D",
+        "data_delay_ns": 12.961,
+        "logic_ns": 4.215,
+        "route_ns": 8.746,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.123,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_exp_reg[4]/D",
+        "data_delay_ns": 12.909,
+        "logic_ns": 4.156,
+        "route_ns": 8.753,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.126,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_673_exp_reg[2]/D",
+        "data_delay_ns": 12.881,
+        "logic_ns": 3.761,
+        "route_ns": 9.12,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.128,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_605_exp_reg[0]/D",
+        "data_delay_ns": 12.904,
+        "logic_ns": 4.144,
+        "route_ns": 8.76,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.133,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[6]/D",
+        "data_delay_ns": 12.827,
+        "logic_ns": 3.902,
+        "route_ns": 8.925,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.14,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_exp_reg[6]/D",
+        "data_delay_ns": 12.873,
+        "logic_ns": 3.802,
+        "route_ns": 9.071,
+        "levels": 43.0
+      },
+      {
+        "slack_ns": 1.14,
+        "source": "dutDomain/fsa/fsa/sa/mesh_8_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1016_exp_reg[1]/D",
+        "data_delay_ns": 12.875,
+        "logic_ns": 3.695,
+        "route_ns": 9.18,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.143,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[1]_rep__2/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_533_exp_reg[1]/D",
+        "data_delay_ns": 12.596,
+        "logic_ns": 4.372,
+        "route_ns": 8.224,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.145,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_673_exp_reg[1]/D",
+        "data_delay_ns": 12.895,
+        "logic_ns": 3.922,
+        "route_ns": 8.973,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.15,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_912_exp_reg[1]/D",
+        "data_delay_ns": 12.934,
+        "logic_ns": 4.23,
+        "route_ns": 8.704,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.152,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1021_mantissa_reg[22]/D",
+        "data_delay_ns": 12.875,
+        "logic_ns": 4.0,
+        "route_ns": 8.875,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.153,
+        "source": "dutDomain/fsa/fsa/sa/mesh_8_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1031_exp_reg[1]/D",
+        "data_delay_ns": 12.862,
+        "logic_ns": 3.713,
+        "route_ns": 9.149,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.154,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_12_exp_reg[4]/D",
+        "data_delay_ns": 12.926,
+        "logic_ns": 4.229,
+        "route_ns": 8.697,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.154,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1030_exp_reg[6]/D",
+        "data_delay_ns": 12.806,
+        "logic_ns": 3.915,
+        "route_ns": 8.891,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.156,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[1]_rep__2/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_554_exp_reg[1]/D",
+        "data_delay_ns": 12.583,
+        "logic_ns": 4.392,
+        "route_ns": 8.191,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.156,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_12_exp_reg[0]/D",
+        "data_delay_ns": 12.925,
+        "logic_ns": 4.278,
+        "route_ns": 8.647,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.161,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_exp_reg[0]/D",
+        "data_delay_ns": 12.871,
+        "logic_ns": 4.153,
+        "route_ns": 8.718,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.162,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[0]/D",
+        "data_delay_ns": 12.873,
+        "logic_ns": 3.704,
+        "route_ns": 9.169,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.17,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_mantissa_reg[21]/D",
+        "data_delay_ns": 12.801,
+        "logic_ns": 3.834,
+        "route_ns": 8.967,
+        "levels": 40.0
+      },
+      {
+        "slack_ns": 1.172,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_912_exp_reg[4]/D",
+        "data_delay_ns": 12.908,
+        "logic_ns": 4.245,
+        "route_ns": 8.663,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.172,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_mantissa_reg[0]/D",
+        "data_delay_ns": 12.8,
+        "logic_ns": 3.903,
+        "route_ns": 8.897,
+        "levels": 40.0
+      },
+      {
+        "slack_ns": 1.173,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_mantissa_reg[6]/D",
+        "data_delay_ns": 12.799,
+        "logic_ns": 3.903,
+        "route_ns": 8.896,
+        "levels": 40.0
+      },
+      {
+        "slack_ns": 1.174,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_670_exp_reg[0]/D",
+        "data_delay_ns": 12.866,
+        "logic_ns": 3.893,
+        "route_ns": 8.973,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.176,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_11_cmd_reg[2]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_out_pipe_b_12_mantissa_reg[7]/D",
+        "data_delay_ns": 12.803,
+        "logic_ns": 4.41,
+        "route_ns": 8.393,
+        "levels": 52.0
+      },
+      {
+        "slack_ns": 1.178,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[22]/D",
+        "data_delay_ns": 12.849,
+        "logic_ns": 4.01,
+        "route_ns": 8.839,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.179,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_532_exp_reg[7]/D",
+        "data_delay_ns": 12.511,
+        "logic_ns": 3.684,
+        "route_ns": 8.827,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.179,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_2/reg_mantissa_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_610_mantissa_reg[17]/D",
+        "data_delay_ns": 12.868,
+        "logic_ns": 4.073,
+        "route_ns": 8.795,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.18,
+        "source": "dutDomain/fsa/fsa/sa/mesh_9_15/reg_exp_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1017_exp_reg[7]/D",
+        "data_delay_ns": 12.792,
+        "logic_ns": 3.812,
+        "route_ns": 8.98,
+        "levels": 40.0
+      },
+      {
+        "slack_ns": 1.182,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[4]_rep/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_530_exp_reg[2]/D",
+        "data_delay_ns": 12.487,
+        "logic_ns": 3.824,
+        "route_ns": 8.663,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.183,
+        "source": "dutDomain/fsa/fsa/sa/mesh_0_12/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_912_exp_reg[0]/D",
+        "data_delay_ns": 12.898,
+        "logic_ns": 4.287,
+        "route_ns": 8.611,
+        "levels": 45.0
+      },
+      {
+        "slack_ns": 1.185,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_11_cmd_reg[2]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_out_pipe_b_12_mantissa_reg[6]/D",
+        "data_delay_ns": 12.79,
+        "logic_ns": 4.384,
+        "route_ns": 8.406,
+        "levels": 52.0
+      },
+      {
+        "slack_ns": 1.186,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[4]_rep/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_530_exp_reg[1]/D",
+        "data_delay_ns": 12.49,
+        "logic_ns": 3.826,
+        "route_ns": 8.664,
+        "levels": 44.0
+      },
+      {
+        "slack_ns": 1.186,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_11_cmd_reg[2]/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_out_pipe_b_12_mantissa_reg[14]/D",
+        "data_delay_ns": 12.79,
+        "logic_ns": 4.439,
+        "route_ns": 8.351,
+        "levels": 52.0
+      },
+      {
+        "slack_ns": 1.186,
+        "source": "dutDomain/fsa/fsa/sa/mesh_14_4/reg_mantissa_reg[0]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_670_mantissa_reg[22]/D",
+        "data_delay_ns": 12.855,
+        "logic_ns": 3.836,
+        "route_ns": 9.019,
+        "levels": 41.0
+      },
+      {
+        "slack_ns": 1.187,
+        "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_1026_mantissa_reg[3]/D",
+        "data_delay_ns": 12.848,
+        "logic_ns": 3.703,
+        "route_ns": 9.145,
+        "levels": 42.0
+      },
+      {
+        "slack_ns": 1.192,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem/banks_subBanks_sram_mem_ext/mem_0_0/ram_R_0_addr_pipe_0_reg[1]_rep__2/C",
+        "destination": "dutDomain/fsa/fsa/sa/pipe_b_533_exp_reg[0]/D",
+        "data_delay_ns": 12.547,
+        "logic_ns": 4.397,
+        "route_ns": 8.15,
+        "levels": 45.0
+      }
+    ],
+    "global_timing": {
+      "wns_ns": 0.036,
+      "tns_ns": 0.0,
+      "setup_failing_endpoints": 0.0,
+      "setup_endpoints": 194176.0,
+      "whs_ns": 0.01,
+      "ths_ns": 0.0,
+      "hold_failing_endpoints": 0.0
+    },
+    "resources": {
+      "total_luts": 357004,
+      "logic_luts": 351114,
+      "lutram": 4958,
+      "srl": 932,
+      "ff": 71324,
+      "ramb36": 52,
+      "ramb18": 0,
+      "uram": 0,
+      "dsp": 288
+    },
+    "drc": {
+      "DPIP-2": {
+        "severity": "Warning",
+        "count": 528
+      },
+      "DPOP-3": {
+        "severity": "Warning",
+        "count": 272
+      },
+      "DPOP-4": {
+        "severity": "Warning",
+        "count": 288
+      },
+      "REQP-1852": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "RTSTAT-10": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "CIVCHK-3": {
+        "severity": "Advisory",
+        "count": 1
+      },
+      "CIVCHK-4": {
+        "severity": "Advisory",
+        "count": 1
+      },
+      "REQP-1858": {
+        "severity": "Advisory",
+        "count": 22
+      }
+    },
+    "top100_path_families": {
+      "PE": {
+        "count": 89,
+        "worst_slack_ns": 0.878
+      },
+      "spRAM_to_PE": {
+        "count": 7,
+        "worst_slack_ns": 1.102
+      },
+      "CMP": {
+        "count": 4,
+        "worst_slack_ns": 1.115
+      }
+    },
+    "worst_path_logic_composition": "43  (CARRY8=11 LUT2=4 LUT3=6 LUT4=3 LUT5=4 LUT6=15)",
+    "route_status": {
+      "routable": 469234,
+      "fully_routed": 469234,
+      "errors": 0
+    },
+    "shiftjam_hierarchy": {
+      "instances": 0,
+      "luts": null,
+      "ff": null,
+      "note": "No separate hierarchy retained; not zero hardware cost"
+    },
+    "dsp_registers": {
+      "0/1/1/0/0": 16,
+      "0/1/1/0/1": 16,
+      "0/0/1/0/0": 256
+    },
+    "cdc_counts": {
+      "CDC-3": {
+        "severity": "Info",
+        "count": 77
+      },
+      "CDC-7": {
+        "severity": "Critical",
+        "count": 12
+      },
+      "CDC-8": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "CDC-9": {
+        "severity": "Info",
+        "count": 22
+      },
+      "CDC-10": {
+        "severity": "Critical",
+        "count": 2
+      },
+      "CDC-11": {
+        "severity": "Critical",
+        "count": 16
+      },
+      "CDC-15": {
+        "severity": "Warning",
+        "count": 170
+      }
+    }
+  },
+  "candidate_A100": {
+    "part": "xcvu37p_CIV-fsvh2892-2L-e",
+    "dut_period": "10.000",
+    "dut_setup_wns": "0.534",
+    "dut_hold_whs": "0.010",
+    "global_timing": {
+      "wns_ns": 0.049,
+      "tns_ns": 0.0,
+      "setup_failing_endpoints": 0.0,
+      "setup_endpoints": 265381.0,
+      "whs_ns": 0.01,
+      "ths_ns": 0.0,
+      "hold_failing_endpoints": 0.0
+    },
+    "resources": {
+      "total_luts": 355692,
+      "logic_luts": 350958,
+      "lutram": 3774,
+      "srl": 960,
+      "ff": 140263,
+      "ramb36": 60,
+      "ramb18": 0,
+      "uram": 0,
+      "dsp": 288
+    },
+    "route_status": {
+      "routable": 497497,
+      "fully_routed": 497497,
+      "errors": 0
+    },
+    "setup_paths": [
+      {
+        "slack_ns": 0.534,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_8/io_d_output_valid_REG_reg/D",
+        "data_delay_ns": 9.082,
+        "logic_ns": 0.175,
+        "route_ns": 8.907,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[19]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[7]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[8]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[19]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[7]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.538,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[8]/R",
+        "data_delay_ns": 8.841,
+        "logic_ns": 0.129,
+        "route_ns": 8.712,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[10]/R",
+        "data_delay_ns": 8.826,
+        "logic_ns": 0.129,
+        "route_ns": 8.697,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[17]/R",
+        "data_delay_ns": 8.826,
+        "logic_ns": 0.129,
+        "route_ns": 8.697,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[10]/R",
+        "data_delay_ns": 8.826,
+        "logic_ns": 0.129,
+        "route_ns": 8.697,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[17]/R",
+        "data_delay_ns": 8.826,
+        "logic_ns": 0.129,
+        "route_ns": 8.697,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[12]/R",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.129,
+        "route_ns": 8.699,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.55,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[12]/R",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.129,
+        "route_ns": 8.699,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.562,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[13]/R",
+        "data_delay_ns": 8.816,
+        "logic_ns": 0.129,
+        "route_ns": 8.687,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.562,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[14]/R",
+        "data_delay_ns": 8.816,
+        "logic_ns": 0.129,
+        "route_ns": 8.687,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.566,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[15]/R",
+        "data_delay_ns": 9.15,
+        "logic_ns": 0.183,
+        "route_ns": 8.967,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.566,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[15]/R",
+        "data_delay_ns": 9.15,
+        "logic_ns": 0.183,
+        "route_ns": 8.967,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.568,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_5/expIndex_reg[0]/R",
+        "data_delay_ns": 8.837,
+        "logic_ns": 0.228,
+        "route_ns": 8.609,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.568,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_5/expIndex_reg[1]/R",
+        "data_delay_ns": 8.837,
+        "logic_ns": 0.228,
+        "route_ns": 8.609,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.568,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_5/expIndex_reg[2]/R",
+        "data_delay_ns": 8.837,
+        "logic_ns": 0.228,
+        "route_ns": 8.609,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.574,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[15]/R",
+        "data_delay_ns": 8.803,
+        "logic_ns": 0.129,
+        "route_ns": 8.674,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.574,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[13]/R",
+        "data_delay_ns": 8.803,
+        "logic_ns": 0.129,
+        "route_ns": 8.674,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.574,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[14]/R",
+        "data_delay_ns": 8.803,
+        "logic_ns": 0.129,
+        "route_ns": 8.674,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.574,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[15]/R",
+        "data_delay_ns": 8.803,
+        "logic_ns": 0.129,
+        "route_ns": 8.674,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.597,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[4]/S",
+        "data_delay_ns": 9.127,
+        "logic_ns": 0.183,
+        "route_ns": 8.944,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.597,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[7]/S",
+        "data_delay_ns": 9.127,
+        "logic_ns": 0.183,
+        "route_ns": 8.944,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.597,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_exp_reg[5]/S",
+        "data_delay_ns": 9.127,
+        "logic_ns": 0.183,
+        "route_ns": 8.944,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.597,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_exp_reg[7]/S",
+        "data_delay_ns": 9.127,
+        "logic_ns": 0.183,
+        "route_ns": 8.944,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.599,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[0]/S",
+        "data_delay_ns": 9.126,
+        "logic_ns": 0.183,
+        "route_ns": 8.943,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.599,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_exp_reg[0]/S",
+        "data_delay_ns": 9.126,
+        "logic_ns": 0.183,
+        "route_ns": 8.943,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.609,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[1]/S",
+        "data_delay_ns": 9.114,
+        "logic_ns": 0.183,
+        "route_ns": 8.931,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.609,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[5]/S",
+        "data_delay_ns": 9.114,
+        "logic_ns": 0.183,
+        "route_ns": 8.931,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.609,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_exp_reg[6]/S",
+        "data_delay_ns": 9.114,
+        "logic_ns": 0.183,
+        "route_ns": 8.931,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.609,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_exp_reg[1]/S",
+        "data_delay_ns": 9.114,
+        "logic_ns": 0.183,
+        "route_ns": 8.931,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.609,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_exp_reg[6]/S",
+        "data_delay_ns": 9.114,
+        "logic_ns": 0.183,
+        "route_ns": 8.931,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.628,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_exp_reg[6]/S",
+        "data_delay_ns": 8.762,
+        "logic_ns": 0.129,
+        "route_ns": 8.633,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.628,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_exp_reg[6]/S",
+        "data_delay_ns": 8.762,
+        "logic_ns": 0.129,
+        "route_ns": 8.633,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.635,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_exp_reg[5]/S",
+        "data_delay_ns": 8.742,
+        "logic_ns": 0.129,
+        "route_ns": 8.613,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.635,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[21]/R",
+        "data_delay_ns": 8.742,
+        "logic_ns": 0.129,
+        "route_ns": 8.613,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.635,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_exp_reg[5]/S",
+        "data_delay_ns": 8.742,
+        "logic_ns": 0.129,
+        "route_ns": 8.613,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.635,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[21]/R",
+        "data_delay_ns": 8.742,
+        "logic_ns": 0.129,
+        "route_ns": 8.613,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.64,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_exp_reg[1]/S",
+        "data_delay_ns": 8.749,
+        "logic_ns": 0.129,
+        "route_ns": 8.62,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.647,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[16]/R",
+        "data_delay_ns": 8.728,
+        "logic_ns": 0.129,
+        "route_ns": 8.599,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.647,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[16]/R",
+        "data_delay_ns": 8.728,
+        "logic_ns": 0.129,
+        "route_ns": 8.599,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.684,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[20]/R",
+        "data_delay_ns": 8.701,
+        "logic_ns": 0.129,
+        "route_ns": 8.572,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.684,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[4]/R",
+        "data_delay_ns": 8.701,
+        "logic_ns": 0.129,
+        "route_ns": 8.572,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.684,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[20]/R",
+        "data_delay_ns": 8.701,
+        "logic_ns": 0.129,
+        "route_ns": 8.572,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.684,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[4]/R",
+        "data_delay_ns": 8.701,
+        "logic_ns": 0.129,
+        "route_ns": 8.572,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.685,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_exp_reg[5]/S",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.227,
+        "route_ns": 8.601,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.685,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_exp_reg[7]/S",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.227,
+        "route_ns": 8.601,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.685,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/oldMax_exp_reg[5]/S",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.227,
+        "route_ns": 8.601,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.685,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/oldMax_exp_reg[7]/S",
+        "data_delay_ns": 8.828,
+        "logic_ns": 0.227,
+        "route_ns": 8.601,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.687,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[1]/R",
+        "data_delay_ns": 8.69,
+        "logic_ns": 0.129,
+        "route_ns": 8.561,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.687,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[1]/R",
+        "data_delay_ns": 8.69,
+        "logic_ns": 0.129,
+        "route_ns": 8.561,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.694,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[6]/R",
+        "data_delay_ns": 8.689,
+        "logic_ns": 0.129,
+        "route_ns": 8.56,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.696,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[9]/R",
+        "data_delay_ns": 8.688,
+        "logic_ns": 0.129,
+        "route_ns": 8.559,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.696,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[6]/R",
+        "data_delay_ns": 8.688,
+        "logic_ns": 0.129,
+        "route_ns": 8.559,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.696,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[9]/R",
+        "data_delay_ns": 8.688,
+        "logic_ns": 0.129,
+        "route_ns": 8.559,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.697,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[3]/R",
+        "data_delay_ns": 8.684,
+        "logic_ns": 0.129,
+        "route_ns": 8.555,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.697,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[5]/R",
+        "data_delay_ns": 8.684,
+        "logic_ns": 0.129,
+        "route_ns": 8.555,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.697,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[3]/R",
+        "data_delay_ns": 8.684,
+        "logic_ns": 0.129,
+        "route_ns": 8.555,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.697,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[5]/R",
+        "data_delay_ns": 8.684,
+        "logic_ns": 0.129,
+        "route_ns": 8.555,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.703,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_mantissa_reg[18]/R",
+        "data_delay_ns": 8.811,
+        "logic_ns": 0.227,
+        "route_ns": 8.584,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.703,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/oldMax_mantissa_reg[18]/R",
+        "data_delay_ns": 8.811,
+        "logic_ns": 0.227,
+        "route_ns": 8.584,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.707,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_4/expIndex_reg[0]/R",
+        "data_delay_ns": 8.814,
+        "logic_ns": 0.169,
+        "route_ns": 8.645,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.707,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_4/expIndex_reg[1]/R",
+        "data_delay_ns": 8.814,
+        "logic_ns": 0.169,
+        "route_ns": 8.645,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.707,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_0_4/expIndex_reg[2]/R",
+        "data_delay_ns": 8.814,
+        "logic_ns": 0.169,
+        "route_ns": 8.645,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.709,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[0]/R",
+        "data_delay_ns": 8.671,
+        "logic_ns": 0.129,
+        "route_ns": 8.542,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.709,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[11]/R",
+        "data_delay_ns": 8.671,
+        "logic_ns": 0.129,
+        "route_ns": 8.542,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.709,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[0]/R",
+        "data_delay_ns": 8.671,
+        "logic_ns": 0.129,
+        "route_ns": 8.542,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.709,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[11]/R",
+        "data_delay_ns": 8.671,
+        "logic_ns": 0.129,
+        "route_ns": 8.542,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.713,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[21]/R",
+        "data_delay_ns": 9.008,
+        "logic_ns": 0.183,
+        "route_ns": 8.825,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.713,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[9]/R",
+        "data_delay_ns": 9.008,
+        "logic_ns": 0.183,
+        "route_ns": 8.825,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.713,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[21]/R",
+        "data_delay_ns": 9.008,
+        "logic_ns": 0.183,
+        "route_ns": 8.825,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.713,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[9]/R",
+        "data_delay_ns": 9.008,
+        "logic_ns": 0.183,
+        "route_ns": 8.825,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.715,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_exp_reg[0]/S",
+        "data_delay_ns": 8.806,
+        "logic_ns": 0.227,
+        "route_ns": 8.579,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.715,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_exp_reg[1]/S",
+        "data_delay_ns": 8.806,
+        "logic_ns": 0.227,
+        "route_ns": 8.579,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.715,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/newMax_exp_reg[3]/S",
+        "data_delay_ns": 8.806,
+        "logic_ns": 0.227,
+        "route_ns": 8.579,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.715,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/oldMax_exp_reg[0]/S",
+        "data_delay_ns": 8.806,
+        "logic_ns": 0.227,
+        "route_ns": 8.579,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.715,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_4/oldMax_exp_reg[3]/S",
+        "data_delay_ns": 8.806,
+        "logic_ns": 0.227,
+        "route_ns": 8.579,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.72,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[1]/R",
+        "data_delay_ns": 8.987,
+        "logic_ns": 0.183,
+        "route_ns": 8.804,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.72,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[1]/R",
+        "data_delay_ns": 8.987,
+        "logic_ns": 0.183,
+        "route_ns": 8.804,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.724,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[4]/R",
+        "data_delay_ns": 8.993,
+        "logic_ns": 0.183,
+        "route_ns": 8.81,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.724,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[4]/R",
+        "data_delay_ns": 8.993,
+        "logic_ns": 0.183,
+        "route_ns": 8.81,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.727,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[11]/R",
+        "data_delay_ns": 8.992,
+        "logic_ns": 0.183,
+        "route_ns": 8.809,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.727,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[2]/R",
+        "data_delay_ns": 8.992,
+        "logic_ns": 0.183,
+        "route_ns": 8.809,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.727,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[11]/R",
+        "data_delay_ns": 8.992,
+        "logic_ns": 0.183,
+        "route_ns": 8.809,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.727,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[2]/R",
+        "data_delay_ns": 8.992,
+        "logic_ns": 0.183,
+        "route_ns": 8.809,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.728,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/io_d_output_valid_REG_reg/D",
+        "data_delay_ns": 8.752,
+        "logic_ns": 0.202,
+        "route_ns": 8.55,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.732,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_14_7/expIndex_reg[0]/R",
+        "data_delay_ns": 8.673,
+        "logic_ns": 0.177,
+        "route_ns": 8.496,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.732,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_14_7/expIndex_reg[1]/R",
+        "data_delay_ns": 8.673,
+        "logic_ns": 0.177,
+        "route_ns": 8.496,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.732,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/mesh_14_7/expIndex_reg[2]/R",
+        "data_delay_ns": 8.673,
+        "logic_ns": 0.177,
+        "route_ns": 8.496,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.733,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_mantissa_reg[2]/R",
+        "data_delay_ns": 8.653,
+        "logic_ns": 0.129,
+        "route_ns": 8.524,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.733,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_mantissa_reg[2]/R",
+        "data_delay_ns": 8.653,
+        "logic_ns": 0.129,
+        "route_ns": 8.524,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.741,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[13]/R",
+        "data_delay_ns": 8.976,
+        "logic_ns": 0.183,
+        "route_ns": 8.793,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.741,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/newMax_mantissa_reg[3]/R",
+        "data_delay_ns": 8.976,
+        "logic_ns": 0.183,
+        "route_ns": 8.793,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.741,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[13]/R",
+        "data_delay_ns": 8.976,
+        "logic_ns": 0.183,
+        "route_ns": 8.793,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.741,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_10/oldMax_mantissa_reg[3]/R",
+        "data_delay_ns": 8.976,
+        "logic_ns": 0.183,
+        "route_ns": 8.793,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.742,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/newMax_exp_reg[2]/S",
+        "data_delay_ns": 8.641,
+        "logic_ns": 0.129,
+        "route_ns": 8.512,
+        "levels": 1.0
+      },
+      {
+        "slack_ns": 0.742,
+        "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+        "destination": "dutDomain/fsa/fsa/sa/cmp_array_5/oldMax_exp_reg[2]/S",
+        "data_delay_ns": 8.641,
+        "logic_ns": 0.129,
+        "route_ns": 8.512,
+        "levels": 1.0
+      }
+    ],
+    "top100_path_families": {
+      "CMP": {
+        "count": 91,
+        "worst_slack_ns": 0.534
+      },
+      "PE": {
+        "count": 9,
+        "worst_slack_ns": 0.568
+      }
+    },
+    "bus_skew_worst_ns": 3.142,
+    "drc": {
+      "DPIP-2": {
+        "severity": "Warning",
+        "count": 528
+      },
+      "DPOP-3": {
+        "severity": "Warning",
+        "count": 272
+      },
+      "DPOP-4": {
+        "severity": "Warning",
+        "count": 288
+      },
+      "REQP-1852": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "RTSTAT-10": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "CIVCHK-3": {
+        "severity": "Advisory",
+        "count": 1
+      },
+      "CIVCHK-4": {
+        "severity": "Advisory",
+        "count": 1
+      },
+      "REQP-1858": {
+        "severity": "Advisory",
+        "count": 22
+      }
+    },
+    "cdc": {
+      "CDC-3": {
+        "severity": "Info",
+        "count": 77
+      },
+      "CDC-7": {
+        "severity": "Critical",
+        "count": 12
+      },
+      "CDC-8": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "CDC-9": {
+        "severity": "Info",
+        "count": 22
+      },
+      "CDC-10": {
+        "severity": "Critical",
+        "count": 2
+      },
+      "CDC-11": {
+        "severity": "Critical",
+        "count": 16
+      },
+      "CDC-15": {
+        "severity": "Warning",
+        "count": 172
+      }
+    }
+  },
+  "resource_delta": {
+    "total_luts": -1312,
+    "logic_luts": -156,
+    "lutram": -1184,
+    "srl": 28,
+    "ff": 68939,
+    "ramb36": 8,
+    "ramb18": 0,
+    "uram": 0,
+    "dsp": 0
+  },
+  "constrained_sta_and_route_passed": true,
+  "board_signoff": false
+}

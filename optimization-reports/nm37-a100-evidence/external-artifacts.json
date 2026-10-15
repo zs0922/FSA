@@ -1,0 +1,18 @@
+{
+  "nm37-m1-board/bitstream/NM37_A100.bit": {
+    "sha256": "f698413a3379cdc2b1155fbce9dc4acdb417935f711058654e2663151659c0cf",
+    "bytes": 84989293
+  },
+  "nm37-m1-pipeline/NM37_M1_PIPELINE_evidence.tar.gz": {
+    "sha256": "a1d919e17fb207da24c9552f19a9c4c577a73a0379e5e3fb7e66a1a467a2f275",
+    "bytes": 1353388223
+  },
+  "nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp": {
+    "sha256": "a1c9761a3fb89932eadae363cbf33545d8115f704cd7d13590f9a77e1e17942f",
+    "bytes": 250587117
+  },
+  "nm37-m1-pipeline/metadata/generator-preserved.jar": {
+    "sha256": "55d04ff753195966be9d0cec4eac68cc61c9e5907a3354814e4fa321a21794d4",
+    "bytes": 430783117
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "review_utc": "2026-10-13T17:17:40.090208+00:00",
+  "scope": "Independent read-only comparison of actual post-route report contents; no Vivado execution and no RTL, scripts or manifest changes.",
+  "sources": {
+    "baseline_cdc": {
+      "path": "nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+      "sha256": "2f12c025a20831391aeace3a4d636a5693ae851f0fe7020c012f049b7bfabe03"
+    },
+    "baseline_check_timing": {
+      "path": "nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+      "sha256": "8fa06e0232fa014d3edfe77505260186a7626340ca35cd0525882af3cf2565bf"
+    },
+    "baseline_drc": {
+      "path": "nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/drc.txt",
+      "sha256": "bf6e5334581bfa49599ea45c8f6fa8b3c7c0c9ca8c2ab8ca53e35852a293db15"
+    },
+    "baseline_reset_wrangler_rtl": {
+      "path": "nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+      "sha256": "efe56645201fdd621a9463b428e7c54fee03fa1eb855a8555fb1ba6a0b1217a8"
+    },
+    "candidate_cdc": {
+      "path": "nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+      "sha256": "e24982eac0072297be34cd55f32a97dd8ea9062cf2ada3588d71885a61cd9273"
+    },
+    "candidate_check_timing": {
+      "path": "nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+      "sha256": "4b75a227fd684f6f50683e3406ba9e31903fbe4c8183d32d93be60c4e38d5b25"
+    },
+    "candidate_drc": {
+      "path": "nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/drc.txt",
+      "sha256": "50eaca02f4ff1114ccf350bea458898f97176d1e7abd50e306dcc987a573d6fb"
+    },
+    "candidate_reset_wrangler_rtl": {
+      "path": "nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+      "sha256": "ef9f89e8d3f0ed139e1a77d6a7da5c2dcb7b10d5c2ccd68007730e28ec2f4c80"
+    },
+    "reset_wrangler_scala": {
+      "path": "generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala",
+      "sha256": "5d1e214912c027e3ca96356532c6ee2704e35b0edc8542e6e236817930d6138b"
+    }
+  },
+  "cdc": {
+    "baseline_rows": 300,
+    "candidate_rows": 302,
+    "baseline_counts": {
+      "CDC-3": 77,
+      "CDC-9": 22,
+      "CDC-8": 1,
+      "CDC-7": 12,
+      "CDC-10": 2,
+      "CDC-15": 170,
+      "CDC-11": 16
+    },
+    "candidate_counts": {
+      "CDC-3": 77,
+      "CDC-9": 22,
+      "CDC-8": 1,
+      "CDC-7": 12,
+      "CDC-10": 2,
+      "CDC-15": 172,
+      "CDC-11": 16
+    },
+    "critical_count_baseline": 30,
+    "critical_count_candidate": 30,
+    "critical_full_fields_identical": true,
+    "comparison_fields": [
+      "id",
+      "severity",
+      "source_clock",
+      "destination_clock",
+      "cdc_type",
+      "depth",
+      "exception",
+      "source",
+      "destination"
+    ],
+    "added": [
+      {
+        "id": "CDC-15",
+        "severity": "Warning",
+        "source_clock": "_pcie_io_clocks_axi_aclk",
+        "destination_clock": "clk_out1_harnessSysPLL",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "destination": "wrangler/debounced_debounce/reg_0_reg[13]/CLR"
+      },
+      {
+        "id": "CDC-15",
+        "severity": "Warning",
+        "source_clock": "sys_clock",
+        "destination_clock": "clk_out1_harnessSysPLL",
+        "cdc_type": "User Ignored",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "wrangler/debounced_debounce/reg_0_reg[13]/CLR"
+      }
+    ],
+    "removed": [],
+    "explanation": "ResetWrangler default debounce is 100000ns. Generated baseline has 7000-tick threshold (13h1B58), AsyncResetRegVec_w13_i0; candidate has 10000-tick threshold (14h2710), AsyncResetRegVec_w14_i0. The 70MHz-to-100MHz clock change expands the same shell debounce counter by one real bit. Its bit13 CLR gains the same two asynchronous reset sources already feeding bits0..12; this is a parameter-driven shell reset-boundary expansion, not an unidentified remapping.",
+    "critical_boundaries": {
+      "CDC_7": "12 identical asynchronous reset paths: external prst_n and power-on reset to PCIe user/pipe-clock reset state, plus PCIe user reset and power-on reset to wrangler deglitch.",
+      "CDC_10": "2 identical power-on-reset paths to PCIe user_lnk_up/user_reset synchronizers.",
+      "CDC_11": "16 identical pipe_clk-to-xdma_ref_clk paths: eight GT lanes times rate/cdr-control and receiver-detect synchronization."
+    }
+  },
+  "check_timing": {
+    "body_identical_excluding_report_header": true,
+    "unconstrained_internal_endpoints": 30,
+    "constant_clock_endpoints": "Unused HBM AXI interfaces1..15 BREADY and RREADY, both reports list the same30 pins.",
+    "unconstrained_for_maximum_delay_without_constant_clock": 0,
+    "no_input_delay": 1,
+    "no_input_delay_port": "prst_n",
+    "other_check_categories_zero": true
+  },
+  "drc": {
+    "baseline_total": 1114,
+    "candidate_total": 1114,
+    "rules": [
+      {
+        "rule": "CIVCHK-3",
+        "baseline_count": 1,
+        "candidate_count": 1,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "CIVCHK-4",
+        "baseline_count": 1,
+        "candidate_count": 1,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "DPIP-2",
+        "baseline_count": 528,
+        "candidate_count": 528,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "DPOP-3",
+        "baseline_count": 272,
+        "candidate_count": 272,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "DPOP-4",
+        "baseline_count": 288,
+        "candidate_count": 288,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "REQP-1852",
+        "baseline_count": 1,
+        "candidate_count": 1,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "REQP-1858",
+        "baseline_count": 22,
+        "candidate_count": 22,
+        "detail_bodies_equal": true
+      },
+      {
+        "rule": "RTSTAT-10",
+        "baseline_count": 1,
+        "candidate_count": 1,
+        "detail_bodies_equal": false
+      }
+    ],
+    "error_or_critical_rule_count": 0,
+    "other1113_detail_bodies_identical": true,
+    "RTSTAT_10": {
+      "rule_violation_count_baseline": 1,
+      "rule_violation_count_candidate": 1,
+      "no_routable_load_net_count_baseline": 89,
+      "no_routable_load_net_count_candidate": 81,
+      "listed_bus_or_net_count_baseline": 37,
+      "listed_bus_or_net_count_candidate": 29,
+      "baseline_visible_FSA_nets": [
+        "dutDomain/fsa/fsa/sa/pipe_b_100_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_122_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_180_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_184_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_196_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_50_acc_ui",
+        "dutDomain/fsa/fsa/sa/pipe_b_66_acc_ui"
+      ],
+      "candidate_visible_first15_contains_FSA": false,
+      "candidate_visible_examples": [
+        "masterClockConverter/.../gread_ch.grach2.axi_rach/grf.rf/rstblk/rd_rst_reg[2:0]",
+        "pcie/blackbox/inst/udma_wrapper/dma_top/dma_enable.vul_dma/RD/gen_rdwr_loop[0].gen_rdwr_eng.RDWR_INST/pclk_reg_adr[7]"
+      ],
+      "limit": "Both default reports show only first15 entries. Complete no-load endpoint additions/removals cannot be enumerated from these report files alone. Do not describe all DRC content as unchanged."
+    }
+  },
+  "limitations": [
+    "Unchanged CDC Critical classifications remain unresolved; matching reports do not prove CDC/reset board-level safety.",
+    "Constant-clock HBM pins and missing prst_n input delay remain present; this comparison does not waive those constraints.",
+    "Identical DSP pipeline DRC warnings do not imply DSP input/MREG/PREG registers were newly enabled.",
+    "This report compares recorded paths and warnings; it makes no hardware board signoff claim."
+  ]
+}

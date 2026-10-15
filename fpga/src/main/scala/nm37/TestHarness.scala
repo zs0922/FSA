@@ -34,7 +34,7 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
 
   val wrangler = LazyModule(new ResetWrangler)
 
-  val dutFreqMHz = 70
+  val dutFreqMHz = NM37DUTClock.frequencyMHz
   val dutFixedClockNode = FixedClockBroadcast()
   val dutClockGroup = ClockGroup()
   val dutClockNode = ClockSinkNode(freqMHz = dutFreqMHz, jitterPS = 230)

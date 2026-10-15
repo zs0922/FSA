@@ -1,0 +1,349 @@
+{
+  "review_type": "independent read-only post-route data/control path audit",
+  "created_utc": "2026-10-13T17:31:07.665488+00:00",
+  "candidate": "nm37-m1-pipeline/A100",
+  "candidate_dut_clock": "clk_out1_harnessSysPLL",
+  "candidate_dut_clock_period_ns": 10.0,
+  "baseline": "nm37-m1-shiftjam/A",
+  "baseline_dut_clock_period_ns": 14.286,
+  "implementation_scope": "Existing routed DCP; no build, implementation optimization, timing constraint change or checkpoint write was performed by this review. The parent executed a separate read-only open_checkpoint/report query process.",
+  "query_script": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/scripts/audit_data_paths.tcl",
+    "sha256": "97b1c1f0ff27a05b02aba95414bb04356bc221ffb45c5f0a95a051c55f01b783",
+    "checkpoint_open_command": "open_checkpoint"
+  },
+  "audit_execution_log": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2.log",
+    "sha256": "f5cb03509d24ac6ade34ef2dbff5b99752ffb8c0d778afeffd12147211e718fc",
+    "observed_completion": "Read-only mapped data/control timing audit complete; Vivado exit recorded."
+  },
+  "scope_file": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/scope.txt",
+    "sha256": "f02b6ffe2945e3177faa0e5f2e31b029af759a645e320c76a98c1f815a28d0ba",
+    "text": "checkpoint=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp\nclock=clk_out1_harnessSysPLL\nclock_period_ns=10.000\nexcluded_source_and_target_pattern=*reset_catcher*\nOnly DUT-clock sequential primitives returned by all_registers are queried. Primary input/output paths and other clock domains are outside this scope.\nNon-reset means only reset_catcher primitives are excluded; other reset/control/data sources remain eligible.\nReports contain worst paths within each named query, not exhaustive path enumeration.\nPE/CMP hierarchy queries include local control and data registers. After-add queries target or launch at the exact adderOutAbs register banks.\nScratchpad data paths must traverse DO*/O* output pins of mapped RAM* primitives under spRAM_sram; both BRAM and distributed RAM mapping are supported.\ndut_regs.count=117534\nexcluded_regs.count=4\ndut_nonreset.count=117530\npe_cells.count=70774\ncmp_cells.count=3520\nsp_mem_cells.count=8\npe_regs.count=70774\ncmp_regs.count=3520\npe_add_regs.count=26199\ncmp_add_regs.count=1200\ncmp_max_regs.count=512\nsp_data_pins.count=576\n",
+    "object_counts": {
+      "dut_regs": 117534,
+      "excluded_regs": 4,
+      "dut_nonreset": 117530,
+      "pe_cells": 70774,
+      "cmp_cells": 3520,
+      "sp_mem_cells": 8,
+      "pe_regs": 70774,
+      "cmp_regs": 3520,
+      "pe_add_regs": 26199,
+      "cmp_add_regs": 1200,
+      "cmp_max_regs": 512,
+      "sp_data_pins": 576
+    }
+  },
+  "reports": {
+    "nonreset_top100": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/nonreset_top100.txt",
+      "sha256": "1a63b53d68462bf525c76b54e47cf787bfbc83ffc89cb2cc9c6b74253f1dce6c",
+      "scope": "All DUT-clock all_registers sequential source and target primitives, excluding names matching *reset_catcher*.",
+      "reported_paths": 100,
+      "minimum_reported_slack_ns": 1.457,
+      "maximum_reported_slack_ns": 1.727,
+      "first_path": {
+        "slack_ns": 1.457,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_43_exp2_reg/C",
+        "target": "dutDomain/fsa/fsa/sa/mesh_1_12/macUnit/mulAddExp2/fma/adderOutAbs_reg[53]_bret/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 8.398,
+        "logic_delay_ns": 2.341,
+        "routed_delay_ns": 6.057,
+        "logic_levels": 27,
+        "logic_level_breakdown": "27  (CARRY8=9 LUT2=4 LUT3=4 LUT6=10)",
+        "clock_path_skew": "-0.088ns (DCD - SCD + CPR)"
+      }
+    },
+    "pe_from_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/pe_from_top20.txt",
+      "sha256": "d6b6b426e93f17e1818a4de060dd37c62096b294ca93404e7d38ecdae0f19b13",
+      "scope": "Sources in PE mesh hierarchy; targets all non-reset-catcher DUT-clock sequential primitives. PE local data and control sources remain eligible.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 1.565,
+      "maximum_reported_slack_ns": 1.645,
+      "first_path": {
+        "slack_ns": 1.565,
+        "source": "dutDomain/fsa/fsa/sa/mesh_1_12/reg_exp_reg[0]/C",
+        "target": "dutDomain/fsa/fsa/sa/mesh_1_12/macUnit/mulAddExp2/fma/adderOutAbs_reg[53]_bret/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 8.264,
+        "logic_delay_ns": 2.375,
+        "routed_delay_ns": 5.889,
+        "logic_levels": 27,
+        "logic_level_breakdown": "27  (CARRY8=9 LUT2=3 LUT3=4 LUT4=1 LUT6=10)",
+        "clock_path_skew": "-0.114ns (DCD - SCD + CPR)"
+      }
+    },
+    "pe_to_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/pe_to_top20.txt",
+      "sha256": "a673b7a6e024380dcd88c2b1cb3c4b0f2fd01fe2e5f48dba16186ef8f7911b1c",
+      "scope": "All non-reset-catcher DUT-clock sequential sources to PE mesh hierarchy register targets; includes command/control sources.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 1.457,
+      "maximum_reported_slack_ns": 1.548,
+      "first_path": {
+        "slack_ns": 1.457,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_43_exp2_reg/C",
+        "target": "dutDomain/fsa/fsa/sa/mesh_1_12/macUnit/mulAddExp2/fma/adderOutAbs_reg[53]_bret/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 8.398,
+        "logic_delay_ns": 2.341,
+        "routed_delay_ns": 6.057,
+        "logic_levels": 27,
+        "logic_level_breakdown": "27  (CARRY8=9 LUT2=4 LUT3=4 LUT6=10)",
+        "clock_path_skew": "-0.088ns (DCD - SCD + CPR)"
+      }
+    },
+    "pe_after_add_in_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/pe_after_add_in_top20.txt",
+      "sha256": "9f5092909e210921c898499dc67b8964fc47ad4d423678246b465b5dee1c92da",
+      "scope": "All non-reset-catcher DUT-clock sequential sources to PE adderOutAbs after-add register banks. Includes input-data and command/control sources.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 1.457,
+      "maximum_reported_slack_ns": 1.548,
+      "first_path": {
+        "slack_ns": 1.457,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_43_exp2_reg/C",
+        "target": "dutDomain/fsa/fsa/sa/mesh_1_12/macUnit/mulAddExp2/fma/adderOutAbs_reg[53]_bret/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 8.398,
+        "logic_delay_ns": 2.341,
+        "routed_delay_ns": 6.057,
+        "logic_levels": 27,
+        "logic_level_breakdown": "27  (CARRY8=9 LUT2=4 LUT3=4 LUT6=10)",
+        "clock_path_skew": "-0.088ns (DCD - SCD + CPR)"
+      }
+    },
+    "pe_after_add_out_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/pe_after_add_out_top20.txt",
+      "sha256": "55534e923ce668fa4cd1faf521a62db09aea63cda04c7487b75078114618e5aa",
+      "scope": "PE adderOutAbs after-add register banks to all non-reset-catcher DUT-clock sequential targets, covering normalization/rounding and result routing paths.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 2.804,
+      "maximum_reported_slack_ns": 3.039,
+      "first_path": {
+        "slack_ns": 2.804,
+        "source": "dutDomain/fsa/fsa/sa/mesh_5_11/macUnit/mulAddExp2/fma/adderOutAbs_reg[13]_bret__0/C",
+        "target": "dutDomain/fsa/fsa/sa/pipe_b_885_exp_reg[1]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 7.009,
+        "logic_delay_ns": 1.674,
+        "routed_delay_ns": 5.335,
+        "logic_levels": 17,
+        "logic_level_breakdown": "17  (CARRY8=3 LUT2=3 LUT3=3 LUT5=3 LUT6=5)",
+        "clock_path_skew": "-0.130ns (DCD - SCD + CPR)"
+      }
+    },
+    "cmp_from_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/cmp_from_top20.txt",
+      "sha256": "a1cf121301d3fdfd5fdfe4b5736d66a759b1800db2822aeecceb27ebd1a5ca41",
+      "scope": "CMP hierarchy sequential sources to all non-reset-catcher DUT-clock sequential targets; includes data and local control sources.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 2.505,
+      "maximum_reported_slack_ns": 2.702,
+      "first_path": {
+        "slack_ns": 2.505,
+        "source": "dutDomain/fsa/fsa/sa/cmp_array_15/oldMax_exp_reg[2]/C",
+        "target": "dutDomain/fsa/fsa/sa/cmp_array_15/cmpUnit/fma/rawFMA/adderOutAbs_reg[8]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 7.383,
+        "logic_delay_ns": 2.066,
+        "routed_delay_ns": 5.317,
+        "logic_levels": 25,
+        "logic_level_breakdown": "25  (CARRY8=12 LUT2=1 LUT3=4 LUT5=4 LUT6=4)",
+        "clock_path_skew": "-0.055ns (DCD - SCD + CPR)"
+      }
+    },
+    "cmp_to_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/cmp_to_top20.txt",
+      "sha256": "20ef65f117507041d27101267467ee613d81560269abbf71f9e55e15bc3d88df",
+      "scope": "All non-reset-catcher DUT-clock sequential sources to CMP hierarchy sequential targets.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 2.078,
+      "maximum_reported_slack_ns": 2.272,
+      "first_path": {
+        "slack_ns": 2.078,
+        "source": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_15_exp_reg[4]/C",
+        "target": "dutDomain/fsa/fsa/sa/cmp_array_15/cmpUnit/fma/rawFMA/adderOutAbs_reg[8]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 7.811,
+        "logic_delay_ns": 2.128,
+        "routed_delay_ns": 5.683,
+        "logic_levels": 25,
+        "logic_level_breakdown": "25  (CARRY8=12 LUT2=1 LUT3=4 LUT5=4 LUT6=4)",
+        "clock_path_skew": "-0.054ns (DCD - SCD + CPR)"
+      }
+    },
+    "cmp_after_add_in_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/cmp_after_add_in_top20.txt",
+      "sha256": "46ef64f69b1e564434941f253840dc3d006e37cad258a29332418f660edd5a92",
+      "scope": "All non-reset-catcher DUT-clock sequential sources to CMP difference FMA adderOutAbs after-add register banks.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 2.078,
+      "maximum_reported_slack_ns": 2.272,
+      "first_path": {
+        "slack_ns": 2.078,
+        "source": "dutDomain/fsa/fsa/sa/cmp_in_pipe_b_15_exp_reg[4]/C",
+        "target": "dutDomain/fsa/fsa/sa/cmp_array_15/cmpUnit/fma/rawFMA/adderOutAbs_reg[8]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 7.811,
+        "logic_delay_ns": 2.128,
+        "routed_delay_ns": 5.683,
+        "logic_levels": 25,
+        "logic_level_breakdown": "25  (CARRY8=12 LUT2=1 LUT3=4 LUT5=4 LUT6=4)",
+        "clock_path_skew": "-0.054ns (DCD - SCD + CPR)"
+      }
+    },
+    "cmp_after_add_out_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/cmp_after_add_out_top20.txt",
+      "sha256": "3ba434b3d9882f688a3c6af66be531928fbafde5f6e4f1de3b875b9b607cf5db",
+      "scope": "CMP difference FMA adderOutAbs register banks to all non-reset-catcher DUT-clock sequential targets.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 2.866,
+      "maximum_reported_slack_ns": 2.983,
+      "first_path": {
+        "slack_ns": 2.866,
+        "source": "dutDomain/fsa/fsa/sa/cmp_array_13/cmpUnit/fma/rawFMA/adderOutAbs_reg[19]/C",
+        "target": "dutDomain/fsa/fsa/sa/cmp_out_pipe_b_13_mantissa_reg[9]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 7.005,
+        "logic_delay_ns": 1.886,
+        "routed_delay_ns": 5.119,
+        "logic_levels": 21,
+        "logic_level_breakdown": "21  (CARRY8=4 LUT3=1 LUT4=1 LUT5=4 LUT6=11)",
+        "clock_path_skew": "-0.072ns (DCD - SCD + CPR)"
+      }
+    },
+    "cmp_max_feedback_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/cmp_max_feedback_top20.txt",
+      "sha256": "3f1e4e7d4abb7a8d6cee99d0f991d39c91c2e6ff6771076ce75b540e887c24bd",
+      "scope": "All non-reset-catcher DUT-clock sequential sources to CMP newMax state registers, including command control and comparison data feedback.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 4.231,
+      "maximum_reported_slack_ns": 4.599,
+      "first_path": {
+        "slack_ns": 4.231,
+        "source": "dutDomain/fsa/fsa/sa/pipe_b_14_cmd_reg[1]/C",
+        "target": "dutDomain/fsa/fsa/sa/cmp_array_15/newMax_mantissa_reg[15]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 5.623,
+        "logic_delay_ns": 0.96,
+        "routed_delay_ns": 4.663,
+        "logic_levels": 8,
+        "logic_level_breakdown": "8  (CARRY8=2 LUT5=3 LUT6=3)",
+        "clock_path_skew": "-0.089ns (DCD - SCD + CPR)"
+      }
+    },
+    "scratchpad_data_top20": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/data-path-audit-v2/scratchpad_data_top20.txt",
+      "sha256": "c36271902fd344d41b57f4305c53b776a20afa6d3910e7d1f31182992cfaeb56",
+      "scope": "DUT-clock non-reset-catcher sequential paths traversing DO*/O* output pins of mapped RAM* primitives under spRAM_sram, retaining the full clocked timing path.",
+      "reported_paths": 20,
+      "minimum_reported_slack_ns": 6.401,
+      "maximum_reported_slack_ns": 7.024,
+      "first_path": {
+        "slack_ns": 6.401,
+        "source": "dutDomain/fsa/fsa/spRAM_sram/banks_subBanks_sram_mem_1/banks_subBanks_sram_mem_1_ext/mem_0_0/ram_reg_1/CLKARDCLK",
+        "target": "dutDomain/fsa/fsa/r_10_exp_reg[1]/D",
+        "path_group": "clk_out1_harnessSysPLL",
+        "path_type": "Setup (Max at Slow Process Corner)",
+        "requirement_ns": 10.0,
+        "data_path_delay_ns": 3.274,
+        "logic_delay_ns": 1.198,
+        "routed_delay_ns": 2.076,
+        "logic_levels": 3,
+        "logic_level_breakdown": "3  (LUT3=1 LUT5=2)",
+        "clock_path_skew": "-0.268ns (DCD - SCD + CPR)"
+      }
+    }
+  },
+  "original_dut_top100_classification": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/dut_setup_top100.txt",
+    "sha256": "ef5016f57fdf83b399f642049db2ff530aae0b7061a25df7d8c4eaf740f42b57",
+    "reported_paths": 100,
+    "source_family_counts": {
+      "reset_catcher": 100
+    },
+    "unique_reset_source_pins": [
+      "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C"
+    ],
+    "destination_hierarchy_counts": {
+      "CMP": 91,
+      "PE": 9
+    },
+    "first_path": {
+      "slack_ns": 0.534,
+      "source": "wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C",
+      "target": "dutDomain/fsa/fsa/sa/cmp_array_8/io_d_output_valid_REG_reg/D",
+      "path_group": "clk_out1_harnessSysPLL",
+      "path_type": "Setup (Max at Slow Process Corner)",
+      "requirement_ns": 10.0,
+      "data_path_delay_ns": 9.082,
+      "logic_delay_ns": 0.175,
+      "routed_delay_ns": 8.907,
+      "logic_levels": 1,
+      "logic_level_breakdown": "1  (LUT5=1)",
+      "clock_path_skew": "-0.089ns (DCD - SCD + CPR)"
+    },
+    "interpretation": "All 100 paths launch from reset_catcher synchronizer outputs. Destination hierarchy labels such as CMP=91 and PE=9 classify receiving registers only; they do not identify CMP/PE arithmetic paths. Treat these as reset/control distribution paths."
+  },
+  "baseline_post_route_context": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/dut_setup_top100.txt",
+    "sha256": "b2c21f41ad02f91fad8b45f647d2a3a6db4c4dad7523ebc8e337b58244422de0",
+    "reported_paths": 100,
+    "source_sensitive_classification": {
+      "PE_data_arithmetic": 89,
+      "scratchpad_data_or_address_to_PE": 7,
+      "CMP_command_control_to_difference_result": 4
+    },
+    "first_path": {
+      "slack_ns": 0.878,
+      "source": "dutDomain/fsa/fsa/sa/mesh_13_15/reg_exp_reg[1]/C",
+      "target": "dutDomain/fsa/fsa/sa/pipe_b_1021_exp_reg[1]/D",
+      "path_group": "clk_out1_harnessSysPLL",
+      "path_type": "Setup (Max at Slow Process Corner)",
+      "requirement_ns": 14.286,
+      "data_path_delay_ns": 13.143,
+      "logic_delay_ns": 3.848,
+      "routed_delay_ns": 9.295,
+      "logic_levels": 43,
+      "logic_level_breakdown": "43  (CARRY8=11 LUT2=4 LUT3=6 LUT4=3 LUT5=4 LUT6=15)",
+      "clock_path_skew": "-0.102ns (DCD - SCD + CPR)"
+    },
+    "limitation": "Baseline runs at 70 MHz and has unsplit PE arithmetic; candidate runs at 100 MHz with after-add endpoints. These are observed routed paths in different scopes, not a same-frequency or same-endpoint A/B slack comparison."
+  },
+  "findings": [
+    "Worst non-reset queried path is EXP2 command control -> PE after-add register: slack +1.457 ns, data 8.398 ns = logic 2.341 ns + routed 6.057 ns, 27 levels. Classify its source as command control even though its target lies inside the arithmetic unit.",
+    "Worst PE hierarchy source path is resident exponent -> PE after-add register: slack +1.565 ns, data 8.264 ns, 27 levels. The after-add output group has minimum slack +2.804 ns.",
+    "CMP difference input/output groups have minimum slack +2.078/+2.866 ns. The newMax feedback endpoint group has minimum slack +4.231 ns; its first path launches from a command bit.",
+    "Scratchpad memory data output group has minimum slack +6.401 ns, data 3.274 ns, 3 levels, from BRAM CLKARDCLK to the added FSA data register. It is a real routed data path, not a synthesis routing estimate."
+  ],
+  "second_cut_recommendation": {
+    "add_second_PE_arithmetic_cut": false,
+    "reason": "The completed 100 MHz implementation and all queried non-reset PE/CMP/scratchpad groups have positive setup slack. Existing routed evidence does not justify an additional PE pipeline stage for the 100 MHz requirement. The worst original DUT top100 paths are reset distribution, and a second arithmetic cut would not address those paths.",
+    "scope_limit": "This audit reports the worst paths in the explicitly selected DUT-clock register and memory-output scopes. It does not claim exhaustive enumeration or coverage of primary I/O, other clock domains, all unconstrained timing paths, or bitstream/hardware signoff."
+  }
+}

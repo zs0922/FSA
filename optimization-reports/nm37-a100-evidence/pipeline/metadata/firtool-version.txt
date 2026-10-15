@@ -1,0 +1,4 @@
+LLVM (http://llvm.org/):
+  LLVM version 19.0.0git
+  Optimized build.
+CIRCT firtool-1.75.0

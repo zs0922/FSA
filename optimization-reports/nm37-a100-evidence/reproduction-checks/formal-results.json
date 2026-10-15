@@ -1,0 +1,107 @@
+[
+  {
+    "proof_type": "cmpeq",
+    "top": "PipelineCmpMaxMiter",
+    "all_inputs_equivalent": true,
+    "exit_code": 0,
+    "scope": "all combinational input bit patterns",
+    "method": "combinational SAT",
+    "input_constraints": [],
+    "initial_state_constraints": [],
+    "sat_command": "sat -verify -prove io_mismatch 0 -show-inputs -show-outputs -dump_json counterexample.json -dump_vcd counterexample.vcd",
+    "elapsed_seconds": 0.2704368849990715,
+    "proof_script_sha256": "23f5525a493723b38c653792ce05e8299fefa4e570389b8ac149117ce43287a1",
+    "proof_log_sha256": "c6de904731d160015dfb964e2af67aa35197e1259e148e4c897f2d969d08aad8",
+    "driver_sha256": "829c07ab12e05d45b3cf5fa9a138ade1a1de7c51138b148b5843a1d83a27affc",
+    "proof_input_directory": "formal/proof-inputs/cmpmax",
+    "rtl_sha256": {
+      "PipelineCmpMaxMiter.sv": "0178ed9b644ff9c99f0a8ef6551b957b71f5c5fcadb53ae43e0bea7122c5d598"
+    },
+    "gold": "afterAdd=false",
+    "gate": "afterAdd=true",
+    "source_hashes": {
+      "generators/easyfloat/src/main/scala/easyfloat/Exp2.scala": "6da41727b631e722866149b966da48e781b609098a9e4ed2007a7be94d118405",
+      "generators/easyfloat/src/main/scala/easyfloat/FMA.scala": "b5a4a2470d0338268b6d8a74d96ae9a8f6ab0d6dd0a9f7e19333c11ba4d74dcc",
+      "generators/easyfloat/src/main/scala/easyfloat/RawFloat.scala": "53c51c5aaa9555e818b612325457cba0d061ee04a8b5aa5e00c0e2ddc0966a60",
+      "generators/easyfloat/src/main/scala/easyfloat/Reciprocal.scala": "21572ce52877faa1313c6e38a5bc8b30711f95d572211585059e39d96d83b517",
+      "generators/easyfloat/src/main/scala/easyfloat/Rounding.scala": "62134c6b0a04b130ac0be6a0051fec61b12e2cd7b7404f697f4cb9424d822efc",
+      "generators/easyfloat/src/main/scala/easyfloat/Utils.scala": "8f4f420d54d05f4499d812bb5cdf291300eaad461821ab53da619ace7e574686",
+      "generators/fsa/src/main/scala/fsa/arithmetic/Arithmetic.scala": "0e4c10006f8d91419c35859d8324adc7faa330f4633c1c94285f38e4c78fe9a9",
+      "generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala": "b9eee673c89bc6a904f647600f07604fbbfc04f8e5bd9c4b8143cf15e609d3c4",
+      "generators/fsa/src/main/scala/fsa/sa/CMP.scala": "d4fb2ff22efb096ffd4a8d930b062e986c8b79a8f42debfcfb20e57ade068a89",
+      "generators/fsa/src/main/scala/fsa/sa/PE.scala": "9d23c8e2251ae73482da9322cb8bb44aa83d6dd7e021df2961aa42cb9fd0be5f",
+      "generators/fsa/src/main/scala/fsa/sa/SystolicArray.scala": "f50f9fd7fd0bbdceb0a0803cc524eb15b5edebb2fa82e2eeb184cf67d4a37b91",
+      "generators/fsa/src/test/scala/fsa/PipelineVerification.scala": "2f42524306a4ba6fefe77ed9802a2a8d44c3d177eaaa8fdd584414d3fcdd10d6"
+    }
+  },
+  {
+    "proof_type": "cmpseq",
+    "top": "PipelineCmpMiter",
+    "all_inputs_equivalent": true,
+    "exit_code": 0,
+    "scope": "all cycles after one pipeline transition",
+    "method": "temporal induction from unconstrained initial state",
+    "input_constraints": [],
+    "initial_state_constraints": [],
+    "sat_command": "sat -verify -prove io_mismatch 0 -show-inputs -show-outputs -seq 1 -tempinduct -maxsteps 4 -dump_json counterexample.json -dump_vcd counterexample.vcd",
+    "elapsed_seconds": 2.708074404999934,
+    "proof_script_sha256": "bdc4056415379e23dd08d8c76fb0f8d82cd5beeaf87304325c7a8062db10ead5",
+    "proof_log_sha256": "784de35d8f99569e3c36bca859da8d00c7a2b4b078a78852e877eb3eb51fa768",
+    "driver_sha256": "829c07ab12e05d45b3cf5fa9a138ade1a1de7c51138b148b5843a1d83a27affc",
+    "proof_input_directory": "formal/proof-inputs/cmp",
+    "rtl_sha256": {
+      "PipelineCmpMiter.sv": "65bdd6d52ea870530c730f23dbb62a50ce50129362aeb15a39bc25fb56d1dcc2"
+    },
+    "gold": "afterAdd=false",
+    "gate": "afterAdd=true",
+    "source_hashes": {
+      "generators/easyfloat/src/main/scala/easyfloat/Exp2.scala": "6da41727b631e722866149b966da48e781b609098a9e4ed2007a7be94d118405",
+      "generators/easyfloat/src/main/scala/easyfloat/FMA.scala": "b5a4a2470d0338268b6d8a74d96ae9a8f6ab0d6dd0a9f7e19333c11ba4d74dcc",
+      "generators/easyfloat/src/main/scala/easyfloat/RawFloat.scala": "53c51c5aaa9555e818b612325457cba0d061ee04a8b5aa5e00c0e2ddc0966a60",
+      "generators/easyfloat/src/main/scala/easyfloat/Reciprocal.scala": "21572ce52877faa1313c6e38a5bc8b30711f95d572211585059e39d96d83b517",
+      "generators/easyfloat/src/main/scala/easyfloat/Rounding.scala": "62134c6b0a04b130ac0be6a0051fec61b12e2cd7b7404f697f4cb9424d822efc",
+      "generators/easyfloat/src/main/scala/easyfloat/Utils.scala": "8f4f420d54d05f4499d812bb5cdf291300eaad461821ab53da619ace7e574686",
+      "generators/fsa/src/main/scala/fsa/arithmetic/Arithmetic.scala": "0e4c10006f8d91419c35859d8324adc7faa330f4633c1c94285f38e4c78fe9a9",
+      "generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala": "b9eee673c89bc6a904f647600f07604fbbfc04f8e5bd9c4b8143cf15e609d3c4",
+      "generators/fsa/src/main/scala/fsa/sa/CMP.scala": "d4fb2ff22efb096ffd4a8d930b062e986c8b79a8f42debfcfb20e57ade068a89",
+      "generators/fsa/src/main/scala/fsa/sa/PE.scala": "9d23c8e2251ae73482da9322cb8bb44aa83d6dd7e021df2961aa42cb9fd0be5f",
+      "generators/fsa/src/main/scala/fsa/sa/SystolicArray.scala": "f50f9fd7fd0bbdceb0a0803cc524eb15b5edebb2fa82e2eeb184cf67d4a37b91",
+      "generators/fsa/src/test/scala/fsa/PipelineVerification.scala": "2f42524306a4ba6fefe77ed9802a2a8d44c3d177eaaa8fdd584414d3fcdd10d6"
+    }
+  },
+  {
+    "proof_type": "macseq",
+    "top": "PipelineMacMiter",
+    "all_inputs_equivalent": true,
+    "exit_code": 0,
+    "scope": "all cycles after one pipeline transition",
+    "method": "temporal induction from unconstrained initial state",
+    "input_constraints": [],
+    "initial_state_constraints": [],
+    "sat_command": "sat -verify -prove io_mismatch 0 -show-inputs -show-outputs -seq 1 -tempinduct -maxsteps 4 -dump_json counterexample.json -dump_vcd counterexample.vcd",
+    "elapsed_seconds": 3.265234602997225,
+    "proof_script_sha256": "a55263f230b13cfc33e1719f5535348d51c81d1dfa0a95afdb0b8c44c4d661b3",
+    "proof_log_sha256": "9ea15bdde04a64768115f5a519a0d11be8830ff8bd16f64393a196128fd7a331",
+    "driver_sha256": "829c07ab12e05d45b3cf5fa9a138ade1a1de7c51138b148b5843a1d83a27affc",
+    "proof_input_directory": "formal/proof-inputs/mac",
+    "rtl_sha256": {
+      "PipelineMacMiter.sv": "f19ce588af37bc11baf52eeffc52c657fed4d80c763059abe5bc078e2f6f4007"
+    },
+    "gold": "afterAdd=false",
+    "gate": "afterAdd=true",
+    "source_hashes": {
+      "generators/easyfloat/src/main/scala/easyfloat/Exp2.scala": "6da41727b631e722866149b966da48e781b609098a9e4ed2007a7be94d118405",
+      "generators/easyfloat/src/main/scala/easyfloat/FMA.scala": "b5a4a2470d0338268b6d8a74d96ae9a8f6ab0d6dd0a9f7e19333c11ba4d74dcc",
+      "generators/easyfloat/src/main/scala/easyfloat/RawFloat.scala": "53c51c5aaa9555e818b612325457cba0d061ee04a8b5aa5e00c0e2ddc0966a60",
+      "generators/easyfloat/src/main/scala/easyfloat/Reciprocal.scala": "21572ce52877faa1313c6e38a5bc8b30711f95d572211585059e39d96d83b517",
+      "generators/easyfloat/src/main/scala/easyfloat/Rounding.scala": "62134c6b0a04b130ac0be6a0051fec61b12e2cd7b7404f697f4cb9424d822efc",
+      "generators/easyfloat/src/main/scala/easyfloat/Utils.scala": "8f4f420d54d05f4499d812bb5cdf291300eaad461821ab53da619ace7e574686",
+      "generators/fsa/src/main/scala/fsa/arithmetic/Arithmetic.scala": "0e4c10006f8d91419c35859d8324adc7faa330f4633c1c94285f38e4c78fe9a9",
+      "generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala": "b9eee673c89bc6a904f647600f07604fbbfc04f8e5bd9c4b8143cf15e609d3c4",
+      "generators/fsa/src/main/scala/fsa/sa/CMP.scala": "d4fb2ff22efb096ffd4a8d930b062e986c8b79a8f42debfcfb20e57ade068a89",
+      "generators/fsa/src/main/scala/fsa/sa/PE.scala": "9d23c8e2251ae73482da9322cb8bb44aa83d6dd7e021df2961aa42cb9fd0be5f",
+      "generators/fsa/src/main/scala/fsa/sa/SystolicArray.scala": "f50f9fd7fd0bbdceb0a0803cc524eb15b5edebb2fa82e2eeb184cf67d4a37b91",
+      "generators/fsa/src/test/scala/fsa/PipelineVerification.scala": "2f42524306a4ba6fefe77ed9802a2a8d44c3d177eaaa8fdd584414d3fcdd10d6"
+    }
+  }
+]

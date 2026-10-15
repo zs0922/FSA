@@ -1,0 +1,54 @@
+{
+  "seq": 64,
+  "shape": [
+    64,
+    16
+  ],
+  "array": [
+    16,
+    16
+  ],
+  "seed": 0,
+  "bitwise_equal": true,
+  "all_baseline_candidate_reference_bits_equal": true,
+  "input_hashes": {
+    "inst.bin": "30fafa6720c1d323a1bd4bac416d938fc6e29dfe69da149128bab423cc0b52bd",
+    "mem.elf": "1db076bc7e0ead3945fa37eb8f4ecea479158e9c8148526ba9f3842610fc2765"
+  },
+  "output_sha256": "d9b1a5feea470367d00a3eb02f3530e555df09ce0aacadac737494156c294ec2",
+  "simulator_sha256": {
+    "baseline": "fff7a938338657c5676cd5ad34fc3ad4399a3c9a4c3193827bffd6775ae23434",
+    "candidate": "d6f09ed87011c2f84cd5b6a42b3c31d17d0f3bbf3bb8404db6e967a57167428b"
+  },
+  "counters": {
+    "baseline": {
+      "dmaActive": 670,
+      "dmaInst": 40,
+      "execTime": 3687,
+      "fence": 1,
+      "mxActive": 2532,
+      "mxBubble": 1620,
+      "mxInst": 56,
+      "rawInst": 329
+    },
+    "candidate": {
+      "dmaActive": 712,
+      "dmaInst": 40,
+      "execTime": 3704,
+      "fence": 1,
+      "mxActive": 2808,
+      "mxBubble": 997,
+      "mxInst": 56,
+      "rawInst": 329
+    }
+  },
+  "simulation_cycles": {
+    "baseline": 37857,
+    "candidate": 38097
+  },
+  "log_sha256": {
+    "baseline": "167527437b26aa8b39e01243b584a822d44fd2886fcc054636698050d69f3e51",
+    "candidate": "cd94d44156e69ff4107bdff19b04b24b83b19961c0e13dab42716a8b3dccfaff"
+  },
+  "note": "Extended cross-block regression using preserved existing simulators; original baseline and frozen scripts unchanged."
+}

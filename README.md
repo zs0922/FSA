@@ -124,3 +124,9 @@ Local upstream histories and working-tree backups are kept in the ignored
 `vendor-migration-backup/` directory; upstream commit IDs remain in the manifest.
 The existing A100 measurement archives remain historical evidence and are not
 rewritten by this repository-ownership migration.
+
+### NM37 A100 baseline
+
+See [the reproducible NM37 A100 baseline](optimization-reports/NM37_A100_BASELINE.md)
+for exact configuration, shell restoration, verification, implementation,
+bitstream export, board tests, and archived evidence.

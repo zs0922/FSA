@@ -1,0 +1,15 @@
+{
+  "broad_suite_interrupted": true,
+  "reason": "Broad legacy 64-row per-signal hardware suite continued compiling separate EphemeralSimulator instances but emitted no test progress for over five minutes; scope reduced to changed row offsets, candidate wavefronts and basic overlapping/consecutive flows to avoid unnecessary large legacy-only builds.",
+  "final_scalatest_filters": [
+    "row",
+    "overlapped",
+    "consecutive"
+  ],
+  "previous_log": "logs/unit-broad-control-interrupted.log",
+  "script_before_sha256": "2db441a6da0e5b9e7eede1e0d978ee35ec125e0f1030c0749ac35994fc6fe021",
+  "script_after_sha256": "e7e875db5bf44bf9761a4ae4bbf6a26b7ddcd191e1582e84571556e4eeb4b6de",
+  "broad_suite_progress": "Subsequent .java_tmp inspection confirmed repeated simulator directory creation during broad-suite runtime; it was slow compilation, not a demonstrated deadlock.",
+  "final_tests_run": 5,
+  "final_tests_succeeded": 5
+}

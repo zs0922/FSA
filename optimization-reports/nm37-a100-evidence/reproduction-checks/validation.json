@@ -1,0 +1,21 @@
+{
+  "scope": "Repository packaging and portable helper validation; no new full synthesis/place/route or board execution",
+  "clean_shell_reconstruction_files": 55,
+  "indexed_source_hashes_checked": 142,
+  "historical_evidence_hashes_checked": 60,
+  "saved_board_outputs_rechecked": [
+    16,
+    32,
+    64,
+    256,
+    1024
+  ],
+  "portable_formal_driver": "3 actual proofs using preserved original RTL, matching current source hashes",
+  "portable_simulation_driver": "seq16 actual run using preserved A100 simulator; bitwise PyEasyFloat equality",
+  "physical_acceptance_parser": "Passed against original A100 reports; checkpoint read only for SHA-256",
+  "shell_syntax": "passed",
+  "python_compile": "passed",
+  "new_flow_end_to_end_rerun": false,
+  "new_board_run": false,
+  "preserved_import_whitespace": "Historical evidence, patches and exact FSAConfig bytes retain original whitespace"
+}

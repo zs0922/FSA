@@ -1,0 +1,12 @@
+{
+  "execTime": 102031,
+  "mxBubble": 59802,
+  "mxActive": 50889,
+  "dmaActive": 34424,
+  "rawInst": 4577,
+  "mxInst": 800,
+  "dmaInst": 544,
+  "fenceInst": 1,
+  "enq": 5035,
+  "deq": 5035
+}

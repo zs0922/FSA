@@ -1,0 +1,8 @@
+{
+  "device": "xdma4",
+  "seq": 16,
+  "seed": 0,
+  "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+  "clock_assumed_mhz": 100,
+  "note": "Clock identity comes from loaded bitstream, not a hardware frequency measurement."
+}

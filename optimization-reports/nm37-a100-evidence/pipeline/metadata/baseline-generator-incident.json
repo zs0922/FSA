@@ -1,0 +1,9 @@
+{
+  "missing": true,
+  "pre_build_hash_verified": true,
+  "baseline_generator_sha256": "5df74565dd1dfdb262c7cf53bf7236d73370f83475ee813b02512069d872479a",
+  "cause": "sbt-assembly 2.1.1 cachedAssembly deletes previous output path when cached output changes",
+  "bytecode_evidence": "metadata/sbt-assembly-bytecode.txt",
+  "baseline_artifacts": "metadata/baseline-artifact-audit.json",
+  "limitation": "Original baseline JAR is unavailable for rerunning its exact generator; existing frozen RTL, simulators, reports, checkpoints and archive remain preserved."
+}

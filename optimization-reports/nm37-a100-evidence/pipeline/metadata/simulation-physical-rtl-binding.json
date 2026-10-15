@@ -1,0 +1,51 @@
+[
+  {
+    "module": "PE.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "0cc1805bb5a4be43daf389f5e61d9dc60a54e575f03719b1815a42011eff5c56",
+    "physical_sha256": "0cc1805bb5a4be43daf389f5e61d9dc60a54e575f03719b1815a42011eff5c56"
+  },
+  {
+    "module": "CMP.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "e359a4e0a219dc941b40a2c193339dfe5f75da2dec84679acdb26f67865e8b7e",
+    "physical_sha256": "e359a4e0a219dc941b40a2c193339dfe5f75da2dec84679acdb26f67865e8b7e"
+  },
+  {
+    "module": "FPMacUnit.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "c61543b918da0216eb2250424abc86a0b5c2bdc5b05d1b5503fdbeb61975ec8b",
+    "physical_sha256": "c61543b918da0216eb2250424abc86a0b5c2bdc5b05d1b5503fdbeb61975ec8b"
+  },
+  {
+    "module": "FPCmpUnit.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "e2523af68fe469e9220cbf10f5ebef2fd75954f3c5169aa6e9935c6fbdaeb694",
+    "physical_sha256": "e2523af68fe469e9220cbf10f5ebef2fd75954f3c5169aa6e9935c6fbdaeb694"
+  },
+  {
+    "module": "SystolicArray.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "8d81aa69a7c8132f4b57e72718e2f59808c67e9c707d5618e4094746d6f43b89",
+    "physical_sha256": "8d81aa69a7c8132f4b57e72718e2f59808c67e9c707d5618e4094746d6f43b89"
+  },
+  {
+    "module": "InputDelayer.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "ffe160435ba2ce7a6df4f2e9fd42ea551bb2f2617c6b1f3f7bf641fc9c465f9c",
+    "physical_sha256": "ffe160435ba2ce7a6df4f2e9fd42ea551bb2f2617c6b1f3f7bf641fc9c465f9c"
+  },
+  {
+    "module": "OutputDelayer.sv",
+    "both_present": true,
+    "normalized_equal": true,
+    "simulation_sha256": "86ada4e348955a70049d397d4c3b48162db276d592915c9cea5ec55d903765cf",
+    "physical_sha256": "86ada4e348955a70049d397d4c3b48162db276d592915c9cea5ec55d903765cf"
+  }
+]

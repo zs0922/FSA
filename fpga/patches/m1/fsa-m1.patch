@@ -1,0 +1,699 @@
+diff --git a/python/fsa/xdma_mmio.py b/python/fsa/xdma_mmio.py
+index b1fabe5..53b1525 100644
+--- a/python/fsa/xdma_mmio.py
++++ b/python/fsa/xdma_mmio.py
+@@ -94,6 +94,29 @@ class MMIO:
+         self.access_width_map = {'b': 1, 'h': 2, 'w': 4}
+         self.ctype_map = {'b': ctypes.c_uint8, 'h': ctypes.c_uint16, 'w': ctypes.c_uint32}
+ 
++        # Persistent page mappings (page base -> mmap pointer), created on
++        # demand and released in close().  Reusing one mapping across all
++        # accesses removes the mmap/munmap syscall pair that used to run for
++        # EVERY single 32-bit queue word on the host instruction-feed path
++        # (~3.2us/word measured on the board).
++        self._maps: dict[int, int] = {}
++
++    def _map_page(self, addr: int) -> tuple[int, int]:
++        """Return (cached mmap pointer, offset within page) for the page
++        containing addr.  The mapping is created once and kept until close()."""
++        base_addr = addr & (~(self.page_size - 1))
++        offset = addr & (self.page_size - 1)
++        map_ptr = self._maps.get(base_addr)
++        if map_ptr is None:
++            map_ptr = libc.mmap(None, self.page_size, PROT_READ | PROT_WRITE,
++                                MAP_SHARED, self.fd, base_addr)
++            # c_void_p restype: MAP_FAILED comes back as 0xffff...ffff, NULL as None
++            if map_ptr is None or map_ptr == ctypes.c_void_p(-1).value:
++                err = ctypes.get_errno()
++                raise IOError(f"mmap failed for address 0x{base_addr:x}: {os.strerror(err)}")
++            self._maps[base_addr] = map_ptr
++        return map_ptr, offset
++
+     def _access(self, addr: int, access_type: str = 'w', write_val: int = None):
+         """Internal method to handle both read and write operations."""
+         access_type = access_type.lower()
+@@ -102,42 +125,29 @@ class MMIO:
+ 
+         width = self.access_width_map[access_type]
+         ctype = self.ctype_map[access_type]
+-        
+-        # Align address to page size
+-        offset = addr & (self.page_size - 1)
+-        base_addr = addr & (~(self.page_size - 1))
+-        map_size = offset + width
+ 
+-        # Map memory region
+-        map_ptr = libc.mmap(None, map_size, PROT_READ | PROT_WRITE, MAP_SHARED, self.fd, base_addr)
+-        if map_ptr == -1:
+-            err = ctypes.get_errno()
+-            raise IOError(f"mmap failed for address 0x{base_addr:x}: {os.strerror(err)}")
+-
+-        try:
+-            # Calculate the final pointer to the target data
+-            data_ptr = ctypes.cast(map_ptr + offset, ctypes.POINTER(ctype))
+-            
+-            if write_val is not None:
+-                # Write operation
+-                val_to_write = write_val
+-                if access_type == 'h': val_to_write = htols(write_val)
+-                if access_type == 'w': val_to_write = htoll(write_val)
+-                data_ptr.contents.value = val_to_write
+-                return None
+-            else:
+-                # Read operation
+-                raw_val = data_ptr.contents.value
+-                read_val = raw_val
+-                if access_type == 'h': read_val = ltohs(raw_val)
+-                if access_type == 'w': read_val = ltohl(raw_val)
+-                return read_val
+-        finally:
+-            # Ensure memory is always unmapped
+-            if libc.munmap(map_ptr, map_size) == -1:
+-                err = ctypes.get_errno()
+-                # We raise a warning here instead of an error because the primary I/O might have succeeded
+-                print(f"Warning: munmap failed for address 0x{map_ptr:x}: {os.strerror(err)}", file=sys.stderr)
++        offset = addr & (self.page_size - 1)
++        if offset + width > self.page_size:
++            raise ValueError(f"access at 0x{addr:x} crosses a page boundary")
++
++        map_ptr, _ = self._map_page(addr)
++        # Calculate the final pointer to the target data
++        data_ptr = ctypes.cast(map_ptr + offset, ctypes.POINTER(ctype))
++
++        if write_val is not None:
++            # Write operation
++            val_to_write = write_val
++            if access_type == 'h': val_to_write = htols(write_val)
++            if access_type == 'w': val_to_write = htoll(write_val)
++            data_ptr.contents.value = val_to_write
++            return None
++        else:
++            # Read operation
++            raw_val = data_ptr.contents.value
++            read_val = raw_val
++            if access_type == 'h': read_val = ltohs(raw_val)
++            if access_type == 'w': read_val = ltohl(raw_val)
++            return read_val
+ 
+     def dev_mmio_read(self, addr: int, access_type: str = 'w') -> int:
+         """
+@@ -164,15 +174,40 @@ class MMIO:
+         """
+         Writes a list of 32-bit integers to the same address as a queue-style write.
+         Each write is 4 bytes, like queueing commands or data to a FIFO.
++
++        The page mapping is created once (cached) and the loop performs plain
++        32-bit stores only: no mmap/munmap syscall per word.  The hardware
++        write port is a Decoupled FIFO push, so one store == one enqueued word,
++        and a full queue backpressures the store itself (lossless).
+         Args:
+             write_addr: The base address to write to.
+             data_array: A list of 32-bit integers to write.
+         """
+-        for data in data_array:
+-            self.dev_mmio_write(write_addr, data, 'w')
++        if not data_array:
++            return
++        offset = write_addr & (self.page_size - 1)
++        if offset + 4 > self.page_size:
++            raise ValueError(f"queue write at 0x{write_addr:x} crosses a page boundary")
++        map_ptr, _ = self._map_page(write_addr)
++        ptr = ctypes.cast(map_ptr + offset, ctypes.POINTER(ctypes.c_uint32))
++        if sys.byteorder == 'little':
++            # identity transform: skip the per-word lambda call, the Python
++            # loop overhead is what bounds the feed rate now (~0.3us/word)
++            for data in data_array:
++                ptr[0] = data
++        else:
++            for data in data_array:
++                ptr[0] = htoll(data)
+ 
+     def close(self):
+-        """Closes the device file descriptor."""
++        """Unmaps all cached pages, then closes the device file descriptor."""
++        for base_addr, map_ptr in self._maps.items():
++            if libc.munmap(map_ptr, self.page_size) == -1:
++                err = ctypes.get_errno()
++                # We raise a warning here instead of an error because the
++                # device fd close below still releases the mappings
++                print(f"Warning: munmap failed for address 0x{base_addr:x}: {os.strerror(err)}", file=sys.stderr)
++        self._maps.clear()
+         if self.fd != -1:
+             libc.close(self.fd)
+             self.fd = -1
+diff --git a/src/main/scala/fsa/Accumulator.scala b/src/main/scala/fsa/Accumulator.scala
+index 78444c5..c78d441 100644
+--- a/src/main/scala/fsa/Accumulator.scala
++++ b/src/main/scala/fsa/Accumulator.scala
+@@ -35,7 +35,10 @@ class Accumulator[A <: Data : Arithmetic]
+ ) extends Module {
+ 
+   val io = IO(new Bundle {
+-    val ctrl_in = Flipped(Valid(new AccumulatorControl))
++    // per-lane control: each accumulator lane gets its OWN copy of the
++    // control word (driven by its own register in MatrixEngineController),
++    // so one broadcast net never feeds all lanes' decode cones
++    val ctrl_in = Flipped(Vec(cols, Valid(new AccumulatorControl)))
+     val sa_in = Input(Vec(cols, accType))
+     val sram_in = Input(Vec(cols, accType))
+     val sram_out = Output(Vec(cols, accType))
+@@ -47,13 +50,6 @@ class Accumulator[A <: Data : Arithmetic]
+   val scale = Seq.fill(cols) {
+     Reg(accType)
+   }
+-  val valid = io.ctrl_in.valid
+-  val cmd = io.ctrl_in.bits.cmd
+-  val exp_s1 = cmd === AccumulatorCmd.EXP_S1
+-  val exp_s2 = cmd === AccumulatorCmd.EXP_S2
+-  val acc_sa = cmd === AccumulatorCmd.ACC_SA
+-  val set = cmd === AccumulatorCmd.SET_SCALE
+-  val reciprocal = cmd === AccumulatorCmd.RECIPROCAL
+ 
+   /*
+     * exp s1: scale <- sa_in * lg2e/sqrt(dk) + 0
+@@ -68,18 +64,27 @@ class Accumulator[A <: Data : Arithmetic]
+   // cycle, but everything that acts on the RESULT (scale writeback, and the
+   // sram_in captured for SET_SCALE) must be delayed by accLatency to line
+   // up with out_accType.
+-  val validD = ShiftRegister(valid, accLatency, false.B, true.B)
+-  val expS1D = ShiftRegister(exp_s1, accLatency, false.B, true.B)
+-  val expS2D = ShiftRegister(exp_s2, accLatency, false.B, true.B)
+-  val setD = ShiftRegister(set, accLatency, false.B, true.B)
+-  val sramInD = ShiftRegister(io.sram_in, accLatency)
+-
++  // Control decode lives INSIDE the lane loop: every lane decodes its own
++  // ctrl_in copy (fanout split, M1 §4.0).  All copies carry identical
++  // values, so lane behavior is unchanged.
+   for (i <- 0 until cols) {
+     val s = scale(i)
+     val acc = accUnit(i)
+     val sa_in = io.sa_in(i)
+     val sram_in = io.sram_in(i)
+     val sram_out = io.sram_out(i)
++    val valid = io.ctrl_in(i).valid
++    val cmd = io.ctrl_in(i).bits.cmd
++    val exp_s1 = cmd === AccumulatorCmd.EXP_S1
++    val exp_s2 = cmd === AccumulatorCmd.EXP_S2
++    val acc_sa = cmd === AccumulatorCmd.ACC_SA
++    val set = cmd === AccumulatorCmd.SET_SCALE
++    val reciprocal = cmd === AccumulatorCmd.RECIPROCAL
++    val validD = ShiftRegister(valid, accLatency, false.B, true.B)
++    val expS1D = ShiftRegister(exp_s1, accLatency, false.B, true.B)
++    val expS2D = ShiftRegister(exp_s2, accLatency, false.B, true.B)
++    val setD = ShiftRegister(set, accLatency, false.B, true.B)
++    val sramInD = ShiftRegister(sram_in, accLatency)
+     acc.io.in_a := Mux(exp_s1, sa_in, s)
+     acc.io.in_b := Mux(exp_s1, accType.attentionScale(rows), sram_in)
+     acc.io.in_c := Mux(acc_sa, sa_in, accType.zero)
+@@ -89,7 +94,7 @@ class Accumulator[A <: Data : Arithmetic]
+       when(expS1D || expS2D || acc.multiCycleIO.reciprocal_out_valid) {
+         s := acc.io.out_accType
+       }.elsewhen(setD) {
+-        s := sramInD(i)
++        s := sramInD
+       }
+     }
+     sram_out := acc.io.out_accType
+diff --git a/src/main/scala/fsa/ExecutionPlan.scala b/src/main/scala/fsa/ExecutionPlan.scala
+index 83d9bf2..765800e 100644
+--- a/src/main/scala/fsa/ExecutionPlan.scala
++++ b/src/main/scala/fsa/ExecutionPlan.scala
+@@ -29,6 +29,26 @@ trait ExecutionPlan {
+   // pipelined accumulator FMA latency; plans that touch the accumulator must
+   // account for it so that drain/writeback stays inside the busy window
+   def accLatency: Int = 0
++
++  // ===================== Wavefront geometry landmarks (M0 §3.1, Phase A) =====================
++  // PURE RENAME refactor: every landmark below evaluates to exactly the
++  // historical hand-tuned literal.  All values verified against VCD
++  // archaeology on 4x4/8x8/16x16 (execTime baselines 368/381/420; bracketed
++  // [a/b/c] numbers are the observed plan-cycles at R=4/8/16).
++  // The decomposition separates hop-count terms (rows/cols multiples -- the
++  // terms M1 §4.1 rescales when the PE MAC gets pipelined) from fixed
++  // pipeline gaps (the bare +1s).  Terms marked PROVISIONAL have a verified
++  // total but an unverified per-hop split; PE-level archaeology pending.
++
++  // per-hop latencies through the mesh (all 1 today: PE MAC is combinational
++  // and every inter-PE link has exactly one pipe register, SystolicArray.pipe_no_reset)
++  def hopLR: Int = 1  // K stream / ctrl chains, left -> right
++  def hopUD: Int = 1  // partial-sum chain, up <-> down
++
++  // K row i enters the mesh at cycle 1 + i (one spad row read per cycle)
++  def kInject(i: Int): Int = 1 + i * hopLR
++  def kInjectDone: Int = kInject(rows - 1)                            // = rows
++
+   // PE control signals are more complex than spad/acc/cmp control, use a dedicate `ControlGen` to optimize them
+   val pe_signals = (0 until 9).map(_ => ControlGen(rows)).toList
+   val mac :: acc_ui :: load_reg_li :: load_reg_ui :: flow_lr :: flow_ud :: flow_du :: update_reg :: exp2 :: Nil = pe_signals
+@@ -200,108 +220,132 @@ class LoadStationary(val rows: Int, val cols: Int) extends ExecutionPlan {
+ 
+ class AttentionScoreExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticParams) extends ExecutionPlan {
+   override val accLatency: Int = ap.accLatency
++
++  // ---- landmark chain (sums of hop terms + fixed pipe gaps; see trait doc) ----
++  // S drain (partial sums to the CMP row) starts right after the wavefront head
++  private val scoreUpdate = kInjectDone + hopUD                        // = R+1    [5/9/17]
++  // row-max propagation: the UPDATE burst staggers across rows-1 (ControlGen
++  // Downward skew), then one fixed pipe gap before phase 1
++  private val scorePhase1 = scoreUpdate + (rows - 1) * hopUD + 1       // = 2R+1   [9/17/33]
++  private val scorePhase2 = scorePhase1 + 1                            // = 2R+2   [10/18/34]
++  private val scorePhase3 = scorePhase2 + 1                            // = 2R+3   [11/19/35]
++  private val exp2Start = scorePhase3 + 1                              // = 2R+4
++  private val exp2Cycles = ap.exp2PwlPieces
++  private val exp2End = exp2Start + exp2Cycles - 1                     //          [19/27/43]
++  // EXP_S1: the old_max-new_max diff reaches the accumulator lanes.
++  // Composition: phase-1 wavefront + diagonal drain (rows+cols) + one pipe
++  // gap (= 3R+C+2).  PROVISIONAL split of the (rows+cols) term.
++  private val expS1 = scorePhase1 + rows + cols + 1                    //          [18/34/66]
++  private val expS2 = expS1 + 1 + ap.accLatency                        //          [22/38/70]
++  // old-sum read for the online-rescale ACC_SA: diagonal drain after exp2 end
++  private val rowSumRead = exp2End + rows + cols - 1
++  private val accSa = rowSumRead + 1                                   //          [27/43/75]
++  // zero flow (bottom-up) pre-positions 0 partials for the exp-sum phase
++  private val zeroFlow = scoreUpdate + 3                               // = R+4
++
+   /****** S = Q @ K ******/
+-  // read K from spad
++  // read K from spad (row i enters the mesh at kInject(i) = 1+i)
+   readScratchPad(0, rows, None)
+   // release the semaphore immediately at the last cycle of reading sram
+   releaseSemaphore(rows - 1)
+   // stream in K, multiply with Q from bottom left of the SA
+-  mac.flow_up(1, rows)
+-  flow_lr.flow_up(1, rows)
++  mac.flow_up(kInject(0), rows)
++  flow_lr.flow_up(kInject(0), rows)
+ 
+   /****** Put S back to systolic array ******/
+   // the operations above takes `rows` cycles (the first element of
+   // S = Q @ Kt reaches the upper left of the SA),
+   // so we need to wait for `rows` cycles before we can read S from the SA
+-  flow_ud.flow_down(rows + 1, rows)
++  flow_ud.flow_down(scoreUpdate, rows)
+   // meanwhile, update the row max
+-  setComparator(rows + 1, rows, CmpControlCmd.UPDATE)
++  setComparator(scoreUpdate, rows, CmpControlCmd.UPDATE)
+ 
+   /****** Flow zero bottom-up for later exp sum ******/
+-  flow_du.flow_up(rows + 4, rows)
++  flow_du.flow_up(zeroFlow, rows)
+ 
+   // prepare input for next cycle
+-  load_reg_ui.parallel(2 * rows + 1, 1)
+-  setComparator(2 * rows + 1, 1, CmpControlCmd.PROP_MAX)
++  load_reg_ui.parallel(scorePhase1, 1)
++  setComparator(scorePhase1, 1, CmpControlCmd.PROP_MAX)
+   readScratchPad(
+-    2 * rows + 1, 1,
++    scorePhase1, 1,
+     Some(ConstRead(SpadConstIdx.ONE, revIn = false, revOut = false, delay = true))
+   )
+   /****** Staring from the first column, do element-wise ops ******/
+   // s = s * 1 + (-m)
+-  update_reg.flow_down(2 * rows + 2, 1)
+-  acc_ui.flow_down(2 * rows + 2, 1)
+-  flow_ud.flow_down(2 * rows + 2, 1)
+-  flow_lr.flow_down(2 * rows + 2, 1)
++  update_reg.flow_down(scorePhase2, 1)
++  acc_ui.flow_down(scorePhase2, 1)
++  flow_ud.flow_down(scorePhase2, 1)
++  flow_lr.flow_down(scorePhase2, 1)
+ 
+   // prepare input for next cycle
+-  setComparator(2 * rows + 2, 1, CmpControlCmd.PROP_MAX_DIFF)
++  setComparator(scorePhase2, 1, CmpControlCmd.PROP_MAX_DIFF)
+   readScratchPad(
+-    2 * rows + 2, 1,
++    scorePhase2, 1,
+     Some(ConstRead(SpadConstIdx.AttentionScale, revIn = false, revOut = false, delay = true))
+   )
+   // pass down delta_m; compute (s-m) * log2e in place
+-  flow_ud.flow_down(2 * rows + 3, 1)
+-  update_reg.flow_down(2 * rows + 3, 1)
+-  flow_lr.flow_down(2 * rows + 3, 1)
++  flow_ud.flow_down(scorePhase3, 1)
++  update_reg.flow_down(scorePhase3, 1)
++  flow_lr.flow_down(scorePhase3, 1)
+ 
+-  val exp2_start = 2 * rows + 4
+-  val exp2_cycles = ap.exp2PwlPieces
+-  val exp2_end = exp2_start + exp2_cycles - 1
+-
+-  setComparator(exp2_start - 1, exp2_cycles, CmpControlCmd.PROP_EXP2_INTERCEPTS)
++  setComparator(exp2Start - 1, exp2Cycles, CmpControlCmd.PROP_EXP2_INTERCEPTS)
+   readScratchPad(
+-    exp2_start - 1, exp2_cycles,
++    exp2Start - 1, exp2Cycles,
+     Some(ConstRead(SpadConstIdx.Exp2Slopes, revIn = false, revOut = false, delay = true))
+   )
+   // use pow2 to generate exp
+-  flow_ud.flow_down(exp2_start, exp2_cycles)
+-  flow_lr.flow_down(exp2_start, exp2_cycles)
+-  acc_ui.flow_down(exp2_start, exp2_cycles)
+-  exp2.flow_down(exp2_start, exp2_cycles)
++  flow_ud.flow_down(exp2Start, exp2Cycles)
++  flow_lr.flow_down(exp2Start, exp2Cycles)
++  acc_ui.flow_down(exp2Start, exp2Cycles)
++  exp2.flow_down(exp2Start, exp2Cycles)
+ 
+   // prepare input for next cycle
+-  setComparator(exp2_end, 1, CmpControlCmd.PROP_ZERO)
++  setComparator(exp2End, 1, CmpControlCmd.PROP_ZERO)
+   readScratchPad(
+-    exp2_end, 1,
++    exp2End, 1,
+     Some(ConstRead(SpadConstIdx.ONE, revIn = false, revOut = false, delay = true))
+   )
+   // use mac to compute the sum of exp
+-  mac.flow_down(exp2_end + 1, 1)
+-  acc_ui.flow_down(exp2_end + 1, 1)
+-  flow_lr.flow_down(exp2_end + 1, 1)
++  mac.flow_down(exp2End + 1, 1)
++  acc_ui.flow_down(exp2End + 1, 1)
++  flow_lr.flow_down(exp2End + 1, 1)
+ 
+   /*
+     The next instruction should always be `S @ V`,
+-    start it at cycle exp2_end + 1 so that the sram read
++    start it at cycle exp2End so that the sram read
+     of the next instruction can overlap with the last compute
+     of the current instruction
+   */
+-  setConflictFree(exp2_end)
++  setConflictFree(exp2End)
+ 
+   // collect diff = row_max(i-1) - row_max(i), and compute exp(diff)
+-  setAccumulator(2 * rows + rows + cols + 2, 1, AccumulatorCmd.EXP_S1)
+-  // scale is written back accLatency cycles after EXP_S1's inputs are
+-  // consumed, so EXP_S2 (which reads scale) must wait that long
+-  setAccumulator(2 * rows + rows + cols + 3 + ap.accLatency, 1, AccumulatorCmd.EXP_S2)
++  setAccumulator(expS1, 1, AccumulatorCmd.EXP_S1)
++  setAccumulator(expS2, 1, AccumulatorCmd.EXP_S2)
+   // update exp sum
+-  // readAccRAM(2 * rows + rows + cols + 3, 1, None)
+-  readAccRAM(exp2_end + rows + cols - 1, 1, None)
+-  // setAccumulator(2 * rows + rows + cols + 4, 1, AccumulatorCmd.ACC_SA)
+-  setAccumulator(exp2_end + rows + cols, 1, AccumulatorCmd.ACC_SA)
++  readAccRAM(rowSumRead, 1, None)
++  setAccumulator(accSa, 1, AccumulatorCmd.ACC_SA)
+ }
+ 
+ class AttentionValueExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticParams) extends ExecutionPlan {
+   override val accLatency: Int = ap.accLatency
++
++  // ---- landmark chain (see trait doc; R+C terms are the DIAGONAL wavefront,
++  // ---- distinct from the 2R drain terms -- do not conflate when rescaling hops)
++  // old-O read: the O drain diagonal completes its last beat (NOT 2R-2: verified
++  // [7/15/31] = R+C-1, distinguishable from 2R-2 only with R != C or VCD)
++  private val accReadOld = rows + cols - 1                             //          [7/15/31]
++  private val accCmd = accReadOld + 1                                  // = R+C    [9/17/33]
++  private val conflictFreeAt = 2 * rows - 2                            // compute drain done
++
+   /****** O = P @ V ******/
+-  // read V from spad
++  // read V from spad (row i enters the mesh at kInject(i) = 1+i)
+   readScratchPad(0, rows, None)
+   // release the semaphore immediately at the last cycle of reading sram
+   releaseSemaphore(rows - 1)
+   // V enters the SA from upper left
+-  mac.flow_down(1, rows)
+-  acc_ui.flow_down(1, rows)
+-  flow_lr.flow_down(1, rows)
++  mac.flow_down(kInject(0), rows)
++  acc_ui.flow_down(kInject(0), rows)
++  flow_lr.flow_down(kInject(0), rows)
+ 
+   /*
+     If the next instruction is load stationary (next inner loop start),
+@@ -309,12 +353,12 @@ class AttentionValueExecPlan(val rows: Int, val cols: Int, ap: HasArithmeticPara
+     we release at `2*rows - 2` to allow the sram read of the next instruction
+     overlap with current compute
+   */
+-  setConflictFree(2 * rows - 1 - 1)
++  setConflictFree(conflictFreeAt)
+ 
+   // read old O out from accumulator sram
+-  readAccRAM(rows + cols - 1, rows, None)
++  readAccRAM(accReadOld, rows, None)
+   // accumulate, update O
+-  setAccumulator(rows + cols, rows, AccumulatorCmd.ACC_SA)
++  setAccumulator(accCmd, rows, AccumulatorCmd.ACC_SA)
+ }
+ 
+ // load one row from AccRAM to accumulator and get the reciprocal
+diff --git a/src/main/scala/fsa/MatrixEngineController.scala b/src/main/scala/fsa/MatrixEngineController.scala
+index 4157a5b..3e32c4f 100644
+--- a/src/main/scala/fsa/MatrixEngineController.scala
++++ b/src/main/scala/fsa/MatrixEngineController.scala
+@@ -17,6 +17,21 @@ object SpadConstIdx {
+   def Exp2Slopes = 2
+ }
+ 
++object FanoutSplit {
++  // A/B experiment switch for the M1 §4.0 fanout split.
++  //   false = exact pre-split (p3) behavior: single compute/accum timer +
++  //           single acc_ctrl pipe register fanning out to all lanes
++  //   true  = replicated timer banks + per-lane acc_ctrl pipe registers
++  // Used to bisect an unexpected mxBubble delta (91 -> 122) between the
++  // two behaviors; both must be bit-identical, any counter delta is a bug.
++  // Elaboration-only switch: one compiled generator serves both A/B variants.
++  val enabled: Boolean = sys.props.get("fsa.fanoutSplit") match {
++    case None | Some("true") => true
++    case Some("false") => false
++    case Some(value) => throw new IllegalArgumentException(s"Invalid fsa.fanoutSplit=$value")
++  }
++}
++
+ object AccConstIdx {
+   def width = 1
+   def ZERO = 0
+@@ -47,7 +62,11 @@ class MatrixControllerIO(implicit p: Parameters) extends FSABundle {
+   val acc_read = Valid(new AccRead())
+   val cmp_ctrl = Valid(new CmpControl)
+   val pe_ctrl = Vec(SA_ROWS, Valid(new PECtrl))
+-  val acc_ctrl = Valid(new AccumulatorControl)
++  // Fanout split (M1 §4.0): the accumulator control is decoded by every
++  // accumulator lane, so it is provided per lane.  Each element is driven by
++  // its OWN pipeline-register copy (see below), all copies loaded with the
++  // same value on the same cycle -- delay-neutral, no schedule change.
++  val acc_ctrl = Vec(SA_COLS, Valid(new AccumulatorControl))
+   val sem_release = Valid(new Semaphore)
+   val busy = Output(Bool())
+ }
+@@ -72,15 +91,40 @@ class MatrixControlFSM
+   val computeValid = Cat(computeFlags).orR
+   val accumValid = Cat(accumFlags).orR
+ 
+-  val computeTimer = RegInit(0.U(executionPlans.map(_.computeMaxCycle).max.U.getWidth.W))
+-  // use a separate timer for accumulation to reduce comparision latency
+-  val accumTimer = RegInit(0.U(executionPlans.map(plan =>
+-    plan.accumulateMaxCycle - plan.accStartCycle
+-  ).max.U.getWidth.W))
++  val nPlans = executionPlans.length
++
++  // Timer banks (M1 §4.0 fanout split): k physically independent register
++  // copies holding the SAME value, updated by identical logic every cycle.
++  // Purely delay-neutral: each consumer group reads its own copy, so the
++  // ~1000-load decode cone of a single timer register disappears.
++  // dontTouch is essential: without it synthesis collapses the equivalent
++  // copies back into one register and the split is lost.
++  def timerBank(k: Int, width: Int): Seq[UInt] = {
++    val n = if (FanoutSplit.enabled) k else 1
++    val ts = Seq.fill(n)(RegInit(0.U(width.W)))
++    if (FanoutSplit.enabled) ts.foreach(t => dontTouch(t))
++    ts
++  }
+ 
+-  // PE Control
+-  computeFlags.zip(executionPlans).map{ case (flag, plan) =>
+-    plan.genPECtrl(computeTimer, flag)
++  // bank access through the switch: index 0 in the disabled case makes the
++  // single physical copy behave exactly like the original single timer
++  def bankGet(bank: Seq[UInt], i: Int): UInt = if (FanoutSplit.enabled) bank(i) else bank(0)
++
++  // compute timer: one copy per execution plan (genPECtrl + done compare)
++  // plus dedicated copies for the sp_read and cmp_ctrl select() calls
++  val computeTimerBank = timerBank(nPlans + 2,
++    executionPlans.map(_.computeMaxCycle).max.U.getWidth)
++  // accumulate timer: one copy per execution plan (done/conflictFree compare)
++  // plus dedicated copies for acc_read / acc_ctrl / sem_release
++  // (a separate timer from compute to reduce comparison latency)
++  val accumTimerBank = timerBank(nPlans + 3,
++    executionPlans.map(plan =>
++      plan.accumulateMaxCycle - plan.accStartCycle
++    ).max.U.getWidth)
++
++  // PE Control (each plan reads its own compute-timer copy)
++  computeFlags.zip(executionPlans).zipWithIndex.map{ case ((flag, plan), i) =>
++    plan.genPECtrl(bankGet(computeTimerBank, i), flag)
+   }.transpose.map(row =>
+     row.map(ctrl => ctrl.asUInt).reduce(_|_).asTypeOf(new PECtrl)
+   ).zip(io.pe_ctrl).foreach{ case (generated, pe_ctrl) =>
+@@ -107,42 +151,45 @@ class MatrixControlFSM
+     out
+   }
+ 
+-  // Scratchpad read
+-  io.sp_read := select(computeTimer, computeFlags, executionPlans.map(_.sp_read))
++  // Scratchpad read (dedicated compute-timer copy)
++  io.sp_read := select(bankGet(computeTimerBank, nPlans), computeFlags, executionPlans.map(_.sp_read))
+   when(io.sp_read.fire) {
+     // next row
+     rs1.addr := (rs1.addr.zext + rs1.stride).asUInt
+   }
+ 
+-  // Accum RAM read
+-  io.acc_read := select(accumTimer, accumFlags, executionPlans.map(_.acc_read), Some(executionPlans.map(_.accStartCycle)))
++  // Accum RAM read (dedicated accum-timer copy)
++  io.acc_read := select(bankGet(accumTimerBank, nPlans), accumFlags, executionPlans.map(_.acc_read), Some(executionPlans.map(_.accStartCycle)))
+   when(io.acc_read.fire) {
+     rs2.addr := (rs2.addr.zext + rs2.stride).asUInt
+   }
+ 
+-  // CMP Control
+-  io.cmp_ctrl := select(computeTimer, computeFlags, executionPlans.map(_.cmp_ctrl))
++  // CMP Control (dedicated compute-timer copy)
++  io.cmp_ctrl := select(bankGet(computeTimerBank, nPlans + 1), computeFlags, executionPlans.map(_.cmp_ctrl))
+ 
+-  // ACCUMULATOR Control
+-  io.acc_ctrl := select(accumTimer, accumFlags, executionPlans.map(_.acc_ctrl), Some(executionPlans.map(_.accStartCycle)))
++  // ACCUMULATOR Control (dedicated accum-timer copy); the per-lane Vec
++  // elements all get the same value here -- the true fanout split happens
++  // in MatrixEngineController where each element gets its own register copy
++  val acc_ctrl_sel = select(bankGet(accumTimerBank, nPlans + 1), accumFlags, executionPlans.map(_.acc_ctrl), Some(executionPlans.map(_.accStartCycle)))
++  io.acc_ctrl.foreach(_ := acc_ctrl_sel)
+ 
+-  // Release Semaphore
+-  io.sem_release.valid := Cat(computeFlags.zip(accumFlags).zip(executionPlans).map{ case ((cf, af), plan) =>
++  // Release Semaphore (dedicated accum-timer copy for the release compares)
++  io.sem_release.valid := Cat(computeFlags.zip(accumFlags).zip(executionPlans).zipWithIndex.map{ case (((cf, af), plan), i) =>
+     (plan.sem_write.cycle > 0).B && (if (plan.useAccTimer(plan.sem_write.cycle)) {
+-      af && plan.sem_write.valid(accumTimer, base = plan.accStartCycle) && header.releaseValid
++      af && plan.sem_write.valid(bankGet(accumTimerBank, nPlans + 2), base = plan.accStartCycle) && header.releaseValid
+     } else {
+-      cf && plan.sem_write.valid(computeTimer) && header.releaseValid
++      cf && plan.sem_write.valid(bankGet(computeTimerBank, i)) && header.releaseValid
+     })
+   }).orR
+   io.sem_release.bits.id := header.semId
+   io.sem_release.bits.value := header.releaseSemValue
+ 
+-  // Update flags / timers
+-  val (computeDone, conflictFree, accumDone) = computeFlags.zip(accumFlags).zip(executionPlans).map{ case ((cf, af), plan) =>
+-    val cDone = cf && plan.computeDone(computeTimer)
+-    val aDone = af && plan.accumDone(accumTimer)
++  // Update flags / timers (per-plan timer copies for the comparisons)
++  val (computeDone, conflictFree, accumDone) = computeFlags.zip(accumFlags).zip(executionPlans).zipWithIndex.map{ case (((cf, af), plan), i) =>
++    val cDone = cf && plan.computeDone(bankGet(computeTimerBank, i))
++    val aDone = af && plan.accumDone(bankGet(accumTimerBank, i))
+     val aStart = cf && {
+-      if (plan.accStartCycle > 0){ computeTimer === (plan.accStartCycle - 1).U }
++      if (plan.accStartCycle > 0){ bankGet(computeTimerBank, i) === (plan.accStartCycle - 1).U }
+       else false.B
+     }
+     when(cDone) {
+@@ -153,23 +200,29 @@ class MatrixControlFSM
+     }
+     when(aDone) { af := false.B }
+     val conflictFree = if (plan.useAccTimer(plan.conflict_free.cycle)) {
+-      af && plan.conflict_free.valid(accumTimer, base = plan.accStartCycle)
++      af && plan.conflict_free.valid(bankGet(accumTimerBank, i), base = plan.accStartCycle)
+     } else {
+-      cf && plan.conflict_free.valid(computeTimer)
++      cf && plan.conflict_free.valid(bankGet(computeTimerBank, i))
+     }
+     (cDone, conflictFree, aDone)
+   }.unzip3
+ 
+-  when(Cat(computeDone).orR) {
+-    computeTimer := 0.U
+-  }.elsewhen(Cat(computeFlags).orR){
+-    computeTimer := computeTimer + 1.U
++  // identical update logic applied to every copy of the bank, so all
++  // copies stay value-locked (this is what keeps the split delay-neutral)
++  computeTimerBank.foreach { t =>
++    when(Cat(computeDone).orR) {
++      t := 0.U
++    }.elsewhen(Cat(computeFlags).orR){
++      t := t + 1.U
++    }
+   }
+ 
+-  when(Cat(accumDone).orR) {
+-    accumTimer := 0.U
+-  }.elsewhen(Cat(accumFlags).orR) {
+-    accumTimer := accumTimer + 1.U
++  accumTimerBank.foreach { t =>
++    when(Cat(accumDone).orR) {
++      t := 0.U
++    }.elsewhen(Cat(accumFlags).orR) {
++      t := t + 1.U
++    }
+   }
+ 
+   when(Cat(conflictFree).orR) {
+@@ -227,15 +280,19 @@ class MatrixEngineController[E <: Data : Arithmetic, A <: Data : Arithmetic](
+   val sp_read_all = Wire(chiselTypeOf(io.sp_read))
+   val acc_read_all = Wire(chiselTypeOf(io.acc_read))
+   val cmp_ctrl_all = Wire(chiselTypeOf(io.cmp_ctrl))
+-  val acc_ctrl_all = Wire(chiselTypeOf(io.acc_ctrl))
+   val sem_release_all = Wire(chiselTypeOf(io.sem_release))
+   val pe_ctrl_all = Wire(chiselTypeOf(io.pe_ctrl))
+ 
+   Mux1HValidIO(fsm_io.map(_.sp_read), sp_read_all)
+   Mux1HValidIO(fsm_io.map(_.acc_read), acc_read_all)
+   Mux1HValidIO(fsm_io.map(_.cmp_ctrl), cmp_ctrl_all)
+-  Mux1HValidIO(fsm_io.map(_.acc_ctrl), acc_ctrl_all)
+   Mux1HValidIO(fsm_io.map(_.sem_release), sem_release_all)
++  // accumulator control is muxed PER LANE: each lane's decode cone reads
++  // its own copy downstream instead of sharing one broadcast net
++  val acc_ctrl_mux = Seq.fill(SA_COLS)(Wire(Valid(new AccumulatorControl)))
++  for (j <- 0 until SA_COLS) {
++    Mux1HValidIO(fsm_io.map(_.acc_ctrl(j)), acc_ctrl_mux(j))
++  }
+   pe_ctrl_all.zipWithIndex.foreach { case (out, idx) =>
+     out.valid := Cat(fsm_io.map(_.pe_ctrl(idx).valid)).orR
+     out.bits := fsm_io.map(_.pe_ctrl(idx).bits.asUInt).reduce(_ | _).asTypeOf(out.bits)
+@@ -252,7 +309,24 @@ class MatrixEngineController[E <: Data : Arithmetic, A <: Data : Arithmetic](
+   io.sp_read := Pipe(sp_read_all)
+   io.acc_read := Pipe(acc_read_all)
+   io.cmp_ctrl := Pipe(cmp_ctrl_all)
+-  io.acc_ctrl := Pipe(acc_ctrl_all)
++  // Fanout split for the accumulator-control broadcast (M1 §4.0): SA_COLS
++  // independent pipe registers, ALL loaded with the same value on the same
++  // cycle (delay-neutral -- same +1 latency as the other piped outputs, so
++  // schedule alignment is unchanged).  Each lane's ~63 decode points read
++  // their own register instead of one register/LUT feeding ~1000 loads.
++  // dontTouch prevents synthesis from merging the equivalent copies back
++  // into a single register (which would recreate the 1007-fanout net).
++  if (FanoutSplit.enabled) {
++    io.acc_ctrl.zip(acc_ctrl_mux).foreach { case (out, m) =>
++      val rep = Pipe(m)
++      dontTouch(rep)
++      out := rep
++    }
++  } else {
++    // single shared pipe register fanning to all lanes (p3-equivalent)
++    val rep = Pipe(acc_ctrl_mux.head)
++    io.acc_ctrl.foreach(_ := rep)
++  }
+   io.sem_release := Pipe(sem_release_all)
+   io.pe_ctrl := VecInit(pe_ctrl_all.map(Pipe(_)))
+ 
+@@ -262,7 +336,15 @@ class MatrixEngineController[E <: Data : Arithmetic, A <: Data : Arithmetic](
+     enq_ptr := deq_ptr
+   }
+ 
+-  val canEnq = Mux(io.in.bits.header.waitPrevAcc,
++  // Only trust io.in.bits.header.waitPrevAcc when an instruction is actually
++  // being presented (io.in.valid): the mxInst queue's bits registers have no
++  // reset value, so reading them while the queue is EMPTY samples
++  // uninitialized state.  That garbage fed this mux select and made
++  // io.in.ready (and thus the mxBubble perf counter) depend on simulator
++  // random-init draws -- i.e. on build structure, not on design logic.
++  // Functionally benign (nothing enqueues while valid=0), but it made
++  // delay-neutral RTL changes look like behavior changes.
++  val canEnq = Mux(io.in.valid && io.in.bits.header.waitPrevAcc,
+     !io.busy,
+     !fsm_io(deq_ptr).busy || fsm_io(deq_ptr).conflictFree
+   )

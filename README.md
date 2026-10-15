@@ -100,3 +100,27 @@ This work is supported by the NSF CCRI ENS Chipyard Award #2016662.
 [nvdla]: http://nvdla.org/
 [saturn]: https://github.com/ucb-bar/saturn-vectors
 [ara]: https://github.com/pulp-platform/ara
+
+
+### Locally maintained FSA and easyfloat
+
+`generators/fsa` and `generators/easyfloat` are ordinary source directories
+tracked by this repository, not Git submodules. Edit, review, and commit their
+files from the repository root. SBT and Python dependency paths are unchanged.
+Other dependencies, including `fpga/fpga-shells`, remain submodules.
+
+`generators/LOCAL_SOURCES.json` records the imported upstream commits and the
+SHA-256 of all 89 imported files, including local modifications and new tests.
+These hashes identify the migration snapshot, not future editable source state.
+Existing copyright notices are retained; neither imported tree supplied a
+standalone LICENSE file, and this migration does not establish a new license.
+
+The U280/NM37/M1 patch scripts skip historical FSA/easyfloat patches for these
+locally tracked trees, while still processing the remaining shell submodule.
+Do not run `git submodule add` or replay the old core patches on these paths.
+
+This is a source snapshot import, not a rewrite of upstream commit history.
+Local upstream histories and working-tree backups are kept in the ignored
+`vendor-migration-backup/` directory; upstream commit IDs remain in the manifest.
+The existing A100 measurement archives remain historical evidence and are not
+rewritten by this repository-ownership migration.

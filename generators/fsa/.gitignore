@@ -1,0 +1,8 @@
+target
+.metals
+.scala-build
+.vscode
+build
+*.vcd
+*.fst
+*.log

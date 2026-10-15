@@ -30,3 +30,6 @@ project/project/
 .classpath_cache/
 .vscode/
 tests/build/
+
+# Local recovery bundles for the core-source ownership migration
+/vendor-migration-backup/

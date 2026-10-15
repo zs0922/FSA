@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# IDEs
+.bloop
+.bsp
+.idea
+.metals
+.vscode
+project/metals.sbt
+project/project
+
+# generated
+obj_dir
+target

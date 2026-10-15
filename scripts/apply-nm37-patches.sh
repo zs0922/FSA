@@ -22,6 +22,14 @@ apply_patch() {
     local repo="$1"
     local patch="$2"
 
+    # FSA/easyfloat are now maintained directly in the superproject. Historical
+    # patches remain for old submodule checkouts, never replay onto local sources.
+    if [[ "$repo" == "$CYDIR/generators/fsa" || "$repo" == "$CYDIR/generators/easyfloat" ]] &&
+       [[ -f "$CYDIR/generators/LOCAL_SOURCES.json" && ! -e "$repo/.git" ]]; then
+        echo "[patches] Directly tracked source; skipping historical patch: $(basename "$patch")"
+        return 0
+    fi
+
     if [ ! -d "$repo" ]; then
         echo "ERROR: '$repo' not found. Did you run 'git submodule update --init --recursive'?" >&2
         exit 1

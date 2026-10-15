@@ -1,0 +1,15 @@
+[project]
+name = "FSA"
+version = "0.1.0"
+description = "Fusing FlashAttention within systolic array."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.2.5",
+    "pyeasyfloat>=0.1.0",
+    "pyelftools>=0.32",
+    "torch==2.6",
+]
+
+[tool.uv.sources]
+pyeasyfloat = { path = "../../easyfloat"}

@@ -13,28 +13,109 @@ LOCK = json.loads((ASSETS / 'source-lock.json').read_text())
 OUT = Path(os.environ.get('A100_OUT', '/nonexistent-a100-output'))
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = os.fsencode(os.readlink(path)) if path.is_symlink() else path.read_bytes()
+    return hashlib.sha256(data).hexdigest()
 
 def verify(base, hashes):
     for p, h in hashes.items():
-        if not (base / p).is_file() or sha(base / p) != h:
+        if not ((base / p).is_file() or (base / p).is_symlink()) or sha(base / p) != h:
             raise RuntimeError(f'Fingerprint mismatch: {base / p}')
 
 def write(path, data):
     path.write_text(json.dumps(data, indent=2) + '\n')
 
-def sources():
+# Whole tracked input trees, including extensionless resources and helpers.
+# Drivers are independently frozen in build.json; the manifest cannot hash itself.
+SOURCE_PREFIXES = ('generators/', 'tools/', 'project/', 'sims/', 'fpga/', 'scripts/')
+SOURCE_EXCLUDES = ('scripts/nm37-a100/', 'fpga/scripts/m1_a100_bitstream.tcl',
+                   'fpga/baselines/nm37-a100/source-lock.json')
+GENERATED_DIRS = {'target', '.venv', '__pycache__', '.bsp', '.metals',
+                  'generated-src', 'test_run_dir'}
+UNTRACKED_SOURCE_SUFFIXES = {'.scala', '.sbt', '.sc', '.v', '.sv', '.vh', '.svh',
+    '.c', '.cc', '.cpp', '.h', '.hpp', '.py', '.sh', '.tcl', '.xdc', '.mk'}
+
+def selected(path):
+    if path.startswith(SOURCE_EXCLUDES):
+        return False
+    if path.startswith(SOURCE_PREFIXES):
+        return True
+    return '/' not in path and (Path(path).suffix in {'.mk', '.sbt'} or path == '.gitmodules')
+
+def source_modes():
+    entries = subprocess.check_output(['git', '-C', str(ROOT), 'ls-files', '--stage', '-z'], text=True)
+    modes = {}
+    for entry in entries.split('\0'):
+        if not entry:
+            continue
+        metadata, path = entry.split('\t', 1)
+        mode, _, stage = metadata.split()
+        assert stage == '0', 'Unmerged input: ' + path
+        if mode != '160000' and selected(path):
+            modes[path] = mode
+    return modes
+
+def source_paths():
+    return set(source_modes())
+
+def reject_untracked_sources(repo, root_scope=False, allowed=()):
+    # Do not honor arbitrary .gitignore: an ignored Scala file is still compiled.
+    args = ['git', '-C', str(repo), 'ls-files', '--others', '-z']
+    args += ['--exclude=' + name + '/' for name in sorted(GENERATED_DIRS)]
+    if repo == ROOT:
+        args += ['--exclude=generators/easyfloat/build/']
+    paths = subprocess.check_output(args, text=True).split('\0')
+    unexpected = [name for name in paths if name and name not in allowed and
+        (not root_scope or selected(name)) and
+        (Path(name).suffix in UNTRACKED_SOURCE_SUFFIXES or Path(name).name in {'Makefile', 'makefile'})]
+    assert not unexpected, f'Untracked build source in {repo}: {unexpected[:30]}'
+
+def root_sources():
+    modes = source_modes()
+    assert modes == LOCK['source_modes'], 'Tracked build input file set/modes differ from source lock'
+    assert set(modes) == set(LOCK['source_hashes']), 'Manifest file/mode sets differ'
     verify(ROOT, LOCK['source_hashes'])
+    for name, mode in modes.items():
+        path = ROOT / name
+        actual = '120000' if path.is_symlink() else ('100755' if path.stat().st_mode & 0o111 else '100644')
+        assert actual == mode, 'Working-tree mode mismatch: ' + name
+    reject_untracked_sources(ROOT, root_scope=True)
+
+def sources():
+    root_sources()
     verify(ROOT / 'fpga/fpga-shells', LOCK['shell_hashes'])
     head = subprocess.check_output(['git', '-C', str(ROOT / 'fpga/fpga-shells'), 'rev-parse', 'HEAD'], text=True).strip()
     assert head == LOCK['shell_commit'], 'Wrong shell revision'
     shell_changes = subprocess.check_output(['git', '-C', str(ROOT / 'fpga/fpga-shells'), 'diff', 'HEAD', '--name-only'], text=True).splitlines()
     assert all(p in LOCK['shell_hashes'] for p in shell_changes), 'Unrecorded shell source changes'
-    # Gitlinks pin all other dependencies, including nested submodules.
-    sub = subprocess.check_output(['git', '-C', str(ROOT), 'submodule', 'status', '--recursive', 'generators', 'fpga/fpga-shells', 'tools/cde', 'tools/dsptools', 'tools/firrtl2', 'tools/tapeout', 'tools/fixedpoint', 'tools/rocket-dsp-utils'], text=True)
+    reject_untracked_sources(ROOT / 'fpga/fpga-shells', allowed=LOCK['shell_hashes'])
+    # Gitlinks pin revisions; diff checks additionally reject dirty tracked inputs.
+    sub = subprocess.check_output(['git', '-C', str(ROOT), 'submodule', 'status', '--recursive', 'generators', 'fpga/fpga-shells', 'tools/cde', 'tools/dsptools', 'tools/firrtl2', 'tools/tapeout', 'tools/fixedpoint', 'tools/rocket-dsp-utils', 'tools/DRAMSim2'], text=True)
     unused_nested = {'generators/constellation/espresso', 'generators/cva6/src/main/resources/cva6/vsrc/cva6', 'tools/dsptools/fixedpoint', 'tools/rocket-dsp-utils/tools/dsptools', 'tools/rocket-dsp-utils/tools/rocket-chip'}
     bad = [line for line in sub.splitlines() if not line.startswith(' ') and not (line.startswith('-') and line.split()[1] in unused_nested)]
     assert not bad, 'Uninitialized or wrong build dependency: ' + repr(bad)
+    for line in sub.splitlines():
+        if line.startswith('-'):
+            continue
+        path = line.split()[1]
+        if path == 'fpga/fpga-shells':
+            continue
+        changes = subprocess.check_output(['git', '-C', str(ROOT / path), 'diff', 'HEAD', '--name-only', '--ignore-submodules=all'], text=True).splitlines()
+        assert not changes, f'Dirty build dependency {path}: {changes}'
+        reject_untracked_sources(ROOT / path)
+
+    # FireSim target-side libraries are compiled, but unrelated platform nested
+    # modules are not required by this FPGA/simulator build.
+    firesim = ROOT / 'sims/firesim'
+    expected = subprocess.check_output(['git', '-C', str(ROOT), 'ls-tree', 'HEAD', '--', 'sims/firesim'], text=True).split()[2]
+    actual = subprocess.check_output(['git', '-C', str(firesim), 'rev-parse', 'HEAD'], text=True).strip()
+    assert actual == expected, 'Wrong FireSim revision'
+    changes = subprocess.check_output(['git', '-C', str(firesim), 'diff', 'HEAD', '--name-only', '--ignore-submodules=all'], text=True).splitlines()
+    assert not changes, 'Dirty FireSim build dependency: ' + repr(changes)
+    # Scan the two actual libraries, not platform/tool output directories.
+    for subdir in ('sim/firesim-lib', 'sim/midas/targetutils'):
+        library = firesim / subdir
+        assert library.is_dir(), 'Missing FireSim build library: ' + subdir
+        reject_untracked_sources(library)
 
 def run():
     sources()

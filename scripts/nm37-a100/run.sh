@@ -40,6 +40,7 @@ for expected in ['2020.2_AR75986', '20.0.2', 'firtool-1.75.0', 'Verilator 5.022'
     if expected not in versions:
         raise SystemExit('Baseline tool version missing: ' + expected)
 PYTOOLS
+    python3 "$helper/environment.py"
     # Use a stable disposable assembly target and copy out: sbt may delete its
     # previous output when assemblyOutputPath changes. Use a fresh checkout.
     make -C "$ROOT/fpga" SUB_PROJECT=nm37 CONFIG=EmptyNM37Config \

@@ -1,0 +1,24 @@
+testing $random e23cbb39
+FSA: dmaActive =         76
+FSA: dmaInst =          4
+FSA: execTime =        437
+FSA: fence =          1
+FSA: mxActive =        267
+FSA: mxBubble =        103
+FSA: mxInst =          5
+FSA: rawInst =         32
+*** PASSED *** Completed after                 5427 simulation cycles
+[fsa] Memory dump configured: /tmp/fsa-a110-build-20261015/sim16/seq16/0x80000600.bin, start=0x80000600, size=1024
+- /tmp/fsa-a110-build-20261015/sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/gen-collateral/TestDriver.v:158: Verilog $finish
+Start simulation with cmd: ['/tmp/fsa-a110-build-20261015/sim16/simulator', '/tmp/fsa-a110-build-20261015/sim16/seq16/inst.bin', '+loadmem=/tmp/fsa-a110-build-20261015/sim16/seq16/mem.elf', '+max-cycles=1000000', '+verbose', '+dump-mem=/tmp/fsa-a110-build-20261015/sim16/seq16/0x80000600.bin:0x80000600:0x400']
+{
+  "bitwise_equal": true,
+  "shape": [
+    16,
+    16
+  ],
+  "actual_sha256": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+  "expected_sha256": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+  "seed": 0,
+  "seq": 16
+}

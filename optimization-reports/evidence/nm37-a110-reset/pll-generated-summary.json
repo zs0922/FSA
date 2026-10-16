@@ -1,0 +1,35 @@
+{
+  "scope": "Vivado generated IP model parameters, not physical board frequency measurement",
+  "profiles": {
+    "A100": {
+      "implementation_log": "/tmp/fsa-a100-final-build-20261015/A100/implementation.log",
+      "line_number": 189,
+      "exact_line": "Achieve frequency 100.0 MHz phase 0.000 degrees jitter 115.831 ps",
+      "achieved_frequency_MHz": 100.0,
+      "phase_degrees": 0.0,
+      "jitter_ps": 115.831,
+      "xci_sha256": "c21b2a18d0eeb210d15b51244942431a0abdccc375f8ecd5517018643b0facf6",
+      "xci_parameters": {
+        "MODELPARAM_VALUE.C_CLKOUT0_ACTUAL_FREQ": "100.00000",
+        "MODELPARAM_VALUE.C_MMCM_CLKFBOUT_MULT_F": "12.000",
+        "MODELPARAM_VALUE.C_MMCM_DIVCLK_DIVIDE": "1",
+        "MODELPARAM_VALUE.C_MMCM_CLKOUT0_DIVIDE_F": "12.000"
+      }
+    },
+    "A110": {
+      "implementation_log": "/tmp/fsa-a110-build-20261015/A110/implementation.log",
+      "line_number": 189,
+      "exact_line": "Achieve frequency 110.0 MHz phase 0.000 degrees jitter 211.720 ps",
+      "achieved_frequency_MHz": 110.0,
+      "phase_degrees": 0.0,
+      "jitter_ps": 211.72,
+      "xci_sha256": "a743b7fc551c6f5eea28af60c461a454cc6dc7718183f34811032cbb49b4ae64",
+      "xci_parameters": {
+        "MODELPARAM_VALUE.C_CLKOUT0_ACTUAL_FREQ": "110.00000",
+        "MODELPARAM_VALUE.C_MMCM_CLKFBOUT_MULT_F": "119.625",
+        "MODELPARAM_VALUE.C_MMCM_DIVCLK_DIVIDE": "10",
+        "MODELPARAM_VALUE.C_MMCM_CLKOUT0_DIVIDE_F": "10.875"
+      }
+    }
+  }
+}

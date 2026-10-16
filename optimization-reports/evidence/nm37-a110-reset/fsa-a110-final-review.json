@@ -1,0 +1,92 @@
+{
+  "candidate_execution_commit": "76ae6cd8a41ed9e2afa0e2eb56deebd7708065b2",
+  "whole_board_passed": false,
+  "decision": "retain A100 baseline; A110 remains experimental; no bitstream",
+  "local_reset_audit": {
+    "passed": true,
+    "counts": {
+      "before": 2,
+      "after_replication": 10,
+      "postroute": 10
+    },
+    "coverage": {
+      "checks": 40,
+      "worst_slack_ns": 0.13
+    },
+    "scope": "independent snapshot structural comparison and strict reset endpoint coverage; not full design equivalence; no dependency on absent physical.passed.json"
+  },
+  "timing_ns": {
+    "global_setup": 0.151,
+    "global_hold": 0.01,
+    "dut_setup": 0.481,
+    "dut_hold": 0.01,
+    "worst_pulse_width_or_period": -0.909
+  },
+  "apb_rules": [
+    {
+      "line": 15871,
+      "check": "Min Period",
+      "corner": "n/a",
+      "required_ns": 10.0,
+      "actual_ns": 9.091,
+      "slack_ns": -0.909,
+      "location": "BLI_HBM_APB_INTF_X8Y0",
+      "endpoint": "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK"
+    },
+    {
+      "line": 15881,
+      "check": "Low Pulse Width",
+      "corner": "Slow",
+      "required_ns": 5.0,
+      "actual_ns": 4.545,
+      "slack_ns": -0.455,
+      "location": "BLI_HBM_APB_INTF_X8Y0",
+      "endpoint": "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK"
+    },
+    {
+      "line": 15882,
+      "check": "Low Pulse Width",
+      "corner": "Fast",
+      "required_ns": 5.0,
+      "actual_ns": 4.545,
+      "slack_ns": -0.455,
+      "location": "BLI_HBM_APB_INTF_X8Y0",
+      "endpoint": "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK"
+    },
+    {
+      "line": 15891,
+      "check": "High Pulse Width",
+      "corner": "Fast",
+      "required_ns": 5.0,
+      "actual_ns": 4.545,
+      "slack_ns": -0.455,
+      "location": "BLI_HBM_APB_INTF_X8Y0",
+      "endpoint": "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK"
+    },
+    {
+      "line": 15892,
+      "check": "High Pulse Width",
+      "corner": "Slow",
+      "required_ns": 5.0,
+      "actual_ns": 4.545,
+      "slack_ns": -0.455,
+      "location": "BLI_HBM_APB_INTF_X8Y0",
+      "endpoint": "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK"
+    }
+  ],
+  "root_cause": "AXIHBM.scala drives APB_0_PCLK from slaveClocks(0); NM37 TestHarness binds slaveClockNodes(0) to the110MHz DUT domain. HBM APB primitive requires period>=10ns and high/low>=5ns. USER_APB_EN=false does not waive these reported primitive rules.",
+  "next_step_not_implemented": "Separate HBM APB management clock at <=100MHz with local reset synchronization and explicit initialization-status CDC into the DUT; keep AXI data clock110MHz and PE pipeline unchanged. Validate exact HBM IP clock/reset/init interface and regenerate constraints/reports.",
+  "limitations": "Hashes bind reviewed files; this review does not reopen DCP or claim actual board frequency measurement.",
+  "file_sha256": {
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/timing.txt": "46a52cfc5f6ed9b5543715e319547b047c44ce914e0c5385046d13a3e6af9faa",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/run_properties.txt": "b60fb1df4d131ad46479154914df269787d98e03e4e7d16b11a777d9af00d02b",
+    "/tmp/fsa-a110-build-20261015/build.json": "874fba269e1de20015ea7c1ffbe6717d6ff9aafe74ce8d5500c1c7bf7788328f",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/before.dict": "96c06604e43bb0e59ed9a82bad026026617b20965f0393da15d9ed38291e3969",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/after_replication.dict": "4c63cb0287e7b55cdea0105c16d2164a847fbe0735ab4a52aa01f3bccc3e2ebc",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/postroute.dict": "4c63cb0287e7b55cdea0105c16d2164a847fbe0735ab4a52aa01f3bccc3e2ebc",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/replication_equivalence.txt": "9d33ac4755ad9a0dfb58beb82b2f270f3ec897ddcbbb3a83ab48b015bf25f493",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/postroute_equivalence.txt": "9d33ac4755ad9a0dfb58beb82b2f270f3ec897ddcbbb3a83ab48b015bf25f493",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/reset_replication_audit/postroute_timing/endpoint_coverage.txt": "8abdd9082ff1e9993d2b02a3c651f90c7cf94096c2e69c339868e2dd42c3004e",
+    "/tmp/fsa-a110-build-20261015/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp": "1c7ccb5c06a620b098da7b9f2927d6521641fcc4b5dd31be289dab5e433a396f"
+  }
+}

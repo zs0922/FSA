@@ -1,0 +1,9 @@
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/D max slack=9.583
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/D min slack=0.085
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/CLR max slack=8.318
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/CLR min slack=0.693
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/D max slack=9.625
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/D min slack=0.066
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/CLR max slack=8.106
+wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/CLR min slack=0.809
+failures=

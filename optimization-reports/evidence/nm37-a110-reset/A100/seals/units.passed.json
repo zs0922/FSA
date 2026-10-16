@@ -1,0 +1,11 @@
+{
+  "build_sha256": "2641998eaf088ddba90a3f236fb06bbf20da89eb569e2e4918f7d622662eb069",
+  "files": {
+    "logs/unit.log": "98ab57eb91f80deb6f1db10b8ce24ef284f19e9368be05f21ed8a62e052d57d0",
+    "score-events.json": "e492b8c96e813e2070217485d1a675354aebdae80644af0b233fd03fcfa6a078",
+    "formal/mac/PipelineMacMiter.sv": "f19ce588af37bc11baf52eeffc52c657fed4d80c763059abe5bc078e2f6f4007",
+    "formal/cmp/PipelineCmpMiter.sv": "65bdd6d52ea870530c730f23dbb62a50ce50129362aeb15a39bc25fb56d1dcc2",
+    "formal/cmpmax/PipelineCmpMaxMiter.sv": "0178ed9b644ff9c99f0a8ef6551b957b71f5c5fcadb53ae43e0bea7122c5d598",
+    "formal/source-hashes.json": "eece7e9b677dbea97fcc8cdd5204511a7c3de46cf012bc2ac197e94005b78cdd"
+  }
+}

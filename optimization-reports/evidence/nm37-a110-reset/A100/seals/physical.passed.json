@@ -1,0 +1,32 @@
+{
+  "constrained_sta_passed": true,
+  "board_signoff": false,
+  "cdc_review_required": true,
+  "dut": {
+    "part": "xcvu37p_CIV-fsvh2892-2L-e",
+    "dut_period": "10.000",
+    "dut_setup_wns": "0.534",
+    "dut_hold_whs": "0.010"
+  },
+  "timing_summary": [
+    0.049,
+    0.0,
+    0.0,
+    265381.0,
+    0.01,
+    0.0,
+    0.0,
+    265381.0,
+    0.0,
+    0.0,
+    0.0,
+    148820.0
+  ],
+  "route": [
+    497497,
+    497497,
+    0
+  ],
+  "bus_skew_worst_ns": 3.142,
+  "checkpoint_sha256": "98651f3efa06b4f4458a45598d7122f0cf284b64664509b2e6f22c155f6b1f82"
+}

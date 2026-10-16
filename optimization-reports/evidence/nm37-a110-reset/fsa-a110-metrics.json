@@ -1,0 +1,525 @@
+{
+  "schema_version": 1,
+  "metric_definitions": {
+    "execTime": "DUT clock edges for which AXI4FSA state == s_active, including the active edge accepting stop fence; includes instruction ingress, dependency, DMA and compute waits. Not arithmetic-only latency.",
+    "mxActive": "DUT edges inside s_active for which fsa.io.busy is true; union of matrix controller busy periods, not a sum of per-PE work.",
+    "dmaActive": "DUT edges inside s_active for which dma.module.io.active is true.",
+    "mxBubble": "DUT edges inside s_active after firstInstFire, with fsa.io.inst.ready && !fsa.io.inst.valid. Not all idle cycles; may overlap mxActive or dmaActive.",
+    "rawInst": "raw instruction queue dequeue handshakes while active; this counter counts instruction beats as defined by this interface.",
+    "mxInst": "matrix instruction acceptance handshakes while active.",
+    "dmaInst": "DMA instruction acceptance handshakes while active.",
+    "fence": "decoded fence acceptance handshakes while active.",
+    "testbench_total_cycles": "TestDriver.trace_count increments at every testbench clock posedge from simulation start, including reset and harness/input/output activity. Its clock can differ from the DUT clock; do not convert it using DUT frequency or substitute it for execTime."
+  },
+  "source_definitions": [
+    "generators/fsa/src/main/scala/fsa/AXI4FSA.scala:71-78,179-214",
+    "generated gen-collateral/TestDriver.v:119-158"
+  ],
+  "caveats": [
+    "No process wall-clock time is used as hardware performance.",
+    "mxActive, dmaActive and mxBubble are not mutually exclusive; do not sum them into execTime.",
+    "Compare fixed array dimensions, sequence, datatypes and identical inst/mem bytes. A different array size changes head_dim and workload.",
+    "Frequency conversion is conditional on the supplied DUT frequency being achieved; it is a cycle-budget estimate under this simulator, not measured board throughput.",
+    "The old pipeline A100 physical result is bound to its A/sim16 datapath; 4x4 and8x8 are functional scaling configurations, not separately timed board implementations."
+  ],
+  "cases": [
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim4/seq4",
+      "array_rows": 4,
+      "array_cols": 4,
+      "seq": 4,
+      "seed": 0,
+      "shape": [
+        4,
+        4
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "246254d73d3885b65b1fc3476fec2999381f13734835811a5b7f382358cf6d3c",
+      "expected_payload_sha256": "246254d73d3885b65b1fc3476fec2999381f13734835811a5b7f382358cf6d3c",
+      "counters": {
+        "dmaActive": 16,
+        "dmaInst": 4,
+        "execTime": 368,
+        "fence": 1,
+        "mxActive": 162,
+        "mxBubble": 153,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 4707,
+      "result_json_sha256": "4cad03bdd8fa7b8f99f6602dfade32a1ff92c7339ddd627a31b7bdfa1c8808fe",
+      "test_log_sha256": "35a32364d8f22ef28061f395e7d4b897f0d4a71ece55a81f306e9a277bf5dcbb",
+      "config_sha256": "8ad7608d5cfa11e21295d1632efeff2e3b3e079a152e4804f43016c320c93fd2",
+      "config": {
+        "sa_rows": 4,
+        "sa_cols": 4,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 192,
+        "acc_base": 0,
+        "acc_size": 80
+      },
+      "input_sha256": {
+        "inst.bin": "99f5f06b3538fc264a13787986fd8da744cf5346e9cec1811c2510515dda216f",
+        "mem.elf": "bc5e616d762d616331eb932a082c8ca9ec8e2e6c28b5ee068e5eeeffdec85967"
+      },
+      "simulator_sha256": "1e115c40469e2abb9e1376f3b6d105d41a1f3379ad35a3eb1a35c36ba829bf00",
+      "conditional_dut_active_time_us": 3.3454545454545452,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim4/seq4",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 16,
+          "dmaInst": 4,
+          "execTime": 368,
+          "fence": 1,
+          "mxActive": 162,
+          "mxBubble": 153,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "baseline_simulator_sha256": "2a66272d02422e17aa06d8cea08307af76d72052f0876d91bfc41072f4e259cc"
+      }
+    },
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim4/seq8",
+      "array_rows": 4,
+      "array_cols": 4,
+      "seq": 8,
+      "seed": 0,
+      "shape": [
+        8,
+        4
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "42582643b7a6651270af53556ac54d6dc4fc6fb7727463280966b09b2a6254bd",
+      "expected_payload_sha256": "42582643b7a6651270af53556ac54d6dc4fc6fb7727463280966b09b2a6254bd",
+      "counters": {
+        "dmaActive": 48,
+        "dmaInst": 12,
+        "execTime": 1083,
+        "fence": 1,
+        "mxActive": 464,
+        "mxBubble": 646,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 11857,
+      "result_json_sha256": "767204762b5c2ee3702bbedc63159518e3b875a7373de6e90a5ee34fcb5e9385",
+      "test_log_sha256": "4ce011d4a26762a1ddc37dd90bac1e0c2d914c8a76acf71cff616046aa47c2ac",
+      "config_sha256": "8ad7608d5cfa11e21295d1632efeff2e3b3e079a152e4804f43016c320c93fd2",
+      "config": {
+        "sa_rows": 4,
+        "sa_cols": 4,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 192,
+        "acc_base": 0,
+        "acc_size": 80
+      },
+      "input_sha256": {
+        "inst.bin": "cc0483d2e076b538a6728d8244d30c535319fb798fb167c1625f1a51fbcf77b5",
+        "mem.elf": "de0306c92e683b931d55d50501bb18cd69cf37cdaad10e0a505702ef30b86a48"
+      },
+      "simulator_sha256": "1e115c40469e2abb9e1376f3b6d105d41a1f3379ad35a3eb1a35c36ba829bf00",
+      "conditional_dut_active_time_us": 9.845454545454546,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim4/seq8",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 48,
+          "dmaInst": 12,
+          "execTime": 1083,
+          "fence": 1,
+          "mxActive": 464,
+          "mxBubble": 646,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "baseline_simulator_sha256": "2a66272d02422e17aa06d8cea08307af76d72052f0876d91bfc41072f4e259cc"
+      }
+    },
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim8/seq16",
+      "array_rows": 8,
+      "array_cols": 8,
+      "seq": 16,
+      "seed": 0,
+      "shape": [
+        16,
+        8
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "b1ec74fcd3ba3977be92ada2a5751f826838aec5b6bf5d95a191636110396b92",
+      "expected_payload_sha256": "b1ec74fcd3ba3977be92ada2a5751f826838aec5b6bf5d95a191636110396b92",
+      "counters": {
+        "dmaActive": 116,
+        "dmaInst": 12,
+        "execTime": 1100,
+        "fence": 1,
+        "mxActive": 642,
+        "mxBubble": 535,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 11977,
+      "result_json_sha256": "52cd2d4c537a2bb4254e5a1cc4b51e23c33dbab1a36b95efb911cfb4f94d6c5d",
+      "test_log_sha256": "776b8b68f053b6e168d44780c23aa2e2b5a8e995d14e6723e0dd1a9c2ccf3218",
+      "config_sha256": "ab9ca0fc111826d2d8f8ef7c4109feca6a5c27e7cf774d434faad85ef47aed21",
+      "config": {
+        "sa_rows": 8,
+        "sa_cols": 8,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 768,
+        "acc_base": 0,
+        "acc_size": 288
+      },
+      "input_sha256": {
+        "inst.bin": "3300d1f2db24c97452f87588830b89aa920c56142dff2640e1b105cc58b313dc",
+        "mem.elf": "7e6a82ee2a090a9bdfe9653d45ac8400be9d87b55e65ff486dd1e78668d0b236"
+      },
+      "simulator_sha256": "83fcc4b6ff48327de4505480e2c747a8d7b5cbad6cac89a5270ddbf1ac06ea84",
+      "conditional_dut_active_time_us": 10.0,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim8/seq16",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 116,
+          "dmaInst": 12,
+          "execTime": 1100,
+          "fence": 1,
+          "mxActive": 642,
+          "mxBubble": 535,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "baseline_simulator_sha256": "52e8b7004f44670b5c5e6603ee98acdafc817d8cde5060ffb0b5a2494733fba8"
+      }
+    },
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim8/seq8",
+      "array_rows": 8,
+      "array_cols": 8,
+      "seq": 8,
+      "seed": 0,
+      "shape": [
+        8,
+        8
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "3153831639ec49f9fdbee68e9f8f0d06b3b34d7ad83d29f5f7776a0c5d051162",
+      "expected_payload_sha256": "3153831639ec49f9fdbee68e9f8f0d06b3b34d7ad83d29f5f7776a0c5d051162",
+      "counters": {
+        "dmaActive": 40,
+        "dmaInst": 4,
+        "execTime": 385,
+        "fence": 1,
+        "mxActive": 210,
+        "mxBubble": 134,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 4827,
+      "result_json_sha256": "7724fa427c7647a07c55b5819bc85709cd9f09a46a9d1118ad51a3c52db031e8",
+      "test_log_sha256": "1bf48050b574daca2d7c88d9ae721f90e03650d01993cba2d943a5d58667c4ad",
+      "config_sha256": "ab9ca0fc111826d2d8f8ef7c4109feca6a5c27e7cf774d434faad85ef47aed21",
+      "config": {
+        "sa_rows": 8,
+        "sa_cols": 8,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 768,
+        "acc_base": 0,
+        "acc_size": 288
+      },
+      "input_sha256": {
+        "inst.bin": "5da10ea53ccd3a2d0daf59a71f3025509a4121a743eee73d5752af6218a99f71",
+        "mem.elf": "218addc3e4950d646a05a5e420226e2506e327c3600186f67151c181e8e0655f"
+      },
+      "simulator_sha256": "83fcc4b6ff48327de4505480e2c747a8d7b5cbad6cac89a5270ddbf1ac06ea84",
+      "conditional_dut_active_time_us": 3.5,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim8/seq8",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 40,
+          "dmaInst": 4,
+          "execTime": 385,
+          "fence": 1,
+          "mxActive": 210,
+          "mxBubble": 134,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "baseline_simulator_sha256": "52e8b7004f44670b5c5e6603ee98acdafc817d8cde5060ffb0b5a2494733fba8"
+      }
+    },
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim16/seq16",
+      "array_rows": 16,
+      "array_cols": 16,
+      "seq": 16,
+      "seed": 0,
+      "shape": [
+        16,
+        16
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+      "expected_payload_sha256": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+      "counters": {
+        "dmaActive": 76,
+        "dmaInst": 4,
+        "execTime": 437,
+        "fence": 1,
+        "mxActive": 267,
+        "mxBubble": 103,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 5427,
+      "result_json_sha256": "c1c44bf8ecfeab08d68bd942439a5d019e0583f646704f49db82b3dfc9997845",
+      "test_log_sha256": "0d638c02a75f9248898bfa05e24c352a2d869bbf9acb23f28704e937f302362e",
+      "config_sha256": "3b77e28bea7f2f17713d60e3d048eb1c41174ab4f43e5f3780bd5755721ba013",
+      "config": {
+        "sa_rows": 16,
+        "sa_cols": 16,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 3072,
+        "acc_base": 0,
+        "acc_size": 1088
+      },
+      "input_sha256": {
+        "inst.bin": "317de176b8fbd0796f04b5b0c44228a5738cf40f33287f6c7b34ef8e07f174ac",
+        "mem.elf": "8ac016e71c4a0850e2b2514d049e3d8fb2f6b514c82836ec1d03a7efe728d117"
+      },
+      "simulator_sha256": "d72d0ab96dde264eac24b846feacfbee16bede310f944ae6e28756c4a007bda3",
+      "conditional_dut_active_time_us": 3.9727272727272727,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim16/seq16",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 76,
+          "dmaInst": 4,
+          "execTime": 437,
+          "fence": 1,
+          "mxActive": 267,
+          "mxBubble": 103,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "baseline_simulator_sha256": "eca696caaaff4403fe2c699c76864eecd09466326924e3d86d2cf29ab290ec10"
+      }
+    },
+    {
+      "case": "/tmp/fsa-a110-build-20261015/sim16/seq32",
+      "array_rows": 16,
+      "array_cols": 16,
+      "seq": 32,
+      "seed": 0,
+      "shape": [
+        32,
+        16
+      ],
+      "e_type": "fp16",
+      "a_type": "fp32",
+      "verified_bitwise_equal": true,
+      "actual_payload_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+      "expected_payload_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+      "counters": {
+        "dmaActive": 220,
+        "dmaInst": 12,
+        "execTime": 1152,
+        "fence": 1,
+        "mxActive": 824,
+        "mxBubble": 295,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 12577,
+      "result_json_sha256": "7060437ffa272c1ef753c6c3531ff2a096a393b5abfb1326fa726b5afa604868",
+      "test_log_sha256": "09b02697cf5b1969eb77a377f36b49d6021ed2df40b89b42edc89dcb48203209",
+      "config_sha256": "3b77e28bea7f2f17713d60e3d048eb1c41174ab4f43e5f3780bd5755721ba013",
+      "config": {
+        "sa_rows": 16,
+        "sa_cols": 16,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 2147483648,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 3072,
+        "acc_base": 0,
+        "acc_size": 1088
+      },
+      "input_sha256": {
+        "inst.bin": "f633f909593e240257b95792aead6cdff935c592d0e79f9f2021a3ab409b2865",
+        "mem.elf": "9a22e6aaeb8bb448279cee64aa43d8cb0f5b39278e6767cbc8f49e69e3b241e2"
+      },
+      "simulator_sha256": "d72d0ab96dde264eac24b846feacfbee16bede310f944ae6e28756c4a007bda3",
+      "conditional_dut_active_time_us": 10.472727272727273,
+      "supplied_dut_frequency_mhz": 110.0,
+      "baseline_comparison": {
+        "baseline_case": "/tmp/fsa-a100-final-build-20261015/sim16/seq32",
+        "same_array_workload_key": true,
+        "same_input_bytes": true,
+        "same_software_config": true,
+        "comparable_same_workload": true,
+        "both_verified_bitwise_equal": true,
+        "same_actual_output_bits": true,
+        "same_expected_output_bits": true,
+        "counter_delta": {
+          "dmaActive": 0,
+          "execTime": 0,
+          "rawInst": 0,
+          "mxBubble": 0,
+          "dmaInst": 0,
+          "mxInst": 0,
+          "mxActive": 0,
+          "fence": 0
+        },
+        "testbench_total_cycle_delta": 0,
+        "baseline_counters": {
+          "dmaActive": 220,
+          "dmaInst": 12,
+          "execTime": 1152,
+          "fence": 1,
+          "mxActive": 824,
+          "mxBubble": 295,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "baseline_simulator_sha256": "eca696caaaff4403fe2c699c76864eecd09466326924e3d86d2cf29ab290ec10"
+      }
+    }
+  ]
+}

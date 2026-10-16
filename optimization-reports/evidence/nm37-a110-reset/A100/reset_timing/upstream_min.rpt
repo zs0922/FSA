@@ -1,0 +1,187 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.2_AR75986 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date              : Fri Oct 16 01:14:14 2026
+| Host              : server48 running 64-bit Ubuntu 24.04.3 LTS
+| Command           : report_timing -to [get_pins -of_objects wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/D -filter {REF_PIN_NAME == D}] -delay_type min -max_paths 100 -nworst 1 -input_pins -file /tmp/fsa-a100-final-postroute-audit/reset_timing/upstream_min.rpt
+| Design            : NM37FPGATestHarness
+| Device            : xcvu37p_CIV-fsvh2892
+| Speed File        : -2L  PRODUCTION 1.28 05-08-2020
+| Temperature Grade : E
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.066ns  (arrival time - required time)
+  Source:                 wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/D
+                            (rising edge-triggered cell FDCE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_harnessSysPLL
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_harnessSysPLL rise@0.000ns - clk_out1_harnessSysPLL rise@0.000ns)
+  Data Path Delay:        0.126ns  (logic 0.040ns (31.746%)  route 0.086ns (68.254%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.880ns
+    Source Clock Delay      (SCD):    2.998ns
+    Clock Pessimism Removal (CPR):    -0.132ns
+  Clock Net Delay (Source):      1.479ns (routing 0.549ns, distribution 0.930ns)
+  Clock Net Delay (Destination): 1.652ns (routing 0.611ns, distribution 1.041ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y30                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y30         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=3, routed)           0.547     1.127    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.230     1.357 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.145     1.502    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y26                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y26         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     1.519 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117542, routed)      1.479     2.998    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/clk_out1
+    SLICE_X148Y119       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X148Y119       FDCE (Prop_EFF2_SLICEL_C_Q)
+                                                      0.040     3.038 r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/Q
+                         net (fo=2, routed)           0.086     3.124    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1
+    SLICE_X148Y118       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y30                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y30         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=3, routed)           0.615     1.339    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.295     1.044 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.165     1.209    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y26                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y26         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     1.228 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117542, routed)      1.652     2.880    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/clk_out1
+    SLICE_X148Y118       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica/C
+                         clock pessimism              0.132     3.012    
+    SLICE_X148Y118       FDCE (Hold_AFF_SLICEL_C_D)
+                                                      0.046     3.058    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica
+  -------------------------------------------------------------------
+                         required time                         -3.058    
+                         arrival time                           3.124    
+  -------------------------------------------------------------------
+                         slack                                  0.066    
+
+Slack (MET) :             0.085ns  (arrival time - required time)
+  Source:                 wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/D
+                            (rising edge-triggered cell FDCE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_harnessSysPLL
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_harnessSysPLL rise@0.000ns - clk_out1_harnessSysPLL rise@0.000ns)
+  Data Path Delay:        0.137ns  (logic 0.040ns (29.197%)  route 0.097ns (70.803%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.006ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.884ns
+    Source Clock Delay      (SCD):    2.998ns
+    Clock Pessimism Removal (CPR):    -0.120ns
+  Clock Net Delay (Source):      1.479ns (routing 0.549ns, distribution 0.930ns)
+  Clock Net Delay (Destination): 1.656ns (routing 0.611ns, distribution 1.045ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y30                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y30         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=3, routed)           0.547     1.127    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.230     1.357 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.145     1.502    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y26                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y26         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     1.519 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117542, routed)      1.479     2.998    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/clk_out1
+    SLICE_X148Y119       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X148Y119       FDCE (Prop_EFF2_SLICEL_C_Q)
+                                                      0.040     3.038 r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1_reg/Q
+                         net (fo=2, routed)           0.097     3.135    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_1
+    SLICE_X148Y119       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y30                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y30         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=3, routed)           0.615     1.339    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.295     1.044 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.165     1.209    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y26                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y26         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     1.228 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117542, routed)      1.656     2.884    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/clk_out1
+    SLICE_X148Y119       FDCE                                         r  wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg/C
+                         clock pessimism              0.120     3.004    
+    SLICE_X148Y119       FDCE (Hold_EFF_SLICEL_C_D)
+                                                      0.046     3.050    wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg
+  -------------------------------------------------------------------
+                         required time                         -3.050    
+                         arrival time                           3.135    
+  -------------------------------------------------------------------
+                         slack                                  0.085    
+
+
+
+

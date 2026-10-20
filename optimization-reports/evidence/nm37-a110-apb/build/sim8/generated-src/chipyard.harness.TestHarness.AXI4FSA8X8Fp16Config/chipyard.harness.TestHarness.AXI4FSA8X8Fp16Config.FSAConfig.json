@@ -1,0 +1,16 @@
+
+{
+"sa_rows": 8,
+"sa_cols": 8,
+"inst_queue_size": 256,
+"e_type": "fp16",
+"a_type": "fp32",
+"mem_base": 2147483648,
+"mem_size": 268435456,
+"mem_align": 8,
+"spad_base": 0,
+"spad_size": 768,
+"acc_base": 0,
+"acc_size": 288
+}
+    

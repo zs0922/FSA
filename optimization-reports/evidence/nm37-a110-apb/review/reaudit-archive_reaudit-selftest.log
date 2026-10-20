@@ -1,0 +1,14 @@
+test_archived_reaudit_record_cannot_be_tampered (__main__.ReauditArchive.test_archived_reaudit_record_cannot_be_tampered) ... ok
+test_bitstream_export_binding_and_omission (__main__.ReauditArchive.test_bitstream_export_binding_and_omission) ... ok
+test_current_auditor_change_does_not_replace_original_driver (__main__.ReauditArchive.test_current_auditor_change_does_not_replace_original_driver) ... ok
+test_original_failure_and_revised_pass_both_preserved (__main__.ReauditArchive.test_original_failure_and_revised_pass_both_preserved) ... ok
+test_original_report_and_xci_tamper_rejected (__main__.ReauditArchive.test_original_report_and_xci_tamper_rejected) ... ok
+test_reaudit_pass_requires_relative_safe_path (__main__.ReauditArchive.test_reaudit_pass_requires_relative_safe_path) ... ok
+test_revised_manifest_cannot_reference_a_different_build (__main__.ReauditArchive.test_revised_manifest_cannot_reference_a_different_build) ... ok
+test_revised_report_or_acceptance_tamper_rejected (__main__.ReauditArchive.test_revised_report_or_acceptance_tamper_rejected) ... ok
+test_snapshot_or_symlink_tamper_rejected (__main__.ReauditArchive.test_snapshot_or_symlink_tamper_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 3.883s
+
+OK

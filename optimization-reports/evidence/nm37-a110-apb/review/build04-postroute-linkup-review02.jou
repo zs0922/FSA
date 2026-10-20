@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2_AR75986 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Oct 20 07:07:35 2026
+# Process ID: 70
+# Current directory: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020
+# Command line: vivado -mode batch -source review/postroute-linkup-review02.tcl -log review/build04-postroute-linkup-review02.log -journal review/build04-postroute-linkup-review02.jou
+# Log file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-linkup-review02.log
+# Journal file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-linkup-review02.jou
+#-----------------------------------------------------------
+source review/postroute-linkup-review02.tcl

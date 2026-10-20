@@ -1,0 +1,115 @@
+{
+  "tools": {
+    "java": {
+      "command": [
+        "java",
+        "-version"
+      ],
+      "executable": "/home/zhangsi/tmp/FSA-m1/.conda-env/lib/jvm/bin/java",
+      "sha256": "4e581310e7eccd1fb2b2127870f2853a01081527e197590bd1a1c5a6851e1ff8",
+      "version": "Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110\nopenjdk version \"20.0.2-internal\" 2023-07-18\nOpenJDK Runtime Environment (build 20.0.2-internal-adhoc..src)\nOpenJDK 64-Bit Server VM (build 20.0.2-internal-adhoc..src, mixed mode, sharing)\n"
+    },
+    "firtool": {
+      "command": [
+        "firtool",
+        "--version"
+      ],
+      "executable": "/home/zhangsi/circt/bin/firtool",
+      "sha256": "cd4a5be2461207f2d1261f8cfba7ddb8c74648ddc3f2bf64a4a1a23abe11726a",
+      "version": "LLVM (http://llvm.org/):\n  LLVM version 19.0.0git\n  Optimized build.\nCIRCT firtool-1.75.0\n"
+    },
+    "verilator": {
+      "command": [
+        "verilator",
+        "--version"
+      ],
+      "executable": "/home/zhangsi/tmp/FSA-m1/.conda-env/bin/verilator",
+      "sha256": "8f524b25347f8cf62eccf30adbc58d056f9d8a4497dea4e6640381a6e13e8c07",
+      "version": "Verilator 5.022 2024-02-24 rev conda-forge build 1\n"
+    },
+    "vivado": {
+      "command": [
+        "vivado",
+        "-version"
+      ],
+      "executable": "/opt/Xilinx_2020.2/Vivado/2020.2/bin/vivado",
+      "sha256": "2924389be0c4297f3e2c4d267e22904a89962575497d0f5fd7eb15dc959e5505",
+      "version": "Vivado v2020.2_AR75986 (64-bit)\nSW Build 3064766 on Wed Nov 18 09:12:47 MST 2020\nIP Build 3064653 on Wed Nov 18 14:17:31 MST 2020\nCopyright 1986-2020 Xilinx, Inc. All Rights Reserved.\n"
+    },
+    "cc": {
+      "command": [
+        "/usr/bin/gcc",
+        "--version"
+      ],
+      "executable": "/usr/bin/x86_64-linux-gnu-gcc-13",
+      "sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "cxx": {
+      "command": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "executable": "/usr/bin/x86_64-linux-gnu-g++-13",
+      "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+      "version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "path_gxx": {
+      "command": [
+        "g++",
+        "--version"
+      ],
+      "executable": "/home/zhangsi/tmp/FSA-m1/.conda-env/bin/x86_64-conda-linux-gnu-g++",
+      "sha256": "01143157a02c904234153b7ef169aae66798d5258c9a84678b220e056f7e528e",
+      "version": "g++ (conda-forge gcc 13.2.0-13) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+    },
+    "ld": {
+      "command": [
+        "ld",
+        "--version"
+      ],
+      "executable": "/home/zhangsi/tmp/FSA-m1/.conda-env/bin/x86_64-conda-linux-gnu-ld",
+      "sha256": "2aeeaed9ba41479fb4c9cf5075e977835485d34ba9456e93c8eb1ce857fae229",
+      "version": "GNU ld (GNU Binutils) 2.43\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) a later version.\nThis program has absolutely no warranty.\n"
+    },
+    "python": {
+      "command": [
+        "/home/zhangsi/tmp/FSA-m1/generators/fsa/python/.venv/bin/python",
+        "--version"
+      ],
+      "executable": "/home/zhangsi/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/bin/python3.13",
+      "sha256": "396f548d3fc6ef4f52a81b2c6b51bb3f00d3e60c82081e1a80f66cfeba90b939",
+      "version": "Python 3.13.14\n"
+    },
+    "yosys": {
+      "command": [
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/formal-env/bin/yowasp-yosys",
+        "-V"
+      ],
+      "executable": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/formal-env/bin/yowasp-yosys",
+      "sha256": "56adaa2e4d3627f4dfce7d66c6131985f14e2e70fe833d7d09b9e79a2e824759",
+      "version": "Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)\n"
+    }
+  },
+  "libraries": {
+    "/home/zhangsi/riscv/lib/libfesvr.a": "764382ca08f954725beaa7bea93cf2b1672881e686838b0fa3b8c24fba22f20a",
+    "/home/zhangsi/riscv/lib/libriscv.so": "1b8fcc4a63ebfd7c16246f9cc29297b96270e1a564b412ac1dd01c33e73332f6"
+  },
+  "environment": {
+    "RISCV": "/home/zhangsi/riscv",
+    "CC": "/usr/bin/gcc",
+    "CXX": "/usr/bin/g++",
+    "PATH": "/opt/Xilinx_2020.2/Vivado/2020.2/bin:/home/zhangsi/tmp/FSA-m1/.conda-env/bin:/home/zhangsi/.local/bin:/home/zhangsi/circt/bin:/home/zhangsi/riscv/bin:/home/zhangsi/.local/bin:/usr/local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/zhangsi/.codex/tmp/arg0/codex-arg0EU0olY:/home/zhangsi/.local/bin:/home/zhangsi/.local/bin:/home/zhangsi/.opencode/bin:/home/zhangsi/miniconda3/bin:/home/zhangsi/miniconda3/condabin:/home/zhangsi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "LD_LIBRARY_PATH": null,
+    "JAVA_TOOL_OPTIONS": "-Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110",
+    "USE_CHISEL6": "1",
+    "CHISEL_FIRTOOL_PATH": "/home/zhangsi/circt/bin",
+    "YOSYS": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/formal-env/bin/yowasp-yosys",
+    "FSA_PYTHON": "/home/zhangsi/tmp/FSA-m1/generators/fsa/python/.venv/bin/python",
+    "PYTHONPATH": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/generators/easyfloat",
+    "A110_JOBS": "16",
+    "COURSIER_CACHE": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/coursier/v1",
+    "XDG_CACHE_HOME": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/xdg-cache",
+    "XDG_RUNTIME_DIR": "/tmp/fsa-apb110-runtime"
+  }
+}

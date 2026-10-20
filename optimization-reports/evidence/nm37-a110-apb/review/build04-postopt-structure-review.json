@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "mode": "postopt-independent-structural-review",
+  "reviewer": "/root/apb_review",
+  "reviewed_utc": "2026-10-20T06:07:03.970794+00:00",
+  "candidate_physical_acceptance": false,
+  "staged_auditor_sha256": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+  "checkpoint_sha256": "64f4d748b3918c457a8d0ff2b31f49cfb996f65643fd062ddc6b32431ff40c52",
+  "files": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/hbm_audit.tcl": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/hbm-audit-stage-probe-v1.tcl": "a4877fa591a9fd01499734cf78472eb0f79dd4344477f4bbc718df69dc350f4d",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/audit-helper-negative-tests.tcl": "1f2c72b8c2c3f10ef30d9707ff6398c3e95f212a4dba81100d95b4d12c98b58b",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/audit-helper-negative-tests.txt": "d74d973dacef1d90809ca4c53d83386d41a977d7dcbb89593fb24b0097bfb477",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/final-common-reset-polarity-probe.txt": "7d9ae017787d933fee2db2726c05cbee963b169e543ef012c47af8a72a549d38",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postopt-common-reset-query.txt": "cd64da26d81c8fb1cc1edb7eb86c88e33b0a6c4f3dc905f0eeeb9e99c4a308c1",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postopt-apb-pulse-api-diagnostic.rpt": "dcb529dbffe42ff9ae5c3487b81181ca738456542942333e2d318d13e557c08b",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-raw-properties.txt": "ff5f8e4b3349af5a708a3af66f11469499a48a67d351284edc1d6dfde7392e0d",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-pin-polarity/buffer-pin-polarity.txt": "8f9c530f46acfccd93a4edcd7d43b91488e6412ed4195ef08d3e7997ae22cb5c",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-pin-polarity/input_sha256.tsv": "d3e9216e71b291decd424d7e88cf78350bc4b778b27443681e27d67e40d9d8ee",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/properties.txt": "4d3d7dda63bd8ae345d5b67bccebb74731f044e06949e51efb1140daf28da3fb",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/input_sha256.tsv": "af821bb1ffb4e4bfc125f8a1cc6d0b14c8466797ffb62ba700de7bc4a0610807",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/synchronizers.tsv": "eb1db4f347b88b5d844f7841c8ab4df6176eccd54233f161a12b39361dffa04b",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/registers.tsv": "9fad5c1f3211e14909792d21ea825f4e4492fa70cbcefb4cdec9bd81f0e38ce1",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/deferred_timing.tsv": "f58a74d1de6b957db54fb9454c6195d3a18be50c1fe1930f43a4e357b253b67b",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/build.json": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_opt.dcp": "64f4d748b3918c457a8d0ff2b31f49cfb996f65643fd062ddc6b32431ff40c52"
+  },
+  "conclusions": [
+    "Actual APB55/DUT110/board100/HBM-reference100 clocks are present in post_opt before and after update_timing.",
+    "All30 startup registers and12 ASYNC_REG FDCE synchronization bits satisfy the expected attributes, clock domains, direct stage connections, initialization, reset fanins and actual HBM/XDMA connections.",
+    "Vivado opt maps HBM reference and board buffers to BUFGCE. Actual I/CE pin.IS_INVERTED is explicitly0; each CE driver primitive isVCC. Both buffers are checked even at the expected-source early return.",
+    "Common reset boundary io_reset is optimized away. Actual APB sync CLR is driven by LUT2 INIT4h7, with one APB and one DUT wrangler release Q. Each full three-register FDCE INIT0 chain, order, constant-one feed and common clear is verified; common reset is NAND of release Q values, equivalent to OR of active-high domain resets.",
+    "No additional structural/API mismatches were found after those corrections.",
+    "The final helper rejects incorrect enable, polarity, NAND truth, release clock/type/init/order/reset cases in25 offline checks."
+  ],
+  "validation_scope": "The complete staged structure probe used the archived v1 auditor a4877f..., followed by a stricter final wrangler CE/Q polarity check with final fab04c... auditor in the same real post_opt DCP. Archived v1 content is preserved for the historical input hash. This is not routed timing acceptance.",
+  "pending": [
+    "All66 targeted max/min checks remain explicitly DEFERRED_POSTROUTE.",
+    "Global postroute setup/hold/pulse-width, routing and DRC validation.",
+    "Actual routed new CDC Warning/Critical item-by-item evidence review.",
+    "Original frozen main audit failure and corrected independent reaudit must retain distinct provenance."
+  ]
+}

@@ -1,0 +1,41 @@
+[staging] cwd=/tmp
+test_all_original_inspect_assertions_are_unchanged (__main__.ContextTests.test_all_original_inspect_assertions_are_unchanged) ... ok
+test_atomic_template_does_not_write_through_hard_link (__main__.ContextTests.test_atomic_template_does_not_write_through_hard_link) ... ok
+test_changed_or_escaped_review_evidence_rejected (__main__.ContextTests.test_changed_or_escaped_review_evidence_rejected) ... ok
+test_context_rejects_overlap_and_wrong_original_checkpoint (__main__.ContextTests.test_context_rejects_overlap_and_wrong_original_checkpoint) ... ok
+test_context_rejects_symlinked_reports_or_output_escape (__main__.ContextTests.test_context_rejects_symlinked_reports_or_output_escape) ... ok
+test_default_inspect_signature_remains_compatible (__main__.ContextTests.test_default_inspect_signature_remains_compatible) ... ok
+test_each_original_physical_gate_still_rejects_failures (__main__.ContextTests.test_each_original_physical_gate_still_rejects_failures) ... ok
+test_full_inspect_reads_old_inputs_writes_only_new_tree (__main__.ContextTests.test_full_inspect_reads_old_inputs_writes_only_new_tree) ... ok
+test_missing_hbm_endpoint_is_rejected (__main__.ContextTests.test_missing_hbm_endpoint_is_rejected) ... ok
+test_missing_review_produces_bound_template_only_in_new_root (__main__.ContextTests.test_missing_review_produces_bound_template_only_in_new_root) ... ok
+test_original_ip_settings_are_not_replaced_by_local_reaudit_copies (__main__.ContextTests.test_original_ip_settings_are_not_replaced_by_local_reaudit_copies) ... ok
+test_review_cannot_waive_real_critical_or_use_missing_evidence (__main__.ContextTests.test_review_cannot_waive_real_critical_or_use_missing_evidence) ... ok
+test_review_must_bind_build_checkpoint_and_new_cdc_report (__main__.ContextTests.test_review_must_bind_build_checkpoint_and_new_cdc_report) ... ok
+test_review_must_cover_each_finding_once (__main__.ContextTests.test_review_must_cover_each_finding_once) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.292s
+
+OK
+
+[repository-layout] cwd=/tmp
+test_all_original_inspect_assertions_are_unchanged (__main__.ContextTests.test_all_original_inspect_assertions_are_unchanged) ... ok
+test_atomic_template_does_not_write_through_hard_link (__main__.ContextTests.test_atomic_template_does_not_write_through_hard_link) ... ok
+test_changed_or_escaped_review_evidence_rejected (__main__.ContextTests.test_changed_or_escaped_review_evidence_rejected) ... ok
+test_context_rejects_overlap_and_wrong_original_checkpoint (__main__.ContextTests.test_context_rejects_overlap_and_wrong_original_checkpoint) ... ok
+test_context_rejects_symlinked_reports_or_output_escape (__main__.ContextTests.test_context_rejects_symlinked_reports_or_output_escape) ... ok
+test_default_inspect_signature_remains_compatible (__main__.ContextTests.test_default_inspect_signature_remains_compatible) ... ok
+test_each_original_physical_gate_still_rejects_failures (__main__.ContextTests.test_each_original_physical_gate_still_rejects_failures) ... ok
+test_full_inspect_reads_old_inputs_writes_only_new_tree (__main__.ContextTests.test_full_inspect_reads_old_inputs_writes_only_new_tree) ... ok
+test_missing_hbm_endpoint_is_rejected (__main__.ContextTests.test_missing_hbm_endpoint_is_rejected) ... ok
+test_missing_review_produces_bound_template_only_in_new_root (__main__.ContextTests.test_missing_review_produces_bound_template_only_in_new_root) ... ok
+test_original_ip_settings_are_not_replaced_by_local_reaudit_copies (__main__.ContextTests.test_original_ip_settings_are_not_replaced_by_local_reaudit_copies) ... ok
+test_review_cannot_waive_real_critical_or_use_missing_evidence (__main__.ContextTests.test_review_cannot_waive_real_critical_or_use_missing_evidence) ... ok
+test_review_must_bind_build_checkpoint_and_new_cdc_report (__main__.ContextTests.test_review_must_bind_build_checkpoint_and_new_cdc_report) ... ok
+test_review_must_cover_each_finding_once (__main__.ContextTests.test_review_must_cover_each_finding_once) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.323s
+
+OK

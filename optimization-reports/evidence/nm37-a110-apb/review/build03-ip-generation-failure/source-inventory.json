@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "classification": "historical_ip_generation_failure_only",
+  "created_utc": "2026-10-20T06:30:44.469538+00:00",
+  "source_build": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03",
+  "source_root_commit": "cadd425778028553b75036a436ed6cbbec760399",
+  "source_build_sha256": "b3105fb1e55982e2c4251961af17e6cb05e2397993da2a14675e8a32140fb40d",
+  "current_candidate_build": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04",
+  "current_candidate_execution_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+  "copied_originals": [
+    {
+      "archived_relative_path": "build.json",
+      "source_absolute_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/build.json",
+      "source_relative_path": "build.json",
+      "source_sha256": "b3105fb1e55982e2c4251961af17e6cb05e2397993da2a14675e8a32140fb40d",
+      "copied_sha256": "b3105fb1e55982e2c4251961af17e6cb05e2397993da2a14675e8a32140fb40d",
+      "bytes": 2510,
+      "unmodified_copy": true
+    },
+    {
+      "archived_relative_path": "implementation.log",
+      "source_absolute_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/A110/implementation.log",
+      "source_relative_path": "A110/implementation.log",
+      "source_sha256": "5170ed6828b5e15f6d9e6b221b283d34421a507185e39133aa994ea2d78b7ef8",
+      "copied_sha256": "5170ed6828b5e15f6d9e6b221b283d34421a507185e39133aa994ea2d78b7ef8",
+      "bytes": 8098,
+      "unmodified_copy": true
+    },
+    {
+      "archived_relative_path": "harnessSysPLL.vivado.tcl",
+      "source_absolute_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.harnessSysPLL.vivado.tcl",
+      "source_relative_path": "A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.harnessSysPLL.vivado.tcl",
+      "source_sha256": "118450ddefa1a5c5a529e21cf7e0bd5265ef0027eb823d997ca7f5945e461362",
+      "copied_sha256": "118450ddefa1a5c5a529e21cf7e0bd5265ef0027eb823d997ca7f5945e461362",
+      "bytes": 2344,
+      "unmodified_copy": true
+    },
+    {
+      "archived_relative_path": "harnessSysPLL.xci",
+      "source_absolute_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci",
+      "source_relative_path": "A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci",
+      "source_sha256": "12c25f2ca839873daa53cfdf9e562039e1a58218ad68a89a239fefbfb1a0b09c",
+      "copied_sha256": "12c25f2ca839873daa53cfdf9e562039e1a58218ad68a89a239fefbfb1a0b09c",
+      "bytes": 103798,
+      "unmodified_copy": true
+    }
+  ],
+  "derived_files": [
+    {
+      "relative_path": "failure-excerpt.txt",
+      "sha256": "346595162e9838b19b321adbcbbbd64cd9145294763c1ffaf1369dc2e465a6bc",
+      "bytes": 1529
+    },
+    {
+      "relative_path": "README.md",
+      "sha256": "e92df09b5570bf328cff101b5a904378f9f08926f563b52b1d68370667ea3d77",
+      "bytes": 1671
+    }
+  ],
+  "observed_failure": {
+    "stage": "ClockWizard IP creation, before synthesis/place/route",
+    "message": "Output jitter 214.859 ps exceeds required limit of 200.0",
+    "source_log_line": 198,
+    "generated_tcl_apb_guard_ps": 200,
+    "declared_board_sink_budget_ps": 230,
+    "checkpoint_absence_verified_at_capture": [
+      "obj/post_synth.dcp",
+      "obj/post_route.dcp"
+    ],
+    "xci_parameters": {
+      "PARAM_VALUE.CLKIN1_JITTER_PS": "50.0",
+      "PARAM_VALUE.CLKIN1_UI_JITTER": "0.010",
+      "PARAM_VALUE.CLKOUT1_JITTER": "195.800",
+      "PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ": "110.0",
+      "PARAM_VALUE.CLKOUT2_JITTER": "214.859",
+      "PARAM_VALUE.CLKOUT2_REQUESTED_OUT_FREQ": "55.0",
+      "PARAM_VALUE.JITTER_OPTIONS": "UI",
+      "PARAM_VALUE.PRIM_IN_FREQ": "100.0"
+    },
+    "input_jitter_assumption": "UI mode 0.010 at 100 MHz = 100 ps; stored 50 ps field is inactive"
+  },
+  "git_source_references": [
+    {
+      "role": "failed_build03",
+      "git_commit": "cadd425778028553b75036a436ed6cbbec760399",
+      "repository_relative_path": "fpga/src/main/scala/nm37/TestHarness.scala",
+      "sha256": "09a2aba0d45167b52f72593c1116172c46d07b82e0ef9cba6ca29f13f15d2827",
+      "bytes": 5439,
+      "copied": false,
+      "selected_lines": [
+        {
+          "line": 47,
+          "text": "  val hbmAPBFrequencyMHz = 55.0"
+        },
+        {
+          "line": 48,
+          "text": "  val hbmAPBFixedClockNode = FixedClockBroadcast(Some(ClockParameters(freqMHz = hbmAPBFrequencyMHz)))"
+        },
+        {
+          "line": 49,
+          "text": "  val hbmAPBClockNode = ClockSinkNode(freqMHz = hbmAPBFrequencyMHz, jitterPS = 230)"
+        },
+        {
+          "line": 66,
+          "text": "      \"test\", apbFrequencyMHz = hbmAPBFrequencyMHz))"
+        }
+      ]
+    },
+    {
+      "role": "corrected_build04",
+      "git_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+      "repository_relative_path": "fpga/src/main/scala/nm37/TestHarness.scala",
+      "sha256": "a9b989384069662e0f6057c00b46aae36d1190ed113d561c1a3f9d186075b54c",
+      "bytes": 5697,
+      "copied": false,
+      "selected_lines": [
+        {
+          "line": 47,
+          "text": "  val hbmAPBFrequencyMHz = 55.0"
+        },
+        {
+          "line": 52,
+          "text": "  val hbmAPBFixedClockNode = FixedClockBroadcast()"
+        },
+        {
+          "line": 53,
+          "text": "  val hbmAPBClockNode = ClockSinkNode(freqMHz = hbmAPBFrequencyMHz, jitterPS = 230)"
+        },
+        {
+          "line": 70,
+          "text": "      \"test\", apbFrequencyMHz = hbmAPBFrequencyMHz))"
+        }
+      ]
+    }
+  ],
+  "excluded": "All build03 functional passed markers, regression results and core-RTL comparisons; use build04 evidence for current validation.",
+  "full_build_backup": false
+}

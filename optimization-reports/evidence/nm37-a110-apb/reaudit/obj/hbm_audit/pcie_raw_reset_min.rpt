@@ -1,0 +1,227 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.2_AR75986 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date              : Tue Oct 20 07:20:46 2026
+| Host              : server48 running 64-bit Ubuntu 24.04.3 LTS
+| Command           : report_timing -to [get_pins -quiet -of_objects {pcieResetControl/releaseSync/sync_reg[2]/Q} -filter {REF_PIN_NAME == CLR}] -delay_type min -max_paths 10 -input_pins -nets -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/hbm_audit/pcie_raw_reset_min.rpt
+| Design            : NM37FPGATestHarness
+| Device            : xcvu37p_CIV-fsvh2892
+| Speed File        : -2L  PRODUCTION 1.28 05-08-2020
+| Temperature Grade : E
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 powerOnReset_fpga_power_on/power_on_reset_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            pcieResetControl/releaseSync/sync_reg[0]/CLR
+                            (removal check against rising-edge clock sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Removal (Min at Fast Process Corner)
+  Data Path Delay:        0.847ns  (logic 0.075ns (8.855%)  route 0.772ns (91.145%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.322ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.573ns
+    Source Clock Delay      (SCD):    1.251ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.252ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.500ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      0.671ns (routing 0.096ns, distribution 0.575ns)
+  Clock Net Delay (Destination): 0.849ns (routing 0.108ns, distribution 0.741ns)
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.671     1.251    powerOnReset_fpga_power_on/clock
+    SLICE_X124Y58        FDRE                                         r  powerOnReset_fpga_power_on/power_on_reset_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X124Y58        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.038     1.289 f  powerOnReset_fpga_power_on/power_on_reset_reg/Q
+                         net (fo=4, routed)           0.212     1.501    pcieResetControl/releaseSync/power_on_reset
+    SLICE_X122Y89                                                     f  pcieResetControl/releaseSync/sync[2]_i_1__0/I1
+    SLICE_X122Y89        LUT3 (Prop_D5LUT_SLICEM_I1_O)
+                                                      0.037     1.538 f  pcieResetControl/releaseSync/sync[2]_i_1__0/O
+                         net (fo=3, routed)           0.560     2.098    pcieResetControl/releaseSync/reset0
+    SLICE_X155Y54        FDCE                                         f  pcieResetControl/releaseSync/sync_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.849     1.573    pcieResetControl/releaseSync/CLK
+    SLICE_X155Y54        FDCE                                         r  pcieResetControl/releaseSync/sync_reg[0]/C
+
+Slack:                    inf
+  Source:                 powerOnReset_fpga_power_on/power_on_reset_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            pcieResetControl/releaseSync/sync_reg[1]/CLR
+                            (removal check against rising-edge clock sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Removal (Min at Fast Process Corner)
+  Data Path Delay:        0.847ns  (logic 0.075ns (8.855%)  route 0.772ns (91.145%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.322ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.573ns
+    Source Clock Delay      (SCD):    1.251ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.252ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.500ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      0.671ns (routing 0.096ns, distribution 0.575ns)
+  Clock Net Delay (Destination): 0.849ns (routing 0.108ns, distribution 0.741ns)
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.671     1.251    powerOnReset_fpga_power_on/clock
+    SLICE_X124Y58        FDRE                                         r  powerOnReset_fpga_power_on/power_on_reset_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X124Y58        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.038     1.289 f  powerOnReset_fpga_power_on/power_on_reset_reg/Q
+                         net (fo=4, routed)           0.212     1.501    pcieResetControl/releaseSync/power_on_reset
+    SLICE_X122Y89                                                     f  pcieResetControl/releaseSync/sync[2]_i_1__0/I1
+    SLICE_X122Y89        LUT3 (Prop_D5LUT_SLICEM_I1_O)
+                                                      0.037     1.538 f  pcieResetControl/releaseSync/sync[2]_i_1__0/O
+                         net (fo=3, routed)           0.560     2.098    pcieResetControl/releaseSync/reset0
+    SLICE_X155Y54        FDCE                                         f  pcieResetControl/releaseSync/sync_reg[1]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.849     1.573    pcieResetControl/releaseSync/CLK
+    SLICE_X155Y54        FDCE                                         r  pcieResetControl/releaseSync/sync_reg[1]/C
+
+Slack:                    inf
+  Source:                 powerOnReset_fpga_power_on/power_on_reset_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            pcieResetControl/releaseSync/sync_reg[2]/CLR
+                            (removal check against rising-edge clock sys_clock  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Removal (Min at Fast Process Corner)
+  Data Path Delay:        0.847ns  (logic 0.075ns (8.855%)  route 0.772ns (91.145%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.322ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.573ns
+    Source Clock Delay      (SCD):    1.251ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.252ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.500ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      0.671ns (routing 0.096ns, distribution 0.575ns)
+  Clock Net Delay (Destination): 0.849ns (routing 0.108ns, distribution 0.741ns)
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.671     1.251    powerOnReset_fpga_power_on/clock
+    SLICE_X124Y58        FDRE                                         r  powerOnReset_fpga_power_on/power_on_reset_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X124Y58        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.038     1.289 f  powerOnReset_fpga_power_on/power_on_reset_reg/Q
+                         net (fo=4, routed)           0.212     1.501    pcieResetControl/releaseSync/power_on_reset
+    SLICE_X122Y89                                                     f  pcieResetControl/releaseSync/sync[2]_i_1__0/I1
+    SLICE_X122Y89        LUT3 (Prop_D5LUT_SLICEM_I1_O)
+                                                      0.037     1.538 f  pcieResetControl/releaseSync/sync[2]_i_1__0/O
+                         net (fo=3, routed)           0.560     2.098    pcieResetControl/releaseSync/reset0
+    SLICE_X155Y54        FDCE                                         f  pcieResetControl/releaseSync/sync_reg[2]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clock rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+    X4Y1 (CLOCK_ROOT)    net (fo=21, routed)          0.849     1.573    pcieResetControl/releaseSync/CLK
+    SLICE_X155Y54        FDCE                                         r  pcieResetControl/releaseSync/sync_reg[2]/C
+
+
+
+

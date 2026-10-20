@@ -1,0 +1,13 @@
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+openjdk version "20.0.2-internal" 2023-07-18
+OpenJDK Runtime Environment (build 20.0.2-internal-adhoc..src)
+OpenJDK 64-Bit Server VM (build 20.0.2-internal-adhoc..src, mixed mode, sharing)
+LLVM (http://llvm.org/):
+  LLVM version 19.0.0git
+  Optimized build.
+CIRCT firtool-1.75.0
+Verilator 5.022 2024-02-24 rev conda-forge build 1
+Vivado v2020.2_AR75986 (64-bit)
+SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.

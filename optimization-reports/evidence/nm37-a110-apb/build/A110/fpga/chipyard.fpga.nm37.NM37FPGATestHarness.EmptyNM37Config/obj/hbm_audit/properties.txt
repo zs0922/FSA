@@ -1,0 +1,2 @@
+status=FAIL
+error=HBM audit: unexpected HBM reference buffer primitive

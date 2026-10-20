@@ -1,0 +1,1582 @@
+[
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FixedClockBroadcast_2",
+    "group": "FixedClockBroadcast_2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetRegVec_w13_i0",
+    "group": "AsyncResetRegVec_w13_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetReg",
+    "group": "AsyncResetReg"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+    "group": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerShiftReg_w1_d3_i0",
+    "group": "AsyncResetSynchronizerShiftReg_w1_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ResetCatchAndSync_d3",
+    "group": "ResetCatchAndSync_d3"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerPrimitiveShiftReg_d3_i0_1",
+    "group": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+    "group": "AsyncResetSynchronizerShiftReg_w1_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ResetCatchAndSync_d3_1",
+    "group": "ResetCatchAndSync_d3"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerPrimitiveShiftReg_d3_i0_2",
+    "group": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerShiftReg_w1_d3_i0_2",
+    "group": "AsyncResetSynchronizerShiftReg_w1_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ResetCatchAndSync_d3_2",
+    "group": "ResetCatchAndSync_d3"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ResetWrangler",
+    "group": "ResetWrangler"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FixedClockBroadcast_5",
+    "group": "FixedClockBroadcast_5"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ClockGroup",
+    "group": "ClockGroup"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FixedClockBroadcast_2_1",
+    "group": "FixedClockBroadcast_2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|nm37_xdma",
+    "group": "nm37_xdma"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CustomXDMA",
+    "group": "CustomXDMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|xdma_master_axi_clock_converter_0",
+    "group": "xdma_master_axi_clock_converter_0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|LazyAXI4ClockConverter",
+    "group": "LazyAXI4ClockConverter"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|xdma_master_lite_axi_clock_converter_0",
+    "group": "xdma_master_lite_axi_clock_converter_0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|LazyAXI4ClockConverter_1",
+    "group": "LazyAXI4ClockConverter"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FixedClockBroadcast_2_2",
+    "group": "FixedClockBroadcast_2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|testxilinx_hbm",
+    "group": "testxilinx_hbm"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMAsyncLevelSynchronizer",
+    "group": "HBMAsyncLevelSynchronizer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMAsyncLevelSynchronizer_1",
+    "group": "HBMAsyncLevelSynchronizer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMAsyncLevelSynchronizer_2",
+    "group": "HBMAsyncLevelSynchronizer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMStartupControl",
+    "group": "HBMStartupControl"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMAXIStartupGate",
+    "group": "HBMAXIStartupGate"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|LazyXilinxHBMController",
+    "group": "LazyXilinxHBMController"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_UInt1",
+    "group": "Queue2_UInt<1>"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_UInt1_1",
+    "group": "Queue2_UInt<1>"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_UInt2",
+    "group": "Queue2_UInt<2>"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4Xbar",
+    "group": "AXI4Xbar"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RequestPartitioner",
+    "group": "RequestPartitioner"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|LoadQueue",
+    "group": "LoadQueue"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_UInt256",
+    "group": "Queue2_UInt<256>"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|StoreQueue",
+    "group": "StoreQueue"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|DMA",
+    "group": "DMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue256_UInt32",
+    "group": "Queue256_UInt<32>"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_RegMapperOutput",
+    "group": "Queue2_RegMapperOutput"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|InstructionMerger",
+    "group": "InstructionMerger"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|InstructionMerger_1",
+    "group": "InstructionMerger"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Decoder",
+    "group": "Decoder"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Semaphores",
+    "group": "Semaphores"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Ehr",
+    "group": "Ehr"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|MatrixControlFSM",
+    "group": "MatrixControlFSM"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Ehr_1",
+    "group": "Ehr"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|MatrixControlFSM_1",
+    "group": "MatrixControlFSM"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|MatrixEngineController",
+    "group": "MatrixEngineController"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|InputDelayer",
+    "group": "InputDelayer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|InputDelayer_1",
+    "group": "InputDelayer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|OutputDelayer",
+    "group": "OutputDelayer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_1",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_1",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_1",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_1",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_1",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_2",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_2",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_2",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_2",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_2",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_3",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_3",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_3",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_3",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_3",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_4",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_4",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_4",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_4",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_4",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_5",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_5",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_5",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_5",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_5",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_6",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_6",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_6",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_6",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_6",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_7",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_7",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_7",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_7",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_7",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_8",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_8",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_8",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_8",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_8",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_9",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_9",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_9",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_9",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_9",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_10",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_10",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_10",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_10",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_10",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_11",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_11",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_11",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_11",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_11",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_12",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_12",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_12",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_12",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_12",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_13",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_13",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_13",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_13",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_13",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_14",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_14",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_14",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_14",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_14",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_15",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_15",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FMA_15",
+    "group": "FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPCmpUnit_15",
+    "group": "FPCmpUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|CMP_15",
+    "group": "CMP"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_16",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_16",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPMacUnit",
+    "group": "FPMacUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|PE",
+    "group": "PE"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|SystolicArray",
+    "group": "SystolicArray"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_17",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_17",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_1",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_1",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_18",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_18",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_2",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_2",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_1",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_1",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_19",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_19",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_3",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_3",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_2",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_2",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_20",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_20",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_4",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_4",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_3",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_3",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_21",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_21",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_5",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_5",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_4",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_4",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_22",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_22",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_6",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_6",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_5",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_5",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_23",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_23",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_7",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_7",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_6",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_6",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_24",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_24",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_8",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_8",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_7",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_7",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_25",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_25",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_9",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_9",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_8",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_8",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_26",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_26",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_10",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_10",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_9",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_9",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_27",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_27",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_11",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_11",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_10",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_10",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_28",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_28",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_12",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_12",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_11",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_11",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_29",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_29",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_13",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_13",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_12",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_12",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_30",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_30",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_14",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_14",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_13",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_13",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_31",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_31",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_15",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_15",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_14",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_14",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ShiftRightJam_32",
+    "group": "ShiftRightJam"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_FMA_32",
+    "group": "RawFloat_FMA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_SplitIF_16",
+    "group": "RawFloat_SplitIF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|RawFloat_MulAddExp2_16",
+    "group": "RawFloat_MulAddExp2"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Reciprocal_15",
+    "group": "Reciprocal"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FPAccUnit_15",
+    "group": "FPAccUnit"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Accumulator",
+    "group": "Accumulator"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ScratchPadSRAM",
+    "group": "ScratchPadSRAM"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AccumulationSRAM",
+    "group": "AccumulationSRAM"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|FSA",
+    "group": "FSA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_MatrixInstruction",
+    "group": "Queue8_MatrixInstruction"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_DMAInstruction",
+    "group": "Queue2_DMAInstruction"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Ehr_2",
+    "group": "Ehr"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4FSA",
+    "group": "AXI4FSA"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_1",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_2",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_3",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_4",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_5",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_6",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_7",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_8",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_9",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_10",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_11",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_12",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_13",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_14",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_15",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_16",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_17",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_18",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_19",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_20",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_21",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_22",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_23",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_24",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_25",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_26",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_27",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_28",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_29",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_30",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_31",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_32",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue8_BundleMap_33",
+    "group": "Queue8_BundleMap"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4UserYanker",
+    "group": "AXI4UserYanker"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleAR",
+    "group": "Queue1_AXI4BundleAR"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleAW",
+    "group": "Queue1_AXI4BundleAW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleW",
+    "group": "Queue1_AXI4BundleW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4Fragmenter",
+    "group": "AXI4Fragmenter"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleAR_1",
+    "group": "Queue1_AXI4BundleAR"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleAW_1",
+    "group": "Queue1_AXI4BundleAW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue1_AXI4BundleW_1",
+    "group": "Queue1_AXI4BundleW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4Fragmenter_1",
+    "group": "AXI4Fragmenter"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_AXI4BundleAW",
+    "group": "Queue2_AXI4BundleAW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_AXI4BundleW",
+    "group": "Queue2_AXI4BundleW"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_AXI4BundleB",
+    "group": "Queue2_AXI4BundleB"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_AXI4BundleAR",
+    "group": "Queue2_AXI4BundleAR"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|Queue2_AXI4BundleR",
+    "group": "Queue2_AXI4BundleR"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AXI4Buffer",
+    "group": "AXI4Buffer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ClockSinkDomain",
+    "group": "ClockSinkDomain"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|harnessSysPLL",
+    "group": "harnessSysPLL"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|IBUFDS",
+    "group": "IBUFDS"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|IBUFDS_GTE4",
+    "group": "IBUFDS_GTE4"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|IBUF",
+    "group": "IBUF"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|PowerOnResetFPGAOnly",
+    "group": "PowerOnResetFPGAOnly"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMAsyncLevelSynchronizer_3",
+    "group": "HBMAsyncLevelSynchronizer"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|HBMPLLResetControl",
+    "group": "HBMPLLResetControl"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|EmptyChipTop",
+    "group": "EmptyChipTop"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerPrimitiveShiftReg_d3_i0_3",
+    "group": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|AsyncResetSynchronizerShiftReg_w1_d3_i0_3",
+    "group": "AsyncResetSynchronizerShiftReg_w1_d3_i0"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|ResetCatchAndSync_d3_3",
+    "group": "ResetCatchAndSync_d3"
+  },
+  {
+    "class": "firrtl.transforms.DedupGroupAnnotation",
+    "target": "~NM37FPGATestHarness|NM37FPGATestHarness",
+    "group": "NM37FPGATestHarness"
+  },
+  {
+    "class": "firrtl.passes.InlineAnnotation",
+    "target": "NM37FPGATestHarness.LazyXilinxHBMController"
+  },
+  {
+    "class": "firrtl.transforms.BlackBoxInlineAnno",
+    "target": "NM37FPGATestHarness.HBMAsyncLevelSynchronizer",
+    "name": "HBMAsyncLevelSynchronizer.sv",
+    "text": "\nmodule HBMAsyncLevelSynchronizer (\n  input wire clock,\n  input wire reset,\n  input wire d,\n  output wire q\n);\n  (* ASYNC_REG = \"TRUE\", SHREG_EXTRACT = \"NO\" *) reg [2:0] sync = 3'b000;\n  always @(posedge clock or posedge reset) begin\n    if (reset) sync <= 3'b000;\n    else sync <= {sync[1:0], d};\n  end\n  assign q = sync[2];\nendmodule\n"
+  },
+  {
+    "class": "firrtl.transforms.BlackBoxInlineAnno",
+    "target": "NM37FPGATestHarness.HBMAsyncLevelSynchronizer_1",
+    "name": "HBMAsyncLevelSynchronizer.sv",
+    "text": "\nmodule HBMAsyncLevelSynchronizer (\n  input wire clock,\n  input wire reset,\n  input wire d,\n  output wire q\n);\n  (* ASYNC_REG = \"TRUE\", SHREG_EXTRACT = \"NO\" *) reg [2:0] sync = 3'b000;\n  always @(posedge clock or posedge reset) begin\n    if (reset) sync <= 3'b000;\n    else sync <= {sync[1:0], d};\n  end\n  assign q = sync[2];\nendmodule\n"
+  },
+  {
+    "class": "firrtl.transforms.BlackBoxInlineAnno",
+    "target": "NM37FPGATestHarness.HBMAsyncLevelSynchronizer_2",
+    "name": "HBMAsyncLevelSynchronizer.sv",
+    "text": "\nmodule HBMAsyncLevelSynchronizer (\n  input wire clock,\n  input wire reset,\n  input wire d,\n  output wire q\n);\n  (* ASYNC_REG = \"TRUE\", SHREG_EXTRACT = \"NO\" *) reg [2:0] sync = 3'b000;\n  always @(posedge clock or posedge reset) begin\n    if (reset) sync <= 3'b000;\n    else sync <= {sync[1:0], d};\n  end\n  assign q = sync[2];\nendmodule\n"
+  },
+  {
+    "class": "firrtl.transforms.BlackBoxInlineAnno",
+    "target": "NM37FPGATestHarness.PowerOnResetFPGAOnly",
+    "name": "PowerOnResetFPGAOnly.v",
+    "text": "(* keep_hierarchy = \"yes\" *)\nmodule PowerOnResetFPGAOnly(\n  input wire clock,\n  (* dont_touch = \"true\" *) output reg power_on_reset\n);\n  initial begin\n    power_on_reset <= 1'b1;\n  end\n  always @(posedge clock) begin\n    power_on_reset <= 1'b0;\n  end\nendmodule\n"
+  },
+  {
+    "class": "firrtl.transforms.BlackBoxInlineAnno",
+    "target": "NM37FPGATestHarness.HBMAsyncLevelSynchronizer_3",
+    "name": "HBMAsyncLevelSynchronizer.sv",
+    "text": "\nmodule HBMAsyncLevelSynchronizer (\n  input wire clock,\n  input wire reset,\n  input wire d,\n  output wire q\n);\n  (* ASYNC_REG = \"TRUE\", SHREG_EXTRACT = \"NO\" *) reg [2:0] sync = 3'b000;\n  always @(posedge clock or posedge reset) begin\n    if (reset) sync <= 3'b000;\n    else sync <= {sync[1:0], d};\n  end\n  assign q = sync[2];\nendmodule\n"
+  },
+  {
+    "class": "firrtl.passes.InlineAnnotation",
+    "target": "NM37FPGATestHarness.EmptyChipTop"
+  },
+  {
+    "class": "sifive.enterprise.firrtl.MarkDUTAnnotation",
+    "target": "~NM37FPGATestHarness|EmptyChipTop"
+  },
+  {
+    "class": "sifive.enterprise.firrtl.TestHarnessHierarchyAnnotation",
+    "filename": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/model_module_hierarchy.json"
+  },
+  {
+    "class": "sifive.enterprise.firrtl.ModuleHierarchyAnnotation",
+    "filename": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/top_module_hierarchy.json"
+  }
+]

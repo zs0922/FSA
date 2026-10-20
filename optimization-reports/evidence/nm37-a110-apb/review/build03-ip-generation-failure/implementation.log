@@ -1,0 +1,199 @@
+
+****** Vivado v2020.2_AR75986 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/implement.tcl
+# set runroot [file normalize $::env(A110_OUT)]
+# set scriptdir [file join $runroot shell/xilinx/common/tcl]
+# set_param general.maxThreads 4
+# source [file join $scriptdir prologue.tcl]
+## set ip_vivado_tcls {}
+## while {[llength $argv]} {
+##   set argv [lassign $argv[set argv {}] flag]
+##   switch -glob $flag {
+##     -top-module {
+##       set argv [lassign $argv[set argv {}] top]
+##     }
+##     -F {
+##       # This should be a simple file format with one filepath per line
+##       set argv [lassign $argv[set argv {}] vsrc_manifest]
+##     }
+##     -board {
+##       set argv [lassign $argv[set argv {}] board]
+##     }
+##     -ip-vivado-tcls {
+##       set argv [lassign $argv[set argv {}] ip_vivado_tcls]
+##     }
+##     -pre-impl-debug-tcl {
+##       set argv [lassign $argv[set argv {}] pre_impl_debug_tcl]
+##     }
+##     -post-impl-debug-tcl {
+##       set argv [lassign $argv[set argv {}] post_impl_debug_tcl]
+##     }
+##     -env-var-srcs {
+##       set argv [lassign $argv[set argv {}] env_var_srcs]
+##     }
+##     default {
+##       return -code error [list {unknown option} $flag]
+##     }
+##   }
+## }
+## if {![info exists top]} {
+##   return -code error [list {--top-module option is required}]
+## }
+## if {![info exists vsrc_manifest]} {
+##   return -code error [list {-F option is required}]
+## }
+## if {![info exists board]} {
+##   return -code error [list {--board option is required}]
+## }
+## set commondir [file dirname $scriptdir]
+## set boarddir [file join [file dirname $commondir] $board]
+## source [file join $boarddir tcl board.tcl]
+### set name {nm37}
+### set part_fpga {xcvu37p_CIV-fsvh2892-2L-e}
+### set part_board {}
+## set constraintsdir [file join $boarddir constraints]
+## set srcdir [file join $commondir vsrc]
+## set wrkdir [file join [pwd] obj]
+## set ipdir [file join $wrkdir ip]
+## create_project -part $part_fpga -force $top
+## set_param messaging.defaultLimit 1000000
+## if {[catch {set_property -dict [list \
+## 	BOARD_PART $part_board \
+## 	TARGET_LANGUAGE {Verilog} \
+## 	DEFAULT_LIB {xil_defaultlib} \
+## 	IP_REPO_PATHS $ipdir \
+## 	] [current_project]} err]} {
+## 	puts "WARNING: Board part '$part_board' not found. Continuing with part '$part_fpga' only."
+## 	set_property -dict [list \
+## 		TARGET_LANGUAGE {Verilog} \
+## 		DEFAULT_LIB {xil_defaultlib} \
+## 		IP_REPO_PATHS $ipdir \
+## 		] [current_project]
+## }
+## if {[get_filesets -quiet sources_1] eq ""} {
+## 	create_fileset -srcset sources_1
+## }
+## set obj [current_fileset]
+## proc load_vsrc_manifest {obj vsrc_manifest} {
+##   set fp [open $vsrc_manifest r]
+##   set files [lsearch -not -exact -all -inline [split [read $fp] "\n"] {}]
+##   set relative_files {}
+##   foreach path $files {
+##     if {[string match {/*} $path]} {
+##       lappend relative_files $path
+##     } elseif {![string match {#*} $path]} {
+##       lappend relative_files [file join [file dirname $vsrc_manifest] $path]
+##     }
+##   }
+##   # Read environment variable vsrcs and append to relative_files
+##   upvar #0 env_var_srcs env_var_srcs
+##   set additions [info exists env_var_srcs]
+##   if {$additions} {
+##     if {[info exists ::env($env_var_srcs)]} {
+##       set resources [split $::env($env_var_srcs) :]
+##       set relative_files [list {*}$relative_files {*}$resources]
+##     }
+##   }
+##   add_files -norecurse -fileset $obj {*}$relative_files
+##   close $fp
+## }
+## load_vsrc_manifest $obj $vsrc_manifest
+## if {$ip_vivado_tcls ne {}} {
+##   # Split string into words even with multiple consecutive spaces
+##   # http://wiki.tcl.tk/989
+##   set ip_vivado_tcls [regexp -inline -all -- {\S+} $ip_vivado_tcls]
+## }
+## if {[get_filesets -quiet sim_1] eq ""} {
+## 	create_fileset -simset sim_1
+## }
+## set obj [current_fileset -simset]
+## if {[get_filesets -quiet constrs_1] eq ""} {
+## 	create_fileset -constrset constrs_1
+## }
+## set obj [current_fileset -constrset]
+## add_files -quiet -norecurse -fileset $obj [lsort [glob -directory $constraintsdir -nocomplain {*.tcl}]]
+## add_files -quiet -norecurse -fileset $obj [lsort [glob -directory $constraintsdir -nocomplain {*.xdc}]]
+# source [file join $scriptdir init.tcl]
+## source [file join $scriptdir "util.tcl"]
+### proc recglob { basedir pattern } {
+###   set dirlist [glob -nocomplain -directory $basedir -type d *]
+###   set findlist [glob -nocomplain -directory $basedir $pattern]
+###   foreach dir $dirlist {
+###     set reclist [recglob $dir $pattern]
+###     set findlist [concat $findlist $reclist]
+###   }
+###   return $findlist
+### }
+### proc findincludedir { basedir pattern } {
+###   set vhfiles [recglob $basedir $pattern]
+###   set vhdirs {}
+###   foreach match $vhfiles {
+###     lappend vhdirs [file dir $match]
+###   }
+###   set uniquevhdirs [lsort -unique $vhdirs]
+###   return $uniquevhdirs
+### }
+## file mkdir $ipdir
+## update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2020.2/Vivado/2020.2/patches/AR75986/vivado/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx_2020.2/Vivado/2020.2/data/ip'.
+## foreach ip_vivado_tcl $ip_vivado_tcls {
+##   source $ip_vivado_tcl
+## }
+### create_ip -name clk_wiz -vendor xilinx.com -library ip -module_name \
+###  harnessSysPLL -dir $ipdir -force
+WARNING: [Device 21-425] Part: xcvu37p_c is not listed in special parts list.
+create_ip: Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 3042.027 ; gain = 709.547 ; free physical = 328390 ; free virtual = 379617
+### set_property -dict [list \
+###  CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
+###  CONFIG.PRIM_SOURCE {No_buffer} \
+###  CONFIG.NUM_OUT_CLKS {2} \
+###  CONFIG.PRIM_IN_FREQ {100.0} \
+###  CONFIG.CLKIN1_JITTER_PS {50.0} \
+###  CONFIG.CLKOUT1_USED {true} \
+###  CONFIG.CLKOUT2_USED {true} \
+###  CONFIG.CLKOUT3_USED {false} \
+###  CONFIG.CLKOUT4_USED {false} \
+###  CONFIG.CLKOUT5_USED {false} \
+###  CONFIG.CLKOUT6_USED {false} \
+###  CONFIG.CLKOUT7_USED {false} \
+###  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {110.0} \
+###  CONFIG.CLKOUT1_REQUESTED_PHASE {0.0} \
+###  CONFIG.CLKOUT1_REQUESTED_DUTY_CYCLE {50.0} \
+###  CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {55.0} \
+###  CONFIG.CLKOUT2_REQUESTED_PHASE {0.0} \
+###  CONFIG.CLKOUT2_REQUESTED_DUTY_CYCLE {50.0} \
+### ] [get_ips harnessSysPLL]
+### set mult [get_property CONFIG.MMCM_CLKFBOUT_MULT_F [get_ips harnessSysPLL]]
+### set div1 [get_property CONFIG.MMCM_DIVCLK_DIVIDE [get_ips harnessSysPLL]]
+### set jitter [get_property CONFIG.CLKOUT1_JITTER [get_ips harnessSysPLL]]
+### if {$jitter > 230.0} {
+###   puts "Output jitter $jitter ps exceeds required limit of 230.0"
+###   exit 1
+### }
+### set phase [get_property CONFIG.MMCM_CLKOUT0_PHASE [get_ips harnessSysPLL]]
+### if {$phase < -5.0 || $phase > 5.0} {
+###   puts "Achieved phase $phase degrees is outside tolerated range -5.0-5.0"
+###   exit 1
+### }
+### set div2 [get_property CONFIG.MMCM_CLKOUT0_DIVIDE_F [get_ips harnessSysPLL]]
+### set freq [expr { 100.0 * $mult / $div1 / $div2 }]
+### if {$freq < 108.9 || $freq > 111.1} {
+###   puts "Achieved frequency $freq MHz is outside tolerated range 108.9-111.1"
+###   exit 1
+### }
+### puts "Achieve frequency $freq MHz phase $phase degrees jitter $jitter ps"
+Achieve frequency 110.0 MHz phase 0.000 degrees jitter 195.800 ps
+### set jitter [get_property CONFIG.CLKOUT2_JITTER [get_ips harnessSysPLL]]
+### if {$jitter > 200.0} {
+###   puts "Output jitter $jitter ps exceeds required limit of 200.0"
+###   exit 1
+### }
+Output jitter 214.859 ps exceeds required limit of 200.0
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 05:09:51 2026...

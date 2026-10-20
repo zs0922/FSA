@@ -1,0 +1,45 @@
+{
+  "schema": 2,
+  "scope": "Synthetic fixtures only; no board timing acceptance",
+  "reviewed_utc": "2026-10-20T06:24:10.133120+00:00",
+  "file_sha256": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py": "51a4f7dae9866b722fb44e8e922a9e919c4b82438f62909f88c700b8fc7ca530",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/physical_audit.py": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/check_reset_evidence.tcl": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be"
+  },
+  "runs": [
+    {
+      "label": "staging",
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "tests": 14,
+      "copied_files_sha256": null
+    },
+    {
+      "label": "repository-layout",
+      "command": [
+        "python3",
+        "/tmp/nm37-real-layout-lw8nafiq/arbitrary/project/scripts/nm37-a110/test_physical_audit_context.py"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "tests": 14,
+      "copied_files_sha256": {
+        "test_physical_audit_context.py": "51a4f7dae9866b722fb44e8e922a9e919c4b82438f62909f88c700b8fc7ca530",
+        "physical_audit.py": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+        "check_reset_evidence.tcl": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+        "cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be"
+      }
+    }
+  ],
+  "log": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/physical-audit-context-portability-selftest.log",
+    "sha256": "d05ec643b71d7805e2d57873909df3a30e763fe3d3a2556b5b9be4dad2dad6eb"
+  },
+  "passed": true
+}

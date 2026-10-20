@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "test_count": 28,
+  "scope": "Isolated synthetic fixtures only; no actual candidate build/archive accessed",
+  "archive_script_sha256": "efa53229cfc1018b36f5c00493e8fda072747f0fb180480d9acd371164bf6682",
+  "verification_script_sha256": "4226c571463eb6e082d446cd4f94456ac9fc72a53b9822ca2c4f83bfdac0617f",
+  "selftest_sha256": "13dfb179d20f92d1390d1340aba0d88a3a37d26d117d201aa826361cad367118",
+  "tests": [
+    {
+      "test": "build04_newreviews_complete_readonly_plan",
+      "status": "pass"
+    },
+    {
+      "test": "pack_verify_gzip_six_cases_and_binary_references",
+      "status": "pass"
+    },
+    {
+      "test": "refuse_archive_overwrite",
+      "status": "pass",
+      "rejected_with": "Refusing to overwrite existing destination: /tmp/fsa-archive-fixture-4mzk8bsq/source/optimization-reports/evidence/nm37-a110-apb"
+    },
+    {
+      "test": "ordinary_git_add_misses_ignored_logs",
+      "status": "pass",
+      "rejected_with": "Archive/index file set differs: missing=['optimization-reports/evidence/nm37-a110-apb/build/formal/mac/yosys.log', 'optimization-reports/evidence/nm37-a110-apb/build/hbm-startup/emission.log', 'optimization-reports/evidence/nm37-a110-apb/build/hbm-startup/simulation.log', 'optimization-reports/evidence/nm37-a110-apb/build/hbm-startup/verilator-build.log', 'optimization-reports/evidence/nm37-a110-apb/build/logs/bitstream.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim16/build.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim16/seq16/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim16/seq16/test.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim16/seq32/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim16/seq32/test.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim4/build.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim4/seq4/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim4/seq4/test.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim4/seq8/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim4/seq8/test.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim8/build.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim8/seq16/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim8/seq16/test.log', 'optimization-reports/evidence/nm37-a110-apb/build/sim8/seq8/inst.bin', 'optimization-reports/evidence/nm37-a110-apb/build/sim8/seq8/test.log'], extra=[]"
+    },
+    {
+      "test": "force_add_all_bytes_verified_in_index",
+      "status": "pass"
+    },
+    {
+      "test": "index_blob_differs_from_disk",
+      "status": "pass",
+      "rejected_with": "Index bytes differ from verified archive: README.md"
+    },
+    {
+      "test": "absolute_review_path",
+      "status": "pass",
+      "rejected_with": "Unsafe/noncanonical relative path: '/tmp/escape'"
+    },
+    {
+      "test": "parent_review_escape",
+      "status": "pass",
+      "rejected_with": "Unsafe/noncanonical relative path: '../escape'"
+    },
+    {
+      "test": "missing_new_review",
+      "status": "pass",
+      "rejected_with": "Missing or escaped evidence file: /tmp/fsa-archive-fixture-0reoxerm/newreviews/newreviews/missing.json"
+    },
+    {
+      "test": "review_symlink",
+      "status": "pass",
+      "rejected_with": "Unexpected symlink in evidence tree: /tmp/fsa-archive-fixture-17zb61bq/newreviews/newreviews/link.json"
+    },
+    {
+      "test": "review_directory_symlink",
+      "status": "pass",
+      "rejected_with": "Symlinks are not allowed in evidence paths: /tmp/fsa-archive-fixture-jevt21_e/newreviews/symlink-root"
+    },
+    {
+      "test": "changed_sealed_case",
+      "status": "pass",
+      "rejected_with": "sim4 seal: SHA-256 mismatch: /tmp/fsa-archive-fixture-uctlf5he/build04/sim4/seq4/inst.bin"
+    },
+    {
+      "test": "missing_case_output",
+      "status": "pass",
+      "rejected_with": "Missing or escaped evidence file: /tmp/fsa-archive-fixture-l23arm3s/build04/sim16/seq32/actual.npy"
+    },
+    {
+      "test": "wrong_comparison_build",
+      "status": "pass",
+      "rejected_with": "Candidate comparison does not bind this exact build"
+    },
+    {
+      "test": "wrong_stage_build",
+      "status": "pass",
+      "rejected_with": "sim4: wrong build identity"
+    },
+    {
+      "test": "seal_parent_escape",
+      "status": "pass",
+      "rejected_with": "Unsafe/noncanonical relative path: '../outside'"
+    },
+    {
+      "test": "seal_absolute_path",
+      "status": "pass",
+      "rejected_with": "Unsafe/noncanonical relative path: '/tmp/outside'"
+    },
+    {
+      "test": "changed_after_plan",
+      "status": "pass",
+      "rejected_with": "Build/review/source changed during archive operation: /tmp/fsa-archive-fixture-rtg10v5r/newreviews/newreviews/final-review.json"
+    },
+    {
+      "test": "tampered_raw_archive",
+      "status": "pass",
+      "rejected_with": "Archived bytes/hash differ: build/sim4/seq4/inst.bin"
+    },
+    {
+      "test": "tampered_gzip_archive",
+      "status": "pass",
+      "rejected_with": "Archived bytes/hash differ: build/sim16.passed.json.gz"
+    },
+    {
+      "test": "archive_undeclared_file",
+      "status": "pass",
+      "rejected_with": "Archive file set differs: missing=[], extra=['unexpected.txt']"
+    },
+    {
+      "test": "archive_parent_escape",
+      "status": "pass",
+      "rejected_with": "Unsafe relative path: '../escape'"
+    },
+    {
+      "test": "archive_absolute_path",
+      "status": "pass",
+      "rejected_with": "Unsafe relative path: '/tmp/escape'"
+    },
+    {
+      "test": "incomplete_archive",
+      "status": "pass",
+      "rejected_with": "Archive is marked incomplete"
+    },
+    {
+      "test": "omitted_seal_reference_deleted",
+      "status": "pass",
+      "rejected_with": "Sealed file neither archived nor explicitly omitted: sim8/simulator"
+    },
+    {
+      "test": "large_artifact_reference_changed",
+      "status": "pass",
+      "rejected_with": "Omitted generator reference differs from build identity"
+    },
+    {
+      "test": "archive_file_symlink",
+      "status": "pass",
+      "rejected_with": "Symlink in archive path: /tmp/fsa-archive-fixture-grs606dd/source/optimization-reports/evidence/nm37-a110-apb/build/sim4/seq4/inst.bin"
+    },
+    {
+      "test": "gzip_zero_timestamp",
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,741 @@
+{
+  "schema_version": 1,
+  "kind": "archive_cli_parameter_plan_only",
+  "created_utc": "2026-10-20T06:32:43.350487+00:00",
+  "formal_archive_executed": false,
+  "formal_reaudit_executed_by_this_task": false,
+  "source_or_build_modified_by_this_task": false,
+  "review_root": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review",
+  "source_root": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src",
+  "build_root": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04",
+  "build_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+  "hardware_execution_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+  "status": "ready_inputs_frozen; pending_final_routed_summary_CDC_reaudit_and_bitstream",
+  "archive_cli": {
+    "executable": "python3",
+    "script": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/archive_candidate.py",
+    "arguments": [
+      "--build",
+      "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04",
+      "--source",
+      "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src",
+      "--review",
+      "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review",
+      "--destination",
+      "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/optimization-reports/evidence/nm37-a110-apb"
+    ],
+    "required_bindings_to_fill_by_root": {
+      "--reaudit": null,
+      "--reaudit-pass": null,
+      "--reaudit-bitstream": null
+    },
+    "plan_only_before_archive": true,
+    "review_extra_ready": [
+      "build04-verification-review.json",
+      "review_build04_verification.py",
+      "build04-rtl-review.json",
+      "extract_physical_summary.py",
+      "test_extract_physical_summary.py",
+      "reaudit-entry-archive-selftest.json",
+      "reaudit-entry-selftest.log",
+      "reaudit-archive_original-selftest.log",
+      "reaudit-archive_reaudit-selftest.log",
+      "reaudit-hbm_helper-selftest.log",
+      "physical-audit-context-portability-selftest.json",
+      "physical-audit-context-portability-selftest.log",
+      "test_archive_reaudit.py",
+      "reaudit-staging/reaudit.py",
+      "reaudit-staging/reaudit.tcl",
+      "reaudit-staging/run.sh",
+      "reaudit-staging/physical_audit.py",
+      "reaudit-staging/hbm_audit.tcl",
+      "reaudit-staging/check_reset_evidence.tcl",
+      "reaudit-staging/cdc-baseline.json",
+      "reaudit-staging/test_reaudit.py",
+      "reaudit-staging/test_hbm_audit.tcl",
+      "reaudit-staging/test_physical_audit_context.py",
+      "reaudit-independent-review.json",
+      "reaudit-independent-review-v1.json",
+      "physical-audit-context-selftest.json",
+      "build04-postroute-checkpoint-integrity.json",
+      "build04-postopt-structure-review.json",
+      "hbm-audit-stage-probe-v1.tcl",
+      "audit-helper-negative-tests.tcl",
+      "audit-helper-negative-tests.txt",
+      "final-common-reset-polarity-probe.txt",
+      "postopt-common-reset-query.txt",
+      "postopt-apb-pulse-api-diagnostic.rpt",
+      "build04-postopt-raw-properties.txt",
+      "build04-postopt-64f4d748b3918c45-pin-polarity/buffer-pin-polarity.txt",
+      "build04-postopt-64f4d748b3918c45-pin-polarity/input_sha256.tsv",
+      "build04-postopt-64f4d748b3918c45-stage-probe/properties.txt",
+      "build04-postopt-64f4d748b3918c45-stage-probe/input_sha256.tsv",
+      "build04-postopt-64f4d748b3918c45-stage-probe/synchronizers.tsv",
+      "build04-postopt-64f4d748b3918c45-stage-probe/registers.tsv",
+      "build04-postopt-64f4d748b3918c45-stage-probe/deferred_timing.tsv",
+      "postroute-cdc-review.tcl",
+      "postroute-cdc-manifest.py",
+      "build03-ip-generation-failure/README.md",
+      "build03-ip-generation-failure/build.json",
+      "build03-ip-generation-failure/failure-excerpt.txt",
+      "build03-ip-generation-failure/harnessSysPLL.vivado.tcl",
+      "build03-ip-generation-failure/harnessSysPLL.xci",
+      "build03-ip-generation-failure/implementation.log",
+      "build03-ip-generation-failure/source-inventory.json",
+      "build04-postroute-cdc-review/cdc-all-checks.rpt",
+      "build04-postroute-cdc-review/cdc.rpt",
+      "build04-postroute-cdc-review/check-timing.rpt",
+      "build04-postroute-cdc-review/clock-interaction.rpt",
+      "build04-postroute-cdc-review/exceptions.rpt",
+      "build04-postroute-cdc-review/input-sha256.tsv",
+      "build04-postroute-cdc-review/manifest.json",
+      "build04-postroute-cdc-review/properties.txt",
+      "build04-postroute-cdc-review/reset-cones.txt",
+      "build04-postroute-cdc-review/structure.tsv",
+      "build04-postroute-cdc-review.log",
+      "build04-postroute-cdc-review.jou",
+      "postroute-linkup-review.tcl"
+    ],
+    "review_extra_pending": [
+      "build04-physical-summary.json",
+      "build04-postroute-linkup-review",
+      "build04-postroute-linkup-review.log",
+      "build04-postroute-linkup-review.jou"
+    ],
+    "instructions": "Supply each ready relative path using a separate --review-extra argument; after pending artifacts are finalized, hash and add them too. Do not run the final archive with the ready subset alone. Use argv lists rather than shell interpolation."
+  },
+  "ready_files": [
+    {
+      "relative_path": "build04-verification-review.json",
+      "status": "ready",
+      "sha256": "469564e14f100bba9397f6559df4dfc0b508e27f4b0c4703da0f42d76562f89b",
+      "bytes": 31791,
+      "role": "Final build04 functional/RTL review; no physical-acceptance claim"
+    },
+    {
+      "relative_path": "review_build04_verification.py",
+      "status": "ready",
+      "sha256": "37640b80e68edba3f489f2520ba80422f5115f559f7c54885db14d63ae799e35",
+      "bytes": 13525,
+      "role": "Final build04 functional/RTL review; no physical-acceptance claim"
+    },
+    {
+      "relative_path": "build04-rtl-review.json",
+      "status": "ready",
+      "sha256": "4ccc7e8110a8c535544bc6f55308ae3655a43272a9fc4c8d8c2597e819313344",
+      "bytes": 14026,
+      "role": "Final build04 functional/RTL review; no physical-acceptance claim"
+    },
+    {
+      "relative_path": "extract_physical_summary.py",
+      "status": "ready",
+      "sha256": "4dfc3f531b3cfa20ee3a71d41a02d07667990f361043c0023bbab5d4fe5946dd",
+      "bytes": 42486,
+      "role": "Final physical-summary extraction method and 11-test method; pass execution recorded in final independent review"
+    },
+    {
+      "relative_path": "test_extract_physical_summary.py",
+      "status": "ready",
+      "sha256": "039f300b776e390d01432f31ba294672679b192cccdceeade7895f31fb3b174c",
+      "bytes": 15346,
+      "role": "Final physical-summary extraction method and 11-test method; pass execution recorded in final independent review"
+    },
+    {
+      "relative_path": "reaudit-entry-archive-selftest.json",
+      "status": "ready",
+      "sha256": "ec8cd9fa6c6ee5262e7b274b8260e47bf14dd97d4258460d04314bf23c2518b8",
+      "bytes": 4198,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "reaudit-entry-selftest.log",
+      "status": "ready",
+      "sha256": "30efe8cadafcf195961c689f5c6842cec6a5aaf1ac8c223d3ffdd83048f6f9c8",
+      "bytes": 3739,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "reaudit-archive_original-selftest.log",
+      "status": "ready",
+      "sha256": "2e2b7216262e170c2f6bf1faa99ac5e8b8bb570e1ac0e9c6f17fc5a4c801b77c",
+      "bytes": 143,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "reaudit-archive_reaudit-selftest.log",
+      "status": "ready",
+      "sha256": "cbe551981ea9c291292951d09ff34155af3fcfa92ab9e5627630d5ff72a71056",
+      "bytes": 1285,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "reaudit-hbm_helper-selftest.log",
+      "status": "ready",
+      "sha256": "b72976822fd77cd58b24525937708b264a6eea5573f91b5c2cd2da9ec8b77945",
+      "bytes": 1172,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "physical-audit-context-portability-selftest.json",
+      "status": "ready",
+      "sha256": "a5d4d7e699e9780236f6f971fef8bf5e5440269cfabcaf9c18eced01737e4469",
+      "bytes": 2152,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "physical-audit-context-portability-selftest.log",
+      "status": "ready",
+      "sha256": "d05ec643b71d7805e2d57873909df3a30e763fe3d3a2556b5b9be4dad2dad6eb",
+      "bytes": 4151,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "test_archive_reaudit.py",
+      "status": "ready",
+      "sha256": "5a527a32398cbdabf428ce74bd022d44d2a8750524b2550feeaa7c236a7e7def",
+      "bytes": 11122,
+      "role": "Frozen re-audit/archiver selftest method or exact execution evidence; synthetic fixtures, not hardware acceptance"
+    },
+    {
+      "relative_path": "reaudit-staging/reaudit.py",
+      "status": "ready",
+      "sha256": "df74c4b612087a135afd926bfdd2b2ff241ae68f61d694dc8e5d1cfc94d816ac",
+      "bytes": 27576,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/reaudit.tcl",
+      "status": "ready",
+      "sha256": "b4357adba6e6d5e56f9b8c633b0c92f03df9e1a22fdc0aa1599b64e13f540c27",
+      "bytes": 4672,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/run.sh",
+      "status": "ready",
+      "sha256": "060dac4fdcb69a6f734c740d349cd9380a69f745d6606c096c6456b19d04250b",
+      "bytes": 7806,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/physical_audit.py",
+      "status": "ready",
+      "sha256": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+      "bytes": 18323,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/hbm_audit.tcl",
+      "status": "ready",
+      "sha256": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+      "bytes": 21110,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/check_reset_evidence.tcl",
+      "status": "ready",
+      "sha256": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+      "bytes": 1756,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/cdc-baseline.json",
+      "status": "ready",
+      "sha256": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be",
+      "bytes": 233295,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/test_reaudit.py",
+      "status": "ready",
+      "sha256": "262132836df2c47be2b145ddc73efd744286f8c09b26df44f028eae32d5bb992",
+      "bytes": 22475,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/test_hbm_audit.tcl",
+      "status": "ready",
+      "sha256": "be76bf7321896ba45a68b56f4c8ba846e6db7ddc1187c487c636facbb66556ed",
+      "bytes": 5080,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-staging/test_physical_audit_context.py",
+      "status": "ready",
+      "sha256": "51a4f7dae9866b722fb44e8e922a9e919c4b82438f62909f88c700b8fc7ca530",
+      "bytes": 18850,
+      "role": "Frozen delivered re-audit tool/test byte snapshot; supports the selftest proof with original relative layout"
+    },
+    {
+      "relative_path": "reaudit-independent-review.json",
+      "status": "ready",
+      "sha256": "12a8e4ecdb23f6763c9eec5d3521325899bc5978c6e06e23525f30c7105ec4dd",
+      "bytes": 12097,
+      "role": "Final independent review of frozen delivered tooling"
+    },
+    {
+      "relative_path": "reaudit-independent-review-v1.json",
+      "status": "ready",
+      "sha256": "0d5061dab95f10063537ede8f7cfd0c092267d862a6be7c3266a2b896bb7017a",
+      "bytes": 7393,
+      "role": "Historical superseded independent review; previous bytes and tests, not current tooling approval"
+    },
+    {
+      "relative_path": "physical-audit-context-selftest.json",
+      "status": "ready",
+      "sha256": "071e1c1bc7ffaec76ee752dbbac690eed57f032187b5668bf311666b448f90bc",
+      "bytes": 2375,
+      "role": "Historical superseded context selftest referenced by v1; current approval uses portability selftest"
+    },
+    {
+      "relative_path": "build04-postroute-checkpoint-integrity.json",
+      "status": "ready",
+      "sha256": "fc7262999a8267f46ca86a2f8b735db57cfd5a7229a84db904643c4de3e02900",
+      "bytes": 910,
+      "role": "Routed DCP hash/ZIP integrity only; not timing or CDC acceptance"
+    },
+    {
+      "relative_path": "build04-postopt-structure-review.json",
+      "status": "ready",
+      "sha256": "2abeec67cea715a3fcabbfaeeeaad7f08740ccb2c3cc189735084a6e54d30920",
+      "bytes": 5378,
+      "role": "Historical post-opt auditor-compatibility diagnosis; 66 timing checks explicitly deferred to post-route"
+    },
+    {
+      "relative_path": "hbm-audit-stage-probe-v1.tcl",
+      "status": "ready",
+      "sha256": "a4877fa591a9fd01499734cf78472eb0f79dd4344477f4bbc718df69dc350f4d",
+      "bytes": 21105,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "audit-helper-negative-tests.tcl",
+      "status": "ready",
+      "sha256": "1f2c72b8c2c3f10ef30d9707ff6398c3e95f212a4dba81100d95b4d12c98b58b",
+      "bytes": 5096,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "audit-helper-negative-tests.txt",
+      "status": "ready",
+      "sha256": "d74d973dacef1d90809ca4c53d83386d41a977d7dcbb89593fb24b0097bfb477",
+      "bytes": 1172,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "final-common-reset-polarity-probe.txt",
+      "status": "ready",
+      "sha256": "7d9ae017787d933fee2db2726c05cbee963b169e543ef012c47af8a72a549d38",
+      "bytes": 918,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "postopt-common-reset-query.txt",
+      "status": "ready",
+      "sha256": "cd64da26d81c8fb1cc1edb7eb86c88e33b0a6c4f3dc905f0eeeb9e99c4a308c1",
+      "bytes": 1235,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "postopt-apb-pulse-api-diagnostic.rpt",
+      "status": "ready",
+      "sha256": "dcb529dbffe42ff9ae5c3487b81181ca738456542942333e2d318d13e557c08b",
+      "bytes": 2762,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-raw-properties.txt",
+      "status": "ready",
+      "sha256": "ff5f8e4b3349af5a708a3af66f11469499a48a67d351284edc1d6dfde7392e0d",
+      "bytes": 226585,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-pin-polarity/buffer-pin-polarity.txt",
+      "status": "ready",
+      "sha256": "8f9c530f46acfccd93a4edcd7d43b91488e6412ed4195ef08d3e7997ae22cb5c",
+      "bytes": 13764,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-pin-polarity/input_sha256.tsv",
+      "status": "ready",
+      "sha256": "d3e9216e71b291decd424d7e88cf78350bc4b778b27443681e27d67e40d9d8ee",
+      "bytes": 4448,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-stage-probe/properties.txt",
+      "status": "ready",
+      "sha256": "4d3d7dda63bd8ae345d5b67bccebb74731f044e06949e51efb1140daf28da3fb",
+      "bytes": 2274,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-stage-probe/input_sha256.tsv",
+      "status": "ready",
+      "sha256": "af821bb1ffb4e4bfc125f8a1cc6d0b14c8466797ffb62ba700de7bc4a0610807",
+      "bytes": 4750,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-stage-probe/synchronizers.tsv",
+      "status": "ready",
+      "sha256": "eb1db4f347b88b5d844f7841c8ab4df6176eccd54233f161a12b39361dffa04b",
+      "bytes": 48825,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-stage-probe/registers.tsv",
+      "status": "ready",
+      "sha256": "9fad5c1f3211e14909792d21ea825f4e4492fa70cbcefb4cdec9bd81f0e38ce1",
+      "bytes": 58327,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "build04-postopt-64f4d748b3918c45-stage-probe/deferred_timing.tsv",
+      "status": "ready",
+      "sha256": "f58a74d1de6b957db54fb9454c6195d3a18be50c1fe1930f43a4e357b253b67b",
+      "bytes": 9062,
+      "role": "Raw historical post-opt structural diagnostic supporting audit compatibility fix; not final routed results"
+    },
+    {
+      "relative_path": "postroute-cdc-review.tcl",
+      "status": "ready",
+      "sha256": "59e6e49e6f2f52a3d16343687e6a6b3f1b20357cef716cbe91abeddf509628e2",
+      "bytes": 14362,
+      "role": "Method for final independent routed CDC query; output is still pending at plan creation"
+    },
+    {
+      "relative_path": "postroute-cdc-manifest.py",
+      "status": "ready",
+      "sha256": "6f6862416758135fc1f63afc065bbc5dc93152ff6cbe3c86596da99c08a27780",
+      "bytes": 5313,
+      "role": "Method for final independent routed CDC query; output is still pending at plan creation"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/README.md",
+      "status": "ready",
+      "sha256": "e92df09b5570bf328cff101b5a904378f9f08926f563b52b1d68370667ea3d77",
+      "bytes": 1671,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/build.json",
+      "status": "ready",
+      "sha256": "b3105fb1e55982e2c4251961af17e6cb05e2397993da2a14675e8a32140fb40d",
+      "bytes": 2510,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/failure-excerpt.txt",
+      "status": "ready",
+      "sha256": "346595162e9838b19b321adbcbbbd64cd9145294763c1ffaf1369dc2e465a6bc",
+      "bytes": 1529,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/harnessSysPLL.vivado.tcl",
+      "status": "ready",
+      "sha256": "118450ddefa1a5c5a529e21cf7e0bd5265ef0027eb823d997ca7f5945e461362",
+      "bytes": 2344,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/harnessSysPLL.xci",
+      "status": "ready",
+      "sha256": "12c25f2ca839873daa53cfdf9e562039e1a58218ad68a89a239fefbfb1a0b09c",
+      "bytes": 103798,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/implementation.log",
+      "status": "ready",
+      "sha256": "5170ed6828b5e15f6d9e6b221b283d34421a507185e39133aa994ea2d78b7ef8",
+      "bytes": 8098,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build03-ip-generation-failure/source-inventory.json",
+      "status": "ready",
+      "sha256": "570614cfaa5bee5bdf5b6c73f05f12ae23a04252bed706a938c7b20e49e53be3",
+      "bytes": 6052,
+      "role": "Historical build03 IP-generation failure diagnostic only; no old functional pass records"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/cdc-all-checks.rpt",
+      "status": "ready",
+      "sha256": "961af4514c585b82885b070127cc1c2e45572c8756a369b775de70b7cd0b83ef",
+      "bytes": 274390,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/cdc.rpt",
+      "status": "ready",
+      "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+      "bytes": 262788,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/check-timing.rpt",
+      "status": "ready",
+      "sha256": "2689bbc9f77b197b04954c4147928fcc58d98d7341ba34bd926aee5945648a90",
+      "bytes": 6620,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/clock-interaction.rpt",
+      "status": "ready",
+      "sha256": "da55887c3e854236e7665a81fd27db86102a994659f0968a4687bec35fd94932",
+      "bytes": 52799,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/exceptions.rpt",
+      "status": "ready",
+      "sha256": "6867cb02edd2353e50ce58d8543e8f3088743e47d98b2b083942ee7227b7a87a",
+      "bytes": 54992,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/input-sha256.tsv",
+      "status": "ready",
+      "sha256": "fc2034e7719fc31af26eae238efbb14be5717cbe260d21f0726b813bc485a839",
+      "bytes": 3009,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/manifest.json",
+      "status": "ready",
+      "sha256": "6a5c6ee304bb87d88b28e76a47aa48463d4e4a46fa0f3a93863cf455936833ce",
+      "bytes": 36692,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/properties.txt",
+      "status": "ready",
+      "sha256": "11423dd97807144444c7eeb43b3cd12975176a2f4c2c7edf1cc3752992a70532",
+      "bytes": 303,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/reset-cones.txt",
+      "status": "ready",
+      "sha256": "ad00bde9825d34c7b00e661c436bf43798c3f3c865f2f8d861fc9d0932ec3850",
+      "bytes": 44974,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review/structure.tsv",
+      "status": "ready",
+      "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+      "bytes": 62166,
+      "role": "Completed actual routed CDC/reset query evidence; 36 new Warning/Critical findings still require final item-level acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review.log",
+      "status": "ready",
+      "sha256": "05dbab3152ea2650cdc7a4a66d52e6094cb77cd400d90e0ddf8154aecfd5490c",
+      "bytes": 22933,
+      "role": "Completed actual routed CDC query execution trace; query generation is not physical acceptance"
+    },
+    {
+      "relative_path": "build04-postroute-cdc-review.jou",
+      "status": "ready",
+      "sha256": "5e60620e605b6ca5248813263e463c08e570e15de27f9e59ab844581f6da3647",
+      "bytes": 1147,
+      "role": "Completed actual routed CDC query execution trace; query generation is not physical acceptance"
+    },
+    {
+      "relative_path": "postroute-linkup-review.tcl",
+      "status": "ready",
+      "sha256": "2f57d83a628e4f028541fa31a1d5c51d4663a210acc7239e9e2433a24046e08b",
+      "bytes": 5251,
+      "role": "Supplemental actual routed PCIe user_lnk_up synchronizer query method; output pending"
+    }
+  ],
+  "automatically_selected_comparison_and_archive_inputs": [
+    {
+      "relative_path": "archive_candidate.py",
+      "sha256": "efa53229cfc1018b36f5c00493e8fda072747f0fb180480d9acd371164bf6682",
+      "bytes": 42715,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "compare_candidate.py",
+      "sha256": "feac6bac7eef833ee113f8c765d6b7b333e3204ba2e3a3643102791802765647",
+      "bytes": 24831,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "test_compare_candidate.py",
+      "sha256": "254f9f5cc574e3504d213c733b74248f9620396e52b47cebfe4ece0b57c087de",
+      "bytes": 5994,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "comparison-selftest.json",
+      "sha256": "4765c0db9597e6ccf61450cb64946d44a68586161c89e190d0e4eaadc910b63c",
+      "bytes": 3797,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "scanner-validation.json",
+      "sha256": "8a30e37effb0a63a2579930c10f7cb38ce48bcc5cffbdafa8e1919c0fb8546c8",
+      "bytes": 45181,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "candidate-comparison.json",
+      "sha256": "68fe600fa93d9473d5141ab36d6c6a43fff8cbf3499e2a0c18b9239dc84cc83f",
+      "bytes": 338304,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "verify_candidate_archive.py",
+      "sha256": "4226c571463eb6e082d446cd4f94456ac9fc72a53b9822ca2c4f83bfdac0617f",
+      "bytes": 21480,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "test_archive_candidate.py",
+      "sha256": "13dfb179d20f92d1390d1340aba0d88a3a37d26d117d201aa826361cad367118",
+      "bytes": 15234,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    },
+    {
+      "relative_path": "archive-selftest.json",
+      "sha256": "97fa5c58142495909e8748ee0a595dcdad55580e958e113b7b1decf7170deaa8",
+      "bytes": 6362,
+      "selection": "Automatically selected by archive_candidate.py; no duplicate --review-extra needed"
+    }
+  ],
+  "pending_review_inputs": [
+    {
+      "relative_path": "build04-physical-summary.json",
+      "kind": "file",
+      "status": "pending",
+      "required": true,
+      "producer": "extract_physical_summary.py --build BASE/build04 --reaudit-root ACTUAL_REAUDIT_ROOT --reaudit-pass ACTUAL_PASS --output REVIEW/build04-physical-summary.json",
+      "completion_checks": [
+        "Must bind original build04 build SHA and original routed DCP SHA",
+        "Must use the actual accepted re-audit pass, current final extractor hash, final routed reports, and original hardware XCI",
+        "Must not copy/rename physical-summary-preview.json or use post-opt figures"
+      ],
+      "role": "Final user-facing routed timing, resources, HBM APB pulse width, clocks and performance summary"
+    },
+    {
+      "relative_path": "build04-postroute-linkup-review",
+      "kind": "directory",
+      "status": "pending",
+      "required": true,
+      "producer": "/root/apb_review actual routed user_lnk_up synchronizer query",
+      "completion_checks": [
+        "Wait for the query process to exit; require completion manifest or reviewer-bound file inventory",
+        "Hash the exact final regular-file set and verify source/DCP identity; reject symlinks",
+        "Use as supporting CDC evidence, not as standalone timing acceptance"
+      ],
+      "role": "Additional actual routed review of user_lnk_up two-stage XPM synchronizer and output FF"
+    },
+    {
+      "relative_path": "build04-postroute-linkup-review.log",
+      "kind": "file",
+      "status": "pending",
+      "required": true,
+      "producer": "/root/apb_review actual routed user_lnk_up synchronizer query",
+      "completion_checks": [
+        "Wait for the query process to exit; require completion manifest or reviewer-bound file inventory",
+        "Hash the exact final regular-file set and verify source/DCP identity; reject symlinks",
+        "Use as supporting CDC evidence, not as standalone timing acceptance"
+      ],
+      "role": "Additional actual routed review of user_lnk_up two-stage XPM synchronizer and output FF"
+    },
+    {
+      "relative_path": "build04-postroute-linkup-review.jou",
+      "kind": "file",
+      "status": "pending",
+      "required": true,
+      "producer": "/root/apb_review actual routed user_lnk_up synchronizer query",
+      "completion_checks": [
+        "Wait for the query process to exit; require completion manifest or reviewer-bound file inventory",
+        "Hash the exact final regular-file set and verify source/DCP identity; reject symlinks",
+        "Use as supporting CDC evidence, not as standalone timing acceptance"
+      ],
+      "role": "Additional actual routed review of user_lnk_up two-stage XPM synchronizer and output FF"
+    }
+  ],
+  "automatic_reaudit_archive_scope": [
+    "Original hardware build identity/source-lock/seven stage seals and all required case inputs, outputs, configs, results, logs",
+    "Original failed physical/audit records and original report directories, preserved under original build root",
+    "Original implementation-driver Git snapshots and all original IP/environment identities",
+    "Revised auditor snapshots and all actual new re-audit reports, stdout/native logs/journal, acceptance and CDC evidence",
+    "Actual bitstream generation manifest/logs; bitstream/DCP/JAR/simulator bytes are not packaged, their local paths and SHA/size remain explicit references"
+  ],
+  "cdc_input_provenance_requirement": {
+    "action_by_root_or_review_agent": "If final CDC acceptance cites vendor XDMA source bytes, copy the actual generated source and any nonautomatic supporting code into the fresh re-audit evidence tree, with source paths and SHA; not into original build.",
+    "original_vendor_source": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+    "already_automatic_board_rtl": [
+      "ResetWrangler.sv",
+      "ResetCatchAndSync_d3.sv",
+      "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv",
+      "HBMPLLResetControl.sv",
+      "HBMStartupControl.sv"
+    ]
+  },
+  "explicit_exclusions": [
+    {
+      "path": "build03-candidate-comparison.json",
+      "reason": "Obsolete build03 functional/performance comparison; final comparison must bind build04"
+    },
+    {
+      "path": "build03-rtl-review.json",
+      "reason": "Obsolete build03 RTL review"
+    },
+    {
+      "path": "physical-summary-preview.json",
+      "reason": "Preview is not accepted routed hardware evidence"
+    },
+    {
+      "path": "build03/*.passed.json and build03 regression outputs",
+      "reason": "Historical PLL failure bundle must not imply current functional passes"
+    },
+    {
+      "path": "build04-postsynth-* and general postopt timing summaries",
+      "reason": "Not final routed timing; only specifically enumerated compatibility diagnostics retained"
+    },
+    {
+      "path": "NM37_A110_APB_FINAL_DRAFT.md and NM37_A110_APB_DOC_UPDATE_PLAN.md",
+      "reason": "Unfinished drafts are not final report evidence"
+    },
+    {
+      "path": "review/vivado.log",
+      "reason": "Unscoped diagnostic log; only identified actual execution logs selected"
+    }
+  ],
+  "archive_conditions": [
+    "All pending required inputs must be completed and verified before formal archive",
+    "Dedicated historical labels must remain: build03 failure and post-opt compatibility diagnosis are not current passing results",
+    "Preserve original failed marker/reports and distinguish eeb1 hardware commit from revised auditor commit/snapshot",
+    "Run archive --plan-only with the final exact arguments first; then create a fresh destination once",
+    "After staging use verify_candidate_archive.py --require-index --repository SRC, including ignored .log files via git add -f as necessary",
+    "This is a selected reproducibility evidence subset, not a full self-contained build backup"
+  ],
+  "selfcheck": {
+    "ready_files": 64,
+    "all_ready_paths_relative_and_regular": true,
+    "no_symlinks_or_parent_escapes": true,
+    "all_frozen_delivery_and_final_independent_review_hashes_verified": true,
+    "final_comparison_matches_build04": true,
+    "historical_failure_original_copies_hash_verified": true
+  },
+  "routed_cdc_query_ready": {
+    "manifest_relative_path": "build04-postroute-cdc-review/manifest.json",
+    "manifest_sha256": "6a5c6ee304bb87d88b28e76a47aa48463d4e4a46fa0f3a93863cf455936833ce",
+    "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+    "all_inputs_and_reports_sha_verified": true,
+    "structural_mismatches": 0,
+    "new_warning_critical_findings": 36,
+    "candidate_physical_acceptance": false
+  },
+  "updated_utc": "2026-10-20T06:33:26.195088+00:00"
+}

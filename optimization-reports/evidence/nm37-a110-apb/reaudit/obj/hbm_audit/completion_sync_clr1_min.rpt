@@ -1,0 +1,102 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.2_AR75986 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date              : Tue Oct 20 07:20:32 2026
+| Host              : server48 running 64-bit Ubuntu 24.04.3 LTS
+| Command           : report_timing -to {dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/CLR} -delay_type min -max_paths 10 -input_pins -nets -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/hbm_audit/completion_sync_clr1_min.rpt
+| Design            : NM37FPGATestHarness
+| Device            : xcvu37p_CIV-fsvh2892
+| Speed File        : -2L  PRODUCTION 1.28 05-08-2020
+| Temperature Grade : E
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.227ns  (arrival time - required time)
+  Source:                 dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@4.545ns period=9.091ns})
+  Destination:            dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/CLR
+                            (removal check against rising-edge clock clk_out1_harnessSysPLL  {rise@0.000ns fall@4.545ns period=9.091ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_harnessSysPLL rise@0.000ns - clk_out1_harnessSysPLL rise@0.000ns)
+  Data Path Delay:        0.263ns  (logic 0.040ns (15.209%)  route 0.223ns (84.791%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.056ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.762ns
+    Source Clock Delay      (SCD):    2.876ns
+    Clock Pessimism Removal (CPR):    -0.170ns
+  Clock Net Delay (Source):      1.357ns (routing 0.482ns, distribution 0.875ns)
+  Clock Net Delay (Destination): 1.533ns (routing 0.536ns, distribution 0.997ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.373     0.373 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     0.413    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.413 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.150     0.563    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     0.580 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=21, routed)          0.546     1.126    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.230     1.356 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.146     1.502    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y41                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y41         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.017     1.519 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117126, routed)      1.357     2.876    dutDomain/ram_startup/axiResetN_axiResetSync/clk_out1
+    SLICE_X86Y23         FDCE                                         r  dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X86Y23         FDCE (Prop_FFF2_SLICEL_C_Q)
+                                                      0.040     2.916 r  dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/Q
+                         net (fo=19, routed)          0.223     3.139    dutDomain/ram_startup/completeAxi_completeSync/AR[0]
+    SLICE_X79Y7          FDCE                                         f  dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/CLR  (IS_INVERTED)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_harnessSysPLL rise edge)
+                                                      0.000     0.000 r  
+    BH42                                              0.000     0.000 r  sys_clock_p (IN)
+                         net (fo=0)                   0.000     0.000    sys_clock_ibufds/I
+    HPIOBDIFFINBUF_X0Y36                                              r  sys_clock_ibufds/DIFFINBUF_INST/DIFF_IN_P
+    HPIOBDIFFINBUF_X0Y36 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.472     0.472 r  sys_clock_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.522    sys_clock_ibufds/OUT
+    BH42                                                              r  sys_clock_ibufds/IBUFCTRL_INST/I
+    BH42                 IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.522 r  sys_clock_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.183     0.705    _sys_clock_ibufds_O
+    BUFGCE_X0Y29                                                      r  _sys_clock_ibufds_O_BUFG_inst/I
+    BUFGCE_X0Y29         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     0.724 r  _sys_clock_ibufds_O_BUFG_inst/O
+                         net (fo=21, routed)          0.615     1.339    harnessSysPLL/inst/clk_in1
+    MMCM_X0Y1                                                         r  harnessSysPLL/inst/mmcme4_adv_inst/CLKIN1
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.295     1.044 r  harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.166     1.210    harnessSysPLL/inst/clk_out1_harnessSysPLL
+    BUFGCE_X0Y41                                                      r  harnessSysPLL/inst/clkout1_buf/I
+    BUFGCE_X0Y41         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.019     1.229 r  harnessSysPLL/inst/clkout1_buf/O
+    X3Y3 (CLOCK_ROOT)    net (fo=117126, routed)      1.533     2.762    dutDomain/ram_startup/completeAxi_completeSync/clk_out1
+    SLICE_X79Y7          FDCE                                         r  dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/C
+                         clock pessimism              0.170     2.932    
+    SLICE_X79Y7          FDCE (Remov_AFF2_SLICEL_C_CLR)
+                                                     -0.020     2.912    dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -2.912    
+                         arrival time                           3.139    
+  -------------------------------------------------------------------
+                         slack                                  0.227    
+
+
+
+

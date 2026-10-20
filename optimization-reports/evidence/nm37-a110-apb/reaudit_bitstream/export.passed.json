@@ -1,0 +1,35 @@
+{
+  "acceptance_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/acceptance/cdc-reviewed/reaudit.passed.json",
+  "acceptance_sha256": "8b834ee14cecbd64049c4081e31cdd3582e0028be0d0c5bb04537b7e6f07d87f",
+  "bitstream": {
+    "bytes": 84989293,
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/export/NM37_A110.bit",
+    "sha256": "f3ffe9b90b60fb9ea00594381174bbf47e1f1bb435f2e98cfd32ca292fe11f86"
+  },
+  "board_signoff": false,
+  "build_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+  "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+  "command": [
+    "vivado",
+    "-mode",
+    "batch",
+    "-log",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/vivado-native.log",
+    "-journal",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/vivado.jou",
+    "-source",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/implementation-drivers/fpga/scripts/m1_a110_bitstream.tcl",
+    "-tclargs",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/export"
+  ],
+  "exit_code": 0,
+  "inputs_sha256": "7a559403d249b47842f7100c58beb439a7773282d642cf5334b8e9b355892f40",
+  "log_sha256": "4fe69410fc6570045587c3fd7f6539d9b48f4601b4957aafe3609dd523f5ae30",
+  "operation": "bitstream_from_reaudit",
+  "schema": 1,
+  "tool_logs": {
+    "vivado-native.log": "ec4802f51d0ba0a05eea881795d9029e4719059cdbae78cad1a1af4d18573cea",
+    "vivado.jou": "0227ecb8c2bf52824ec182645b84961d4079a5341c60f4c791ebebd3bb668d3f"
+  }
+}

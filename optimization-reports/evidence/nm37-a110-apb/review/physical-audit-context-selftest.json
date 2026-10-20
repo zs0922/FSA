@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-20T06:03:44.104011+00:00",
+  "status": "PASS",
+  "scope": "Synthetic-fixture audit API tests only; not real board physical acceptance",
+  "executed_command": [
+    "python3",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py"
+  ],
+  "observed_exit_code": 0,
+  "observed_tests_run": 14,
+  "observed_tool_output_chunk_id": "41e905",
+  "observed_unittest_summary": "Ran 14 tests in 0.335s; OK",
+  "test_cases": [
+    "test_full_inspect_reads_old_inputs_writes_only_new_tree",
+    "test_missing_review_produces_bound_template_only_in_new_root",
+    "test_context_rejects_overlap_and_wrong_original_checkpoint",
+    "test_context_rejects_symlinked_reports_or_output_escape",
+    "test_atomic_template_does_not_write_through_hard_link",
+    "test_review_must_bind_build_checkpoint_and_new_cdc_report",
+    "test_review_must_cover_each_finding_once",
+    "test_review_cannot_waive_real_critical_or_use_missing_evidence",
+    "test_changed_or_escaped_review_evidence_rejected",
+    "test_each_original_physical_gate_still_rejects_failures",
+    "test_original_ip_settings_are_not_replaced_by_local_reaudit_copies",
+    "test_missing_hbm_endpoint_is_rejected",
+    "test_all_original_inspect_assertions_are_unchanged",
+    "test_default_inspect_signature_remains_compatible"
+  ],
+  "file_sha256": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/physical_audit.py": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py": "0a9b83f77b598b64cdbf9a187baed1684003e8595ddc3313cd56e5d74144e2e2",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/physical_audit.py": "967b4f7595298cd8c3f83e9540f127c084116de4769939a2bf7bfd6c8155f6e6",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/check_reset_evidence.tcl": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be"
+  },
+  "production_source_modified": false,
+  "physical_pass_marker_generated": false
+}

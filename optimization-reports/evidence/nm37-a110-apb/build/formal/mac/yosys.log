@@ -1,0 +1,403 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `prove.ys' --
+
+1. Executing Verilog-2005 frontend: PipelineMacMiter.sv
+Parsing SystemVerilog input from `PipelineMacMiter.sv' to AST representation.
+Generating RTLIL representation for module `\ShiftRightJam'.
+Generating RTLIL representation for module `\RawFloat_FMA'.
+Generating RTLIL representation for module `\RawFloat_SplitIF'.
+Generating RTLIL representation for module `\RawFloat_MulAddExp2'.
+Generating RTLIL representation for module `\FPMacUnit'.
+Generating RTLIL representation for module `\RawFloat_FMA_1'.
+Generating RTLIL representation for module `\RawFloat_MulAddExp2_1'.
+Generating RTLIL representation for module `\FPMacUnit_1'.
+Generating RTLIL representation for module `\PipelineMacMiter'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \PipelineMacMiter
+Used module:     \FPMacUnit_1
+Used module:         \RawFloat_MulAddExp2_1
+Used module:             \RawFloat_SplitIF
+Used module:             \RawFloat_FMA_1
+Used module:                 \ShiftRightJam
+Used module:     \FPMacUnit
+Used module:         \RawFloat_MulAddExp2
+Used module:             \RawFloat_FMA
+
+2.2. Analyzing design hierarchy..
+Top module:  \PipelineMacMiter
+Used module:     \FPMacUnit_1
+Used module:         \RawFloat_MulAddExp2_1
+Used module:             \RawFloat_SplitIF
+Used module:             \RawFloat_FMA_1
+Used module:                 \ShiftRightJam
+Used module:     \FPMacUnit
+Used module:         \RawFloat_MulAddExp2
+Used module:             \RawFloat_FMA
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$PipelineMacMiter.sv:899$431 in module PipelineMacMiter.
+Marked 1 switch rules as full_case in process $proc$PipelineMacMiter.sv:785$371 in module FPMacUnit_1.
+Marked 1 switch rules as full_case in process $proc$PipelineMacMiter.sv:673$335 in module RawFloat_MulAddExp2_1.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 19 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+     1/1: $0\valid[0:0]
+Creating decoders for process `\FPMacUnit_1.$proc$PipelineMacMiter.sv:785$371'.
+     1/1: $0\io_out_exp2_REG[0:0]
+Creating decoders for process `\RawFloat_MulAddExp2_1.$proc$PipelineMacMiter.sv:673$335'.
+     1/1: $0\inExp2D[0:0]
+Creating decoders for process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\PipelineMacMiter.\expectedAcc' using process `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\PipelineMacMiter.\expectedElem' using process `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\PipelineMacMiter.\expectedHit' using process `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\PipelineMacMiter.\valid' using process `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\FPMacUnit_1.\io_out_exp2_REG' using process `\FPMacUnit_1.$proc$PipelineMacMiter.sv:785$371'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2_1.\inExp2D' using process `\RawFloat_MulAddExp2_1.$proc$PipelineMacMiter.sv:673$335'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2_1.\outIntD' using process `\RawFloat_MulAddExp2_1.$proc$PipelineMacMiter.sv:673$335'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodHasInf2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$455' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\adderOutAbs' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$456' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cGtProd2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$457' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\expDiff2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$458' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\alignShiftAmt2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$459' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cSign2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$460' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cExp2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$461' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cIsZero2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$462' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cIsInf2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$463' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodSign2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$464' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodIsZero2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$465' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodExp2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$466' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\hasNaN2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$467' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\addInfInvalid2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$468' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\mulInfInvalid2' using process `\RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+  created $dff cell `$procdff$469' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+Removing empty process `PipelineMacMiter.$proc$PipelineMacMiter.sv:899$431'.
+Found and cleaned up 1 empty switch in `\FPMacUnit_1.$proc$PipelineMacMiter.sv:785$371'.
+Removing empty process `FPMacUnit_1.$proc$PipelineMacMiter.sv:785$371'.
+Found and cleaned up 1 empty switch in `\RawFloat_MulAddExp2_1.$proc$PipelineMacMiter.sv:673$335'.
+Removing empty process `RawFloat_MulAddExp2_1.$proc$PipelineMacMiter.sv:673$335'.
+Removing empty process `RawFloat_FMA_1.$proc$PipelineMacMiter.sv:580$303'.
+Cleaned up 3 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineMacMiter.
+Optimizing module FPMacUnit_1.
+<suppressed ~3 debug messages>
+Optimizing module RawFloat_MulAddExp2_1.
+Optimizing module RawFloat_FMA_1.
+<suppressed ~1 debug messages>
+Optimizing module FPMacUnit.
+<suppressed ~3 debug messages>
+Optimizing module RawFloat_MulAddExp2.
+Optimizing module RawFloat_SplitIF.
+<suppressed ~1 debug messages>
+Optimizing module RawFloat_FMA.
+<suppressed ~1 debug messages>
+Optimizing module ShiftRightJam.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module FPMacUnit_1.
+Deleting now unused module RawFloat_MulAddExp2_1.
+Deleting now unused module RawFloat_FMA_1.
+Deleting now unused module FPMacUnit.
+Deleting now unused module RawFloat_MulAddExp2.
+Deleting now unused module RawFloat_SplitIF.
+Deleting now unused module RawFloat_FMA.
+Deleting now unused module ShiftRightJam.
+<suppressed ~10 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineMacMiter.
+<suppressed ~8 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineMacMiter'.
+Computing hashes of 522 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 480 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 462 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 451 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 448 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 446 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 445 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+<suppressed ~231 debug messages>
+Removed a total of 77 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineMacMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\gate.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:502$258: \gate.mulAddExp2.fma._cAnchoredMantissa_T [54:0] -> { 1'1 \gate.mulAddExp2.fma._cAnchoredMantissa_T [53:0] }
+      Replacing known input bits on port B of cell $flatten\gate.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:504$257: { \gate.mulAddExp2.fma._cAnchoredMantissa_T [53:0] 1'0 } -> { 1'1 \gate.mulAddExp2.fma._cAnchoredMantissa_T [52:0] 1'0 }
+      Replacing known input bits on port B of cell $flatten\gold.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:79$50: \gold.mulAddExp2.fma._cAnchoredMantissa_T [54:0] -> { 1'1 \gold.mulAddExp2.fma._cAnchoredMantissa_T [53:0] }
+      Replacing known input bits on port B of cell $flatten\gold.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:81$49: { \gold.mulAddExp2.fma._cAnchoredMantissa_T [53:0] 1'0 } -> { 1'1 \gold.mulAddExp2.fma._cAnchoredMantissa_T [52:0] 1'0 }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~238 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineMacMiter.
+    New input vector for $reduce_or cell $flatten\gold.\mulAddExp2.\fma.\shiftRightJam.$reduce_or$PipelineMacMiter.sv:19$9: $flatten\gold.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:151$92_Y
+    New input vector for $reduce_or cell $flatten\gate.\mulAddExp2.\fma.\shiftRightJam.$reduce_or$PipelineMacMiter.sv:19$9: $flatten\gate.\mulAddExp2.\fma.$ternary$PipelineMacMiter.sv:601$311_Y
+  Optimizing cells in module \PipelineMacMiter.
+Performed a total of 2 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineMacMiter'.
+Computing hashes of 445 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 437 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 431 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 427 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 424 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 423 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 422 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 421 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 420 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 419 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 417 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 415 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 413 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 411 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 409 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 407 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 406 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 405 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 404 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 403 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 401 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 399 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 396 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 393 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 389 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 385 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 382 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 381 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 380 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 378 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 377 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 376 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Computing hashes of 375 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+<suppressed ~210 debug messages>
+Removed a total of 70 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$451 ($dff) from module PipelineMacMiter (D = $not$PipelineMacMiter.sv:906$432_Y, Q = \valid, rval = 1'0).
+Adding SRST signal on $flatten\gate.$procdff$452 ($dff) from module PipelineMacMiter (D = $flatten\gate.$and$PipelineMacMiter.sv:789$373_Y, Q = \gate.io_out_exp2_REG, rval = 1'0).
+Adding SRST signal on $flatten\gate.\mulAddExp2.$procdff$453 ($dff) from module PipelineMacMiter (D = \gate.mulAddExp2.io_in_exp2, Q = \gate.mulAddExp2.inExp2D, rval = 1'0).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineMacMiter..
+Removed 3 unused cells and 303 unused wires.
+<suppressed ~4 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineMacMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineMacMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~176 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineMacMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineMacMiter'.
+Computing hashes of 372 cells of `\PipelineMacMiter'.
+Finding duplicate cells in `\PipelineMacMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineMacMiter..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineMacMiter.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module PipelineMacMiter...
+Found and reported 0 problems.
+
+7. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 372 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 372 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 372 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+Import show expression: \io_exp2
+Import show expression: \io_c
+Import show expression: \io_b
+Import show expression: \io_a
+Import show expression: \reset
+Import show expression: \clock
+Import show expression: \io_gateHit
+Import show expression: \io_goldHit
+Import show expression: \io_gateElem
+Import show expression: \io_goldElem
+Import show expression: \io_gateAcc
+Import show expression: \io_goldAcc
+Import show expression: \io_mismatch
+
+[base case 1] Solving problem with 65007 variables and 180668 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 372 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+Import show expression: \io_exp2
+Import show expression: \io_c
+Import show expression: \io_b
+Import show expression: \io_a
+Import show expression: \reset
+Import show expression: \clock
+Import show expression: \io_gateHit
+Import show expression: \io_goldHit
+Import show expression: \io_gateElem
+Import show expression: \io_goldElem
+Import show expression: \io_gateAcc
+Import show expression: \io_goldAcc
+Import show expression: \io_mismatch
+
+[induction step 1] Solving problem with 65009 variables and 180675 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: faff60dac2, time: 3.52s, user: 3.53s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 96% 1x sat (3 sec), 0% 2x read_verilog (0 sec), ...

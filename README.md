@@ -130,3 +130,9 @@ rewritten by this repository-ownership migration.
 See [the reproducible NM37 A100 baseline](optimization-reports/NM37_A100_BASELINE.md)
 for exact configuration, shell restoration, verification, implementation,
 bitstream export, board tests, and archived evidence.
+
+See [the NM37 A110 / APB55 experiment](optimization-reports/NM37_A110_APB.md)
+for the independent HBM management clock, reset and CDC review, routed timing,
+exported bitstream, and comparison with A100 and the original A110 experiment.
+The A100 baseline remains available; A110 hardware operation still requires
+board validation.

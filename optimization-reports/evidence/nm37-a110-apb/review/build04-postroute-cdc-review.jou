@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2_AR75986 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Oct 20 06:26:08 2026
+# Process ID: 69
+# Current directory: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review
+# Command line: vivado -mode batch -source /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postroute-cdc-review.tcl -log /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review.log -journal /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review.jou -tclargs 44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236
+# Log file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review.log
+# Journal file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review.jou
+#-----------------------------------------------------------
+source /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postroute-cdc-review.tcl

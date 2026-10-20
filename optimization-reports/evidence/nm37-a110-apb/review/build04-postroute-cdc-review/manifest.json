@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "mode": "independent-routed-cdc-evidence",
+  "generated_utc": "2026-10-20T06:32:15.358370+00:00",
+  "candidate_physical_acceptance": false,
+  "review_required": true,
+  "evidence_generation_complete": true,
+  "structural_mismatches": 0,
+  "checkpoint": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp",
+  "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+  "build_manifest_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+  "script_sha256": "59e6e49e6f2f52a3d16343687e6a6b3f1b20357cef716cbe91abeddf509628e2",
+  "manifest_writer_sha256": "6f6862416758135fc1f63afc065bbc5dc93152ff6cbe3c86596da99c08a27780",
+  "inputs": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postroute-cdc-review.tcl": "59e6e49e6f2f52a3d16343687e6a6b3f1b20357cef716cbe91abeddf509628e2",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/postroute-cdc-manifest.py": "6f6862416758135fc1f63afc065bbc5dc93152ff6cbe3c86596da99c08a27780",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/hbm_audit.tcl": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/build.json": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/physical_audit.py": "967b4f7595298cd8c3f83e9540f127c084116de4769939a2bf7bfd6c8155f6e6",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv": "5c5bab2d3eed114194e3db86a5d608798d66de12fa98c44c9bf5c791dcc3e37d",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMPLLResetControl.sv": "d0e81d32173f10ffe82eb32f228041332407abed95aeff214fd7720d1390922c",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMStartupControl.sv": "74750255b933454e9bc06442a9017991661c717ce63acfc7ef1d4433c7854169",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala": "5d1e214912c027e3ca96356532c6ee2704e35b0edc8542e6e236817930d6138b",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala": "a6754b7cb4d5e2c7372509bd361fac17d716209bdc6e787c12781d0ab814abb0"
+  },
+  "reports": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/cdc-all-checks.rpt": "961af4514c585b82885b070127cc1c2e45572c8756a369b775de70b7cd0b83ef",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/cdc.rpt": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/check-timing.rpt": "2689bbc9f77b197b04954c4147928fcc58d98d7341ba34bd926aee5945648a90",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/clock-interaction.rpt": "da55887c3e854236e7665a81fd27db86102a994659f0968a4687bec35fd94932",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/exceptions.rpt": "6867cb02edd2353e50ce58d8543e8f3088743e47d98b2b083942ee7227b7a87a",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/input-sha256.tsv": "fc2034e7719fc31af26eae238efbb14be5717cbe260d21f0726b813bc485a839",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/properties.txt": "11423dd97807144444c7eeb43b3cd12975176a2f4c2c7edf1cc3752992a70532",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/reset-cones.txt": "ad00bde9825d34c7b00e661c436bf43798c3f3c865f2f8d861fc9d0932ec3850",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-cdc-review/structure.tsv": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500"
+  },
+  "ordinary_cdc_row_count": 294,
+  "all_checks_cdc_row_count": 312,
+  "ordinary_cdc_rule_counts": {
+    "CDC-3": 77,
+    "CDC-9": 21,
+    "CDC-8": 1,
+    "CDC-7": 7,
+    "CDC-10": 2,
+    "CDC-15": 170,
+    "CDC-11": 16
+  },
+  "all_checks_cdc_rule_counts": {
+    "CDC-3": 93,
+    "CDC-9": 23,
+    "CDC-8": 1,
+    "CDC-7": 7,
+    "CDC-10": 2,
+    "CDC-15": 170,
+    "CDC-11": 16
+  },
+  "new_warning_critical_count": 36,
+  "new_warning_critical_findings": [
+    {
+      "finding": [
+        "CDC-10",
+        "Critical",
+        "Combinational logic detected before a synchronizer",
+        "3",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-10",
+          "Critical",
+          "Combinational logic detected before a synchronizer",
+          "3",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-10",
+        "Critical",
+        "Combinational logic detected before a synchronizer",
+        "3",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-10",
+          "Critical",
+          "Combinational logic detected before a synchronizer",
+          "3",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+          "input port clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+          "input port clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "review_disposition": "pending",
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ]
+    },
+    {
+      "finding": [
+        "CDC-8",
+        "Warning",
+        "Asynchronous reset synchronized with missing ASYNC_REG property",
+        "3",
+        "Asynch Clock Groups",
+        "wrangler/deglitched_deglitch/reg_0_reg/C",
+        "wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/CLR",
+        "clk_out2_harnessSysPLL",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "review_disposition": "pending",
+      "baseline_exact_after_declared_clock_and_catcher_mapping": [
+        "CDC-8",
+        "Warning",
+        "Asynchronous reset synchronized with missing ASYNC_REG property",
+        "3",
+        "Asynch Clock Groups",
+        "wrangler/deglitched_deglitch/reg_0_reg/C",
+        "wrangler/nodeOut_reset_catcher_1/io_sync_reset_chain/output_chain/sync_2_reg/CLR",
+        "clk_out1_harnessSysPLL",
+        "_pcie_io_clocks_axi_aclk"
+      ]
+    }
+  ],
+  "additional_warning_critical_only_in_all_checks": [],
+  "limits": [
+    "This artifact supplies actual routed evidence and proposed endpoint correspondence only; every new finding remains pending independent review.",
+    "The original old A110 DCP is unavailable. Baseline mapping uses archived CDC rows and source correspondence, not a claimed reopened old DCP.",
+    "No timing exception or constraint was modified. No implementation command or checkpoint write was executed.",
+    "A true asynchronous fundamental-reset interface is not equivalent to per-endpoint reset synchronization.",
+    "Startup digital tests and this evidence do not demonstrate physical board operation or PCIe reference-clock stability."
+  ]
+}

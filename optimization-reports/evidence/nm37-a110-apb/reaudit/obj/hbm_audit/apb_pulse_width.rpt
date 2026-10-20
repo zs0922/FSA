@@ -1,0 +1,26 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.2_AR75986 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date              : Tue Oct 20 07:20:48 2026
+| Host              : server48 running 64-bit Ubuntu 24.04.3 LTS
+| Command           : report_pulse_width -clocks dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK -limit 100 -significant_digits 3 -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/hbm_audit/apb_pulse_width.rpt dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+| Design            : NM37FPGATestHarness
+| Device            : xcvu37p_CIV-fsvh2892
+| Speed File        : -2L  PRODUCTION 1.28 05-08-2020
+| Temperature Grade : E
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pulse Width Report
+
+Clock Name:         clk_out2_harnessSysPLL
+Waveform(ns):       { 0.000 9.091 }
+Period(ns):         18.182
+Sources:            { harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT1 }
+
+Check Type        Corner  Lib Pin                    Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location               Pin
+Min Period        n/a     HBM_SNGLBLI_INTF_APB/PCLK  n/a            10.000        18.182      8.182      BLI_HBM_APB_INTF_X8Y0  dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+Low Pulse Width   Slow    HBM_SNGLBLI_INTF_APB/PCLK  n/a            5.000         9.091       4.091      BLI_HBM_APB_INTF_X8Y0  dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+Low Pulse Width   Fast    HBM_SNGLBLI_INTF_APB/PCLK  n/a            5.000         9.091       4.091      BLI_HBM_APB_INTF_X8Y0  dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+High Pulse Width  Fast    HBM_SNGLBLI_INTF_APB/PCLK  n/a            5.000         9.091       4.091      BLI_HBM_APB_INTF_X8Y0  dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+High Pulse Width  Slow    HBM_SNGLBLI_INTF_APB/PCLK  n/a            5.000         9.091       4.091      BLI_HBM_APB_INTF_X8Y0  dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+

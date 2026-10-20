@@ -1,0 +1,48 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2_AR75986 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Tue Oct 20 07:25:57 2026
+| Host         : server48 running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_design_analysis -congestion -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/report/congestion.txt
+| Design       : NM37FPGATestHarness
+| Device       : xcvu37p_CIV
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Placer Final Level Congestion Reporting
+2. Router Initial Congestion
+3. SLR Net Crossing Reporting
+
+1. Placer Final Level Congestion Reporting
+------------------------------------------
+
++-----------+------+-------+--------+---------------+---------------+-----+--------+------+------+------+------+-----+-------+-----+------------+
+| Direction | Type | Level | Window | Combined LUTs | Avg LUT Input | LUT | LUTRAM | Flop | MUXF | RAMB | URAM | DSP | CARRY | SRL | Cell Names |
++-----------+------+-------+--------+---------------+---------------+-----+--------+------+------+------+------+-----+-------+-----+------------+
+* No congestion windows are found above level 5
+
+
+2. Router Initial Congestion
+----------------------------
+
++-----------+------+-------+--------+---------------+---------------+-----+--------+------+------+------+------+-----+-------+-----+------------+
+| Direction | Type | Level | Window | Combined LUTs | Avg LUT Input | LUT | LUTRAM | Flop | MUXF | RAMB | URAM | DSP | CARRY | SRL | Cell Names |
++-----------+------+-------+--------+---------------+---------------+-----+--------+------+------+------+------+-----+-------+-----+------------+
+
+
+3. SLR Net Crossing Reporting
+-----------------------------
+
++------------------+-----------------------------+-------------+-------------+-------------+
+|    Cell Names    | Number of Nets crossing SLR | 0 - 1 Cuts  | 0 - 2 Cuts  | 1 - 2 Cuts  |
++------------------+-----------------------------+-------------+-------------+-------------+
+| dutDomain        | 1362                        | 1362        | 0           | 0           |
+| dutDomain/fsa    | 288                         | 288         | 0           | 0           |
+| pcieResetControl | 1                           | 1           | 0           | 0           |
++------------------+-----------------------------+-------------+-------------+-------------+
+
+

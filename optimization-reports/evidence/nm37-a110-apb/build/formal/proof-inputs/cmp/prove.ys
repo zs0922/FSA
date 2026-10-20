@@ -1,0 +1,7 @@
+read_verilog -sv PipelineCmpMiter.sv
+hierarchy -check -top PipelineCmpMiter
+proc
+flatten
+opt
+check -assert
+sat -verify -prove io_mismatch 0 -show-inputs -show-outputs -seq 1 -tempinduct -maxsteps 4 -dump_json counterexample.json -dump_vcd counterexample.vcd

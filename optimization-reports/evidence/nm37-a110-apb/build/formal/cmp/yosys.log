@@ -1,0 +1,332 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `prove.ys' --
+
+1. Executing Verilog-2005 frontend: PipelineCmpMiter.sv
+Parsing SystemVerilog input from `PipelineCmpMiter.sv' to AST representation.
+Generating RTLIL representation for module `\ShiftRightJam'.
+Generating RTLIL representation for module `\RawFloat_FMA'.
+Generating RTLIL representation for module `\FMA'.
+Generating RTLIL representation for module `\FPCmpUnit'.
+Generating RTLIL representation for module `\RawFloat_FMA_1'.
+Generating RTLIL representation for module `\FMA_1'.
+Generating RTLIL representation for module `\FPCmpUnit_1'.
+Generating RTLIL representation for module `\PipelineCmpMiter'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \PipelineCmpMiter
+Used module:     \FPCmpUnit_1
+Used module:         \FMA_1
+Used module:             \RawFloat_FMA_1
+Used module:                 \ShiftRightJam
+Used module:     \FPCmpUnit
+Used module:         \FMA
+Used module:             \RawFloat_FMA
+
+2.2. Analyzing design hierarchy..
+Top module:  \PipelineCmpMiter
+Used module:     \FPCmpUnit_1
+Used module:         \FMA_1
+Used module:             \RawFloat_FMA_1
+Used module:                 \ShiftRightJam
+Used module:     \FPCmpUnit
+Used module:         \FMA
+Used module:             \RawFloat_FMA
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$PipelineCmpMiter.sv:647$362 in module PipelineCmpMiter.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 16 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\PipelineCmpMiter.$proc$PipelineCmpMiter.sv:647$362'.
+     1/1: $0\valid[0:0]
+Creating decoders for process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\PipelineCmpMiter.\expectedDiff' using process `\PipelineCmpMiter.$proc$PipelineCmpMiter.sv:647$362'.
+  created $dff cell `$procdff$371' with positive edge clock.
+Creating register for signal `\PipelineCmpMiter.\valid' using process `\PipelineCmpMiter.$proc$PipelineCmpMiter.sv:647$362'.
+  created $dff cell `$procdff$372' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\adderOutAbs' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$373' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cGtProd2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$374' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\expDiff2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$375' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\alignShiftAmt2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$376' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cSign2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$377' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cExp2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$378' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cIsZero2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$379' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\cIsInf2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$380' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodSign2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodIsZero2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodExp2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\hasNaN2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$384' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\prodHasInf2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$385' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\addInfInvalid2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$386' with positive edge clock.
+Creating register for signal `\RawFloat_FMA_1.\mulInfInvalid2' using process `\RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+  created $dff cell `$procdff$387' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\PipelineCmpMiter.$proc$PipelineCmpMiter.sv:647$362'.
+Removing empty process `PipelineCmpMiter.$proc$PipelineCmpMiter.sv:647$362'.
+Removing empty process `RawFloat_FMA_1.$proc$PipelineCmpMiter.sv:464$255'.
+Cleaned up 1 empty switch.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMiter.
+Optimizing module FPCmpUnit_1.
+<suppressed ~2 debug messages>
+Optimizing module FMA_1.
+<suppressed ~2 debug messages>
+Optimizing module RawFloat_FMA_1.
+<suppressed ~1 debug messages>
+Optimizing module FPCmpUnit.
+Optimizing module FMA.
+<suppressed ~2 debug messages>
+Optimizing module RawFloat_FMA.
+<suppressed ~1 debug messages>
+Optimizing module ShiftRightJam.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module FPCmpUnit_1.
+Deleting now unused module FMA_1.
+Deleting now unused module RawFloat_FMA_1.
+Deleting now unused module FPCmpUnit.
+Deleting now unused module FMA.
+Deleting now unused module RawFloat_FMA.
+Deleting now unused module ShiftRightJam.
+<suppressed ~8 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMiter.
+<suppressed ~4 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMiter'.
+Computing hashes of 417 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 384 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 370 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 364 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 361 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 359 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+<suppressed ~174 debug messages>
+Removed a total of 58 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineCmpMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:68$49: \gold.fma.rawFMA._cAnchoredMantissa_T [75:0] -> { 1'1 \gold.fma.rawFMA._cAnchoredMantissa_T [74:0] }
+      Replacing known input bits on port B of cell $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:70$48: { \gold.fma.rawFMA._cAnchoredMantissa_T [74:0] 1'0 } -> { 1'1 \gold.fma.rawFMA._cAnchoredMantissa_T [73:0] 1'0 }
+      Replacing known input bits on port B of cell $flatten\gate.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:345$190: \gate.fma.rawFMA._cAnchoredMantissa_T [75:0] -> { 1'1 \gate.fma.rawFMA._cAnchoredMantissa_T [74:0] }
+      Replacing known input bits on port B of cell $flatten\gate.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:347$189: { \gate.fma.rawFMA._cAnchoredMantissa_T [74:0] 1'0 } -> { 1'1 \gate.fma.rawFMA._cAnchoredMantissa_T [73:0] 1'0 }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~220 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineCmpMiter.
+    New input vector for $reduce_or cell $flatten\gold.\fma.\rawFMA.\shiftRightJam.$reduce_or$PipelineCmpMiter.sv:20$10: $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:186$114_Y
+    New input vector for $reduce_or cell $flatten\gate.\fma.\rawFMA.\shiftRightJam.$reduce_or$PipelineCmpMiter.sv:20$10: $flatten\gate.\fma.\rawFMA.$ternary$PipelineCmpMiter.sv:485$262_Y
+  Optimizing cells in module \PipelineCmpMiter.
+Performed a total of 2 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMiter'.
+Computing hashes of 359 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 356 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 353 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 351 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 348 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 345 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 341 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 337 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 333 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 330 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 329 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 328 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 326 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 325 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 324 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Computing hashes of 323 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+<suppressed ~108 debug messages>
+Removed a total of 36 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$372 ($dff) from module PipelineCmpMiter (D = $not$PipelineCmpMiter.sv:652$363_Y, Q = \valid, rval = 1'0).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineCmpMiter..
+Removed 1 unused cells and 196 unused wires.
+<suppressed ~2 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineCmpMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~191 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineCmpMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMiter'.
+Computing hashes of 322 cells of `\PipelineCmpMiter'.
+Finding duplicate cells in `\PipelineCmpMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineCmpMiter..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMiter.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module PipelineCmpMiter...
+Found and reported 0 problems.
+
+7. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 322 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 322 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 322 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+Import show expression: \io_b
+Import show expression: \io_a
+Import show expression: \reset
+Import show expression: \clock
+Import show expression: \io_gateDiff
+Import show expression: \io_goldDiff
+Import show expression: \io_gateMax
+Import show expression: \io_goldMax
+Import show expression: \io_mismatch
+
+[base case 1] Solving problem with 123414 variables and 341444 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 322 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+Import show expression: \io_b
+Import show expression: \io_a
+Import show expression: \reset
+Import show expression: \clock
+Import show expression: \io_gateDiff
+Import show expression: \io_goldDiff
+Import show expression: \io_gateMax
+Import show expression: \io_goldMax
+Import show expression: \io_mismatch
+
+[induction step 1] Solving problem with 123416 variables and 341451 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: c28c58b141, time: 2.56s, user: 2.57s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 96% 1x sat (2 sec), 0% 2x read_verilog (0 sec), ...

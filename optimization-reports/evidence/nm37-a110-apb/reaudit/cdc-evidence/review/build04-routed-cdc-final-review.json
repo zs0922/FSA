@@ -1,0 +1,2754 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cdc_finish",
+  "reviewed_utc": "2026-10-20T07:22:02.714092+00:00",
+  "candidate_physical_acceptance": false,
+  "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+  "build_manifest_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+  "review_script": {
+    "path": "review/finish-routed-cdc-review.py",
+    "sha256": "bd6d1ee4b9fb0fca8ad87a02fb63509c18860f8c2b51adf158378bbae0cf0b4d"
+  },
+  "main_reset_pin_polarities_independently_checked": [
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+      "line": 4,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+      "line": 26,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+      "line": 49,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+      "line": 72,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+      "line": 96,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE",
+      "line": 167,
+      "is_inverted": 0
+    },
+    {
+      "pin": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE",
+      "line": 238,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+      "line": 309,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+      "line": 324,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+      "line": 339,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+      "line": 354,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+      "line": 369,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+      "line": 384,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+      "line": 399,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+      "line": 414,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+      "line": 429,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+      "line": 444,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+      "line": 459,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+      "line": 474,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+      "line": 489,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+      "line": 505,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/CLR",
+      "line": 519,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/CLR",
+      "line": 526,
+      "is_inverted": 0
+    },
+    {
+      "pin": "wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/CLR",
+      "line": 533,
+      "is_inverted": 0
+    }
+  ],
+  "ordinary_counts": {
+    "Info": 98,
+    "Warning": 171,
+    "Critical": 25
+  },
+  "reaudit_report_binding": {
+    "path": "reaudit04/obj/audit/cdc.txt",
+    "sha256": "dec8a258d6fb5585e014fe698848fee8604deddec88d750dcabe463ee8a89430"
+  },
+  "reaudit_full_row_multiset_identical": true,
+  "new_count": 36,
+  "new_rule_counts": {
+    "CDC-10": 2,
+    "CDC-15": 26,
+    "CDC-7": 7,
+    "CDC-8": 1
+  },
+  "all_checks_additional_significant": [],
+  "entries": [
+    {
+      "index": 1,
+      "finding": [
+        "CDC-10",
+        "Critical",
+        "Combinational logic detected before a synchronizer",
+        "3",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            62
+          ]
+        },
+        {
+          "path": "review/build04-postroute-linkup-review04/structure.tsv",
+          "sha256": "223815df72aad6a804e8b260b0c0e1e29d97fbede53c73e4c337cef6dacdcf7a",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            43
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2055,
+            5676,
+            5678,
+            5686
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-10",
+          "Critical",
+          "Combinational logic detected before a synchronizer",
+          "3",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. Actual routed effective link-up clear equals POR OR NOT qualified OR NOT released OR NOT link_status[0] OR NOT link_status[1]. The two XPM stages have CLR IS_INVERTED=1 and the complementary positive input truth; the output register has CLR IS_INVERTED=0 and the negative input truth. All 32 input combinations and these exact pin polarities are verified together. Two ASYNC_REG FDCE stages with vendor-defined INIT=1 followed by the FDCE output register with INIT=0, constant CE and direct D links, implement synchronous assertion of link-up after asynchronous deassertion, matching installed vendor HDL."
+    },
+    {
+      "index": 2,
+      "finding": [
+        "CDC-10",
+        "Critical",
+        "Combinational logic detected before a synchronizer",
+        "3",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            64
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            166
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2203,
+            5696,
+            5698,
+            5706
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-10",
+          "Critical",
+          "Combinational logic detected before a synchronizer",
+          "3",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. Actual routed user-reset chain is two ASYNC_REG FDPE stages followed by the output FDPE with direct D links; the checked 64-row reset truth includes fundamental reset, hot reset and link status. This is the supported vendor asynchronous-assert/synchronous-release reset path."
+    },
+    {
+      "index": 3,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            94,
+            115
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 4,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            104,
+            125
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            457,
+            458,
+            459,
+            460,
+            461,
+            462,
+            463,
+            464,
+            465,
+            466,
+            467,
+            468,
+            469,
+            470
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 5,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            105,
+            126
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            472,
+            473,
+            474,
+            475,
+            476,
+            477,
+            478,
+            479,
+            480,
+            481,
+            482,
+            483,
+            484,
+            485
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 6,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            106,
+            127
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            487,
+            488,
+            489,
+            490,
+            491,
+            492,
+            493,
+            494,
+            495,
+            496,
+            497,
+            498,
+            499,
+            500
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 7,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            95,
+            116
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 8,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            96,
+            117
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 9,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            97,
+            118
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 10,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            98,
+            119
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            367,
+            368,
+            369,
+            370,
+            371,
+            372,
+            373,
+            374,
+            375,
+            376,
+            377,
+            378,
+            379,
+            380
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 11,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            99,
+            120
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 12,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            100,
+            121
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 13,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            101,
+            122
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            419,
+            420,
+            421,
+            422,
+            423,
+            424,
+            425
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 14,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            102,
+            123
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            427,
+            428,
+            429,
+            430,
+            431,
+            432,
+            433,
+            434,
+            435,
+            436,
+            437,
+            438,
+            439,
+            440
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 15,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            103,
+            124
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            442,
+            443,
+            444,
+            445,
+            446,
+            447,
+            448,
+            449,
+            450,
+            451,
+            452,
+            453,
+            454,
+            455
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 16,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            94,
+            115
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316,
+            317,
+            318,
+            319,
+            320
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[0]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 17,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            104,
+            125
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            457,
+            458,
+            459,
+            460,
+            461,
+            462,
+            463,
+            464,
+            465,
+            466,
+            467,
+            468,
+            469,
+            470
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[10]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 18,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            105,
+            126
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            472,
+            473,
+            474,
+            475,
+            476,
+            477,
+            478,
+            479,
+            480,
+            481,
+            482,
+            483,
+            484,
+            485
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[11]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 19,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            106,
+            127
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            487,
+            488,
+            489,
+            490,
+            491,
+            492,
+            493,
+            494,
+            495,
+            496,
+            497,
+            498,
+            499,
+            500
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[12]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 20,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            95,
+            116
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[1]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 21,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            96,
+            117
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            337,
+            338,
+            339,
+            340,
+            341,
+            342,
+            343,
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[2]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 22,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            97,
+            118
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[3]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 23,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            98,
+            119
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            367,
+            368,
+            369,
+            370,
+            371,
+            372,
+            373,
+            374,
+            375,
+            376,
+            377,
+            378,
+            379,
+            380
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[4]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 24,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            99,
+            120
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[5]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 25,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            100,
+            121
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[6]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 26,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            101,
+            122
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            419,
+            420,
+            421,
+            422,
+            423,
+            424,
+            425
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[7]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 27,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            102,
+            123
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            427,
+            428,
+            429,
+            430,
+            431,
+            432,
+            433,
+            434,
+            435,
+            436,
+            437,
+            438,
+            439,
+            440
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[8]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 28,
+      "finding": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            103,
+            124
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            442,
+            443,
+            444,
+            445,
+            446,
+            447,
+            448,
+            449,
+            450,
+            451,
+            452,
+            453,
+            454,
+            455
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-15",
+        "Warning",
+        "Clock enable controlled CDC structure detected",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/debounced_debounce/reg_0_reg[9]/CLR",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 29,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            107,
+            128
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            502,
+            503,
+            504,
+            505,
+            506,
+            507,
+            508,
+            509,
+            510,
+            511,
+            512,
+            513,
+            514,
+            515,
+            519,
+            526,
+            533
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "Asynch Clock Groups",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "_pcie_io_clocks_axi_aclk",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 30,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            63
+          ]
+        },
+        {
+          "path": "review/build04-postroute-linkup-review04/structure.tsv",
+          "sha256": "223815df72aad6a804e8b260b0c0e1e29d97fbede53c73e4c337cef6dacdcf7a",
+          "lines": [
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2055,
+            5676,
+            5678,
+            5686
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+          "input port clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. Actual routed effective link-up clear equals POR OR NOT qualified OR NOT released OR NOT link_status[0] OR NOT link_status[1]. The two XPM stages have CLR IS_INVERTED=1 and the complementary positive input truth; the output register has CLR IS_INVERTED=0 and the negative input truth. All 32 input combinations and these exact pin polarities are verified together. Two ASYNC_REG FDCE stages with vendor-defined INIT=1 followed by the FDCE output register with INIT=0, constant CE and direct D links, implement synchronous assertion of link-up after asynchronous deassertion, matching installed vendor HDL."
+    },
+    {
+      "index": 31,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "sys_clock",
+        "clk_out2_harnessSysPLL"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            107,
+            128
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            502,
+            503,
+            504,
+            505,
+            506,
+            507,
+            508,
+            509,
+            510,
+            511,
+            512,
+            513,
+            514,
+            515,
+            519,
+            526,
+            533
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "False Path",
+        "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "sys_clock",
+        "clk_out1_harnessSysPLL"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    },
+    {
+      "index": 32,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+        "sys_clock",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            61
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2053,
+            5186,
+            5187,
+            5201,
+            5202,
+            5573,
+            5574,
+            5581,
+            5582,
+            5669,
+            5692
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+          "sys_clock",
+          "_pcie_io_clocks_axi_aclk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+          "input port clock",
+          "_pcie_io_clocks_axi_aclk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. This destination is directly asynchronously reset by vendor sys_or_hot_rst, not a per-endpoint synchronizer. Its actual 16-row reset truth equals hot_reset OR POR OR NOT qualified OR NOT released and its primitive type/INIT/destination clock are checked."
+    },
+    {
+      "index": 33,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            216
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2053,
+            5186,
+            5187,
+            5201,
+            5202,
+            5573,
+            5574,
+            5581,
+            5582,
+            5669,
+            5692
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. This destination is directly asynchronously reset by vendor sys_or_hot_rst, not a per-endpoint synchronizer. Its actual 16-row reset truth equals hot_reset OR POR OR NOT qualified OR NOT released and its primitive type/INIT/destination clock are checked."
+    },
+    {
+      "index": 34,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            217
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2053,
+            5186,
+            5187,
+            5201,
+            5202,
+            5573,
+            5574,
+            5581,
+            5582,
+            5669,
+            5692
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. This destination is directly asynchronously reset by vendor sys_or_hot_rst, not a per-endpoint synchronizer. Its actual 16-row reset truth equals hot_reset OR POR OR NOT qualified OR NOT released and its primitive type/INIT/destination clock are checked."
+    },
+    {
+      "index": 35,
+      "finding": [
+        "CDC-7",
+        "Critical",
+        "Asynchronous reset unknown CDC circuitry",
+        "0",
+        "None",
+        "pcieResetControl/releaseSync/sync_reg[2]/C",
+        "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+        "sys_clock",
+        "pipe_clk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            218
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91
+          ]
+        },
+        {
+          "path": "build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/ip_0/source/nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v",
+          "sha256": "4efa0daf5b2d7fa2ec2356a7ab2aebd68f0f6f3cc1d048f198e903d377b6cb07",
+          "lines": [
+            2053,
+            5186,
+            5187,
+            5201,
+            5202,
+            5573,
+            5574,
+            5581,
+            5582,
+            5669,
+            5692
+          ]
+        }
+      ],
+      "baseline_same_rule_destination_clock": [
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+          "sys_clock",
+          "pipe_clk"
+        ],
+        [
+          "CDC-7",
+          "Critical",
+          "Asynchronous reset unknown CDC circuitry",
+          "0",
+          "False Path",
+          "prst_n",
+          "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+          "input port clock",
+          "pipe_clk"
+        ]
+      ],
+      "rationale": "The newly selected launch clock comes from the board-clock reset guard. Destination is an existing vendor PCIe fundamental-reset consumer. Supported asynchronous assertion is preserved; the guard adds qualified delayed release, and the installed vendor reset logic remains intact. This must not be generalized into permission for arbitrary unsynchronized custom crossings. This destination is directly asynchronously reset by vendor sys_or_hot_rst, not a per-endpoint synchronizer. Its actual 16-row reset truth equals hot_reset OR POR OR NOT qualified OR NOT released and its primitive type/INIT/destination clock are checked."
+    },
+    {
+      "index": 36,
+      "finding": [
+        "CDC-8",
+        "Warning",
+        "Asynchronous reset synchronized with missing ASYNC_REG property",
+        "3",
+        "Asynch Clock Groups",
+        "wrangler/deglitched_deglitch/reg_0_reg/C",
+        "wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/CLR",
+        "clk_out2_harnessSysPLL",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "classification": "equivalent_existing_structure",
+      "recommendation": "accept_differential_review_with_stated_scope",
+      "evidence": [
+        {
+          "path": "review/build04-postroute-cdc-review/cdc.rpt",
+          "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009",
+          "lines": [
+            53
+          ]
+        },
+        {
+          "path": "review/build04-postroute-cdc-review/structure.tsv",
+          "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500",
+          "lines": [
+            517,
+            518,
+            519,
+            520,
+            521,
+            522,
+            527
+          ]
+        },
+        {
+          "path": "review/build04-postopt-cdc-review-preparation.json",
+          "sha256": "6a57cd0f7287452f6465cc982e898ee0bd3b3f9a688b03745ff5946479169a94"
+        }
+      ],
+      "baseline_exact_after_declared_mapping": [
+        "CDC-8",
+        "Warning",
+        "Asynchronous reset synchronized with missing ASYNC_REG property",
+        "3",
+        "Asynch Clock Groups",
+        "wrangler/deglitched_deglitch/reg_0_reg/C",
+        "wrangler/nodeOut_reset_catcher_1/io_sync_reset_chain/output_chain/sync_2_reg/CLR",
+        "clk_out1_harnessSysPLL",
+        "_pcie_io_clocks_axi_aclk"
+      ],
+      "rationale": "Existing ResetWrangler asynchronous reset/debounce structure. Only documented slow clock changes 110 to 55 MHz and PCIe catcher hierarchy index 1 to 2. Actual routed FDCE/FDPE types, initialization, clocks, reset-cone truth and final three-stage PCIe release chain match the generated architecture. Counter is 13 bits at 5500 cycles rather than 14 bits at 11000 cycles, retaining nominal 100 us. This is endpoint correspondence, not a claim that every asynchronous register has its own synchronizer."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "review/build04-postroute-cdc-review/cdc-all-checks.rpt",
+      "sha256": "961af4514c585b82885b070127cc1c2e45572c8756a369b775de70b7cd0b83ef"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/cdc.rpt",
+      "sha256": "e0a7adb88fff940f93e3b39e51db56d9ca27126d38ae7dfc6431644f3eaf2009"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/check-timing.rpt",
+      "sha256": "2689bbc9f77b197b04954c4147928fcc58d98d7341ba34bd926aee5945648a90"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/clock-interaction.rpt",
+      "sha256": "da55887c3e854236e7665a81fd27db86102a994659f0968a4687bec35fd94932"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/exceptions.rpt",
+      "sha256": "6867cb02edd2353e50ce58d8543e8f3088743e47d98b2b083942ee7227b7a87a"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/input-sha256.tsv",
+      "sha256": "fc2034e7719fc31af26eae238efbb14be5717cbe260d21f0726b813bc485a839"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/manifest.json",
+      "sha256": "6a5c6ee304bb87d88b28e76a47aa48463d4e4a46fa0f3a93863cf455936833ce"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/properties.txt",
+      "sha256": "11423dd97807144444c7eeb43b3cd12975176a2f4c2c7edf1cc3752992a70532"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/reset-cones.txt",
+      "sha256": "ad00bde9825d34c7b00e661c436bf43798c3f3c865f2f8d861fc9d0932ec3850"
+    },
+    {
+      "path": "review/build04-postroute-cdc-review/structure.tsv",
+      "sha256": "46e36a1bdfec3a35d9a7fb2d235b145fd37b528f7c6fba89598df178943d9500"
+    },
+    {
+      "path": "review/build04-postroute-linkup-review04/input-sha256.tsv",
+      "sha256": "f9e37c55655286873f3416d04aac5dd266a800fd2eb421036616e8a646cf5dad"
+    },
+    {
+      "path": "review/build04-postroute-linkup-review04/properties.txt",
+      "sha256": "76f6f470c274b9d591c2cefd87901862a8b0847daf724037df88eace9831ed8e"
+    },
+    {
+      "path": "review/build04-postroute-linkup-review04/reset-cones.txt",
+      "sha256": "321b5c481ad82352d1b0e02fc91657ed07de0970179d77dd82432afb041fa1e7"
+    },
+    {
+      "path": "review/build04-postroute-linkup-review04/structure.tsv",
+      "sha256": "223815df72aad6a804e8b260b0c0e1e29d97fbede53c73e4c337cef6dacdcf7a"
+    }
+  ],
+  "official_sources": [
+    {
+      "url": "https://docs.amd.com/r/en-US/pg213-pcie4-ultrascale-plus/Resets",
+      "version": "PG213 v1.3,2026-07-31",
+      "paraphrase": "The fundamental reset input is asynchronous and resets the core and transceivers; hold it until the PCIe reference clock is stable. User reset deassertion is synchronized to user_clk."
+    },
+    {
+      "url": "https://docs.amd.com/r/en-US/pg213-pcie4-ultrascale-plus/Clock-and-Reset-Interface",
+      "version": "PG213 v1.3,2026-07-31",
+      "paraphrase": "sys_reset accepts an asynchronous active-low fundamental reset. The PCIe-derived user clock need not run continuously during reset."
+    },
+    {
+      "url": "https://docs.amd.com/r/en-US/pg195-pcie-dma/XDMA-Global-Ports",
+      "version": "PG195 v4.2,2026-07-22",
+      "paraphrase": "sys_rst_n is the connector reset input; axi_aresetn is synchronized to axi_aclk for downstream AXI logic."
+    }
+  ],
+  "supplement_audit_correction": {
+    "preserved_failed_attempts": [
+      "review/build04-postroute-linkup-review02",
+      "review/build04-postroute-linkup-review03"
+    ],
+    "reason": "Original supplemental query incorrectly required INIT=0 for all three link-up registers; installed XPM active-low reset implementation specifies INIT=1 for the two synchronizer stages, while the output register is INIT=0. Attempt03 confirmed exact initialization but exposed another incorrect query assumption: XPM CLR pins are inverted while the output CLR is not. Attempt04 requires exact initialization and polarity, and checks complementary input truth tables, rather than permitting arbitrary initialization or polarity.",
+    "xpm_source": "/opt/Xilinx_2020.2/Vivado/2020.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv",
+    "xpm_source_sha256": "c8c4d9c9c63dcfafe5261a54d29d71381d23fc71f51ed6a573508c9298ba0960",
+    "xpm_source_lines": [
+      1222,
+      1223,
+      1226
+    ]
+  },
+  "limits": [
+    "Recommendations cover the 36 actual routed new Critical/Warning records only; baseline still contains asynchronous CDC structures and is not a blanket clean-CDC signoff.",
+    "Final acceptance also requires bound reaudit report identity and all timing/DRC/route/HBM structural gates. No timing failure can be waived by this review.",
+    "The old A110 checkpoint was unavailable: correspondence uses archived exact CDC rows plus installed vendor HDL and current routed netlist, not a reopened old checkpoint.",
+    "External PCIe PERST/refclk contract remains required. The board 100 MHz guard does not prove PCIe refclk stability.",
+    "No hardware board test, analog metastability test, MTBF measurement, or complete end-to-end AXI/HBM transaction test is claimed.",
+    "Newer official manuals describe reset-interface semantics; installed Vivado 2020.2 HDL and actual routed primitives establish implementation-specific evidence."
+  ]
+}

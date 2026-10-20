@@ -1,0 +1,211 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `prove.ys' --
+
+1. Executing Verilog-2005 frontend: PipelineCmpMaxMiter.sv
+Parsing SystemVerilog input from `PipelineCmpMaxMiter.sv' to AST representation.
+Generating RTLIL representation for module `\ShiftRightJam'.
+Generating RTLIL representation for module `\RawFloat_FMA'.
+Generating RTLIL representation for module `\FMA'.
+Generating RTLIL representation for module `\FPCmpUnit'.
+Generating RTLIL representation for module `\FPCmpUnit_1'.
+Generating RTLIL representation for module `\PipelineCmpMaxMiter'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \PipelineCmpMaxMiter
+Used module:     \FPCmpUnit_1
+Used module:     \FPCmpUnit
+Used module:         \FMA
+Used module:             \RawFloat_FMA
+Used module:                 \ShiftRightJam
+
+2.2. Analyzing design hierarchy..
+Top module:  \PipelineCmpMaxMiter
+Used module:     \FPCmpUnit_1
+Used module:     \FPCmpUnit
+Used module:         \FMA
+Used module:             \RawFloat_FMA
+Used module:                 \ShiftRightJam
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMaxMiter.
+Optimizing module FPCmpUnit_1.
+<suppressed ~2 debug messages>
+Optimizing module FPCmpUnit.
+Optimizing module FMA.
+<suppressed ~2 debug messages>
+Optimizing module RawFloat_FMA.
+<suppressed ~1 debug messages>
+Optimizing module ShiftRightJam.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module FPCmpUnit_1.
+Deleting now unused module FPCmpUnit.
+Deleting now unused module FMA.
+Deleting now unused module RawFloat_FMA.
+Deleting now unused module ShiftRightJam.
+<suppressed ~5 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMaxMiter.
+<suppressed ~2 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMaxMiter'.
+Computing hashes of 219 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+Computing hashes of 201 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+Computing hashes of 194 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+Computing hashes of 192 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+<suppressed ~81 debug messages>
+Removed a total of 27 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineCmpMaxMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMaxMiter.sv:68$49: \gold.fma.rawFMA._cAnchoredMantissa_T [75:0] -> { 1'1 \gold.fma.rawFMA._cAnchoredMantissa_T [74:0] }
+      Replacing known input bits on port B of cell $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMaxMiter.sv:70$48: { \gold.fma.rawFMA._cAnchoredMantissa_T [74:0] 1'0 } -> { 1'1 \gold.fma.rawFMA._cAnchoredMantissa_T [73:0] 1'0 }
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:257$172.
+    dead port 2/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:257$172.
+    dead port 1/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:259$171.
+    dead port 2/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:259$171.
+    dead port 1/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:260$166.
+    dead port 2/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:260$166.
+    dead port 1/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:262$165.
+    dead port 2/2 on $mux $flatten\gold.\fma.$ternary$PipelineCmpMaxMiter.sv:262$165.
+Removed 8 multiplexer ports.
+<suppressed ~113 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineCmpMaxMiter.
+    New input vector for $reduce_or cell $flatten\gold.\fma.\rawFMA.\shiftRightJam.$reduce_or$PipelineCmpMaxMiter.sv:20$10: $flatten\gold.\fma.\rawFMA.$ternary$PipelineCmpMaxMiter.sv:186$114_Y
+  Optimizing cells in module \PipelineCmpMaxMiter.
+Performed a total of 1 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMaxMiter'.
+Computing hashes of 188 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineCmpMaxMiter..
+Removed 83 unused cells and 176 unused wires.
+<suppressed ~102 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMaxMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PipelineCmpMaxMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~53 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PipelineCmpMaxMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PipelineCmpMaxMiter'.
+Computing hashes of 105 cells of `\PipelineCmpMaxMiter'.
+Finding duplicate cells in `\PipelineCmpMaxMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PipelineCmpMaxMiter..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PipelineCmpMaxMiter.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module PipelineCmpMaxMiter...
+Found and reported 0 problems.
+
+7. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 105 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Final proof equation: \io_mismatch = 1'0
+Import show expression: \io_b
+Import show expression: \io_a
+Import show expression: \reset
+Import show expression: \clock
+Import show expression: \io_mismatch
+
+Solving problem with 10196 variables and 28035 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 92917904cf, time: 0.11s, user: 0.12s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 59% 1x sat (0 sec), 11% 2x read_verilog (0 sec), ...

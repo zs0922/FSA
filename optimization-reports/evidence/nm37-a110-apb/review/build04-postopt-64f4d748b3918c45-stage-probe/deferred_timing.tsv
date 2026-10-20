@@ -1,0 +1,68 @@
+complete_apb_to_axi	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeApb_reg/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/D
+complete_apb_to_axi	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeApb_reg/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/D
+apb_reset_stage01	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[0]/Q	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/D
+apb_reset_stage01	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[0]/Q	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/D
+apb_reset_stage12	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/Q	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[2]/D
+apb_reset_stage12	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/Q	dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[2]/D
+apb_reset_clr0	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[0]/CLR
+apb_reset_clr0	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[0]/CLR
+apb_reset_clr1	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/CLR
+apb_reset_clr1	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[1]/CLR
+apb_reset_clr2	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[2]/CLR
+apb_reset_clr2	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[2]/CLR
+axi_reset_stage01	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[0]/Q	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/D
+axi_reset_stage01	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[0]/Q	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/D
+axi_reset_stage12	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/Q	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/D
+axi_reset_stage12	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/Q	dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/D
+axi_reset_clr0	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[0]/CLR
+axi_reset_clr0	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[0]/CLR
+axi_reset_clr1	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/CLR
+axi_reset_clr1	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[1]/CLR
+axi_reset_clr2	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/CLR
+axi_reset_clr2	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/CLR
+completion_sync_stage01	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/D
+completion_sync_stage01	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/D
+completion_sync_stage12	max	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[2]/D
+completion_sync_stage12	min	DEFERRED_POSTROUTE	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/Q	dutDomain/ram_startup/completeAxi_completeSync/sync_reg[2]/D
+completion_sync_clr0	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/CLR
+completion_sync_clr0	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[0]/CLR
+completion_sync_clr1	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/CLR
+completion_sync_clr1	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[1]/CLR
+completion_sync_clr2	max	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[2]/CLR
+completion_sync_clr2	min	DEFERRED_POSTROUTE		dutDomain/ram_startup/completeAxi_completeSync/sync_reg[2]/CLR
+pcie_reset_stage01	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[0]/Q	pcieResetControl/releaseSync/sync_reg[1]/D
+pcie_reset_stage01	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[0]/Q	pcieResetControl/releaseSync/sync_reg[1]/D
+pcie_reset_stage12	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[1]/Q	pcieResetControl/releaseSync/sync_reg[2]/D
+pcie_reset_stage12	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[1]/Q	pcieResetControl/releaseSync/sync_reg[2]/D
+pcie_released_clr	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/released_reg/CLR
+pcie_released_clr	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/released_reg/CLR
+pcie_counter_clr0	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[0]/CLR
+pcie_counter_clr0	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[0]/CLR
+pcie_counter_clr1	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[1]/CLR
+pcie_counter_clr1	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[1]/CLR
+pcie_counter_clr2	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[2]/CLR
+pcie_counter_clr2	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[2]/CLR
+pcie_counter_clr3	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[3]/CLR
+pcie_counter_clr3	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[3]/CLR
+pcie_counter_clr4	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[4]/CLR
+pcie_counter_clr4	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[4]/CLR
+pcie_counter_clr5	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[5]/CLR
+pcie_counter_clr5	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[5]/CLR
+pcie_counter_clr6	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[6]/CLR
+pcie_counter_clr6	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[6]/CLR
+pcie_counter_clr7	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[7]/CLR
+pcie_counter_clr7	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[7]/CLR
+pcie_counter_clr8	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[8]/CLR
+pcie_counter_clr8	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[8]/CLR
+pcie_counter_clr9	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[9]/CLR
+pcie_counter_clr9	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[9]/CLR
+pcie_counter_clr10	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[10]/CLR
+pcie_counter_clr10	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[10]/CLR
+pcie_counter_clr11	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[11]/CLR
+pcie_counter_clr11	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[11]/CLR
+pcie_counter_clr12	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[12]/CLR
+pcie_counter_clr12	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[12]/CLR
+pcie_counter_clr13	max	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[13]/CLR
+pcie_counter_clr13	min	DEFERRED_POSTROUTE	pcieResetControl/releaseSync/sync_reg[2]/Q	pcieResetControl/stableCount_reg[13]/CLR
+raw_async_reset	report	DEFERRED_POSTROUTE		-to {pcieResetControl/releaseSync/sync_reg[0]/CLR pcieResetControl/releaseSync/sync_reg[1]/CLR pcieResetControl/releaseSync/sync_reg[2]/CLR} -delay_type max -max_paths 10 -input_pins -nets -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/pcie_raw_reset_max.rpt
+raw_async_reset	report	DEFERRED_POSTROUTE		-to {pcieResetControl/releaseSync/sync_reg[0]/CLR pcieResetControl/releaseSync/sync_reg[1]/CLR pcieResetControl/releaseSync/sync_reg[2]/CLR} -delay_type min -max_paths 10 -input_pins -nets -file /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postopt-64f4d748b3918c45-stage-probe/pcie_raw_reset_min.rpt

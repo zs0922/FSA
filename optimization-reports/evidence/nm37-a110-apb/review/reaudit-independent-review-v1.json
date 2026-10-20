@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-10-20T06:17:25.189487+00:00",
+  "status": "PASS_TOOLING_REVIEW",
+  "scope": "Independent read-only review and synthetic-fixture tests of external audit tooling only; not candidate timing acceptance",
+  "source_execution_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+  "source_modified": false,
+  "closed_findings": [
+    {
+      "finding": "verify_pass could omit immutable CDC review mapping or misstate recomputed physical values",
+      "resolution": "Exact review file-set/hash equality plus comparison of every recomputed physical result field; negative cases in test_pass_numbers_and_deleted_review_map_rejected"
+    },
+    {
+      "finding": "Generated original XCI files were not in the immutable re-audit input snapshot",
+      "resolution": "All original board XCI path/SHA set captured and checked in assert_unchanged; test_generated_ip_content_and_set_are_bound"
+    },
+    {
+      "finding": "Wrapper stdout and native Vivado logging both targeted vivado.log",
+      "resolution": "Explicit -log vivado-native.log and -journal vivado.jou, separate wrapper vivado.log; both re-audit and export bind all logs"
+    }
+  ],
+  "observed_test_runs": [
+    {
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_reaudit.py"
+      ],
+      "tests": 26,
+      "exit_code": 0,
+      "tool_output_chunk": "17733e"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_reaudit.py"
+      ],
+      "tests": 9,
+      "exit_code": 0,
+      "tool_output_chunk": "7bfdf6"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_candidate.py"
+      ],
+      "tests": 28,
+      "exit_code": 0,
+      "tool_output_chunk": "273084"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_extract_physical_summary.py"
+      ],
+      "tests": 11,
+      "exit_code": 0,
+      "tool_output_chunk": "4d0054"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py"
+      ],
+      "tests": 14,
+      "exit_code": 0,
+      "prior_record": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/physical-audit-context-selftest.json",
+      "record_sha256": "071e1c1bc7ffaec76ee752dbbac690eed57f032187b5668bf311666b448f90bc"
+    }
+  ],
+  "file_sha256": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/reaudit.py": "2b8520a76f80f1379f3c86faa5215941db32aec400a7861cdd1c8a0378667926",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/reaudit.tcl": "b4357adba6e6d5e56f9b8c633b0c92f03df9e1a22fdc0aa1599b64e13f540c27",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/physical_audit.py": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/hbm_audit.tcl": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/run.sh": "c6bfa4166164c0dc0a0d2afb7592fac3aed22e4cac3315edd08772931dd652bd",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/check_reset_evidence.tcl": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_reaudit.py": "935f5aac2ea17b6020c088414014c04a3b259aaad054c29cad0b0bb23a493e13",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_physical_audit_context.py": "0a9b83f77b598b64cdbf9a187baed1684003e8595ddc3313cd56e5d74144e2e2",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/archive_candidate.py": "efa53229cfc1018b36f5c00493e8fda072747f0fb180480d9acd371164bf6682",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/verify_candidate_archive.py": "4226c571463eb6e082d446cd4f94456ac9fc72a53b9822ca2c4f83bfdac0617f",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_candidate.py": "13dfb179d20f92d1390d1340aba0d88a3a37d26d117d201aa826361cad367118",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_reaudit.py": "5a527a32398cbdabf428ce74bd022d44d2a8750524b2550feeaa7c236a7e7def",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/archive-selftest.json": "b084f62c57066e798fec0ab6018c47063b248eb99066434e1602acbde90d03cb",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/extract_physical_summary.py": "4dfc3f531b3cfa20ee3a71d41a02d07667990f361043c0023bbab5d4fe5946dd",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_extract_physical_summary.py": "039f300b776e390d01432f31ba294672679b192cccdceeade7895f31fb3b174c",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/physical-audit-context-selftest.json": "071e1c1bc7ffaec76ee752dbbac690eed57f032187b5668bf311666b448f90bc"
+  },
+  "read_only_tcl_review": "No synthesis/optimization/placement/routing, timing exception/clock edits, or write_checkpoint in reaudit.tcl; opens original DCP and emits reports under new obj. Original frozen reset timing and strict timing scripts are used.",
+  "remaining": "No outstanding tooling review findings. This does not accept hardware: original full P&R must finish, revised reports must be generated from the exact unchanged DCP, every new CDC finding must be explicitly reviewed, and real acceptance must pass before bitstream export.",
+  "archive_review": "Original failure and exact original driver/IP/environment/report bytes remain under build/implementation identities. Revised auditor, execution reports and accepted CDC review have separate identities. The revised pass never writes original physical.passed.json. Bitstream export calls only the original frozen export Tcl with the same DCP after recomputed acceptance; archive keeps a local-artifact SHA/size reference rather than claiming the bitstream bytes are packaged.",
+  "source_change_boundary": "Only explicit auditor/test paths, three final document paths, and the one final evidence subtree may differ. Every production source remains subject to original source-lock/submodule checks; docs/evidence symlinks are rejected. run.sh changes add four explicit re-audit/export phases and help only.",
+  "extractor_reaudit_usage": [
+    "python3",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/extract_physical_summary.py",
+    "--build",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04",
+    "--reaudit-root",
+    "ABS_REAUDIT_OUTPUT",
+    "--reaudit-pass",
+    "ABS_REAUDIT_OUTPUT/acceptance/ATTEMPT/reaudit.passed.json",
+    "--out",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-physical-summary.json"
+  ]
+}

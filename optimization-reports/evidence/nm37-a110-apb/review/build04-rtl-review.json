@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/apb_review",
+  "reviewed_at_utc": "2026-10-20T05:20:24.903307+00:00",
+  "mode": "read_only_generated_rtl_manual_review",
+  "candidate": "build04",
+  "source_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+  "build_manifest_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+  "candidate_physical_acceptance": false,
+  "timing_evaluated": false,
+  "result": "reviewed_generated_rtl_matches_expected_connections_and_contracts",
+  "blocking_rtl_findings": [],
+  "inputs": [
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/build.json",
+      "sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+      "size_bytes": 2510
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/elaborate.passed.json",
+      "sha256": "12a6e94609540e4f5e822d91078722798d3e2534504af8a053f308feb1d875b8",
+      "size_bytes": 24119
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/hbm-startup.passed.json",
+      "sha256": "ab5294b5b7e4a7cd27723e0d98eaec87c106a0d5681b0c44decb6bb1b7601f9b",
+      "size_bytes": 4800
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMPLLResetControl.sv",
+      "sha256": "d0e81d32173f10ffe82eb32f228041332407abed95aeff214fd7720d1390922c",
+      "size_bytes": 5384
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMAsyncLevelSynchronizer.sv",
+      "sha256": "835c302b484dbc1acef04ce6e486b61aaf26b50d50578a8a2a30bb9ee2faca2d",
+      "size_bytes": 372
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMStartupControl.sv",
+      "sha256": "74750255b933454e9bc06442a9017991661c717ce63acfc7ef1d4433c7854169",
+      "size_bytes": 7573
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/HBMAXIStartupGate.sv",
+      "sha256": "7a6f2fa771d46bbe4dbd5281c1867c0478d4440b2cfc808977873d82fb551ffc",
+      "size_bytes": 8582
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+      "sha256": "c83b0fb790f4931b575c5a85df429eeb190ca3021f6c638c1f01d9a3006621c4",
+      "size_bytes": 54992
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv",
+      "sha256": "59fd66169feb4919d5e777a482bf380daba3f5e142981e6a8c5ace0c9dbd632f",
+      "size_bytes": 78533
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+      "sha256": "5c5bab2d3eed114194e3db86a5d608798d66de12fa98c44c9bf5c791dcc3e37d",
+      "size_bytes": 4830
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockGroup.sv",
+      "sha256": "fdedbdccfec2c8db807eac16b41ef9f714176e3fccbfc8f3a88b1ac7e3de186e",
+      "size_bytes": 1697
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FixedClockBroadcast_2.sv",
+      "sha256": "93959dc2c3d2c1b34aec7da69d56256421b5ecc3ba11969198b9f32064f4665e",
+      "size_bytes": 1373
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CustomXDMA.sv",
+      "sha256": "464252c4ac1ed6579baa4d0d15e9bfde81b1684bf6da959fde4d2fee371414bd",
+      "size_bytes": 11703
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.sdc",
+      "sha256": "c96bdc473d764b27ec7ae037a247912b45deeb2386a4a0100d59539f402309b3",
+      "size_bytes": 934
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.harnessSysPLL.vivado.tcl",
+      "sha256": "6bc22e4736c34ce423854cb6f60da056f00fec9dde04e69ddcf5ac45dac8b87a",
+      "size_bytes": 2344
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.testxilinx_hbm.vivado.tcl",
+      "sha256": "b10ef5c19ba309031b7248aa6b6a9fd0e14bf68bc5b92b83a884f56c7420383e",
+      "size_bytes": 499
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/hbm_audit.tcl",
+      "sha256": "54ec96ae102b3eca53176b253481321722cc86dc9b969dc61db59b46e7dc3305",
+      "size_bytes": 17070
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/nm37-a110/physical_audit.py",
+      "sha256": "967b4f7595298cd8c3f83e9540f127c084116de4769939a2bf7bfd6c8155f6e6",
+      "size_bytes": 14300
+    },
+    {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/post-synth-preflight.tcl",
+      "sha256": "5788417a5fd2ead661730d302403fc653f56aab0a8f478522caa1bf1a9592752",
+      "size_bytes": 12331
+    }
+  ],
+  "findings": [
+    {
+      "id": "pll_contract",
+      "result": "matches_expected_generated_configuration",
+      "files": [
+        "harnessSysPLL.vivado.tcl",
+        "shell.sdc",
+        "NM37FPGATestHarness.sv"
+      ],
+      "evidence": "PLL requests board input 100 MHz, output1 110 MHz and output2 55 MHz; both generated actual-jitter checks reject >230.0 ps. Both requested phase 0 and duty 50%. Top maps clk_out1 to DUT member0 and clk_out2 to APB member1. Actual generated XCI values are not yet assessed here.",
+      "jitter_guard_ps": {
+        "DUT110": 230.0,
+        "APB55": 230.0
+      }
+    },
+    {
+      "id": "clock_relationship",
+      "result": "related_clocks_remain_timed",
+      "files": [
+        "shell.sdc"
+      ],
+      "evidence": "harnessSysPLL/clk_out1 and clk_out2 occur in the same asynchronous-group member; PCIe reference/AXI clocks occupy the other group. No APB-to-DUT clock-group cut or new synchronizer-specific false path appears in the generated SDC. Existing PCIe axi_aresetn, PERST and POR through-exceptions remain. Effective vendor constraints and routed exception coverage still require physical audit."
+    },
+    {
+      "id": "hbm_clock_routing",
+      "result": "matches_expected_rtl_connections",
+      "files": [
+        "NM37FPGATestHarness.sv:202-219",
+        "NM37FPGATestHarness.sv:474-478",
+        "ClockSinkDomain.sv:273-317",
+        "testxilinx_hbm.vivado.tcl"
+      ],
+      "evidence": "HBM APB_0_PCLK follows wrangler member1/55 MHz; AXI_00_ACLK follows DUT member0/110 MHz; HBM_REF_CLK_0 follows independent board sys-clock broadcast/100 MHz. HBM IP explicitly requests USER_APB_PCLK_0=55. Actual hard-primitive pins, clocks, waveforms and XCI-derived period remain pending."
+    },
+    {
+      "id": "cold_reset_clock_and_causes",
+      "result": "matches_expected_rtl_connections",
+      "files": [
+        "NM37FPGATestHarness.sv:165-173",
+        "NM37FPGATestHarness.sv:482-526",
+        "HBMPLLResetControl.sv:94-100"
+      ],
+      "evidence": "pcieResetControl monitorClock is sys_clock_ibufds.O (independent board100). releaseSync asynchronously asserts on rawPllReset OR externalReset, where rawPllReset is !harnessSysPLL.locked OR POR and externalReset is !IBUF(prst_n). The PLL reset input itself is POR only."
+    },
+    {
+      "id": "cold_reset_qualification",
+      "result": "matches_expected_rtl_state_machine",
+      "files": [
+        "HBMPLLResetControl.sv:53-71",
+        "HBMPLLResetControl.sv:94-100"
+      ],
+      "evidence": "Three-stage releaseSync drives qualification; !q asynchronously clears the 14-bit stableCount and released FF. Counter terminal is 14h270F (9999), and released becomes sticky after 10000 healthy monitor-clock counting edges. Earliest qualified output is after three synchronizer edges followed by 10000 counting edges (10003 total); output is q AND released. RTL edge accounting only, not a postroute recovery/removal result.",
+      "stable_cycles": 10000,
+      "counter_width_bits": 14,
+      "terminal_decimal": 9999
+    },
+    {
+      "id": "xdma_cold_reset_and_cycle_check",
+      "result": "no_startup_reset_cycle_in_reviewed_rtl",
+      "files": [
+        "NM37FPGATestHarness.sv:174-186",
+        "NM37FPGATestHarness.sv:281",
+        "NM37FPGATestHarness.sv:482-526",
+        "CustomXDMA.sv:68-77"
+      ],
+      "evidence": "Guard output AND !POR reaches CustomXDMA.io_clocks_sys_rst_n then nm37_xdma.blackbox.sys_rst_n. Guard uses board clock plus pre-wrangler PLL/POR/PERST causes, never wrangler output nor HBM completion. Wrangler may wait for XDMA axi_aresetn, but guard does not wait for wrangler. Guard output never drives PLL reset, so the reviewed startup dependency is acyclic."
+    },
+    {
+      "id": "twelve_synchronizer_bits",
+      "result": "four_three_stage_chains_present_in_rtl",
+      "files": [
+        "HBMAsyncLevelSynchronizer.sv:9-15",
+        "HBMStartupControl.sv:106-123",
+        "HBMPLLResetControl.sv:94-99"
+      ],
+      "evidence": "Each HBMAsyncLevelSynchronizer declares reg[2:0] sync initialized 000, ASYNC_REG=TRUE and SHREG_EXTRACT=NO, asynchronously cleared and shifted {sync[1:0],d}. Instances are pcieResetControl/releaseSync plus dutDomain/ram_startup/{apbResetN_apbResetSync,axiResetN_axiResetSync,completeAxi_completeSync}. These exact emitted instance names match the frozen hbm_audit query names. Preservation as twelve distinct FDCE registers with correct INIT/properties/fanout must be checked after synthesis.",
+      "rtl_sync_bits": 12
+    },
+    {
+      "id": "hbm_reset_release_order",
+      "result": "matches_expected_rtl_dependencies",
+      "files": [
+        "ClockSinkDomain.sv:306-317",
+        "HBMStartupControl.sv:106-123"
+      ],
+      "evidence": "Common reset is OR of wrangled APB and DUT resets. APB reset releases through three APB edges with d=1. AXI reset synchronizer remains asynchronously asserted while common reset OR !apbResetN is true, then releases through three AXI edges. HBM PRESET_N and ARESET_N connect to these local outputs. No completion-dependent reset feedback exists."
+    },
+    {
+      "id": "completion_crossing_and_fault",
+      "result": "matches_expected_rtl_state_machine",
+      "files": [
+        "HBMStartupControl.sv:59-79",
+        "HBMStartupControl.sv:118-126",
+        "ClockSinkDomain.sv:308-320"
+      ],
+      "evidence": "HBM apb_complete_0 is connected, first registered as completeApb in the APB domain/reset, then crosses through completeAxi_completeSync in AXI domain/reset. started and fault are AXI registers; started sticks after completion, fault sticks on subsequent lost completion. trafficReady is axiResetN AND started AND completeAxi AND !fault. A fault blocks traffic without reasserting HBM reset or permitting automatic restart; common reset clears state."
+    },
+    {
+      "id": "axi_five_channel_gate",
+      "result": "all_ten_handshake_directions_gated_in_rtl",
+      "files": [
+        "HBMAXIStartupGate.sv:64-92",
+        "ClockSinkDomain.sv:319-320"
+      ],
+      "evidence": "All AW/W/B/AR/R valid-ready handshake signals in both directions are ANDed with trafficReady; payloads are direct wires, and the gate adds no registers. Dynamic handshake verification is recorded separately by the sealed hbm-startup stage, not re-run by this manual RTL review."
+    },
+    {
+      "id": "wrangler_delay",
+      "result": "matches_55mhz_delay_contract",
+      "files": [
+        "ResetWrangler.sv:19-47"
+      ],
+      "evidence": "Wrangler debounce compares its 13-bit counter with 13h157C=5500 and clocks debounce/deglitch from APB member1. Thus the programmed count remains nominally100us at55MHz. Existing three reset catchers follow DUT, APB and PCIe clocks respectively."
+    }
+  ],
+  "not_yet_verified": [
+    "Official post-synthesis primitive names/types, twelve synchronizer FDCE/INIT/ASYNC_REG properties and transparent reset-buffer connections.",
+    "Official PLL/HBM XCI achieved frequencies, jitter and phase/duty settings; requested values and guards above are not actual clock measurement.",
+    "Postroute hard HBM APB/AXI/reference-clock connectivity, periods and minimum high/low pulse widths.",
+    "All66 targeted setup/hold or recovery/removal requests and all global setup/hold/pulse-width checks.",
+    "New CDC Critical/Warning findings require per-item independent evidence review bound to actual build/DCP/CDC SHA; structural assertions alone do not waive them.",
+    "Reset replication equivalence, routing/DRC completeness, resource usage and FSA performance comparison.",
+    "Hardware cold-start, PERST and PLL-loss recovery on the physical NM37 board."
+  ],
+  "scope_notes": [
+    "This review was independently made against build04 generated files, not by reusing build03 conclusions.",
+    "Read-only review of frozen product inputs; only this external review artifact is created.",
+    "This document creates no physical.passed/status=PASS marker and does not replace routed physical acceptance."
+  ]
+}

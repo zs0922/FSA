@@ -1,0 +1,8 @@
+mode=independent-routed-cdc-evidence
+candidate_physical_acceptance=false
+checkpoint_sha256=44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236
+started_utc=2026-10-20T06:26:17Z
+part=xcvu37p_CIV-fsvh2892-2L-e
+structural_mismatches=0
+report_generation=completed
+ended_utc=2026-10-20T06:32:06Z

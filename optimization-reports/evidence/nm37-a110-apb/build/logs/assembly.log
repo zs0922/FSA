@@ -1,0 +1,44 @@
+make: Entering directory '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga'
+Running with RISCV=/home/zhangsi/riscv
+echo "Checking all submodules in generators/ are initialized. Uninitialized submodules will be displayed" ; ! git submodule status /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/generators | grep ^-
+Checking all submodules in generators/ are initialized. Uninitialized submodules will be displayed
+mkdir -p /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/
+cd /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src && java -jar /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/sbt-launch.jar -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot/ -Dsbt.color=always -Dsbt.supershell=false -Dsbt.server.forcestart=true ";project chipyard_fpga; set assembly / assemblyOutputPath := file(\"/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/nm37-a110-assembly.jar\"); assembly" && touch /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/nm37-a110-assembly.jar
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+[0m[[0m[0minfo[0m] [0m[0mwelcome to sbt 1.8.2 (N/A Java 20.0.2-internal)[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project src-build from plugins.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading project definition from /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/project[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project chipyardRoot from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project testchipip from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project barf from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project constellation from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project icenet from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project cva6 from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project ibex from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project sodor from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project radiance from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project midas_target_utils from build.sbt ...[0m
+[0m[[0m[0minfo[0m] [0m[0mresolving key references (50820 settings) ...[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to chipyardRoot (in build file:/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/)[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to chipyard_fpga (in build file:/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/)[0m
+[0m[[0m[0minfo[0m] [0m[0mDefining assembly / assemblyOutputPath[0m
+[0m[[0m[0minfo[0m] [0m[0mThe new value will be used by assembly[0m
+[0m[[0m[0minfo[0m] [0m[0mReapplying settings...[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to chipyard_fpga (in build file:/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/)[0m
+Warning: Tried to extract the base path for relative glob tools/firrtl2/src/main/java/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+Warning: Tried to extract the base path for relative glob tools/firrtl2/src/main/java/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+Warning: Tried to extract the base path for relative glob tools/stage/src/main/scala/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+Warning: Tried to extract the base path for relative glob tools/stage/src/main/scala/**/*.{java,scala}. To disable this warning, re-run the program with java option, -Dsbt.io.implicit.relative.glob.conversion=allow
+[0m[[0m[33mwarn[0m] [0m[0mmultiple main classes detected: run 'show discoveredMainClasses' to see the list[0m
+[0m[[0m[33mwarn[0m] [0m[0mmultiple main classes detected: run 'show discoveredMainClasses' to see the list[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga/target/scala-2.13/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m6 feature warnings; re-run with -feature for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0m130 file(s) merged using strategy 'Rename' (Run the task at debug level to see the details)[0m
+[0m[[0m[0minfo[0m] [0m[0m68 file(s) merged using strategy 'Rename (Custom)' (Run the task at debug level to see the details)[0m
+[0m[[0m[0minfo[0m] [0m[0m395 file(s) merged using strategy 'Discard' (Run the task at debug level to see the details)[0m
+[0m[[0m[0minfo[0m] [0m[0mBuilt: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/nm37-a110-assembly.jar[0m
+[0m[[0m[0minfo[0m] [0m[0mJar hash: c52b41c37f4cd7d6d5014e5075c31f82fb914b7a[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 38 s, completed Oct 20, 2026, 5:15:32 AM[0m
+[0Jmake: Leaving directory '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga'

@@ -1,0 +1,5 @@
+extern_modules.sv
+HBMStartupControl.sv
+HBMPLLResetControl.sv
+HBMAXIStartupGate.sv
+HBMStartupVerificationHarness.sv

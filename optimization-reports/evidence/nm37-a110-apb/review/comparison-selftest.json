@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "test_count": 16,
+  "script_sha256": "feac6bac7eef833ee113f8c765d6b7b333e3204ba2e3a3643102791802765647",
+  "selftest_sha256": "254f9f5cc574e3504d213c733b74248f9620396e52b47cebfe4ece0b57c087de",
+  "tests": [
+    {
+      "test": "valid_stage_set",
+      "result": "pass"
+    },
+    {
+      "test": "changed_artifact",
+      "result": "pass",
+      "rejected_with": "sim4: sealed artifact sim4/file.txt: 'd67e2e944994496c8d8ec76eed0cf9f09679448d584b532bebf941852a37f5ed' != '938fdd03f51fc208090b7d76aabb187f6e6d7f8de0a1f69feb2a591c8a4d5f87'"
+    },
+    {
+      "test": "missing_artifact",
+      "result": "pass",
+      "rejected_with": "Missing or escaped evidence file: /tmp/fsa-compare-selftest-mpfkqbe5/sim4/file.txt"
+    },
+    {
+      "test": "missing_seal",
+      "result": "pass",
+      "rejected_with": "Missing or escaped evidence file: /tmp/fsa-compare-selftest-o2pm7nty/sim4.passed.json"
+    },
+    {
+      "test": "wrong_build_binding",
+      "result": "pass",
+      "rejected_with": "sim4: build identity: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff' != '22260ae9e4a8af1a463867ce05948e038b537e47417e8ca0e52dda7dc13dbe43'"
+    },
+    {
+      "test": "changed_build_json",
+      "result": "pass",
+      "rejected_with": "sim4: build identity: '22260ae9e4a8af1a463867ce05948e038b537e47417e8ca0e52dda7dc13dbe43' != '68ad7c06943ba14d32b379e07a52f703678a7985014b6a468f63a1543dfd981b'"
+    },
+    {
+      "test": "changed_generator",
+      "result": "pass",
+      "rejected_with": "Generator/build binding: 'd67e2e944994496c8d8ec76eed0cf9f09679448d584b532bebf941852a37f5ed' != '0b46ad53d9fdfb63a9aa2a49ed4da2a09778c836e527d2c39ad152769dc4d03d'"
+    },
+    {
+      "test": "empty_sealed_file_map",
+      "result": "pass",
+      "rejected_with": "sim4: empty or invalid sealed file map"
+    },
+    {
+      "test": "path_traversal",
+      "result": "pass",
+      "rejected_with": "Unsafe evidence path: ../outside"
+    },
+    {
+      "test": "absolute_path",
+      "result": "pass",
+      "rejected_with": "Unsafe evidence path: /tmp/outside"
+    },
+    {
+      "test": "duplicate_json_key",
+      "result": "pass",
+      "rejected_with": "Duplicate JSON key in /tmp/fsa-compare-selftest-p55khua2/sim4.passed.json: files"
+    },
+    {
+      "test": "unsealed_compared_artifact",
+      "result": "pass",
+      "rejected_with": "sim4: compared artifact is not in stage seal: sim4/unsealed.sv"
+    },
+    {
+      "test": "real_partial_historical_archive",
+      "result": "pass",
+      "verified_archived_files": 14,
+      "rtl_raw_fingerprints": 313,
+      "counter_cases": 6,
+      "unarchived_compared_files_explicitly_recorded": 24
+    },
+    {
+      "test": "historical_counter_disagrees_with_raw_log",
+      "result": "pass",
+      "rejected_with": "Historical raw log counters: sim4/seq4: {'dmaActive': 16, 'dmaInst': 4, 'execTime': 368, 'fence': 1, 'mxActive': 162, 'mxBubble': 153, 'mxInst': 5, 'rawInst': 32} != {'dmaActive': 16, 'dmaInst': 4, 'execTime': 369, 'fence': 1, 'mxActive': 162, 'mxBubble': 153, 'mxInst': 5, 'rawInst': 32}"
+    },
+    {
+      "test": "historical_input_hash_disagrees_with_seal",
+      "result": "pass",
+      "rejected_with": "Historical metric/seal binding: sim4/seq4/inst.bin: '99f5f06b3538fc264a13787986fd8da744cf5346e9cec1811c2510515dda216f' != '0000000000000000000000000000000000000000000000000000000000000000'"
+    },
+    {
+      "test": "historical_rtl_hash_disagrees_with_seal",
+      "result": "pass",
+      "rejected_with": "Historical RTL raw fingerprint/seal: A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4Buffer.sv: 'aec69db49142fd5a12a59bc1c0277e140bea2cddb276c5ccac7a4a02778f86b3' != '0000000000000000000000000000000000000000000000000000000000000000'"
+    }
+  ]
+}

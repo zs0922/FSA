@@ -1,0 +1,11 @@
+{
+  "bitwise_equal": true,
+  "shape": [
+    32,
+    16
+  ],
+  "actual_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+  "expected_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+  "seed": 0,
+  "seq": 32
+}

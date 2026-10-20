@@ -1,0 +1,41 @@
+ref_buffer_I_pin_polarity=dutDomain/ram_hbm/inst/ONE_STACK.u_HBM_REF_CLK_BUFG_0/I IS_INVERTED=0
+ref_buffer_CE_pin_polarity=dutDomain/ram_hbm/inst/ONE_STACK.u_HBM_REF_CLK_BUFG_0/CE IS_INVERTED=0
+ref_buffer_enable=dutDomain/ram_hbm/inst/VCC/P primitive=VCC
+ref_buffer_chain_buffer0_I_pin_polarity=dutDomain/ram_hbm/inst/ONE_STACK.u_HBM_REF_CLK_BUFG_0/I IS_INVERTED=0
+ref_buffer_chain_buffer0_CE_pin_polarity=dutDomain/ram_hbm/inst/ONE_STACK.u_HBM_REF_CLK_BUFG_0/CE IS_INVERTED=0
+ref_buffer_chain_buffer0_enable=dutDomain/ram_hbm/inst/VCC/P primitive=VCC
+ref_buffer_chain_buffer1_I_pin_polarity=_sys_clock_ibufds_O_BUFG_inst/I IS_INVERTED=0
+ref_buffer_chain_buffer1_CE_pin_polarity=_sys_clock_ibufds_O_BUFG_inst/CE IS_INVERTED=0
+ref_buffer_chain_buffer1_enable=VCC/P primitive=VCC
+ref_buffer_chain=dutDomain/ram_hbm/inst/ONE_STACK.u_HBM_REF_CLK_BUFG_0/O _sys_clock_ibufds_O_BUFG_inst/O
+apb_pin=dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_APB_INST/PCLK
+axi_pin=dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<0>_INST/ACLK
+ref_pin=dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_REF_CLK_INST/REF_CLK
+apb_clock=clk_out2_harnessSysPLL
+apb_period=18.182
+apb_high=9.091
+apb_low=9.091
+axi_clock=clk_out1_harnessSysPLL
+axi_period=9.091
+ref_clock=sys_clock
+ref_period=10.000
+ref_hard_clock=dutDomain/ram_hbm/inst/HBM_REF_CLK_0
+ref_hard_period=10.000
+primary_clock=sys_clock
+startup_cell=dutDomain/ram_startup
+common_reset_I0=wrangler/nodeOut_reset_catcher_1/io_sync_reset_chain/output_chain/sync_0_reg/Q clock=clk_out2_harnessSysPLL
+common_reset_I1=wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain/sync_0_reg_replica_11/Q clock=clk_out1_harnessSysPLL
+common_reset_driver=wrangler/nodeOut_reset_catcher_1/io_sync_reset_chain/output_chain/sync[2]_i_1__1/O primitive=LUT2 INIT=4'h7
+common_reset_truth=NAND(APB_release_Q,DUT_release_Q)
+apb_reset_buffer_chain={dutDomain/ram_startup/apbResetN_apbResetSync/sync_reg[2]/Q}
+axi_reset_buffer_chain={dutDomain/ram_startup/axiResetN_axiResetSync/sync_reg[2]/Q}
+pcie_reset_monitor_clock=sys_clock
+pcie_reset_synchronizer_stages=3
+pcie_reset_counter_bits=14
+pcie_raw_reset_sources=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED powerOnReset_fpga_power_on/power_on_reset_reg/Q prst_n
+pcie_reset_pin=pcie/blackbox/sys_rst_n
+pcie_reset_feedback_free=1
+related_clock_review_pair=clk_out2_harnessSysPLL clk_out1_harnessSysPLL
+synchronizer_stages=9
+completion_crossing_timed=1
+status=PASS

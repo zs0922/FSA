@@ -1,0 +1,284 @@
+make: Entering directory '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga'
+Running with RISCV=/home/zhangsi/riscv
+mkdir -p /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config
+(set -o pipefail && 	cd /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src && java -cp /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/generator.jar chipyard.Generator  --target-dir /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config --name chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config --top-module chipyard.fpga.nm37.NM37FPGATestHarness --legacy-configs chipyard.fpga.nm37:EmptyNM37Config   | tee /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.chisel.log)
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+Harness binder clock is 110.0
+[warn] generators/fsa/src/main/scala/fsa/frontend/Decoder.scala 23:8: [W004] Dynamic index with width 3 is too wide for Vec of size 4 (expected index width 2).
+[warn]     buf(w_addr) := io.in.bits
+[warn]        ^
+[warn] generators/fsa/src/main/scala/fsa/BankedSRAM.scala 64:71: [W004] Dynamic index with width 1 is too wide for Vec of size 1 (expected index width 0).
+[warn]   override def bankReady(subBankReady: Vec[Bool]): Bool = subBankReady(subBankIdx)
+[warn]                                                                       ^
+[warn] generators/fsa/src/main/scala/fsa/FSA.scala 160:33: [W004] Dynamic index with width 1 is too wide for Vec of size 1 (expected index width 0).
+[warn]   val accConstVal = accConstList(accConstSel)
+[warn]                                 ^
+[warn] generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala 212:48: [W004] Dynamic index with width 1 is too wide for Vec of size 1 (expected index width 0).
+[warn]       in.b.bits.resp := out.b.bits.resp | error(out.b.bits.id)
+[warn]                                                ^
+[warn] There were 4 warning(s) during hardware elaboration.
+echo "$mfc_extra_anno_contents" > /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.extrafirtool.anno.json
+jq -s '[.[][]]' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.anno.json /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.extrafirtool.anno.json > /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.appended.anno.json
+mkdir -p /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/
+echo "emittedLineLength=2048,noAlwaysComb,disallowLocalVariables,verifLabels,disallowPortDeclSharing,locationInfoStyle=wrapInAtSquareBracket" > /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/.mfc_lowering_options
+rm -rf /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral
+(set -o pipefail && firtool \
+	--format=fir \
+	--export-module-hierarchy \
+	--verify-each=true \
+	--warn-on-unprocessed-annotations \
+	--disable-annotation-classless \
+	--disable-annotation-unknown \
+	--mlir-timing \
+	--lowering-options=emittedLineLength=2048,noAlwaysComb,disallowLocalVariables,verifLabels,disallowPortDeclSharing,locationInfoStyle=wrapInAtSquareBracket \
+	--repl-seq-mem \
+	--repl-seq-mem-file=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.mems.conf \
+	--annotation-file=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.appended.anno.json \
+	--split-verilog \
+	-o /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral \
+	/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.fir |& tee /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.firtool.log)
+fpga/src/main/scala/u280/CustomXDMA.scala:155:9: warning: module contains 1 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+fpga/src/main/scala/u280/AXIClockConverter.scala:109:15: note: example printf here, will just be a printf in the future
+fpga/src/main/scala/u280/CustomXDMA.scala:155:9: note: For more information, see https://github.com/llvm/circt/issues/6970
+fpga/src/main/scala/u280/AXIClockConverter.scala:406:25: warning: module contains 8 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+fpga/src/main/scala/u280/AXIClockConverter.scala:159:15: note: example printf here, will just be a printf in the future
+fpga/src/main/scala/u280/AXIClockConverter.scala:406:25: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/rocket-chip/src/main/scala/amba/axi4/Xbar.scala:60:9: warning: module contains 14 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/rocket-chip/src/main/scala/tilelink/Arbiter.scala:22:12: note: example printf here, will just be a printf in the future
+generators/rocket-chip/src/main/scala/amba/axi4/Xbar.scala:60:9: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:158:7: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:203:11: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:158:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:76:7: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:120:16: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/dma/LSQ.scala:76:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/frontend/Decoder.scala:35:7: warning: module contains 1 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/frontend/Decoder.scala:44:9: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/frontend/Decoder.scala:35:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:74:7: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:250:16: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:74:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:74:7: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:250:16: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:74:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:257:7: warning: module contains 36 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:273:18: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:257:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/sa/PE.scala:31:2: warning: module contains 5 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/sa/PE.scala:107:13: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/sa/PE.scala:31:2: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/fsa/src/main/scala/fsa/FSA.scala:64:7: warning: module contains 4 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/fsa/src/main/scala/fsa/FSA.scala:115:18: note: example printf here, will just be a printf in the future
+generators/fsa/src/main/scala/fsa/FSA.scala:64:7: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:36:9: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:69:14: note: example printf here, will just be a printf in the future
+generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:36:9: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:37:9: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:181:14: note: example printf here, will just be a printf in the future
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:37:9: note: For more information, see https://github.com/llvm/circt/issues/6970
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:37:9: warning: module contains 2 printf-encoded verification operation(s), which are deprecated and will be removed in the future
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:181:14: note: example printf here, will just be a printf in the future
+generators/rocket-chip/src/main/scala/amba/axi4/Fragmenter.scala:37:9: note: For more information, see https://github.com/llvm/circt/issues/6970
+===-------------------------------------------------------------------------===
+                         ... Execution time report ...
+===-------------------------------------------------------------------------===
+  Total Execution Time: 3.8419 seconds
+
+  ----User Time----  ----Wall Time----  ----Name----
+    0.2458 (  2.4%)    0.2458 (  6.4%)  FIR Parser
+    0.0055 (  0.1%)    0.0055 (  0.1%)    Parse annotations
+    0.0000 (  0.0%)    0.0000 (  0.0%)    Parse OMIR
+    0.1806 (  1.7%)    0.1806 (  4.7%)    Parse modules
+    0.0489 (  0.5%)    0.0489 (  1.3%)    Verify circuit
+    5.5158 ( 53.2%)    1.6953 ( 44.1%)  'firrtl.circuit' Pipeline
+    0.0046 (  0.0%)    0.0046 (  0.1%)    LowerOpenAggs
+    0.0541 (  0.5%)    0.0541 (  1.4%)    ResolvePaths
+    0.0024 (  0.0%)    0.0024 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0482 (  0.5%)    0.0482 (  1.3%)    LowerFIRRTLAnnotations
+    0.0025 (  0.0%)    0.0025 (  0.1%)    LowerIntmodules
+    0.0025 (  0.0%)    0.0025 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.2192 (  2.1%)    0.0048 (  0.1%)    'firrtl.module' Pipeline
+    0.0856 (  0.8%)    0.0040 (  0.1%)      LowerIntrinsics
+    0.0788 (  0.8%)    0.0788 (  2.1%)    LowerSignatures
+    0.0000 (  0.0%)    0.0000 (  0.0%)    InjectDUTHierarchy
+    1.9392 ( 18.7%)    0.1291 (  3.4%)    'firrtl.module' Pipeline
+    0.4064 (  3.9%)    0.0337 (  0.9%)      PassiveWires
+    0.6305 (  6.1%)    0.0349 (  0.9%)      DropName
+    0.4345 (  4.2%)    0.0364 (  0.9%)      CSE
+    0.0144 (  0.1%)    0.0014 (  0.0%)        (A) DominanceInfo
+    0.0628 (  0.6%)    0.0030 (  0.1%)      LowerCHIRRTLPass
+    0.2981 (  2.9%)    0.0196 (  0.5%)      LowerMatches
+    0.0606 (  0.6%)    0.0606 (  1.6%)    InferWidths
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.0024 (  0.0%)    0.0024 (  0.1%)      (A) circt::hw::InnerSymbolTableCollection
+    0.0385 (  0.4%)    0.0385 (  1.0%)    MemToRegOfVec
+    0.0722 (  0.7%)    0.0722 (  1.9%)    InferResets
+    0.0016 (  0.0%)    0.0016 (  0.0%)      (A) circt::firrtl::InstanceGraph
+    0.0379 (  0.4%)    0.0379 (  1.0%)    DropConst
+    0.0003 (  0.0%)    0.0003 (  0.0%)    HoistPassthrough
+    0.0812 (  0.8%)    0.0812 (  2.1%)    Dedup
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) circt::firrtl::NLATable
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.1161 (  1.1%)    0.0202 (  0.5%)    'firrtl.module' Pipeline
+    0.0956 (  0.9%)    0.0202 (  0.5%)      FlattenMemory
+    0.2120 (  2.0%)    0.2120 (  5.5%)    LowerFIRRTLTypes
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.3260 (  3.1%)    0.0635 (  1.7%)    'any' Pipeline
+    0.2482 (  2.4%)    0.0635 (  1.7%)      ExpandWhens
+    0.4378 (  4.2%)    0.0526 (  1.4%)    'firrtl.module' Pipeline
+    0.2466 (  2.4%)    0.0178 (  0.5%)      SFCCompat
+    0.0862 (  0.8%)    0.0204 (  0.5%)      LayerMerge
+    0.0729 (  0.7%)    0.0194 (  0.5%)      LayerSink
+    0.0013 (  0.0%)    0.0004 (  0.0%)        (A) DominanceInfo
+    0.0700 (  0.7%)    0.0700 (  1.8%)    LowerLayers
+    0.0759 (  0.7%)    0.0759 (  2.0%)    Inliner
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.2388 (  2.3%)    0.0564 (  1.5%)    'firrtl.module' Pipeline
+    0.2183 (  2.1%)    0.0564 (  1.5%)      RandomizeRegisterInit
+    0.0625 (  0.6%)    0.0625 (  1.6%)    CheckCombLoops
+    0.0040 (  0.0%)    0.0040 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.5434 (  5.2%)    0.1327 (  3.5%)    'firrtl.module' Pipeline
+    0.4222 (  4.1%)    0.1018 (  2.7%)      Canonicalizer
+    0.0711 (  0.7%)    0.0308 (  0.8%)      InferReadWrite
+    0.0612 (  0.6%)    0.0612 (  1.6%)    LowerMemory
+    0.0035 (  0.0%)    0.0035 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.0196 (  0.2%)    0.0196 (  0.5%)    PrefixModules
+    0.0027 (  0.0%)    0.0027 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) circt::firrtl::NLATable
+    0.1141 (  1.1%)    0.1141 (  3.0%)    IMConstProp
+    0.0046 (  0.0%)    0.0046 (  0.1%)    HoistPassthrough
+    0.0042 (  0.0%)    0.0042 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.1214 (  1.2%)    0.1214 (  3.2%)  IMDeadCodeElim
+    0.0027 (  0.0%)    0.0027 (  0.1%)    (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)    (A) SymbolTable
+    0.0039 (  0.0%)    0.0039 (  0.1%)    (A) circt::hw::InnerSymbolTableCollection
+    0.0020 (  0.0%)    0.0020 (  0.1%)  'firrtl.circuit' Pipeline
+    0.0020 (  0.0%)    0.0020 (  0.1%)    AddSeqMemPorts
+    0.0020 (  0.0%)    0.0020 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0464 (  0.4%)    0.0464 (  1.2%)  CreateSiFiveMetadata
+    0.0018 (  0.0%)    0.0018 (  0.0%)    (A) circt::firrtl::InstanceGraph
+    0.1152 (  1.1%)    0.1152 (  3.0%)  'firrtl.circuit' Pipeline
+    0.0045 (  0.0%)    0.0045 (  0.1%)    ExtractInstances
+    0.0023 (  0.0%)    0.0023 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) circt::firrtl::NLATable
+    0.0000 (  0.0%)    0.0000 (  0.0%)    GrandCentral
+    0.0440 (  0.4%)    0.0440 (  1.1%)    BlackBoxReader
+    0.0667 (  0.6%)    0.0667 (  1.7%)    SymbolDCE
+    0.0826 (  0.8%)    0.0826 (  2.1%)  InnerSymbolDCE
+    0.4996 (  4.8%)    0.2163 (  5.6%)  'firrtl.circuit' Pipeline
+    0.2833 (  2.7%)    0.0833 (  2.2%)    'firrtl.module' Pipeline
+    0.1803 (  1.7%)    0.0532 (  1.4%)      Canonicalizer
+    0.0631 (  0.6%)    0.0300 (  0.8%)      RegisterOptimizer
+    0.1186 (  1.1%)    0.1186 (  3.1%)    IMConstProp
+    0.0032 (  0.0%)    0.0032 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0993 (  1.0%)    0.0993 (  2.6%)  IMDeadCodeElim
+    0.0021 (  0.0%)    0.0021 (  0.1%)    (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)    (A) SymbolTable
+    0.0040 (  0.0%)    0.0040 (  0.1%)    (A) circt::hw::InnerSymbolTableCollection
+    0.5216 (  5.0%)    0.2316 (  6.0%)  'firrtl.circuit' Pipeline
+    0.0000 (  0.0%)    0.0000 (  0.0%)    EmitOMIR
+    0.2430 (  2.3%)    0.0583 (  1.5%)    'firrtl.module' Pipeline
+    0.0455 (  0.4%)    0.0032 (  0.1%)      MergeConnections
+    0.1502 (  1.4%)    0.0551 (  1.4%)      Vectorization
+    0.0136 (  0.1%)    0.0136 (  0.4%)    ResolveTraces
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) circt::firrtl::NLATable
+    0.0041 (  0.0%)    0.0041 (  0.1%)      (A) circt::hw::InnerSymbolTableCollection
+    0.0467 (  0.5%)    0.0467 (  1.2%)    LowerXMR
+    0.0032 (  0.0%)    0.0032 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0835 (  0.8%)    0.0835 (  2.2%)    LowerClasses
+    0.0028 (  0.0%)    0.0028 (  0.1%)      (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.0008 (  0.0%)    0.0008 (  0.0%)    VerifyObjectFields
+    0.0000 (  0.0%)    0.0000 (  0.0%)      (A) SymbolTable
+    0.0471 (  0.5%)    0.0017 (  0.0%)    'firrtl.module' Pipeline
+    0.0261 (  0.3%)    0.0015 (  0.0%)      Lint
+    0.1586 (  1.5%)    0.1586 (  4.1%)  LowerFIRRTLToHW
+    0.0016 (  0.0%)    0.0016 (  0.0%)    (A) circt::firrtl::InstanceGraph
+    0.0000 (  0.0%)    0.0000 (  0.0%)    (A) circt::firrtl::NLATable
+    0.5575 (  5.4%)    0.0726 (  1.9%)  'hw.module' Pipeline
+    0.2045 (  2.0%)    0.0105 (  0.3%)    CSE
+    0.0368 (  0.4%)    0.0050 (  0.1%)      (A) DominanceInfo
+    0.2205 (  2.1%)    0.0621 (  1.6%)    Canonicalizer
+    0.0046 (  0.0%)    0.0046 (  0.1%)  VerifyInnerRefNamespace
+    0.0032 (  0.0%)    0.0032 (  0.1%)  VerifyObjectFields
+    0.0001 (  0.0%)    0.0001 (  0.0%)    (A) SymbolTable
+    0.0018 (  0.0%)    0.0018 (  0.0%)  ExternalizeClockGate
+    0.0100 (  0.1%)    0.0100 (  0.3%)  LowerSimToSV
+    0.1096 (  1.1%)    0.1096 (  2.9%)  LowerSeqToSV
+    0.2224 (  2.1%)    0.0324 (  0.8%)  'hw.module' Pipeline
+    0.1458 (  1.4%)    0.0303 (  0.8%)    LowerVerifToSV
+    0.0247 (  0.2%)    0.0247 (  0.6%)  HWMemSimImpl
+    0.7829 (  7.6%)    0.0900 (  2.3%)  'hw.module' Pipeline
+    0.2619 (  2.5%)    0.0351 (  0.9%)    CSE
+    0.0343 (  0.3%)    0.0041 (  0.1%)      (A) DominanceInfo
+    0.1571 (  1.5%)    0.0291 (  0.8%)    Canonicalizer
+    0.0941 (  0.9%)    0.0120 (  0.3%)    CSE
+    0.0148 (  0.1%)    0.0023 (  0.1%)      (A) DominanceInfo
+    0.0581 (  0.6%)    0.0137 (  0.4%)    HWCleanup
+    0.0063 (  0.1%)    0.0063 (  0.2%)  VerifyInnerRefNamespace
+    0.0029 (  0.0%)    0.0029 (  0.1%)  VerifyObjectFields
+    0.0000 (  0.0%)    0.0000 (  0.0%)    (A) SymbolTable
+    0.2024 (  2.0%)    0.0350 (  0.9%)  'hw.module' Pipeline
+    0.0460 (  0.4%)    0.0019 (  0.1%)    HWLegalizeModules
+    0.0940 (  0.9%)    0.0322 (  0.8%)    PrettifyVerilog
+    0.0371 (  0.4%)    0.0371 (  1.0%)  StripDebugInfoWithPred
+    0.0140 (  0.1%)    0.0140 (  0.4%)  HWExportModuleHierarchy
+    0.0000 (  0.0%)    0.0000 (  0.0%)    (A) SymbolTable
+    0.0052 (  0.0%)    0.0052 (  0.1%)  VerifyInnerRefNamespace
+    0.0011 (  0.0%)    0.0011 (  0.0%)  VerifyObjectFields
+    0.3051 (  2.9%)    0.3051 (  7.9%)  ExportSplitVerilog
+    0.4708 (  4.5%)    0.1047 (  2.7%)  'builtin.module' Pipeline
+    0.0298 (  0.3%)    0.0298 (  0.8%)    HWLowerInstanceChoices
+    0.3661 (  3.5%)    0.0606 (  1.6%)    'hw.module' Pipeline
+    0.2772 (  2.7%)    0.0591 (  1.5%)      PrepareForEmission
+   -0.0805 ( -0.8%)   -0.0805 ( -2.1%)  Rest
+   10.3671 (100.0%)    3.8419 (100.0%)  Total
+sed -i 's/.*/& /' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.mems.conf # need trailing space for SFC macrocompiler
+touch /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/firrtl_black_box_resource_files.f # if there are no BB's then the file might not be generated, instead always generate it
+/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/uniquify-module-names.py \
+	--model-hier-json /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/model_module_hierarchy.json \
+	--top-hier-json /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/top_module_hierarchy.json \
+	--in-all-filelist /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/filelist.f \
+	--in-bb-filelist /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/firrtl_black_box_resource_files.f \
+	--dut EmptyChipTop \
+	--model NM37FPGATestHarness \
+	--target-dir /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral \
+	--out-dut-filelist /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.f \
+	--out-model-filelist /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.f \
+	--out-model-hier-json /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/model_module_hierarchy.uniquified.json \
+	--gcpath /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral
+sed -e 's;^;/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/;' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/firrtl_black_box_resource_files.f > /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.bb.f
+sed -i 's/\.\///' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.f
+sed -i 's/\.\///' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.f
+sed -i 's/\.\///' /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.bb.f
+sort -u /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.bb.f > /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.all.f
+cp -f  /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral
+cp: missing destination file operand after '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral'
+Try 'cp --help' for more information.
+make: [Makefile:181: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.f] Error 1 (ignored)
+touch /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.f
+/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/scripts/split-mems-conf.py \
+	--in-smems-conf /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.mems.conf \
+	--in-model-hrchy-json /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/model_module_hierarchy.uniquified.json \
+	--dut-module-name EmptyChipTop \
+	--model-module-name NM37FPGATestHarness \
+	--out-dut-smems-conf /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.conf \
+	--out-model-smems-conf /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.conf
+[ -f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/custom.mems.conf ] && cat /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/custom.mems.conf >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.conf
+make: [/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/common.mk:228: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.conf] Error 1 (ignored)
+cd /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src && java -cp /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/tapeout.jar tapeout.macros.MacroCompiler -n /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.conf -v /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.v -f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.fir --mode synflops
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+WARNING: Empty *.mems.conf file. No memories generated.
+touch /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.v /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.fir
+cd /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src && java -cp /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.classpath_cache/tapeout.jar tapeout.macros.MacroCompiler  -n /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.conf -v /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v -f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.fir --mode synflops
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+touch /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.fir
+rm -f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.common.f
+sort -u /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.all.f | grep -v '.*\.\(svh\|h\|conf\)$' >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.common.f
+echo "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.top.mems.v" >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.common.f
+echo "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v" >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.common.f
+rm -f /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.vsrcs.f
+echo "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/generators/rocket-chip-blocks/vsrc/SRLatch.v" >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.vsrcs.f;
+cat /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/sim_files.common.f >> /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.vsrcs.f
+make: Leaving directory '/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga'

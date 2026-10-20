@@ -1,0 +1,747 @@
+{
+  "accepted_functional_verification": true,
+  "build_directory": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04",
+  "executed_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+  "build": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/build.json",
+    "sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+    "bytes": 2510
+  },
+  "source_lock": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/fpga/baselines/nm37-a110/source-lock.json",
+    "sha256": "ff863bd0908718d7c2d6e881ce49fcbc6c90871340ef1d56d2230b8d807ae90b",
+    "bytes": 96351
+  },
+  "generator_sha256_verified": "2f9a015891494a85ce30f43fcff17e6fc20212e5d8f8c0ef3c8a9209cc61b8e9",
+  "stage_seals": {
+    "hbm-startup": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/hbm-startup.passed.json",
+      "sha256": "ab5294b5b7e4a7cd27723e0d98eaec87c106a0d5681b0c44decb6bb1b7601f9b",
+      "bytes": 4800,
+      "verified_files": 38
+    },
+    "units": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/units.passed.json",
+      "sha256": "55000b765cffa713962d47f99d79aa708e04d2cf6379873761f171adb66314ee",
+      "bytes": 713,
+      "verified_files": 6
+    },
+    "formal": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/formal.passed.json",
+      "sha256": "e05e5f612e59ea5cd362c9394958ffdb6bfd22961b67e612a6bf42833fc953c7",
+      "bytes": 2109,
+      "verified_files": 19
+    },
+    "sim4": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4.passed.json",
+      "sha256": "53eb74bd2e8393982d41e895c4b53e6a09da1d45b1ef61e00f0cbb40136a8f1c",
+      "bytes": 44338,
+      "verified_files": 245
+    },
+    "sim8": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8.passed.json",
+      "sha256": "53e2b71098eae46c9b02668dffdd28c8b570d4ba5bee8e35a82badc46057b872",
+      "bytes": 45478,
+      "verified_files": 251
+    },
+    "sim16": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16.passed.json",
+      "sha256": "36937a234e6e47d70dcb84f09ce599e9095ec811ad78e4c27bc285320c3980fa",
+      "bytes": 48535,
+      "verified_files": 263
+    },
+    "elaborate": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/elaborate.passed.json",
+      "sha256": "12a6e94609540e4f5e822d91078722798d3e2534504af8a053f308feb1d875b8",
+      "bytes": 24119,
+      "verified_files": 132
+    }
+  },
+  "hbm_startup": {
+    "result": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/hbm-startup/results.json",
+      "sha256": "0dbbf56909ec677e138248b90a7e4dcd54d42e6ecf2d142fbb20d55cc140651b",
+      "bytes": 3792
+    },
+    "counts": {
+      "clock_scenarios": 8,
+      "gate_vectors": 32768,
+      "short_complete_faults": 8,
+      "partial_initialization_resets": 8,
+      "pll_scenarios": 8,
+      "pll_stable_cycles": 7,
+      "pll_release_events": 32,
+      "checks": 3362863
+    },
+    "simulation_log": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/hbm-startup/simulation.log",
+      "sha256": "e9e9fff6939ee71f96195c160528a9804aa8a58e983e856b76a2567bf6fac4bb",
+      "bytes": 344
+    },
+    "rtl_firtool_versions": [
+      "1.75.0"
+    ],
+    "verilator": "Verilator 5.022 2024-02-24 rev conda-forge build 1",
+    "production_PLL_stable_cycles": 10000,
+    "coverage": [
+      "APB/AXI asynchronous assertion and three-edge local release",
+      "APB and AXI stopped-clock startup; short asynchronous cold-reset pulses",
+      "initialization wait, one-APB-cycle completion loss, sticky fault until common reset",
+      "reset interruption after one/two destination synchronizer stages",
+      "all ten valid/ready inputs, all five AXI channels, full packed payloads, request/response backpressure",
+      "eight PLL monitor-clock cases; exact 3+7 edge qualification, lock-loss/PERST short pulses",
+      "monitor stopped clock, qualification restart, interleaved causes, no HBM-ready feedback dependence"
+    ]
+  },
+  "units": {
+    "log": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/logs/unit.log",
+      "sha256": "f80bc31246e3fc8e32b118e1ffef70dcbbe447a4b7cc4452ec560910932f8cba",
+      "bytes": 3702
+    },
+    "score_events": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/score-events.json",
+      "sha256": "e492b8c96e813e2070217485d1a675354aebdae80644af0b233fd03fcfa6a078",
+      "bytes": 24847
+    },
+    "FPMac_cases": 14394,
+    "CMP_cases": 20169,
+    "PE_EXP2_cases": 90,
+    "control_tests": 5,
+    "schedule_dimensions": [
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        16,
+        16
+      ]
+    ],
+    "same_A100_score_events": true
+  },
+  "formal": {
+    "results": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/formal/results.json",
+      "sha256": "98696d3f6fcaba47038068c662a0bc4785d006b7ab471dbd7612873fa54edb10",
+      "bytes": 97544
+    },
+    "proofs": [
+      {
+        "proof_type": "cmpeq",
+        "top": "PipelineCmpMaxMiter",
+        "scope": "all combinational input bit patterns",
+        "method": "combinational SAT",
+        "input_constraints": [],
+        "initial_state_constraints": [],
+        "proof_script_sha256": "23f5525a493723b38c653792ce05e8299fefa4e570389b8ac149117ce43287a1",
+        "proof_log_sha256": "c5d0606e20766799e5590c5fe7e00f67b92dbe43c10da05c25afc940053789b7",
+        "rtl_sha256": {
+          "PipelineCmpMaxMiter.sv": "7574bb0c661b09c0d03188ac7b6060bd71d93047609d2a4ab13d85ff6341803b"
+        }
+      },
+      {
+        "proof_type": "cmpseq",
+        "top": "PipelineCmpMiter",
+        "scope": "all cycles after one pipeline transition",
+        "method": "temporal induction from unconstrained initial state",
+        "input_constraints": [],
+        "initial_state_constraints": [],
+        "proof_script_sha256": "bdc4056415379e23dd08d8c76fb0f8d82cd5beeaf87304325c7a8062db10ead5",
+        "proof_log_sha256": "79d2f5ac4ec45869d331e8d81b3ff01bda540b1cc3e527a2f92334ce005d593d",
+        "rtl_sha256": {
+          "PipelineCmpMiter.sv": "dc77116140c550eefd2de0c7308c7e85fed3366da8f8ac8e26ade93359ce49e7"
+        }
+      },
+      {
+        "proof_type": "macseq",
+        "top": "PipelineMacMiter",
+        "scope": "all cycles after one pipeline transition",
+        "method": "temporal induction from unconstrained initial state",
+        "input_constraints": [],
+        "initial_state_constraints": [],
+        "proof_script_sha256": "a55263f230b13cfc33e1719f5535348d51c81d1dfa0a95afdb0b8c44c4d661b3",
+        "proof_log_sha256": "6f4b8cd4708b1334551fa5d0fbe4bdb30e856516d71e74edda0f4ba42047a491",
+        "rtl_sha256": {
+          "PipelineMacMiter.sv": "72d0b28dec1252776fb438f5ed9fe017823e39fa4a24e7337189175258090545"
+        }
+      }
+    ]
+  },
+  "system_cases": [
+    {
+      "array_rows": 4,
+      "array_cols": 4,
+      "seq": 4,
+      "shape": [
+        4,
+        4
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "246254d73d3885b65b1fc3476fec2999381f13734835811a5b7f382358cf6d3c",
+      "counters": {
+        "dmaActive": 16,
+        "dmaInst": 4,
+        "execTime": 368,
+        "fence": 1,
+        "mxActive": 162,
+        "mxBubble": 153,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 4707,
+      "conditional_110MHz_active_time_us": 3.3454545454545452,
+      "conditional_100MHz_active_time_us": 3.68,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/result.json",
+          "sha256": "4cad03bdd8fa7b8f99f6602dfade32a1ff92c7339ddd627a31b7bdfa1c8808fe",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/test.log",
+          "sha256": "f834f53ddc303ea083908239add190bb0bf557f97c499d1a36a9dbfb67656d1f",
+          "bytes": 1350
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/actual.npy",
+          "sha256": "c98ba1f1b73ca182c044efb8c622a777e4be7a7515ff8901abcb60ad6d4529a5",
+          "bytes": 192
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/expected.npy",
+          "sha256": "c98ba1f1b73ca182c044efb8c622a777e4be7a7515ff8901abcb60ad6d4529a5",
+          "bytes": 192
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/inst.bin",
+          "sha256": "99f5f06b3538fc264a13787986fd8da744cf5346e9cec1811c2510515dda216f",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq4/mem.elf",
+          "sha256": "bc5e616d762d616331eb932a082c8ca9ec8e2e6c28b5ee068e5eeeffdec85967",
+          "bytes": 488
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq4/result.json",
+          "sha256": "4cad03bdd8fa7b8f99f6602dfade32a1ff92c7339ddd627a31b7bdfa1c8808fe",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq4/test.log",
+          "sha256": "f7eded0a44f4f92e33b1546c0509681abdad642f0ccc7445783740448fc8791c",
+          "bytes": 1164
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq4/actual.npy",
+          "sha256": "c98ba1f1b73ca182c044efb8c622a777e4be7a7515ff8901abcb60ad6d4529a5",
+          "bytes": 192
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq4/inst.bin",
+          "sha256": "99f5f06b3538fc264a13787986fd8da744cf5346e9cec1811c2510515dda216f",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq4/mem.elf",
+          "sha256": "bc5e616d762d616331eb932a082c8ca9ec8e2e6c28b5ee068e5eeeffdec85967",
+          "bytes": 488
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/generated-src/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config.FSAConfig.json",
+        "sha256": "8ad7608d5cfa11e21295d1632efeff2e3b3e079a152e4804f43016c320c93fd2",
+        "bytes": 224
+      }
+    },
+    {
+      "array_rows": 4,
+      "array_cols": 4,
+      "seq": 8,
+      "shape": [
+        8,
+        4
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "42582643b7a6651270af53556ac54d6dc4fc6fb7727463280966b09b2a6254bd",
+      "counters": {
+        "dmaActive": 48,
+        "dmaInst": 12,
+        "execTime": 1083,
+        "fence": 1,
+        "mxActive": 464,
+        "mxBubble": 646,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 11857,
+      "conditional_110MHz_active_time_us": 9.845454545454546,
+      "conditional_100MHz_active_time_us": 10.83,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/result.json",
+          "sha256": "767204762b5c2ee3702bbedc63159518e3b875a7373de6e90a5ee34fcb5e9385",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/test.log",
+          "sha256": "0f9bfcd7bcf4e9d0a3e2c070d4b8403773c6b8f4713bd620d5757c3300492225",
+          "bytes": 1351
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/actual.npy",
+          "sha256": "009d87d9bea50ea2001ed15288adfd0f9a2dc20b707078c7e8639bed7b6569ce",
+          "bytes": 256
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/expected.npy",
+          "sha256": "009d87d9bea50ea2001ed15288adfd0f9a2dc20b707078c7e8639bed7b6569ce",
+          "bytes": 256
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/inst.bin",
+          "sha256": "cc0483d2e076b538a6728d8244d30c535319fb798fb167c1625f1a51fbcf77b5",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/seq8/mem.elf",
+          "sha256": "de0306c92e683b931d55d50501bb18cd69cf37cdaad10e0a505702ef30b86a48",
+          "bytes": 584
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq8/result.json",
+          "sha256": "767204762b5c2ee3702bbedc63159518e3b875a7373de6e90a5ee34fcb5e9385",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq8/test.log",
+          "sha256": "4c309fdaf6456b192210e580022b2cf51b5210e1c5ab93f2baf5ec9a123b93da",
+          "bytes": 1165
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq8/actual.npy",
+          "sha256": "009d87d9bea50ea2001ed15288adfd0f9a2dc20b707078c7e8639bed7b6569ce",
+          "bytes": 256
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq8/inst.bin",
+          "sha256": "cc0483d2e076b538a6728d8244d30c535319fb798fb167c1625f1a51fbcf77b5",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim4/seq8/mem.elf",
+          "sha256": "de0306c92e683b931d55d50501bb18cd69cf37cdaad10e0a505702ef30b86a48",
+          "bytes": 584
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim4/generated-src/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config.FSAConfig.json",
+        "sha256": "8ad7608d5cfa11e21295d1632efeff2e3b3e079a152e4804f43016c320c93fd2",
+        "bytes": 224
+      }
+    },
+    {
+      "array_rows": 8,
+      "array_cols": 8,
+      "seq": 8,
+      "shape": [
+        8,
+        8
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "3153831639ec49f9fdbee68e9f8f0d06b3b34d7ad83d29f5f7776a0c5d051162",
+      "counters": {
+        "dmaActive": 40,
+        "dmaInst": 4,
+        "execTime": 385,
+        "fence": 1,
+        "mxActive": 210,
+        "mxBubble": 134,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 4827,
+      "conditional_110MHz_active_time_us": 3.5,
+      "conditional_100MHz_active_time_us": 3.85,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/result.json",
+          "sha256": "7724fa427c7647a07c55b5819bc85709cd9f09a46a9d1118ad51a3c52db031e8",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/test.log",
+          "sha256": "50574f1b6dd08d9456869d87ecab9fbec321b4d9884060a4b2a6d968bcd71a15",
+          "bytes": 1352
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/actual.npy",
+          "sha256": "02d102bff6c2da18a58360debcf927f0c9141e69ff5f1f11a98d5d238d32bc33",
+          "bytes": 384
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/expected.npy",
+          "sha256": "02d102bff6c2da18a58360debcf927f0c9141e69ff5f1f11a98d5d238d32bc33",
+          "bytes": 384
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/inst.bin",
+          "sha256": "5da10ea53ccd3a2d0daf59a71f3025509a4121a743eee73d5752af6218a99f71",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq8/mem.elf",
+          "sha256": "218addc3e4950d646a05a5e420226e2506e327c3600186f67151c181e8e0655f",
+          "bytes": 776
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq8/result.json",
+          "sha256": "7724fa427c7647a07c55b5819bc85709cd9f09a46a9d1118ad51a3c52db031e8",
+          "bytes": 259
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq8/test.log",
+          "sha256": "6adcddba9a34c3aebfc159100b64c79d9260f66c9a3a4f57e885a63c5d41c740",
+          "bytes": 1166
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq8/actual.npy",
+          "sha256": "02d102bff6c2da18a58360debcf927f0c9141e69ff5f1f11a98d5d238d32bc33",
+          "bytes": 384
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq8/inst.bin",
+          "sha256": "5da10ea53ccd3a2d0daf59a71f3025509a4121a743eee73d5752af6218a99f71",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq8/mem.elf",
+          "sha256": "218addc3e4950d646a05a5e420226e2506e327c3600186f67151c181e8e0655f",
+          "bytes": 776
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/generated-src/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config.FSAConfig.json",
+        "sha256": "ab9ca0fc111826d2d8f8ef7c4109feca6a5c27e7cf774d434faad85ef47aed21",
+        "bytes": 225
+      }
+    },
+    {
+      "array_rows": 8,
+      "array_cols": 8,
+      "seq": 16,
+      "shape": [
+        16,
+        8
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "b1ec74fcd3ba3977be92ada2a5751f826838aec5b6bf5d95a191636110396b92",
+      "counters": {
+        "dmaActive": 116,
+        "dmaInst": 12,
+        "execTime": 1100,
+        "fence": 1,
+        "mxActive": 642,
+        "mxBubble": 535,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 11977,
+      "conditional_110MHz_active_time_us": 10.0,
+      "conditional_100MHz_active_time_us": 11.0,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/result.json",
+          "sha256": "52cd2d4c537a2bb4254e5a1cc4b51e23c33dbab1a36b95efb911cfb4f94d6c5d",
+          "bytes": 261
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/test.log",
+          "sha256": "a511f2ccb5003f28e8c65338e5c91b42aa20ab816bdf76e1bae87813239e6c9d",
+          "bytes": 1358
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/actual.npy",
+          "sha256": "0659f9ab2d7175fdf7c8d9ebffde02dc4bc6e5ea07d659c0e713633d33095be9",
+          "bytes": 640
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/expected.npy",
+          "sha256": "0659f9ab2d7175fdf7c8d9ebffde02dc4bc6e5ea07d659c0e713633d33095be9",
+          "bytes": 640
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/inst.bin",
+          "sha256": "3300d1f2db24c97452f87588830b89aa920c56142dff2640e1b105cc58b313dc",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/seq16/mem.elf",
+          "sha256": "7e6a82ee2a090a9bdfe9653d45ac8400be9d87b55e65ff486dd1e78668d0b236",
+          "bytes": 1160
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq16/result.json",
+          "sha256": "52cd2d4c537a2bb4254e5a1cc4b51e23c33dbab1a36b95efb911cfb4f94d6c5d",
+          "bytes": 261
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq16/test.log",
+          "sha256": "695ba46cde6365b7f70739f21b2584dbab616407e646eb7e5514a932494cab6d",
+          "bytes": 1172
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq16/actual.npy",
+          "sha256": "0659f9ab2d7175fdf7c8d9ebffde02dc4bc6e5ea07d659c0e713633d33095be9",
+          "bytes": 640
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq16/inst.bin",
+          "sha256": "3300d1f2db24c97452f87588830b89aa920c56142dff2640e1b105cc58b313dc",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim8/seq16/mem.elf",
+          "sha256": "7e6a82ee2a090a9bdfe9653d45ac8400be9d87b55e65ff486dd1e78668d0b236",
+          "bytes": 1160
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim8/generated-src/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config.FSAConfig.json",
+        "sha256": "ab9ca0fc111826d2d8f8ef7c4109feca6a5c27e7cf774d434faad85ef47aed21",
+        "bytes": 225
+      }
+    },
+    {
+      "array_rows": 16,
+      "array_cols": 16,
+      "seq": 16,
+      "shape": [
+        16,
+        16
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+      "counters": {
+        "dmaActive": 76,
+        "dmaInst": 4,
+        "execTime": 437,
+        "fence": 1,
+        "mxActive": 267,
+        "mxBubble": 103,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "testbench_total_cycles": 5427,
+      "conditional_110MHz_active_time_us": 3.9727272727272727,
+      "conditional_100MHz_active_time_us": 4.37,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/result.json",
+          "sha256": "c1c44bf8ecfeab08d68bd942439a5d019e0583f646704f49db82b3dfc9997845",
+          "bytes": 262
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/test.log",
+          "sha256": "ef0717bee73110fb2ad086fbbd85358001dacad6fc92a1750117be80fd7ee70e",
+          "bytes": 1368
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/actual.npy",
+          "sha256": "eee88ccea17e805440e1939d675d81297653a45e4ba5ec89330ab9ce3ecdccea",
+          "bytes": 1152
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/expected.npy",
+          "sha256": "eee88ccea17e805440e1939d675d81297653a45e4ba5ec89330ab9ce3ecdccea",
+          "bytes": 1152
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/inst.bin",
+          "sha256": "317de176b8fbd0796f04b5b0c44228a5738cf40f33287f6c7b34ef8e07f174ac",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq16/mem.elf",
+          "sha256": "8ac016e71c4a0850e2b2514d049e3d8fb2f6b514c82836ec1d03a7efe728d117",
+          "bytes": 1928
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq16/result.json",
+          "sha256": "c1c44bf8ecfeab08d68bd942439a5d019e0583f646704f49db82b3dfc9997845",
+          "bytes": 262
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq16/test.log",
+          "sha256": "9198506f4b68f6500558d58129abc78f0dc013aaca3b97215f1e7996a2192051",
+          "bytes": 1182
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq16/actual.npy",
+          "sha256": "eee88ccea17e805440e1939d675d81297653a45e4ba5ec89330ab9ce3ecdccea",
+          "bytes": 1152
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq16/inst.bin",
+          "sha256": "317de176b8fbd0796f04b5b0c44228a5738cf40f33287f6c7b34ef8e07f174ac",
+          "bytes": 128
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq16/mem.elf",
+          "sha256": "8ac016e71c4a0850e2b2514d049e3d8fb2f6b514c82836ec1d03a7efe728d117",
+          "bytes": 1928
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config.FSAConfig.json",
+        "sha256": "3b77e28bea7f2f17713d60e3d048eb1c41174ab4f43e5f3780bd5755721ba013",
+        "bytes": 229
+      }
+    },
+    {
+      "array_rows": 16,
+      "array_cols": 16,
+      "seq": 32,
+      "shape": [
+        32,
+        16
+      ],
+      "seed": 0,
+      "bitwise_equal": true,
+      "same_A100_inputs_outputs_and_counters": true,
+      "actual_payload_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+      "counters": {
+        "dmaActive": 220,
+        "dmaInst": 12,
+        "execTime": 1152,
+        "fence": 1,
+        "mxActive": 824,
+        "mxBubble": 295,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "testbench_total_cycles": 12577,
+      "conditional_110MHz_active_time_us": 10.472727272727273,
+      "conditional_100MHz_active_time_us": 11.52,
+      "evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/result.json",
+          "sha256": "7060437ffa272c1ef753c6c3531ff2a096a393b5abfb1326fa726b5afa604868",
+          "bytes": 262
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/test.log",
+          "sha256": "4b16639067311fafb1896111fdc97283166b6a5a3ec244b196287534ac3a8717",
+          "bytes": 1368
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/actual.npy",
+          "sha256": "db4f79d98afebb04f34c56f37f13d3aa542602daff84241f14d984a2cd2cdacb",
+          "bytes": 2176
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/expected.npy",
+          "sha256": "db4f79d98afebb04f34c56f37f13d3aa542602daff84241f14d984a2cd2cdacb",
+          "bytes": 2176
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/inst.bin",
+          "sha256": "f633f909593e240257b95792aead6cdff935c592d0e79f9f2021a3ab409b2865",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/seq32/mem.elf",
+          "sha256": "9a22e6aaeb8bb448279cee64aa43d8cb0f5b39278e6767cbc8f49e69e3b241e2",
+          "bytes": 3464
+        }
+      ],
+      "baseline_evidence": [
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq32/result.json",
+          "sha256": "7060437ffa272c1ef753c6c3531ff2a096a393b5abfb1326fa726b5afa604868",
+          "bytes": 262
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq32/test.log",
+          "sha256": "831e21f3e50704293ff935f76de5fe7255b2d448042e8f36864e8be982bb704a",
+          "bytes": 1182
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq32/actual.npy",
+          "sha256": "db4f79d98afebb04f34c56f37f13d3aa542602daff84241f14d984a2cd2cdacb",
+          "bytes": 2176
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq32/inst.bin",
+          "sha256": "f633f909593e240257b95792aead6cdff935c592d0e79f9f2021a3ab409b2865",
+          "bytes": 388
+        },
+        {
+          "path": "/home/zhangsi/tmp/FSA-m1/optimization-reports/evidence/nm37-a100-reproduction/sim16/seq32/mem.elf",
+          "sha256": "9a22e6aaeb8bb448279cee64aa43d8cb0f5b39278e6767cbc8f49e69e3b241e2",
+          "bytes": 3464
+        }
+      ],
+      "config": {
+        "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config.FSAConfig.json",
+        "sha256": "3b77e28bea7f2f17713d60e3d048eb1c41174ab4f43e5f3780bd5755721ba013",
+        "bytes": 229
+      }
+    }
+  ],
+  "board_config": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.FSAConfig.json",
+    "sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+    "bytes": 220
+  },
+  "boundaries": [
+    "This review covers only build04 eeb1a1d0. No build02/build03 stage was reused.",
+    "HBM/PLL startup is digital RTL protocol verification, not analog metastability, HBM PHY or board testing.",
+    "PLL qualification tests use stableCycles=7. Production uses 10000 at the board 100MHz clock; emitted board topology and counter require separate structural/physical review.",
+    "Gate verification is combinational control/payload and directed backpressure checking, not a complete transaction-level AXI scoreboard.",
+    "Initialization loss is fail-stop. In-flight requests and memory contents are not preserved across a common cold reset.",
+    "Arithmetic equivalence does not prove whole FSA, HBM startup, PE resident-state protocol or post-layout netlist equivalence.",
+    "FSA simulations use their existing simulated memory system, not the NM37 HBM hard macro or PCIe hardware.",
+    "Frequency-derived active times are conditional estimates from unchanged DUT counters, not measured board throughput.",
+    "4x4 and 8x8 cases are functional scaling coverage; the routed board target is 16x16.",
+    "Physical STA, pulse width, CDC, reset replication and board signoff remain separate requirements."
+  ],
+  "review_script": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/review_build04_verification.py",
+    "sha256": "37640b80e68edba3f489f2520ba80422f5115f559f7c54885db14d63ae799e35",
+    "bytes": 13525
+  }
+}

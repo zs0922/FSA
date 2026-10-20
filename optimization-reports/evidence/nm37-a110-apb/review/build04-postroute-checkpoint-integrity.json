@@ -1,0 +1,13 @@
+{
+  "mode": "read-only-checkpoint-integrity",
+  "candidate_physical_acceptance": false,
+  "verified_utc": "2026-10-20T06:26:31.147347+00:00",
+  "checkpoint": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp",
+  "checkpoint_bytes": 250885678,
+  "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+  "official_digest_file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/postroute_checkpoint.sha256",
+  "official_digest_file_sha256": "52e1363e2586bb8fe8ec12f7193351684ade4eda1b7402128a89183686ed5637",
+  "zip_members_crc_checked": 17,
+  "zip_test_error": null,
+  "verification": "hashlib.sha256 and zipfile.ZipFile.testzip completed before independent Vivado open_checkpoint"
+}

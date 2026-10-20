@@ -1,0 +1,171 @@
+#-----------------------------------------------------------
+# Vivado v2020.2_AR75986 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Oct 20 07:17:45 2026
+# Process ID: 70
+# Current directory: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020
+# Command line: vivado -mode batch -source review/postroute-linkup-review04.tcl -log review/build04-postroute-linkup-review04.log -journal review/build04-postroute-linkup-review04.jou
+# Log file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-linkup-review04.log
+# Journal file: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-linkup-review04.jou
+#-----------------------------------------------------------
+CRITICAL WARNING: [Common 17-741] No write access right to the local Tcl store at '/home/zhangsi/.Xilinx/Vivado/2020.2/XilinxTclStore'. XilinxTclStore is reverted to the installation area. If you want to use local Tcl Store, please change the access right and relaunch Vivado.
+source review/postroute-linkup-review04.tcl
+# set link_script [file normalize [info script]]
+# set link_root [file dirname $link_script]
+# set link_base [file dirname $link_root]
+# set link_board [file join $link_base build04 A110 fpga chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config]
+# set link_dcp [file join $link_board obj post_route.dcp]
+# set link_sha 44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236
+# set link_auditor [file join $link_root reaudit-staging hbm_audit.tcl]
+# set link_queries [file join $link_root postroute-cdc-review.tcl]
+# set link_dir [file join $link_root build04-postroute-linkup-review04]
+# proc link_hash {p} {return [lindex [exec sha256sum -- $p] 0]}
+# if {[link_hash $link_dcp] ne $link_sha} {error "Unexpected routed DCP hash"}
+# if {[link_hash $link_auditor] ne "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139"} {error "Unexpected auditor helper"}
+# if {[link_hash $link_queries] ne "59e6e49e6f2f52a3d16343687e6a6b3f1b20357cef716cbe91abeddf509628e2"} {error "Unexpected query helper source"}
+# if {[file exists $link_dir]} {error "Refusing overwrite of independent link-up evidence"}
+# file mkdir $link_dir
+# set hashes [open [file join $link_dir input-sha256.tsv] w]
+# puts $hashes "sha256\tinput"
+# set link_inputs [list $link_script $link_dcp $link_auditor $link_queries \
+#  [file join $link_base build04 build.json] \
+#  /opt/Xilinx_2020.2/Vivado/2020.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv \
+#  [file join $link_root build04-postroute-cdc-review cdc.rpt] \
+#  [file join $link_root build04-postroute-cdc-review cdc-all-checks.rpt] \
+#  [file join $link_board obj ip nm37_xdma ip_0 source nm37_xdma_pcie4c_ip_pcie4c_uscale_core_top.v]]
+# set link_input_hashes [dict create]
+# foreach p $link_inputs {
+#  set digest [link_hash $p]
+#  puts $hashes "$digest\t$p"
+#  dict set link_input_hashes $p $digest
+# }
+# close $hashes
+# set props [open [file join $link_dir properties.txt] w]
+# puts $props "mode=independent-routed-link-up-cdc-evidence"
+# puts $props "candidate_physical_acceptance=false"
+# puts $props "checkpoint_sha256=$link_sha"
+# puts $props "started_utc=[clock format [clock seconds] -gmt true -format {%Y-%m-%dT%H:%M:%SZ}]"
+# flush $props
+# set opened false
+Command: open_checkpoint /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/post_route.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2338.414 ; gain = 0.000 ; free physical = 362066 ; free virtual = 379873
+INFO: [Device 21-403] Loading part xcvu37p_CIV-fsvh2892-2L-e
+WARNING: [Device 21-425] Part: xcvu37p_c is not listed in special parts list.
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3683.504 ; gain = 18.000 ; free physical = 360189 ; free virtual = 378002
+INFO: [Netlist 29-17] Analyzing 10635 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 2 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2_AR75986
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 7538.090 ; gain = 615.898 ; free physical = 356447 ; free virtual = 374466
+Restored from archive | CPU: 20.490000 secs | Memory: 616.862854 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 7538.090 ; gain = 615.898 ; free physical = 356447 ; free virtual = 374467
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 7538.090 ; gain = 0.000 ; free physical = 356616 ; free virtual = 374635
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 820 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 288 instances
+  HBM_ONE_STACK_INTF => HBM_ONE_STACK_INTF (HBM_REF_CLK, HBM_SNGLBLI_INTF_APB, HBM_SNGLBLI_INTF_AXI(x16)): 1 instance 
+  IBUF => IBUF (IBUFCTRL, INBUF): 1 instance 
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 1 instance 
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 56 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 9 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 418 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 10 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 36 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2020.2_AR75986 (64-bit) build 3064766
+open_checkpoint: Time (s): cpu = 00:02:55 ; elapsed = 00:03:05 . Memory (MB): peak = 7538.090 ; gain = 5199.676 ; free physical = 356616 ; free virtual = 374635
+update_timing: Time (s): cpu = 00:01:22 ; elapsed = 00:00:43 . Memory (MB): peak = 7974.090 ; gain = 436.000 ; free physical = 356013 ; free virtual = 374034
+# set rc [catch {
+#  set_param general.maxThreads 2
+#  open_checkpoint $link_dcp
+#  set opened true
+#  update_timing
+#  source $link_auditor
+#  # Only reuse the already-hashed pure query namespace, never the runner.
+#  set file_fd [open $link_queries r]
+#  set source_text [read $file_fd]
+#  close $file_fd
+#  set first [string first "namespace eval routed_cdc \{" $source_text]
+#  set last [string first "\nset opened false" $source_text]
+#  if {$first < 0 || $last <= $first} {error "Query namespace delimiters missing"}
+#  set helper [string range $source_text $first [expr {$last - 1}]]
+#  if {![info complete $helper]} {error "Incomplete query helper"}
+#  eval $helper
+#  set routed_cdc::fd [open [file join $link_dir structure.tsv] w]
+#  set routed_cdc::cone_fd [open [file join $link_dir reset-cones.txt] w]
+#  set pci pcie/blackbox/inst/pcie4c_ip_i/inst
+#  set core [hbm_audit::one [get_cells -hier -filter {REF_NAME == PCIE4CE4}] "PCIe primitive"]
+#  set leaves [dict create \
+#  [routed_cdc::p {pcieResetControl/releaseSync/sync_reg[2]} Q] qualified \
+#  [routed_cdc::p pcieResetControl/released_reg Q] released \
+#  [routed_cdc::p powerOnReset_fpga_power_on/power_on_reset_reg Q] por \
+#  [hbm_audit::pin $core {CFGPHYLINKSTATUS[0]}] link0 \
+#  [hbm_audit::pin $core {CFGPHYLINKSTATUS[1]}] link1]
+#  set x0 [format {%s/user_lnk_up_cdc/arststages_ff_reg[0]} $pci]
+#  set x1 [format {%s/user_lnk_up_cdc/arststages_ff_reg[1]} $pci]
+#  foreach cell [list $x0 $x1 $pci/user_lnk_up_reg] {
+#   routed_cdc::check $cell {
+#    # Installed XPM RST_ACTIVE_HIGH=0 initializes its stages to DEF_VAL=1.
+#    # The vendor output register initializes to zero independently.
+#    set expected_init 1'b1
+#    if {$cell eq "$pci/user_lnk_up_reg"} {set expected_init 1'b0}
+#    set ff [routed_cdc::reg $cell FDCE $expected_init _pcie_io_clocks_axi_aclk]
+#    if {$cell ne "$pci/user_lnk_up_reg"} {
+#     routed_cdc::require {[hbm_audit::truth [get_property ASYNC_REG $ff]]} "Missing link-up XPM ASYNC_REG"
+#    }
+#    routed_cdc::vcc [routed_cdc::p $cell CE]
+#    set reset_pin [routed_cdc::p $cell CLR]
+#    routed_cdc::cone $reset_pin
+#    if {$cell eq "$pci/user_lnk_up_reg"} {
+#     routed_cdc::zero_polarity $reset_pin
+#     routed_cdc::truth $reset_pin $leaves {qualified released por link0 link1} {$por || !$qualified || !$released || !$link0 || !$link1}
+#    } else {
+#     # The routed FDCE implements the active-low XPM reset by CLR inversion.
+#     # Verify BOTH its exact polarity and all actual input truth values.
+#     routed_cdc::require {[get_property IS_INVERTED $reset_pin] eq "1"} "XPM CLR must be inverted"
+#     routed_cdc::truth $reset_pin $leaves {qualified released por link0 link1} {!$por && $qualified && $released && $link0 && $link1}
+#    }
+#   }
+#  }
+#  routed_cdc::check link_up_release_chain {
+#   routed_cdc::vcc [routed_cdc::p $x0 D]
+#   routed_cdc::direct [routed_cdc::p $x1 D] [routed_cdc::p $x0 Q]
+#   routed_cdc::direct [routed_cdc::p $pci/user_lnk_up_reg D] [routed_cdc::p $x1 Q]
+#  }
+#  puts $routed_cdc::fd "structural_mismatches=[llength $routed_cdc::errors]"
+#  close $routed_cdc::fd
+#  close $routed_cdc::cone_fd
+#  puts $props "structural_mismatches=[llength $routed_cdc::errors]"
+#  foreach p $link_inputs {
+#   if {[link_hash $p] ne [dict get $link_input_hashes $p]} {error "Input changed: $p"}
+#  }
+# } message options]
+# if {$rc} {
+#  puts $props "report_generation=failed"
+#  puts $props "error=$message"
+#  set error_fd [open [file join $link_dir failure.txt] w]
+#  puts $error_fd [dict get $options -errorinfo]
+#  close $error_fd
+# } else {puts $props "report_generation=completed"}
+# puts $props "ended_utc=[clock format [clock seconds] -gmt true -format {%Y-%m-%dT%H:%M:%SZ}]"
+# close $props
+# if {$opened} {close_design}
+close_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 7986.090 ; gain = 0.000 ; free physical = 359163 ; free virtual = 377184
+# if {$rc} {return -options $options $message}
+# puts "Independent routed link-up evidence: $link_dir"
+Independent routed link-up evidence: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/build04-postroute-linkup-review04
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 07:21:50 2026...

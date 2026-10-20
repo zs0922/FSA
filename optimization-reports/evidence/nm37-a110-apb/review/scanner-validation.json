@@ -1,0 +1,730 @@
+{
+  "schema_version": 2,
+  "script_sha256": "feac6bac7eef833ee113f8c765d6b7b333e3204ba2e3a3643102791802765647",
+  "method": "Read-only evidence comparison against the archived original A110 experiment.\n\nOnly output JSON files are written. Lexical RTL normalization removes exactly\nCIRCT line source-location comments. No identifiers, whitespace, other comments,\nstring literals, synthesis directives, or executable tokens are normalized.\n",
+  "failures": [],
+  "lexical_selftest": "pass",
+  "baseline_evidence_sha256": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/optimization-reports/evidence/nm37-a110-reset/fsa-a110-rtl-comparison.json": "7913196a3901fb5f9c9b49561618b856635e1568346473343e8265400b08b819",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/optimization-reports/evidence/nm37-a110-reset/fsa-a110-metrics.json": "2c1f0612dd4c75b48ee6f64f2c8a68dd7a20794661d4abeab39714bb9e45802f"
+  },
+  "historical_archive_verification": {
+    "inventory_sha256": "89cf9b7321702ed5297ac2183465e4dff81953e8ff22b4cb68f473759ff06529",
+    "execution_commit": "76ae6cd8a41ed9e2afa0e2eb56deebd7708065b2",
+    "build_sha256": "874fba269e1de20015ea7c1ffbe6717d6ff9aafe74ce8d5500c1c7bf7788328f",
+    "verified_archived_files": {
+      "fsa-a110-rtl-comparison.json": "7913196a3901fb5f9c9b49561618b856635e1568346473343e8265400b08b819",
+      "fsa-a110-rtl-comparison-method.txt": "759834438496d41a9e05374715ad6d1efb1d2b50db394606d4ac4d027f77e7ff",
+      "fsa-a110-metrics.json": "2c1f0612dd4c75b48ee6f64f2c8a68dd7a20794661d4abeab39714bb9e45802f",
+      "A110/seals/build.json": "874fba269e1de20015ea7c1ffbe6717d6ff9aafe74ce8d5500c1c7bf7788328f",
+      "A110/seals/sim4.passed.json": "cd2b5f2f998c9736967b3a7955a9edd965a46610a6c67f5ade80724f45d72372",
+      "A110/seals/sim8.passed.json": "4a46c583970def8ea81105ab969b70ed604c96dd3790136022896946cb89a517",
+      "A110/seals/sim16.passed.json": "1f5d7ee96e1392ef6bca451b2d20771a0801cd2c6e87aca3f1e916cb45754983",
+      "A110/seals/elaborate.passed.json": "001635cb83e12d47feed3a0fd225c7ea5a03865f31c3286b4daa74e77a5ce7e2",
+      "A110/sim/sim4-seq4-test.log": "35a32364d8f22ef28061f395e7d4b897f0d4a71ece55a81f306e9a277bf5dcbb",
+      "A110/sim/sim4-seq8-test.log": "4ce011d4a26762a1ddc37dd90bac1e0c2d914c8a76acf71cff616046aa47c2ac",
+      "A110/sim/sim8-seq16-test.log": "776b8b68f053b6e168d44780c23aa2e2b5a8e995d14e6723e0dd1a9c2ccf3218",
+      "A110/sim/sim8-seq8-test.log": "1bf48050b574daca2d7c88d9ae721f90e03650d01993cba2d943a5d58667c4ad",
+      "A110/sim/sim16-seq16-test.log": "0d638c02a75f9248898bfa05e24c352a2d869bbf9acb23f28704e937f302362e",
+      "A110/sim/sim16-seq32-test.log": "09b02697cf5b1969eb77a377f36b49d6021ed2df40b89b42edc89dcb48203209"
+    },
+    "rtl_fingerprints_bound_to_historical_seals": 313,
+    "cases": [
+      {
+        "case": "sim4/seq4",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      },
+      {
+        "case": "sim4/seq8",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      },
+      {
+        "case": "sim8/seq16",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      },
+      {
+        "case": "sim8/seq8",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      },
+      {
+        "case": "sim16/seq16",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      },
+      {
+        "case": "sim16/seq32",
+        "all_eight_counters_match_archived_raw_log": true,
+        "output_payload_hashes_match_archived_raw_log": true,
+        "input_config_result_binary_hashes_match_historical_stage_seal": true
+      }
+    ],
+    "compared_files_not_archived": [
+      "sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config.FSAConfig.json",
+      "sim16/seq16/inst.bin",
+      "sim16/seq16/mem.elf",
+      "sim16/seq16/result.json",
+      "sim16/seq32/inst.bin",
+      "sim16/seq32/mem.elf",
+      "sim16/seq32/result.json",
+      "sim16/simulator",
+      "sim4/generated-src/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config/chipyard.harness.TestHarness.AXI4FSA4X4Fp16Config.FSAConfig.json",
+      "sim4/seq4/inst.bin",
+      "sim4/seq4/mem.elf",
+      "sim4/seq4/result.json",
+      "sim4/seq8/inst.bin",
+      "sim4/seq8/mem.elf",
+      "sim4/seq8/result.json",
+      "sim4/simulator",
+      "sim8/generated-src/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config/chipyard.harness.TestHarness.AXI4FSA8X8Fp16Config.FSAConfig.json",
+      "sim8/seq16/inst.bin",
+      "sim8/seq16/mem.elf",
+      "sim8/seq16/result.json",
+      "sim8/seq8/inst.bin",
+      "sim8/seq8/mem.elf",
+      "sim8/seq8/result.json",
+      "sim8/simulator"
+    ],
+    "limitation": "Unarchived historical bytes are not reconstructed or claimed rehashed; their recorded hashes are checked against the inventory-authenticated historical stage manifests. Historical output payload hashes and counters are independently re-parsed from the archived raw simulation logs."
+  },
+  "baseline_scanner_validation_board": {
+    "status": "pass",
+    "kind": "board",
+    "archived_file_count": 89,
+    "files": [
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4Buffer.sv",
+        "raw_sha256": "aec69db49142fd5a12a59bc1c0277e140bea2cddb276c5ccac7a4a02778f86b3",
+        "normalized_sha256": "2723be621180f6e71dfb0c05a72faaf405af51b054f8026ffb54f36cb78d6e4d",
+        "removed_source_comments": 68,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4FSA.sv",
+        "raw_sha256": "496135f79103bb99b03cbe764430d42a61bc2a4ec6d5ffa4eb3c4ed25fc743a8",
+        "normalized_sha256": "0f6a696d18fa7c3c946d8591fd834a510d6e7877ac611a9498d017f6addad050",
+        "removed_source_comments": 504,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4Fragmenter.sv",
+        "raw_sha256": "3193928c99ecd418d1b23ee79bcfce03dfd650fc451d97a07498e6237a7cffb3",
+        "normalized_sha256": "82949ed24b6dcd9cd75da07aba4d962f696102afbf7e8a8b657cac32c274e9f2",
+        "removed_source_comments": 306,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4Fragmenter_1.sv",
+        "raw_sha256": "bc82babbd5e8e076e3ebde497e7f8fa0a5b02f13d73720013c5beb97896df25c",
+        "normalized_sha256": "47045cdfe59dffa33be936a4b7b969213189d7bea0c6cdac0987dd419988ac9a",
+        "removed_source_comments": 185,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4UserYanker.sv",
+        "raw_sha256": "18948a4fb9d30ccf76d445a9a3177f77915903c85b08b5a51f25f3d486533644",
+        "normalized_sha256": "32836e861f8fec4ff4788aaa066b14f383e5a3441fcd833736e2a6721160122d",
+        "removed_source_comments": 356,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AXI4Xbar.sv",
+        "raw_sha256": "560b228870c13bd142e084b60d4743a6416d25f91a4ff573b5d2312cf5641766",
+        "normalized_sha256": "ca103889305afb3c6b55dd136dc22d6ce9f17432de307da3733640b56e103dea",
+        "removed_source_comments": 242,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AccumulationSRAM.sv",
+        "raw_sha256": "3cd97e38d498ce618b6145aaddb036db70c8b788e37d633949aaefc3de5f432a",
+        "normalized_sha256": "19a4a60254622efa877d28000577bc3617d6a38be6f2fc570dcd42d640baf6ce",
+        "removed_source_comments": 134,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv",
+        "raw_sha256": "2390c28c4bf9a7735d604882349da9fd890a8c1cc4a87587a90581ce4e48dc5e",
+        "normalized_sha256": "d437cc7d0e7e3143db6f9546e2cc74372ee6117ad2865925f7a89f550d2882fb",
+        "removed_source_comments": 2002,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetReg.sv",
+        "raw_sha256": "94dcf57984913d993121473a6758ad5c9091cdf30c7fd5365a238ca01a651b41",
+        "normalized_sha256": "059f3ff04b7fe6ed80c4b76c836919affc3cabbcfa2d2dd919fb5b0a9a4b66a4",
+        "removed_source_comments": 26,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetRegVec_w14_i0.sv",
+        "raw_sha256": "b6d5ccf81e9ad7e7f950399e74e3d9f1450efce4c448e508d1aea23a34cfd61f",
+        "normalized_sha256": "85b30d452c7ef6519d91b0765676b37c2967e94e8df1dbc736829887b140a101",
+        "removed_source_comments": 27,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv",
+        "raw_sha256": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+        "normalized_sha256": "0e1332b2795c6577d1e423345b622ca953dc8ffe9930b4155f58c9c42aa17889",
+        "removed_source_comments": 35,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerShiftReg_w1_d3_i0.sv",
+        "raw_sha256": "e2c0adbf085ef7be54c1e186bfd62cc92378108711f8481f79460f0b24bc41bf",
+        "normalized_sha256": "4b02408e04ea7066f617c8655a315937f9e456aca62c78b4e1539f604aa62d86",
+        "removed_source_comments": 6,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CMP.sv",
+        "raw_sha256": "e359a4e0a219dc941b40a2c193339dfe5f75da2dec84679acdb26f67865e8b7e",
+        "normalized_sha256": "92074fd2de45df8b3226884883aee4dd296e99eee1239ad4eaa1c7d5ba7dc259",
+        "removed_source_comments": 119,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv",
+        "raw_sha256": "cab0ba32353d294042023054f11f0e1eb983a6153d9c44d43c1aeb30675fb04d",
+        "normalized_sha256": "c34c2f04d8d757032c6525fbfe5c2d8ca76ba112135d2446ffb4ed9eeb25f5be",
+        "removed_source_comments": 421,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CustomXDMA.sv",
+        "raw_sha256": "464252c4ac1ed6579baa4d0d15e9bfde81b1684bf6da959fde4d2fee371414bd",
+        "normalized_sha256": "8f7488425038bca0f767389096bee20115379f750cfb8722e0825c57c4747e81",
+        "removed_source_comments": 66,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/DMA.sv",
+        "raw_sha256": "6e13912462575e824f3d4b43fec8e26343a3d64d36208bf0ec8b5d4393121528",
+        "normalized_sha256": "e291d22c9995d5b2d33e523c9bf9df7fe8ed04e3cbe5236b85008effd8925b15",
+        "removed_source_comments": 146,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Decoder.sv",
+        "raw_sha256": "3e5777b72cf2bf26f8b35b4567a52245d0cce6180b1db310e50e975c3365e7b0",
+        "normalized_sha256": "6bf945bb3f0a8f27b7e657a2d13e126eae2290696b446476cf919d2415b1cdc5",
+        "removed_source_comments": 118,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Ehr.sv",
+        "raw_sha256": "8657847662184efe83866917d59b7b96f73daf92998d7db1809566f429bf6799",
+        "normalized_sha256": "2eaf2eaf024c039d4931cb975b48a4d62a7eaa4276f6cb2f69f9bf7a909d4516",
+        "removed_source_comments": 25,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/EmptyChipTop.sv",
+        "raw_sha256": "9abd58ea13e6199d8ad1ef26adc1ab1b6b500b38f59a4953f3b7df223efe953b",
+        "normalized_sha256": "c7347a28eeb491ab1889dab7996c5ee388cd47567e7e2462634a17921e82d13a",
+        "removed_source_comments": 1,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FMA.sv",
+        "raw_sha256": "b591a66ca5948c04f1ffb6f690d4038e0907e7fdeb1dab4caaf63dbccc29755b",
+        "normalized_sha256": "4bd2b55a1e510cc43a6298edb687a1dca91740c5f32f8dd4864873a905dd9a14",
+        "removed_source_comments": 30,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+        "raw_sha256": "80ca3a823394734856d6fe5b22cbe76670c617141b197fb4d32f614a8177ed29",
+        "normalized_sha256": "c21ad3e260d5a2c0ba2e7e4a716621f401bf8bf2d8f0a52ab3aa7912c37b4306",
+        "removed_source_comments": 74,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPCmpUnit.sv",
+        "raw_sha256": "e2523af68fe469e9220cbf10f5ebef2fd75954f3c5169aa6e9935c6fbdaeb694",
+        "normalized_sha256": "4a9c8e9770d566f759a6b410e2beec523d317a5ff866704fc7dcb57cc8cf2f24",
+        "removed_source_comments": 30,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPMacUnit.sv",
+        "raw_sha256": "c61543b918da0216eb2250424abc86a0b5c2bdc5b05d1b5503fdbeb61975ec8b",
+        "normalized_sha256": "a823a3ae0bb1a237bc7c094fcd280e7d51c17b117d92ff1f9c41a65dacf01d1b",
+        "removed_source_comments": 80,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+        "raw_sha256": "03c892aa965d95a399e2ce1a6dfccd6de4769bff8985249ddc4879236befe878",
+        "normalized_sha256": "29e7174590562267afa0fadc40cb8049a9c034741175ddd95ba35a214a72d1cf",
+        "removed_source_comments": 1179,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FixedClockBroadcast_2.sv",
+        "raw_sha256": "93959dc2c3d2c1b34aec7da69d56256421b5ecc3ba11969198b9f32064f4665e",
+        "normalized_sha256": "c698158d23d6790c45b1de7b233c8fda487ba781629be7f1cc06de2ae3c33aa4",
+        "removed_source_comments": 11,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FixedClockBroadcast_5.sv",
+        "raw_sha256": "c017a9afb36cd0d6da113abe1c0b891d6e48d6b964dbedd2f66fc1a799ffe943",
+        "normalized_sha256": "37c6a990c0a14b62a89d91cdbfa0faf91e8b6b129eca51ff0d232ebb4c98ca6b",
+        "removed_source_comments": 23,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/InputDelayer.sv",
+        "raw_sha256": "ffe160435ba2ce7a6df4f2e9fd42ea551bb2f2617c6b1f3f7bf641fc9c465f9c",
+        "normalized_sha256": "962ac06ff8abd56e8e6bd8fae1575d435a6ff8b59845e5dbe042d6712fbd0e60",
+        "removed_source_comments": 2425,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/InputDelayer_1.sv",
+        "raw_sha256": "96daeec1158f1c3fc6a155da5a7c3e6a928aeabf4b01051c288fe7ea46154c54",
+        "normalized_sha256": "ac3bbd80a07d45881f88572edf9bddc29dd93ae791e85cb8672e7824d8818063",
+        "removed_source_comments": 1239,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/InstructionMerger.sv",
+        "raw_sha256": "e09544c2f089a9e9239402a30dafcfc32d6a6a7f6578a9dd320d967a2eab7cde",
+        "normalized_sha256": "6fb446c53159eb64be507f9ff5bea1caea73eed44b90f91cd559320980b4b5e4",
+        "removed_source_comments": 51,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/InstructionMerger_1.sv",
+        "raw_sha256": "99825390ae284a1436f9c4e653182abe7b3ba50176a4ed1d3a7d2b6405e86abc",
+        "normalized_sha256": "b052818929411ef32302cc9692adb22ee7a3fa85b108f78c9e7199ae8c973bd8",
+        "removed_source_comments": 57,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter.sv",
+        "raw_sha256": "b0547b3dfc07b21e417557e4a31ea6c85fe1f56b16170da6bfa35f524636729e",
+        "normalized_sha256": "ef0db2d84c340d690420b98d5dcd524e8ed7e7e70dcea891a1f864b22c941670",
+        "removed_source_comments": 83,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter_1.sv",
+        "raw_sha256": "0b7039f2d112018c44feb1274e5e0aba39866a90be38949cf487542607b1a954",
+        "normalized_sha256": "7b2d00994d3e76c35fb4bed4ebf7f2fcaab39d3f6056bb7b27ef9799eaa31b15",
+        "removed_source_comments": 55,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LoadQueue.sv",
+        "raw_sha256": "92d4147c49ed861ac8c522ea99fca41338dbae3c0f3dce094e2fc2511402ac29",
+        "normalized_sha256": "d6712b1c1ea1aa3f13d347de1d79ca143ea83ea9ee69feab9348ab1d226ae931",
+        "removed_source_comments": 1038,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixControlFSM.sv",
+        "raw_sha256": "430d91aff04656daff99e59afe10d0dd518a0a70b2e94d871c8033e66ceee2ba",
+        "normalized_sha256": "76d57da2ab5240b200469f1946bec7a61b2d348ff907147f0a52608ca9183436",
+        "removed_source_comments": 19929,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+        "raw_sha256": "1e7294f2e49026ec452727079d40bf757ff85d374104ca1d829b04701066dd26",
+        "normalized_sha256": "897dc7c9842e863acb5660bb5d04cd0147d3f8a053f1f54b97c0abe342690095",
+        "removed_source_comments": 1956,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+        "raw_sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+        "normalized_sha256": "3d3c25c3a182410a8895689884d54977f4e4cdb6d0550f8632afbe5e76c6084b",
+        "removed_source_comments": 321,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/OutputDelayer.sv",
+        "raw_sha256": "86ada4e348955a70049d397d4c3b48162db276d592915c9cea5ec55d903765cf",
+        "normalized_sha256": "2c4de7d5eb3310a397ee439f74318a0454806800eb67bd2afb71671227e7bb18",
+        "removed_source_comments": 100,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/PE.sv",
+        "raw_sha256": "0cc1805bb5a4be43daf389f5e61d9dc60a54e575f03719b1815a42011eff5c56",
+        "normalized_sha256": "c99e1d52330ddf8bb1dcef68dd5aafd0b4e877e9d7514fd9d1c05c18b242f9ea",
+        "removed_source_comments": 231,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleAR.sv",
+        "raw_sha256": "a6235cb3a7ba5cc0e3dc1ddd47e42b3d5cbb3dbd9435bf638623fe5e13477a44",
+        "normalized_sha256": "e049917e64bc1205eacc19f1299bbf8c25c124f0cb9c9fc16169084309df253e",
+        "removed_source_comments": 53,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleAR_1.sv",
+        "raw_sha256": "04287097bb1dd5215ee6b7ccb3cd547ca8e03cc91658b03c6f423918f1834d32",
+        "normalized_sha256": "0e9a5df2ad68265152c2ee9d1a041ef050ece4ad6b3274a7bfcf342280eb5807",
+        "removed_source_comments": 53,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleAW.sv",
+        "raw_sha256": "632d99a0aa6af2ccbbdfaafe189ab9b9b99f5728912aee356ae6b00b64fbade8",
+        "normalized_sha256": "3d0df7a688440ec6eee2deec91d9c837cb1bfc0d10dffec16d477526a598cc99",
+        "removed_source_comments": 53,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleAW_1.sv",
+        "raw_sha256": "610a9853f380eba411a1f658c89bf60e175ef6047a5ce48f529775f59c97a0ac",
+        "normalized_sha256": "f752e1534fadcc762f7e470f84928afb36c661fbb84984c613c2a815356d3893",
+        "removed_source_comments": 53,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleW.sv",
+        "raw_sha256": "cad44862b4837d3168f067f87af266e6615436036893b988e39f033b06c56336",
+        "normalized_sha256": "a03b14d1471a1416816eb98f5e909b3c1134b64782a9f9e4376cafcb2e6e5a36",
+        "removed_source_comments": 43,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue1_AXI4BundleW_1.sv",
+        "raw_sha256": "cb248a456db7e2f38f59873d1efed945c61b4da6a9fa9d73ac45da58587a0e5e",
+        "normalized_sha256": "d2842a122d72d6a3cca8ab41d9deb8785d6e38157a0f75722874e1e5275a365b",
+        "removed_source_comments": 43,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue256_UInt32.sv",
+        "raw_sha256": "3af784b9d016b85a5088ea66f636056df03b9a256c31340bf1db1dd1dbcaf632",
+        "normalized_sha256": "7096e16bc2927b5649be6c376d0032fbfabf40361e0cd819e0db0f25aa34dca8",
+        "removed_source_comments": 50,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_AXI4BundleAR.sv",
+        "raw_sha256": "817d26fc3ef7543e6f527a641300ec8340b6e7f5565d99e35edd36c6ba1c7846",
+        "normalized_sha256": "4eaac66500fc6d4860eb47c10628f32495781fe502a6e9bb4b7c5b13530791e8",
+        "removed_source_comments": 70,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_AXI4BundleAW.sv",
+        "raw_sha256": "62c5836496fa8df0cd8aff624f5f0fdee2daf1cd06c90f73f10af570f47a27d3",
+        "normalized_sha256": "3c0d0691d4766ce8ef7814d7456af134f545eedf971245407838d92e044a6338",
+        "removed_source_comments": 70,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_AXI4BundleB.sv",
+        "raw_sha256": "4d2292bcfa7ab12da3e5b9ffbd24bbb82505cf7c088373f600b185730845710d",
+        "normalized_sha256": "ce450eed734f1349a5047f8dc5cf4e2ea5c70e789a70e58ce175f731695df45b",
+        "removed_source_comments": 51,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_AXI4BundleR.sv",
+        "raw_sha256": "db4877f4df6a82267e3c27900b3028976d0fbb17902a6b85ec2a4ca8f4cc308b",
+        "normalized_sha256": "b298cb1e8f955068740eddc8ef28ce1ba7328ebd453cc6e3ae0bf40e6b58e5e9",
+        "removed_source_comments": 59,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_AXI4BundleW.sv",
+        "raw_sha256": "0740dd6e0032b60fb6df0f24e4883b584ba1dc399b25959a0d3c9055b75f3adf",
+        "normalized_sha256": "bee6e3daef3105cb7db8a48025f46efb9d1f8e6bf0aa2c137b31570f3fad0908",
+        "removed_source_comments": 58,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_DMAInstruction.sv",
+        "raw_sha256": "1448232388fb351878eb184c528425c616d0d54603e98af17f9e4c0601411b2f",
+        "normalized_sha256": "52df197eba3e0863cdbe6e5191ea47cf7d4befa996a8e0db2f8a322569271034",
+        "removed_source_comments": 95,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_RegMapperOutput.sv",
+        "raw_sha256": "baf3ed0df5a36cca3ad969ed0f4a864c016d6ecb97c3c2bbf87006b59d1d8492",
+        "normalized_sha256": "46733cd1b106fd43b1f83d089f972c15439ed3f5857aabdfcdc54ee5f36f67f9",
+        "removed_source_comments": 62,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_UInt2.sv",
+        "raw_sha256": "af7440e626c2e79f929e7eae6490e170c9a52632e7efc7f7f4c853e234926860",
+        "normalized_sha256": "d194bfe269aa546bbc4b542d506a32ec95f3b73cf4008ef897241fe2fef1c55f",
+        "removed_source_comments": 53,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue2_UInt256.sv",
+        "raw_sha256": "b945878bf4a5fb81ccbe54ffa6d16c022b97817d40e372011120de9a54f9893d",
+        "normalized_sha256": "8286938c4d93ec68ebb5519e7291f52bd7ca80c3396fb24154c32a7a1cf64d2b",
+        "removed_source_comments": 54,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue8_BundleMap.sv",
+        "raw_sha256": "1354f28a60c20bc90c6eeb812ae0fec9ba9ba7886730905096013a15175cffc0",
+        "normalized_sha256": "d9abf2550382121715d5c70a3493c5278482768b9a4eba3665d1368cf4df1f3f",
+        "removed_source_comments": 50,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Queue8_MatrixInstruction.sv",
+        "raw_sha256": "913c176fdd726cce0ee03d8c88efa61843fb7dba5c90d51d7da4d096b17d01cf",
+        "normalized_sha256": "409114b7916158b24c8d890e7cba9958da351511dfbc9383e453a8118a57a76e",
+        "removed_source_comments": 102,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA.sv",
+        "raw_sha256": "7fc3cdb44a6bdc20dbf54851581d47b25e3bc21d4cbb1dbd3f6ebe5aa73f3947",
+        "normalized_sha256": "5ed294007a214155873997eacd87e9b60a84f3eec90f55acf5b76af7539ded3f",
+        "removed_source_comments": 109,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_16.sv",
+        "raw_sha256": "2ed124dd5b7ccbf39f5bdd7bb2855f81cb44a29b862ec5cb110a2a0b329bc58c",
+        "normalized_sha256": "2f2fbe0af1ef2c27b9bcc999a2dae5221feea30438d0c19c7ef58c07285de364",
+        "removed_source_comments": 117,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_17.sv",
+        "raw_sha256": "2bf144a5060a46289c9d96ca241b38ed6e23f57321878db6d07be2e7c8272310",
+        "normalized_sha256": "a9ef91e0b35d8894ef03fb61b4c87c24298d120af270aa57c07eb978191d5747",
+        "removed_source_comments": 167,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2.sv",
+        "raw_sha256": "2d57e4f439a9addde29e835e72a2345ecc1234a0ebd7a8bc4f22183de1b566be",
+        "normalized_sha256": "1a1e2b378ba18159d080be8bf18bc922bb6e80d42ce493eb9f0392ed42a034c0",
+        "removed_source_comments": 75,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+        "raw_sha256": "b3d704e79842b1b9eed08c95cf108ca719efdab141baac14545499337cc5685a",
+        "normalized_sha256": "3438d64c0123aa862c65dfe0ed2ddb7839a3199bb9a60495183aae830176579c",
+        "removed_source_comments": 152,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF.sv",
+        "raw_sha256": "65f8e9cf20d720c78624138db9ec1c42f7be4fc6394fd3c990346ca1b87e4b3d",
+        "normalized_sha256": "3c0ed280ae6e44299c74e6fd7ad50fe015ac1547026d3553ebe82e3a04dd12c9",
+        "removed_source_comments": 34,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF_1.sv",
+        "raw_sha256": "04fc94823469dd4c24e32633d9b56bf6121d4e0c46c7529c07bd9cd9bbb9d1b0",
+        "normalized_sha256": "fb4961d66ed58247a3a031136aa74c685f5ed6044c8a8945e2a5304c30d5ed0f",
+        "removed_source_comments": 33,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Reciprocal.sv",
+        "raw_sha256": "fa8df0c9ad1d2731af05d82b5d02c728c6c05495ed0d924f76965b23a1dfbd2c",
+        "normalized_sha256": "8003151383a003982dde0840bb90f7bfc6a134df23677106535446407263b05c",
+        "removed_source_comments": 122,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RequestPartitioner.sv",
+        "raw_sha256": "dfe95d1246a34cf865361e0d98a667b8ff8dbf8673d7a8f68e286407f3d2e5a5",
+        "normalized_sha256": "e5ecc21f7e9fa0abf8781bf8404b40bf31d0eb9fe2cfeb196b13996b0c63d799",
+        "removed_source_comments": 43,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv",
+        "raw_sha256": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+        "normalized_sha256": "c0096e33b552afc265c2cbc1b64670a19628b3a2ec2fa1b4907c09d2cc1205e4",
+        "removed_source_comments": 8,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+        "raw_sha256": "ef9f89e8d3f0ed139e1a77d6a7da5c2dcb7b10d5c2ccd68007730e28ec2f4c80",
+        "normalized_sha256": "b24956f98154a94ab8ab93ca1b9eb96e0d36e7675be2f31140853c0ed615dbfb",
+        "removed_source_comments": 30,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ScratchPadSRAM.sv",
+        "raw_sha256": "435b6d03cfb6da11805bbf024d5ce5685fe6d4e0a553a10f5817e57c921f8d8b",
+        "normalized_sha256": "11c303d4435514eed14e5c4f0fcedc8c02c03f63edfd512a9e796e73f5c8f1c9",
+        "removed_source_comments": 83,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Semaphores.sv",
+        "raw_sha256": "36ed0fa5ebcb5188810df60c73cab8f2089e2049b0132389ddb3e08ccbd3339c",
+        "normalized_sha256": "1b1fb7a8a95fd532e2559c94a6b99f6d44afed4b8ded3fa262efef3a586e629f",
+        "removed_source_comments": 625,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam.sv",
+        "raw_sha256": "72f569279fbf1f4280a9557ad7fe785b209bc64ecdd165329a56206b77e9758b",
+        "normalized_sha256": "3439096cd15b67f1395afd347885746b6fd04c4a5053ca40dc5137ae25b21651",
+        "removed_source_comments": 14,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam_16.sv",
+        "raw_sha256": "076f5b6f05e1bc34b0e89f4b33adaa820d97eed0226c37220192a6cf9e605673",
+        "normalized_sha256": "2330b48a6cf7084bbd856b6666c6def787eb2b7003afb276ba3929e8752101d4",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/StoreQueue.sv",
+        "raw_sha256": "0187cf4e699bfdb52e0e0fceb4827480ec7f791c2f8bab97c2d9e66984c13570",
+        "normalized_sha256": "ce264ebf9257c216003320a9dcd695417bc2ad44cd0eca27e0694b4b590f4de5",
+        "removed_source_comments": 620,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/SystolicArray.sv",
+        "raw_sha256": "8d81aa69a7c8132f4b57e72718e2f59808c67e9c707d5618e4094746d6f43b89",
+        "normalized_sha256": "d57fce4a16ebe5e3dcc60df4870af496185271ff0ebc5fb53ef0e301e7b4a3f3",
+        "removed_source_comments": 26296,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem.sv",
+        "raw_sha256": "4426642a3fd40339ca5dd68e25714ad48b9b06e824eeec22c4f589de73d15d31",
+        "normalized_sha256": "a9e6c478bc35d4028334ea33805691bbdad0f4e4b07745db2f838ac17741014c",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem_0.sv",
+        "raw_sha256": "22acf8b2a1d9182109fd174f1f5e4b44ea95b775af5a74d8b8a4f666d6a7d31e",
+        "normalized_sha256": "5aa9761c168cb74ea20fd7d42171d4b03830a4a4d5506d34610269acc6c86be6",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem_1.sv",
+        "raw_sha256": "ae1c2b4c8abfc9c72056f5279f6eb638d28de093314280f6962d6f6bb30b438c",
+        "normalized_sha256": "e9068c4f1f4e91362d12bbfd9612586819af882aa9c58d3db4a347648a320cc2",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem_1_0.sv",
+        "raw_sha256": "6dbf3c28344509ccd4629637ab7c5537733efaba1af85ccbe84da4e64b4e9cad",
+        "normalized_sha256": "1327210112d12a48eb0108ead2c69c6479e9546ff3aca6be29eed2e0ac75e7b9",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem_2.sv",
+        "raw_sha256": "86757a31a7e9242fac00328fad0144844ab87feb57bf33439f12803860a90be9",
+        "normalized_sha256": "d31a20a10a8ded6de3bf0f8b8f146dde7b280a2101c9d0cd2a71954c71a52f30",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/banks_subBanks_sram_mem_3.sv",
+        "raw_sha256": "7a3b8de550dbc0eb39444d2efc38e4ba11e9c7d0de501d28adb6b9488c983ca4",
+        "normalized_sha256": "e6afba9d36d0368c77473466c934a987711a6250fd0699fcbc9e095096493d77",
+        "removed_source_comments": 3,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/extern_modules.sv",
+        "raw_sha256": "5830c0246901fcf9973db46c40a24f0ba6ded42429e52cddba149e2602f84268",
+        "normalized_sha256": "5830c0246901fcf9973db46c40a24f0ba6ded42429e52cddba149e2602f84268",
+        "removed_source_comments": 0,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_256x32.sv",
+        "raw_sha256": "a5807aa5bf77751f0ca8eb89eff3e22ff876dae315889a8e978befbfdd21081e",
+        "normalized_sha256": "37333491b673ebbf6895bbe0bdb43ce946daf96f33835313e27b43b7491e05bb",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x103.sv",
+        "raw_sha256": "29f8bac8b388a77045e37145791ab352beea0f1f0409c97eb768a988f7488152",
+        "normalized_sha256": "a07d67bb9b3dfbcdb37a9d57b534764ca432e3a8bc5d9812d45b248696375030",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x2.sv",
+        "raw_sha256": "ffa0b71026d6c97c834be4e9a71818db233fbaa87bf1645704f87d5c505aa295",
+        "normalized_sha256": "e0c99db17aeb1a078e3de9836396cb6ee0b451e4f5cbb045450cd32b088a4f9b",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x256.sv",
+        "raw_sha256": "cf9bc913357e27f6fa42bf6d930114e9afcd4c9e050f2cf123ccc485027778b4",
+        "normalized_sha256": "393d1ab150681250b0920a3c33aa10a3b5ce95a310a9c648fb49f6b021196d76",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x35.sv",
+        "raw_sha256": "771163aed0d56e7086b41152a638fb46c10fa16bbb9a57605600bca11848eb72",
+        "normalized_sha256": "0cce456287890f6f71bf38f25c424810e8fb920ba8b11e02bdd77002e77f6d33",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x37.sv",
+        "raw_sha256": "345a22b11c3bf798eaf0edc926f69d8470833f86a46cedfa3b70538586474329",
+        "normalized_sha256": "0f38971e5747eb845ae9bea81a03bc7dd4c43a1f0254e377b6728db091d1b17e",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_2x42.sv",
+        "raw_sha256": "d3fb2889636d220defc5e165df9a4e8071484f5413547c0560debee61b3db20c",
+        "normalized_sha256": "40b552691e8be926304b590f3f62dffbf63037169ad8d4afad491f91f43a0fed",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_8x45.sv",
+        "raw_sha256": "c2404ee91f37a88a557030d47ed2d94349f543e650d96478baa60b26c48aee2b",
+        "normalized_sha256": "5ae1d99f429dc88385f49faa9682eb062213f1de33fcd13abe3b8a54b238ed17",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      },
+      {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ram_real_last_8x1.sv",
+        "raw_sha256": "9bc875181b422a0d044ad36399c1decfbb8cf1006cb761e670afe899b50c26e0",
+        "normalized_sha256": "63f909ec5af41afa0efb3d8a3953cc8dab6acdfb489e718692dd22c1417e2462",
+        "removed_source_comments": 13,
+        "matches_archived_A100": true
+      }
+    ],
+    "failures": []
+  },
+  "status": "pass"
+}

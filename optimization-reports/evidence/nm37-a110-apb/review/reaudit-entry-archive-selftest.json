@@ -1,0 +1,82 @@
+{
+  "status": "pass",
+  "scope": "isolated temporary fixtures; no formal routed re-audit or archive executed",
+  "tests": [
+    {
+      "name": "entry",
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_reaudit.py"
+      ],
+      "exit_code": 0,
+      "test_count": 30,
+      "log": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-entry-selftest.log",
+      "log_sha256": "30efe8cadafcf195961c689f5c6842cec6a5aaf1ac8c223d3ffdd83048f6f9c8"
+    },
+    {
+      "name": "archive_original",
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_candidate.py"
+      ],
+      "exit_code": 0,
+      "test_count": 28,
+      "log": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-archive_original-selftest.log",
+      "log_sha256": "2e2b7216262e170c2f6bf1faa99ac5e8b8bb570e1ac0e9c6f17fc5a4c801b77c"
+    },
+    {
+      "name": "archive_reaudit",
+      "command": [
+        "python3",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/test_archive_reaudit.py"
+      ],
+      "exit_code": 0,
+      "test_count": 9,
+      "log": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-archive_reaudit-selftest.log",
+      "log_sha256": "cbe551981ea9c291292951d09ff34155af3fcfa92ab9e5627630d5ff72a71056"
+    },
+    {
+      "name": "hbm_helper",
+      "command": [
+        "tclsh",
+        "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-staging/test_hbm_audit.tcl"
+      ],
+      "exit_code": 0,
+      "test_count": 25,
+      "log": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/reaudit-hbm_helper-selftest.log",
+      "log_sha256": "b72976822fd77cd58b24525937708b264a6eea5573f91b5c2cd2da9ec8b77945"
+    }
+  ],
+  "files": {
+    "reaudit-staging/reaudit.py": "df74c4b612087a135afd926bfdd2b2ff241ae68f61d694dc8e5d1cfc94d816ac",
+    "reaudit-staging/reaudit.tcl": "b4357adba6e6d5e56f9b8c633b0c92f03df9e1a22fdc0aa1599b64e13f540c27",
+    "reaudit-staging/run.sh": "060dac4fdcb69a6f734c740d349cd9380a69f745d6606c096c6456b19d04250b",
+    "reaudit-staging/test_reaudit.py": "262132836df2c47be2b145ddc73efd744286f8c09b26df44f028eae32d5bb992",
+    "reaudit-staging/test_hbm_audit.tcl": "be76bf7321896ba45a68b56f4c8ba846e6db7ddc1187c487c636facbb66556ed",
+    "reaudit-staging/physical_audit.py": "785cadd12329651d6006d3f9b0ecd0d54eede000507484032598d0f8170715ef",
+    "reaudit-staging/hbm_audit.tcl": "fab04cc7b93481f26e8fd799d50e31db08a80b1da576910035c49d8c9d62d139",
+    "reaudit-staging/check_reset_evidence.tcl": "3a3a8717d06a8437fecd932d31d6be544df43ddb5facfccd86241623b97dd437",
+    "reaudit-staging/cdc-baseline.json": "9fcc84f98a83dffb5ab3ff077118c1839b601b7892ad411a0ad361a541d103be",
+    "reaudit-staging/test_physical_audit_context.py": "51a4f7dae9866b722fb44e8e922a9e919c4b82438f62909f88c700b8fc7ca530",
+    "archive_candidate.py": "efa53229cfc1018b36f5c00493e8fda072747f0fb180480d9acd371164bf6682",
+    "verify_candidate_archive.py": "4226c571463eb6e082d446cd4f94456ac9fc72a53b9822ca2c4f83bfdac0617f",
+    "test_archive_candidate.py": "13dfb179d20f92d1390d1340aba0d88a3a37d26d117d201aa826361cad367118",
+    "test_archive_reaudit.py": "5a527a32398cbdabf428ce74bd022d44d2a8750524b2550feeaa7c236a7e7def",
+    "archive-selftest.json": "97fa5c58142495909e8748ee0a595dcdad55580e958e113b7b1decf7170deaa8"
+  },
+  "created_utc": "2026-10-20T06:21:18.538057+00:00",
+  "context_portability_verification": {
+    "results_path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/physical-audit-context-portability-selftest.json",
+    "results_sha256": "a5d4d7e699e9780236f6f971fef8bf5e5440269cfabcaf9c18eced01737e4469",
+    "log": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/review/physical-audit-context-portability-selftest.log",
+      "sha256": "d05ec643b71d7805e2d57873909df3a30e763fe3d3a2556b5b9be4dad2dad6eb"
+    },
+    "tests_per_layout": 14,
+    "layouts": [
+      "staging",
+      "repository-layout"
+    ]
+  },
+  "delivery_frozen_utc": "2026-10-20T06:24:43.844101+00:00"
+}

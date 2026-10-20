@@ -1,0 +1,2 @@
+PASS: independent-clock reset release, delayed/interrupted initialization, fail-stop/re-entry, all five AXI channels, and PLL/PERST qualification
+{"passed":true,"clock_scenarios":8,"gate_vectors":32768,"checks":3362863,"short_complete_faults":8,"partial_initialization_resets":8,"pll_scenarios":8,"pll_stable_cycles":7,"pll_release_events":32}

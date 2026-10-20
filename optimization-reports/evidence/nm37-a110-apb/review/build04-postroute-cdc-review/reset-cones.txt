@@ -1,0 +1,436 @@
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE
+driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1 REF=LUT2 INIT=4'hE ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I0 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I1 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR
+driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1 REF=LUT2 INIT=4'hE ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I0 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I1 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR
+driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1 REF=LUT2 INIT=4'hE ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I0 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I1 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR
+driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1 REF=LUT2 INIT=4'hE ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I0 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/I1 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE
+driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1] INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1]}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1 REF=LUT4 INIT=16'hFFEF ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I0 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I1 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I2 INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1]}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I3 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0] REF=FDPE INIT=1'b0 ASYNC_REG=1
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE
+driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+fanin_startpoints=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK {pcieResetControl/releaseSync/sync_reg[2]/Q} pcieResetControl/released_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst REF=PCIE4CE4 INIT= ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1] INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1]}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CORECLK INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_coreclk/O
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1 REF=LUT4 INIT=16'hFFEF ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I0 INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I1 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGHOTRESETOUT
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I2 INV=0 driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKSTATUS[1]}
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/I3 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/CFGPHYLINKDOWN
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1] REF=FDPE INIT=1'b0 ASYNC_REG=1
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+CELL pcieResetControl/releaseSync/blackbox_i_1 REF=LUT3 INIT=8'hF7 ASYNC_REG=
+ PIN pcieResetControl/releaseSync/blackbox_i_1/O INV=0 driver=pcieResetControl/releaseSync/blackbox_i_1/O
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I0 INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I1 INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/blackbox_i_1/I2 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL pcieResetControl/releaseSync/sync_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=1
+ PIN pcieResetControl/releaseSync/sync_reg[2]/Q INV=0 driver={pcieResetControl/releaseSync/sync_reg[2]/Q}
+ PIN pcieResetControl/releaseSync/sync_reg[2]/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL pcieResetControl/released_reg REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN pcieResetControl/released_reg/Q INV=0 driver=pcieResetControl/released_reg/Q
+ PIN pcieResetControl/released_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[0]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[0] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[0]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[1]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[1] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[1]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[2]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[2] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[2]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[3]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[3] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[3]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[4]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[4] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[4]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[5]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[5] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[5]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[6]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[6] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[6]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[7]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[7] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[7]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[8]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[8] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[8]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[9]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[9] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[9]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[10]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[10] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[10]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[11]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[11] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[11]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/debounced_debounce/reg_0_reg[12]/CLR
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/debounced_debounce/reg_0_reg[12] REF=FDCE INIT=1'b0 ASYNC_REG=
+ PIN wrangler/debounced_debounce/reg_0_reg[12]/CLR INV=0 driver=pcie/reg_0_i_2__2/O
+
+TARGET wrangler/deglitched_deglitch/reg_0_reg/PRE
+driver=pcie/reg_0_i_2__2/O
+fanin_startpoints=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q powerOnReset_fpga_power_on/power_on_reset_reg/Q
+CELL harnessSysPLL/inst/mmcme4_adv_inst REF=MMCME4_ADV INIT= ASYNC_REG=
+ PIN harnessSysPLL/inst/mmcme4_adv_inst/LOCKED INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+CELL pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+ PIN pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+CELL pcie/reg_0_i_2__2 REF=LUT3 INIT=8'hFD ASYNC_REG=
+ PIN pcie/reg_0_i_2__2/O INV=0 driver=pcie/reg_0_i_2__2/O
+ PIN pcie/reg_0_i_2__2/I0 INV=0 driver=harnessSysPLL/inst/mmcme4_adv_inst/LOCKED
+ PIN pcie/reg_0_i_2__2/I1 INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN pcie/reg_0_i_2__2/I2 INV=0 driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q
+CELL powerOnReset_fpga_power_on/power_on_reset_reg REF=FDRE INIT=1'b1 ASYNC_REG=
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/Q INV=0 driver=powerOnReset_fpga_power_on/power_on_reset_reg/Q
+ PIN powerOnReset_fpga_power_on/power_on_reset_reg/C INV=0 driver=_sys_clock_ibufds_O_BUFG_inst/O
+CELL wrangler/deglitched_deglitch/reg_0_reg REF=FDPE INIT=1'b1 ASYNC_REG=
+ PIN wrangler/deglitched_deglitch/reg_0_reg/PRE INV=0 driver=pcie/reg_0_i_2__2/O

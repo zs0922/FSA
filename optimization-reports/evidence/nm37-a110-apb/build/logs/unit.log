@@ -1,0 +1,47 @@
+Picked up JAVA_TOOL_OPTIONS: -Dsbt.ivy.home=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.ivy2 -Dsbt.global.base=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt -Dsbt.boot.directory=/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/.sbt/boot -Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110
+[info] welcome to sbt 1.8.2 (N/A Java 20.0.2-internal)
+[info] loading settings for project src-build from plugins.sbt ...
+[info] loading project definition from /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project barf from build.sbt ...
+[info] loading settings for project constellation from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project radiance from build.sbt ...
+[info] loading settings for project midas_target_utils from build.sbt ...
+[info] resolving key references (50820 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/src/)
+[info] running fsa.PipelineVerification 
+PASS: FPMac delay equivalence 14394 cases; legacy CMP max/diff equivalence 20169 cases.
+PASS: PE EXP2 scans 90 cases (continuous/gapped, all segments, EXP2/MAC/bypass switches).
+[success] Total time: 30 s, completed Oct 20, 2026, 5:19:24 AM
+[info] running fsa.PipelineVerification emit /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/formal
+[success] Total time: 1 s, completed Oct 20, 2026, 5:19:26 AM
+[info] running fsa.PipelinedScheduleVerification /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/score-events.json
+PASS: transported-score and resident-dependency schedules (4,4), (4,8), (8,4), (8,8), (16,16); R16 score load 51..66, score done 115.
+[success] Total time: 0 s, completed Oct 20, 2026, 5:19:26 AM
+[warn] multiple main classes detected: run 'show discoveredMainClasses' to see the list
+[warn] multiple main classes detected: run 'show discoveredMainClasses' to see the list
+[warn] generators/fsa/src/test/scala/fsa/ControlSignalTest.scala 33:16: [W004] Dynamic index with width 3 is too wide for Vec of size 4 (expected index width 2).
+[warn]     plan_dut(i)(timer) := ctrl(i)
+[warn]                ^
+[warn] There were 1 warning(s) during hardware elaboration.
+[warn] generators/fsa/src/test/scala/fsa/ControlSignalTest.scala 33:16: [W004] Dynamic index with width 6 is too wide for Vec of size 32 (expected index width 5).
+[warn]     plan_dut(i)(timer) := ctrl(i)
+[warn]                ^
+[warn] There were 1 warning(s) during hardware elaboration.
+[info] ControlSignalTest:
+[info] - should handle little overlapped flows
+[info] - should handle heavily overlapped flows
+[info] - should merge consecutive flows
+[info] - should preserve two-cycle and arbitrary row offsets in generated hardware
+[info] - should generate the pipelined score row wavefronts
+[info] Run completed in 1 minute, 20 seconds.
+[info] Total number of tests run: 5
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 5, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 80 s (01:20), completed Oct 20, 2026, 5:20:46 AM

@@ -1,0 +1,35 @@
+test_acceptance_attempt_cannot_overwrite (__main__.Fixture.test_acceptance_attempt_cannot_overwrite) ... ok
+test_all_seven_payloads_checked (__main__.Fixture.test_all_seven_payloads_checked) ... ok
+test_allowed_auditor_change_uses_original_git_bytes (__main__.Fixture.test_allowed_auditor_change_uses_original_git_bytes) ... ok
+test_allowlisted_document_must_not_be_symlink (__main__.Fixture.test_allowlisted_document_must_not_be_symlink) ... ok
+test_complete_original_bindings_and_immutable_original (__main__.Fixture.test_complete_original_bindings_and_immutable_original) ... ok
+test_dcp_and_original_reports_immutable_after_prepare (__main__.Fixture.test_dcp_and_original_reports_immutable_after_prepare) ... ok
+test_dirty_submodule_worktree_is_separate_from_gitlink_change (__main__.Fixture.test_dirty_submodule_worktree_is_separate_from_gitlink_change) ... ok
+test_entry_keeps_original_physical_gate_and_separate_reaudit (__main__.Fixture.test_entry_keeps_original_physical_gate_and_separate_reaudit) ... ok
+test_execution_report_log_and_cdc_bindings (__main__.Fixture.test_execution_report_log_and_cdc_bindings) ... ok
+test_export_calls_only_original_tcl_same_dcp (__main__.Fixture.test_export_calls_only_original_tcl_same_dcp) ... ok
+test_export_requires_verified_pass_and_new_destination (__main__.Fixture.test_export_requires_verified_pass_and_new_destination) ... ok
+test_failed_process_can_preserve_partial_report_manifest (__main__.Fixture.test_failed_process_can_preserve_partial_report_manifest) ... ok
+test_failure_is_retained_without_original_mutation (__main__.Fixture.test_failure_is_retained_without_original_mutation) ... ok
+test_fake_pass_cannot_override_real_physical_failure (__main__.Fixture.test_fake_pass_cannot_override_real_physical_failure) ... ok
+test_generated_ip_content_and_set_are_bound (__main__.Fixture.test_generated_ip_content_and_set_are_bound) ... ok
+test_git_driver_snapshot_must_match_manifest (__main__.Fixture.test_git_driver_snapshot_must_match_manifest) ... ok
+test_mutation_commands_and_changed_baseline_rejected (__main__.Fixture.test_mutation_commands_and_changed_baseline_rejected) ... ok
+test_only_exact_final_documents_and_evidence_are_allowed (__main__.Fixture.test_only_exact_final_documents_and_evidence_are_allowed) ... ok
+test_original_source_checker_executes (__main__.Fixture.test_original_source_checker_executes) ... ok
+test_output_refuses_existing_and_overlap (__main__.Fixture.test_output_refuses_existing_and_overlap) ... ok
+test_output_symlink_parent_rejected (__main__.Fixture.test_output_symlink_parent_rejected) ... ok
+test_pass_is_separate_and_recomputed (__main__.Fixture.test_pass_is_separate_and_recomputed) ... ok
+test_pass_numbers_and_deleted_review_map_rejected (__main__.Fixture.test_pass_numbers_and_deleted_review_map_rejected) ... ok
+test_physical_entry_rejects_stale_driver_without_rewriting_failure (__main__.Fixture.test_physical_entry_rejects_stale_driver_without_rewriting_failure) ... ok
+test_product_change_rejected (__main__.Fixture.test_product_change_rejected) ... ok
+test_reset_implementation_change_rejected (__main__.Fixture.test_reset_implementation_change_rejected) ... ok
+test_revised_tool_and_original_driver_tampering (__main__.Fixture.test_revised_tool_and_original_driver_tampering) ... ok
+test_stage_path_escapes_and_symlink_rejected (__main__.Fixture.test_stage_path_escapes_and_symlink_rejected) ... ok
+test_stage_wrong_build_rejected (__main__.Fixture.test_stage_wrong_build_rejected) ... ok
+test_vivado_version_cannot_change_with_rehashed_native_log (__main__.Fixture.test_vivado_version_cannot_change_with_rehashed_native_log) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 5.021s
+
+OK

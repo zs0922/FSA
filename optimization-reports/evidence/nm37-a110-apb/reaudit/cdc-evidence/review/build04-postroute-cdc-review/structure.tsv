@@ -1,0 +1,538 @@
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/D	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/as_mac_in_detect_user_i_1/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg	FDPE	1'b1	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 1 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 1 por 0 hot 0	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 0 released 1 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE	qualified 1 released 1 por 1 hot 1	1
+CHECK	as_mac_in_detect_user_reg	MATCH	16 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_pclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/D	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/PIPETXRATE[0]}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]	FDCE	1'b0	clock=pipe_clk	ASYNC_REG=	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 1 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 1 por 0 hot 0	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 0 released 1 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR	qualified 1 released 1 por 1 hot 1	1
+CHECK	pipe_tx_rate_ff_reg[0]	MATCH	16 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_pclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/D	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pcie_4_c_e4_inst/PIPETXRATE[1]}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]	FDCE	1'b0	clock=pipe_clk	ASYNC_REG=	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 1 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 1 por 0 hot 0	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 0 released 1 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR	qualified 1 released 1 por 1 hot 1	1
+CHECK	pipe_tx_rate_ff_reg[1]	MATCH	16 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_pclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/pipe_tx_rate_ff[1]_i_1/O}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/D	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/speed_change_in_progress_i_1/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg	FDCE	1'b0	clock=pipe_clk	ASYNC_REG=	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 0 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 1 por 0 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 1 por 0 hot 0	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 0 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 1 por 1 hot 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 0 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 1 por 0 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 0 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 0 released 1 por 1 hot 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR	qualified 1 released 1 por 1 hot 1	1
+CHECK	speed_change_in_progress_reg	MATCH	16 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/D	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/GND/G
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]	FDPE	1'b0	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=1	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 1	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+CHECK	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]	MATCH	64 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/D	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/Q}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]	FDPE	1'b0	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=1	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 1	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+CHECK	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]	MATCH	64 actual netlist truth rows match
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/CE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/D	IN	IS_INVERTED=0	driver={pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[1]/Q}
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_pcie_4_0_pipe_inst/user_reset_cdc_i_1/O
+PIN	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg	FDPE	1'b1	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=	CE_source=pcie/blackbox/inst/pcie4c_ip_i/inst/VCC/P
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 0	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 0 linkdown 0 linkup 1	0
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 0 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 1 linkdown 0 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 0 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 0 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 0 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 0 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+TRUTH	pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/PRE	qualified 1 released 1 por 1 hot 1 linkdown 1 linkup 1	1
+CHECK	user_reset_release_sequence	MATCH	64 actual netlist truth rows match
+CHECK	actual_apb_clock	MATCH	
+PIN	wrangler/debounced_debounce/reg_0_reg[0]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[0]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[0]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[0]/D	IN	IS_INVERTED=0	driver={wrangler/debounced_debounce/reg_0[0]_i_1/O}
+PIN	wrangler/debounced_debounce/reg_0_reg[0]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[0]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[0]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_0	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[1]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[1]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[1]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[1]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[0]}
+PIN	wrangler/debounced_debounce/reg_0_reg[1]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[1]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[1]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_1	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[2]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[2]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[2]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[2]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[1]}
+PIN	wrangler/debounced_debounce/reg_0_reg[2]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[2]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[2]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_2	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[3]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[3]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[3]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[3]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[2]}
+PIN	wrangler/debounced_debounce/reg_0_reg[3]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[3]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[3]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_3	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[4]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[4]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[4]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[4]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[3]}
+PIN	wrangler/debounced_debounce/reg_0_reg[4]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[4]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[4]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_4	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[5]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[5]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[5]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[5]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[4]}
+PIN	wrangler/debounced_debounce/reg_0_reg[5]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[5]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[5]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_5	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[6]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[6]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[6]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[6]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[5]}
+PIN	wrangler/debounced_debounce/reg_0_reg[6]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[6]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[6]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_6	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[7]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[7]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[7]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[7]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[6]}
+PIN	wrangler/debounced_debounce/reg_0_reg[7]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[7]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[7]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_7	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[8]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[8]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[8]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[8]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry/O[7]}
+PIN	wrangler/debounced_debounce/reg_0_reg[8]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[8]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[8]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_8	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[9]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[9]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[9]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[9]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry__0/O[0]}
+PIN	wrangler/debounced_debounce/reg_0_reg[9]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[9]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[9]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_9	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[10]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[10]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[10]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[10]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry__0/O[1]}
+PIN	wrangler/debounced_debounce/reg_0_reg[10]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[10]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[10]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_10	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[11]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[11]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[11]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[11]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry__0/O[2]}
+PIN	wrangler/debounced_debounce/reg_0_reg[11]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[11]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[11]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_11	MATCH	8 actual netlist truth rows match
+PIN	wrangler/debounced_debounce/reg_0_reg[12]/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/debounced_debounce/reg_0_reg[12]/CE	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[12]/CLR	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/debounced_debounce/reg_0_reg[12]/D	IN	IS_INVERTED=0	driver={wrangler/io_d0_carry__0/O[3]}
+PIN	wrangler/debounced_debounce/reg_0_reg[12]/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/debounced_debounce/reg_0_reg[12]	FDCE	1'b0	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/debounced_debounce/reg_0_i_1__2/O
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/debounced_debounce/reg_0_reg[12]/CLR	por 1 locked 1 user_reset 1	1
+CHECK	debounce_bit_12	MATCH	8 actual netlist truth rows match
+PIN	wrangler/deglitched_deglitch/reg_0_reg/C	IN	IS_INVERTED=0	driver=harnessSysPLL/inst/clkout2_buf/O
+PIN	wrangler/deglitched_deglitch/reg_0_reg/CE	IN	IS_INVERTED=0	driver=wrangler/deglitched_deglitch/VCC/P
+PIN	wrangler/deglitched_deglitch/reg_0_reg/D	IN	IS_INVERTED=0	driver=wrangler/debounced_debounce/reg_0_i_1__2/O
+PIN	wrangler/deglitched_deglitch/reg_0_reg/PRE	IN	IS_INVERTED=0	driver=pcie/reg_0_i_2__2/O
+PIN	wrangler/deglitched_deglitch/reg_0_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/deglitched_deglitch/reg_0_reg	FDPE	1'b1	clock=clk_out2_harnessSysPLL	ASYNC_REG=	CE_source=wrangler/deglitched_deglitch/VCC/P
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 0 locked 0 user_reset 0	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 1 locked 0 user_reset 0	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 0 locked 1 user_reset 0	0
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 1 locked 1 user_reset 0	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 0 locked 0 user_reset 1	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 1 locked 0 user_reset 1	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 0 locked 1 user_reset 1	1
+TRUTH	wrangler/deglitched_deglitch/reg_0_reg/PRE	por 1 locked 1 user_reset 1	1
+CHECK	deglitch	MATCH	8 actual netlist truth rows match
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/CE	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/CLR	IN	IS_INVERTED=0	driver=wrangler/deglitched_deglitch/reg_0_reg/Q
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/D	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg	FDCE	1'b0	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=	CE_source=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+CHECK	pcie_wrangler_release_2	MATCH	
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/CE	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/CLR	IN	IS_INVERTED=0	driver=wrangler/deglitched_deglitch/reg_0_reg/Q
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/D	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_2_reg/Q
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg	FDCE	1'b0	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=	CE_source=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+CHECK	pcie_wrangler_release_1	MATCH	
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/C	IN	IS_INVERTED=0	driver=pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/CE	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/CLR	IN	IS_INVERTED=0	driver=wrangler/deglitched_deglitch/reg_0_reg/Q
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/D	IN	IS_INVERTED=0	driver=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_1_reg/Q
+PIN	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg/Q	OUT	IS_INVERTED=0	driver=
+REGISTER	wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/sync_0_reg	FDCE	1'b0	clock=_pcie_io_clocks_axi_aclk	ASYNC_REG=	CE_source=wrangler/nodeOut_reset_catcher_2/io_sync_reset_chain/output_chain/VCC/P
+CHECK	pcie_wrangler_release_0	MATCH	
+structural_mismatches=0

@@ -1,0 +1,10 @@
+{
+  "status": "interrupted_during_final_report_generation",
+  "complete_routed_checkpoint_preserved": true,
+  "checkpoint_sha256": "44195817d21dfdc147800868637505f1ce89303fd3aa98f1c6e044f4b3ccf236",
+  "original_log_sha256": "65a3ebb72da2cf10956772ceb7148c6b1eae6b64abf679c0de667b3a0583c0c2",
+  "last_log_line": "## report_utilization -hierarchical -file $rptutil",
+  "observed_no_running_vivado_utc": "2026-10-20T07:05:00Z",
+  "original_hbm_audit_error": "unexpected HBM reference buffer primitive",
+  "next_action": "independent read-only reports and strict acceptance of unchanged DCP; do not label original flow passed"
+}

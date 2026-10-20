@@ -1,0 +1,29 @@
+Historical build03 IP-generation failure; not a build04 verification result.
+Source: /home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build03/A110/implementation.log
+Source SHA256: 5170ed6828b5e15f6d9e6b221b283d34421a507185e39133aa994ea2d78b7ef8
+
+175: ### set jitter [get_property CONFIG.CLKOUT1_JITTER [get_ips harnessSysPLL]]
+176: ### if {$jitter > 230.0} {
+177: ###   puts "Output jitter $jitter ps exceeds required limit of 230.0"
+178: ###   exit 1
+179: ### }
+180: ### set phase [get_property CONFIG.MMCM_CLKOUT0_PHASE [get_ips harnessSysPLL]]
+181: ### if {$phase < -5.0 || $phase > 5.0} {
+182: ###   puts "Achieved phase $phase degrees is outside tolerated range -5.0-5.0"
+183: ###   exit 1
+184: ### }
+185: ### set div2 [get_property CONFIG.MMCM_CLKOUT0_DIVIDE_F [get_ips harnessSysPLL]]
+186: ### set freq [expr { 100.0 * $mult / $div1 / $div2 }]
+187: ### if {$freq < 108.9 || $freq > 111.1} {
+188: ###   puts "Achieved frequency $freq MHz is outside tolerated range 108.9-111.1"
+189: ###   exit 1
+190: ### }
+191: ### puts "Achieve frequency $freq MHz phase $phase degrees jitter $jitter ps"
+192: Achieve frequency 110.0 MHz phase 0.000 degrees jitter 195.800 ps
+193: ### set jitter [get_property CONFIG.CLKOUT2_JITTER [get_ips harnessSysPLL]]
+194: ### if {$jitter > 200.0} {
+195: ###   puts "Output jitter $jitter ps exceeds required limit of 200.0"
+196: ###   exit 1
+197: ### }
+198: Output jitter 214.859 ps exceeds required limit of 200.0
+199: INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 05:09:51 2026...

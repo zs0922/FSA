@@ -44,8 +44,9 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
   // Keep APB at 55 MHz: the A110 candidate has a 2:1 AXI/APB clock ratio.
   // Both PLL outputs deliberately belong to the same ClockGroup: PLLFactory
   // must preserve their related generated-clock timing, not cut it as async.
-  val hbmAPBFixedClockNode = FixedClockBroadcast()
-  val hbmAPBClockNode = ClockSinkNode(freqMHz = 55, jitterPS = 230)
+  val hbmAPBFrequencyMHz = 55.0
+  val hbmAPBFixedClockNode = FixedClockBroadcast(Some(ClockParameters(freqMHz = hbmAPBFrequencyMHz)))
+  val hbmAPBClockNode = ClockSinkNode(freqMHz = hbmAPBFrequencyMHz, jitterPS = 230)
   hbmAPBFixedClockNode := wrangler.node := dutClockGroup
   hbmAPBClockNode := hbmAPBFixedClockNode
 
@@ -61,7 +62,8 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
     // exactly as on the U280. Its AXI_00 port is 256-bit, matching both the
     // XDMA M_AXI (256-bit) and the FSA 16x16 DMA (32-byte spad rows), so no
     // width conversion is needed anywhere.
-    val ram = LazyModule(new chipyard.fpga.u280.LazyXilinxHBMController("test"))
+    val ram = LazyModule(new chipyard.fpga.u280.LazyXilinxHBMController(
+      "test", apbFrequencyMHz = hbmAPBFrequencyMHz))
 
     val xbar = LazyModule(new AXI4Xbar())
 

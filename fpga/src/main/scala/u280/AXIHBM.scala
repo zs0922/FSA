@@ -66,7 +66,15 @@ class XilinxHBM
        |""".stripMargin)
 }
 
-class LazyXilinxHBMController(moduleNamePrefix: String, portNum: Int = 1, is16GB: Boolean = false)(implicit p: Parameters) extends LazyModule {
+class LazyXilinxHBMController(
+  moduleNamePrefix: String,
+  portNum: Int = 1,
+  is16GB: Boolean = false,
+  apbFrequencyMHz: Double,
+)(implicit p: Parameters) extends LazyModule {
+  require(apbFrequencyMHz >= 50 && apbFrequencyMHz <= 100 &&
+    apbFrequencyMHz == apbFrequencyMHz.toInt.toDouble,
+    s"HBM APB clock must be an integer 50..100 MHz, got $apbFrequencyMHz MHz")
   val node = Seq.fill(portNum)(AXI4SlaveNode(
     Seq(AXI4SlavePortParameters(
       Seq(AXI4SlaveParameters(
@@ -88,7 +96,9 @@ class LazyXilinxHBMController(moduleNamePrefix: String, portNum: Int = 1, is16GB
   val slaveClockNodes = Seq.fill(portNum)(ClockSinkNode(Seq(ClockSinkParameters())))
   val HBMRefClockNode = ClockSinkNode(Seq(ClockSinkParameters()))
   // APB management clock/reset are independent of the AXI data interface.
-  val apbClockNode = ClockSinkNode(Seq(ClockSinkParameters()))
+  // Make the management frequency part of the diplomacy contract, so this
+  // sink has a defined clock even behind a fanout FixedClockBroadcast.
+  val apbClockNode = ClockSinkNode(freqMHz = apbFrequencyMHz)
 
   lazy val module = new LazyRawModuleImp(this) {
     val bundleParams = node.map { a => a.in.head._2.bundle }
@@ -98,6 +108,8 @@ class LazyXilinxHBMController(moduleNamePrefix: String, portNum: Int = 1, is16GB
     val apbClock = apbClockNode.in.head._1.clock
     val apbReset = apbClockNode.in.head._1.reset
     val apbFrequency = apbClockNode.in.head._2.clock.get.freqMHz
+    require(apbFrequency == apbFrequencyMHz,
+      s"HBM APB negotiated $apbFrequency MHz, expected $apbFrequencyMHz MHz")
     require(apbFrequency >= 50 && apbFrequency <= 100,
       s"HBM APB clock must be 50..100 MHz, got $apbFrequency MHz")
     val hbm = Module(new XilinxHBM(bundleParams, portNum, is16GB,

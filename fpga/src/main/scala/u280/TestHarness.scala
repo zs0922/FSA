@@ -84,7 +84,7 @@ class U280FPGATestHarness(implicit p: Parameters) extends U280ShellBasicOverlays
 
   val (ram, fsa) = dutDomain {
     val ram = LazyModule(new LazyXilinxHBMController(
-      "test", is16GB = false
+      "test", is16GB = false, apbFrequencyMHz = dutFreqMHz
     ))
 
     val xbar = LazyModule(new AXI4Xbar())

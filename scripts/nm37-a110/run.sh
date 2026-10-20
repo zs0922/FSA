@@ -5,6 +5,11 @@ ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 export A110_OUT=${A110_OUT:?Set A110_OUT to a fresh absolute output directory}
 [[ "$A110_OUT" = /* && "$A110_OUT" != *' '* && "$ROOT" != *' '* ]] || { echo 'Absolute paths without spaces required' >&2; exit 2; }
 export USE_CHISEL6=1
+# Chisel's resolver otherwise downloads its own firtool version, independent
+# of the binary used by the board Makefile and recorded in environment.json.
+if command -v firtool >/dev/null 2>&1; then
+  export CHISEL_FIRTOOL_PATH=$(dirname "$(command -v firtool)")
+fi
 export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS:-} -Xmx16G -Xss8M -XX:ActiveProcessorCount=16 -Dfsa.pePipeline=true -Dfsa.fanoutSplit=false -Dfsa.pipelineConservative=false -Dfsa.nm37MHz=110"
 helper="$ROOT/scripts/nm37-a110"
 jar="$A110_OUT/generator.jar"
@@ -12,7 +17,7 @@ name=chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config
 build="$A110_OUT/A110/fpga/$name"
 phase=${1:-help}
 case "$phase" in
-  help) echo 'Phases: check prepare units formal sim elaborate implement bitstream'; exit 0;;
+  help) echo 'Phases: check prepare units formal hbm-startup sim elaborate implement bitstream'; exit 0;;
   check) python3 "$helper/check.py" sources; exit;;
   prepare)
     [[ ! -e "$A110_OUT" ]] || { echo 'Refusing to reuse output directory' >&2; exit 2; }
@@ -66,6 +71,17 @@ PYTOOLS
     [[ ! -e "$A110_OUT/formal/results.json" ]] || { echo 'Formal results already exist'; exit 2; }
     python3 "$helper/verify_equivalence.py"
     python3 "$helper/check.py" seal formal
+    ;;
+  hbm-startup)
+    python3 "$helper/check.py" run
+    [[ ! -e "$A110_OUT/hbm-startup" ]] || { echo 'HBM startup output already exists'; exit 2; }
+    mkdir -p "$A110_OUT/hbm-startup"
+    cd "$ROOT"
+    java -jar scripts/sbt-launch.jar -Dsbt.supershell=false \
+      "chipyard_fpga/Test/runMain chipyard.fpga.u280.HBMStartupVerification $A110_OUT/hbm-startup/rtl" \
+      > "$A110_OUT/hbm-startup/emission.log" 2>&1
+    python3 "$helper/verify_hbm_startup.py" --rtl "$A110_OUT/hbm-startup/rtl" --out "$A110_OUT/hbm-startup"
+    python3 "$helper/check.py" seal hbm-startup
     ;;
   sim)
     python3 "$helper/check.py" run

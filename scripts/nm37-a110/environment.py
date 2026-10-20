@@ -35,7 +35,7 @@ for name in ('libfesvr.a', 'libriscv.so'):
     p = Path(os.environ['RISCV']) / 'lib' / name
     libs[str(p)] = digest(p)
 keys = ['RISCV', 'CC', 'CXX', 'PATH', 'LD_LIBRARY_PATH', 'JAVA_TOOL_OPTIONS',
-        'USE_CHISEL6', 'YOSYS', 'FSA_PYTHON', 'A110_JOBS', 'COURSIER_CACHE', 'XDG_CACHE_HOME']
+        'USE_CHISEL6', 'CHISEL_FIRTOOL_PATH', 'YOSYS', 'FSA_PYTHON', 'PYTHONPATH', 'A110_JOBS', 'COURSIER_CACHE', 'XDG_CACHE_HOME', 'XDG_RUNTIME_DIR']
 record = dict(tools=tools, libraries=libs, environment={k: os.environ.get(k) for k in keys})
 (out / 'logs/environment.json').write_text(json.dumps(record, indent=2) + '\n')
 print('Recorded build tool identity and compiler/runtime environment')

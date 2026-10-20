@@ -1,6 +1,24 @@
 # Read-only reset distribution audit. Source this file after opening a design.
 namespace eval reset_audit {
- variable stem wrangler/nodeOut_reset_catcher/io_sync_reset_chain/output_chain
+ variable stem {}
+ # ClockGroup membership can renumber ResetWrangler catchers. Resolve the
+ # DUT chain by its actual clock, never by its elaboration-order suffix.
+ proc select_dut {} {
+  variable stem
+  set dut [get_clocks -quiet clk_out1_harnessSysPLL]
+  if {[llength $dut] != 1 || abs([get_property PERIOD $dut] - 1000.0/110.0) > 0.001} {error "Reset audit: missing 110 MHz DUT clock"}
+  set matches {}
+  foreach c [get_cells -quiet -hier -filter {NAME =~ wrangler/*/io_sync_reset_chain/output_chain/sync_2_reg && REF_NAME == FDCE}] {
+   if {[get_clocks -quiet -of_objects [pin $c C]] eq $dut} {
+    lappend matches [file dirname $c]
+   }
+  }
+  if {[llength $matches] != 1} {error "Reset audit: expected one clock-identified DUT reset chain, found $matches"}
+  set selected [lindex $matches 0]
+  if {$stem ne {} && $stem ne $selected} {error "Reset audit: DUT reset identity changed: $stem -> $selected"}
+  set stem $selected
+  return $stem
+ }
  proc pin {c role} {
   set p [get_pins -quiet -of_objects $c -filter "REF_PIN_NAME == $role"]
   if {[llength $p] != 1} {error "Reset audit: expected exactly one $role pin on $c"}
@@ -8,6 +26,7 @@ namespace eval reset_audit {
  }
  proc finals {} {
   variable stem
+  select_dut
   set original [get_cells -quiet $stem/sync_0_reg]
   if {[llength $original] != 1 || [get_property REF_NAME $original] ne "FDCE"} {error "Reset audit: canonical sync_0_reg missing/changed; review new netlist naming"}
   set fs [lsort [get_cells -quiet -hier -filter "NAME =~ ${stem}/sync_0* && REF_NAME == FDCE"]]

@@ -142,6 +142,18 @@ def seal(stage):
         assert {p['proof_type'] for p in proofs} == {'macseq', 'cmpeq', 'cmpseq'}
         assert all(p['all_inputs_equivalent'] and p['exit_code'] == 0 for p in proofs)
         paths = [p for p in (OUT / 'formal').rglob('*') if p.is_file()]
+    elif stage == 'hbm-startup':
+        result = json.loads((OUT / stage / 'results.json').read_text())
+        assert result['passed'], 'HBM startup verification failed'
+        assert result['clock_scenarios'] == 8 and result['gate_vectors'] == 32768
+        assert result['checks'] > 100000
+        for name, digest in result['inputs_sha256'].items():
+            assert sha(Path(name)) == digest, 'Changed HBM verification input: ' + name
+        for key, name in [('binary_sha256', 'obj/VHBMStartupVerificationHarness'),
+                          ('simulation_log_sha256', 'simulation.log'),
+                          ('verilator_build_log_sha256', 'verilator-build.log')]:
+            assert sha(OUT / stage / name) == result[key], 'Changed HBM verification result: ' + name
+        paths = [p for p in (OUT / stage).rglob('*') if p.is_file()]
     elif stage.startswith('sim'):
         size = int(stage[3:])
         assert size in (4, 8, 16)
@@ -160,35 +172,42 @@ def seal(stage):
 
 def gate():
     run()
-    for stage in ['units', 'formal', 'sim4', 'sim8', 'sim16', 'elaborate']:
+    for stage in ['units', 'formal', 'hbm-startup', 'sim4', 'sim8', 'sim16', 'elaborate']:
         proof = json.loads((OUT / f'{stage}.passed.json').read_text())
         assert proof['build_sha256'] == sha(OUT / 'build.json')
         verify(OUT, proof['files'])
 
 def physical():
-    run()
-    obj, = (OUT / 'A110/fpga').glob('*/obj')
-    props = dict(line.split('=', 1) for line in (obj / 'audit/run_properties.txt').read_text().splitlines())
-    assert props['part'] == 'xcvu37p_CIV-fsvh2892-2L-e' and abs(float(props['dut_period']) - 1000.0 / 110.0) < 0.001
-    assert float(props['dut_setup_wns']) >= 0 and float(props['dut_hold_whs']) >= 0
-    timing = (obj / 'report/timing.txt').read_text()
-    match = re.search(r'WNS\(ns\).*?\n\s*-+[^\n]*\n\s*([^\n]+)', timing, re.S)
-    assert match, 'Missing timing summary'
-    values = list(map(float, match[1].split()))
-    assert len(values) == 12 and all(values[i] >= 0 for i in (0, 4, 8)), values
-    assert all(values[i] == 0 for i in (1, 2, 5, 6, 9, 10)), values
-    route = (obj / 'report/route_status.txt').read_text()
-    counts = [int(re.search(re.escape(k) + r'\.+\s*:\s*(\d+)', route)[1]) for k in ['# of routable nets', '# of fully routed nets', '# of nets with routing errors']]
-    assert counts[0] == counts[1] and counts[2] == 0, counts
-    bus = (obj / 'audit/bus_skew.txt').read_text()
-    slacks = [float(v) for v in re.findall(r'Slack\s*(?:\((?:MET|VIOLATED)\))?\s*:\s*([-\d.]+)ns', bus)]
-    assert slacks and min(slacks) >= 0, 'Missing/failing bus skew'
-    drc = (obj / 'report/drc.txt').read_text()
-    assert not re.search(r'\|\s*(?:Error|Critical Warning)\s*\|', drc), 'DRC error/critical'
-    assert (obj / 'audit/cdc.txt').is_file() and (obj / 'audit/check_timing.txt').is_file()
-    write(OUT / 'physical.passed.json', {'constrained_sta_passed': True, 'board_signoff': False, 'cdc_review_required': True,
-          'dut': props, 'timing_summary': values, 'route': counts, 'bus_skew_worst_ns': min(slacks),
-          'checkpoint_sha256': sha(obj / 'post_route.dcp')})
+    from physical_audit import inspect
+    result = {'constrained_sta_passed': False, 'board_signoff': False}
+    obj = None
+    try:
+        # Bind physical acceptance to every compilation/functional stage too.
+        gate()
+        obj, = (OUT / 'A110/fpga').glob('*/obj')
+        inspect(obj, result)
+        result['build_sha256'] = sha(OUT / 'build.json')
+        result['checkpoint_sha256'] = sha(obj / 'post_route.dcp')
+        assert (obj / 'audit/postroute_checkpoint.sha256').read_text().strip() == result['checkpoint_sha256'], 'Routed DCP differs from audited checkpoint'
+        result['stage_seals'] = {p.name: sha(p) for p in OUT.glob('*.passed.json')
+                                 if p.name != 'physical.passed.json'}
+        result['evidence'] = {str(p.relative_to(OUT)): sha(p)
+            for directory in ('report', 'audit', 'hbm_audit', 'reset_replication_audit')
+            for p in (obj / directory).rglob('*') if p.is_file()}
+        write(OUT / 'physical.passed.json', result)
+    except Exception as error:
+        (OUT / 'physical.passed.json').unlink(missing_ok=True)
+        result['error'] = str(error)
+        result['constrained_sta_passed'] = False
+        if obj is not None:
+            result['evidence'] = {str(p.relative_to(OUT)): sha(p)
+                for directory in ('report', 'audit', 'hbm_audit', 'reset_replication_audit')
+                for p in (obj / directory).rglob('*') if p.is_file()}
+            if (obj / 'post_route.dcp').is_file():
+                result['checkpoint_sha256'] = sha(obj / 'post_route.dcp')
+        if OUT.is_dir():
+            write(OUT / 'physical.failed.json', result)
+        raise
 
 if __name__ == '__main__':
     action = sys.argv[1]

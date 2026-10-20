@@ -1,0 +1,277 @@
+{
+  "source": "optimization-reports/evidence/nm37-a110-reset/A110/audit/cdc.txt.gz",
+  "source_sha256": "fb3293441779542c8f599932f7f0b002a30ddca38634040dfddc7e97ffa5b600",
+  "note": "Existing A110 critical CDC rows retained for differential review, not waived as board signoff. New critical rows must be independently reviewed.",
+  "critical_rows": [
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "prst_n",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "prst_n",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+    ],
+    [
+      "CDC-10",
+      "Critical",
+      "Combinational logic detected before a synchronizer",
+      "3",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+    ],
+    [
+      "CDC-10",
+      "Critical",
+      "Combinational logic detected before a synchronizer",
+      "3",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+      "wrangler/deglitched_deglitch/reg_0_reg/PRE"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "wrangler/deglitched_deglitch/reg_0_reg/PRE"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "prst_n",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "prst_n",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "prst_n",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+    ],
+    [
+      "CDC-7",
+      "Critical",
+      "Asynchronous reset unknown CDC circuitry",
+      "0",
+      "False Path",
+      "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ],
+    [
+      "CDC-11",
+      "Critical",
+      "Fan-out from launch flop to destination clock",
+      "4",
+      "Asynch Clock Groups",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+      "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+    ]
+  ]
+}

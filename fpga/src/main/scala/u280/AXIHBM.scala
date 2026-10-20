@@ -27,6 +27,8 @@ class XilinxHBMIO(val params: Seq[AXI4BundleParameters], val is16GB: Boolean) ex
   val APB_1_PCLK = if (is16GB) Some(Input(Clock())) else None
   val APB_0_PRESET_N = Input(Reset())
   val APB_1_PRESET_N = if (is16GB) Some(Input(Reset())) else None
+  val apb_complete_0 = Output(Bool())
+  val apb_complete_1 = if (is16GB) Some(Output(Bool())) else None
 }
 
 class XilinxHBM
@@ -35,17 +37,25 @@ class XilinxHBM
   portNum: Int = 1,
   is16GB: Boolean = false,
   override val desiredName: String,
+  apbFrequencyMHz: Double,
 ) extends BlackBox {
   val io = IO(new XilinxHBMIO(bundleParams, is16GB))
   require(!(portNum > 16 && !is16GB))
   require(portNum > 0 && portNum <= 1)
+  // Vivado 2020.2 hbm_v1_0 USER_APB_PCLK_0/1 accepts 50..100 MHz.
+  require(apbFrequencyMHz >= 50 && apbFrequencyMHz <= 100 &&
+    apbFrequencyMHz == apbFrequencyMHz.toInt.toDouble,
+    s"HBM APB clock must be an integer 50..100 MHz, got $apbFrequencyMHz MHz")
+  private val apbClockSettings = (if (is16GB) Seq(0, 1) else Seq(0)).map { stack =>
+    s"    CONFIG.USER_APB_PCLK_$stack {${apbFrequencyMHz.toInt}} \\\n"
+  }.mkString
 
   ElaborationArtefacts.add(s"$desiredName.vivado.tcl",
     s"""
        |create_ip -name hbm -vendor xilinx.com -library ip -version 1.0 -module_name $desiredName
        |set_property -dict [list \\
        |    CONFIG.USER_APB_EN {false} \\
-       |    CONFIG.USER_CLK_SEL_LIST0 {AXI_00_ACLK} \\
+       |${apbClockSettings}    CONFIG.USER_CLK_SEL_LIST0 {AXI_00_ACLK} \\
        |    CONFIG.USER_CLK_SEL_LIST1 {AXI_16_ACLK} \\
        |    CONFIG.USER_HBM_DENSITY {8GB} \\
        |    CONFIG.USER_HBM_STACK {1} \\
@@ -77,14 +87,37 @@ class LazyXilinxHBMController(moduleNamePrefix: String, portNum: Int = 1, is16GB
 
   val slaveClockNodes = Seq.fill(portNum)(ClockSinkNode(Seq(ClockSinkParameters())))
   val HBMRefClockNode = ClockSinkNode(Seq(ClockSinkParameters()))
+  // APB management clock/reset are independent of the AXI data interface.
+  val apbClockNode = ClockSinkNode(Seq(ClockSinkParameters()))
 
   lazy val module = new LazyRawModuleImp(this) {
     val bundleParams = node.map { a => a.in.head._2.bundle }
-    val hbm = Module(new XilinxHBM(bundleParams, portNum, is16GB, moduleNamePrefix + "xilinx_hbm"))
     val slaveClocks = slaveClockNodes.map(a => a.in.head._1.clock)
     val slaveResets = slaveClockNodes.map(a => a.in.head._1.reset)
 
+    val apbClock = apbClockNode.in.head._1.clock
+    val apbReset = apbClockNode.in.head._1.reset
+    val apbFrequency = apbClockNode.in.head._2.clock.get.freqMHz
+    require(apbFrequency >= 50 && apbFrequency <= 100,
+      s"HBM APB clock must be 50..100 MHz, got $apbFrequency MHz")
+    val hbm = Module(new XilinxHBM(bundleParams, portNum, is16GB,
+      moduleNamePrefix + "xilinx_hbm", apbFrequency))
     val hbmIO = hbm.io
+
+    // NM37 connects both clock nodes through the same ResetWrangler, so PLL
+    // lock loss and PCIe reset reset the masters, fabric and complete HBM stack.
+    val startup = Module(new HBMStartupControl)
+    startup.io.apbClock := apbClock
+    startup.io.axiClock := slaveClocks.head
+    startup.io.reset := apbReset.asBool || slaveResets.head.asBool
+    startup.io.apbComplete := hbmIO.apb_complete_0 &&
+      hbmIO.apb_complete_1.getOrElse(true.B)
+    hbmIO.APB_0_PCLK := apbClock
+    hbmIO.APB_0_PRESET_N := startup.io.apbResetN
+    if (is16GB) {
+      hbmIO.APB_1_PCLK.get := apbClock
+      hbmIO.APB_1_PRESET_N.get := startup.io.apbResetN
+    }
 
     hbmIO.HBM_REF_CLK_0 := HBMRefClockNode.in.head._1.clock
     if (is16GB) {
@@ -97,15 +130,12 @@ class LazyXilinxHBMController(moduleNamePrefix: String, portNum: Int = 1, is16GB
       val hbmPort = hbmIO.AXI_00
 
       hbmIO.AXI_00_ACLK := slaveClocks(i)
-      hbmIO.AXI_00_ARESET_N := !(slaveResets(i).asBool)
+      hbmIO.AXI_00_ARESET_N := startup.io.axiResetN
 
-      hbmIO.APB_0_PCLK := slaveClocks(i)
-      if (is16GB) { hbmIO.APB_1_PCLK.get := slaveClocks(i) }
-
-      hbmIO.APB_0_PRESET_N := !(slaveResets(i).asBool)
-      if (is16GB) { hbmIO.APB_1_PRESET_N.get := !(slaveResets(i).asBool) }
-
-      hbmPort.drivenByStandardAXI4(in, slaveClocks(i), slaveResets(i).asBool)
+      val gate = Module(new HBMAXIStartupGate(bundleParams(i)))
+      gate.io.enable := startup.io.trafficReady
+      gate.io.in <> in
+      hbmPort.drivenByStandardAXI4(gate.io.out, slaveClocks(i), !startup.io.axiResetN)
     }
   }
 }

@@ -41,6 +41,14 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
   dutFixedClockNode := wrangler.node := dutClockGroup := harnessSysPLL
   dutClockNode := dutFixedClockNode
 
+  // Keep APB at 55 MHz: the A110 candidate has a 2:1 AXI/APB clock ratio.
+  // Both PLL outputs deliberately belong to the same ClockGroup: PLLFactory
+  // must preserve their related generated-clock timing, not cut it as async.
+  val hbmAPBFixedClockNode = FixedClockBroadcast()
+  val hbmAPBClockNode = ClockSinkNode(freqMHz = 55, jitterPS = 230)
+  hbmAPBFixedClockNode := wrangler.node := dutClockGroup
+  hbmAPBClockNode := hbmAPBFixedClockNode
+
   val placedXDMA = dp(chipyard.fpga.u280.CustomXDMAOverlayKey).head.place(
     chipyard.fpga.u280.CustomXDMADesignInput(wrangler.node, dutFixedClockNode)
   )
@@ -67,6 +75,7 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
 
     // HBM AXI interface clock: the dut clock domain (as on the U280)
     ram.slaveClockNodes(0) := dutFixedClockNode
+    ram.apbClockNode := hbmAPBFixedClockNode
     // HBM PHY reference clock: 100MHz from the board oscillator (IBUFDS path)
     ram.HBMRefClockNode := sysClkBroadcast
 

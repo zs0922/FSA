@@ -204,8 +204,14 @@ def inspect(obj, result):
         }
         for key, value in expected_parameters.items():
             assert abs(float(entries[key]) - value) < 0.0001, f'PLL parameter {key}: {entries[key]} != {value}'
+        jitter_ps = {key: float(entries['PARAM_VALUE.' + key])
+                     for key in ('CLKOUT1_JITTER', 'CLKOUT2_JITTER')}
+        assert all(math.isfinite(value) and 0 <= value <= 230 for value in jitter_ps.values()), 'PLL output exceeds declared 230 ps peak-to-peak budget'
+        jitter_input = {key: entries['PARAM_VALUE.' + key] for key in
+                        ('JITTER_OPTIONS', 'CLKIN1_UI_JITTER', 'CLKIN1_JITTER_PS', 'JITTER_SEL')}
         result['pll_configuration'].append({'path': str(path),
             'parameters': {key: entries[key] for key in expected_parameters},
+            'output_jitter_peak_to_peak_ps': jitter_ps, 'input_jitter_configuration': jitter_input,
             'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     lines = (obj / 'hbm_audit/endpoint_timing.tsv').read_text().splitlines()
     expected = {(name, kind) for name in ['complete_apb_to_axi'] +

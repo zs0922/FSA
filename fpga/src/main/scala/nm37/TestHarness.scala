@@ -45,7 +45,11 @@ class NM37FPGATestHarness(implicit p: Parameters) extends NM37ShellBasicOverlays
   // Both PLL outputs deliberately belong to the same ClockGroup: PLLFactory
   // must preserve their related generated-clock timing, not cut it as async.
   val hbmAPBFrequencyMHz = 55.0
-  val hbmAPBFixedClockNode = FixedClockBroadcast(Some(ClockParameters(freqMHz = hbmAPBFrequencyMHz)))
+  // Keep the board sink first: the ordinary broadcast forwards its 55 MHz /
+  // 230 ps contract. The fixed-frequency variant creates a fresh sink with
+  // the library default 200 ps, discarding the declared jitter requirement.
+  // The HBM controller also declares take=55 MHz, so no frequency is missing.
+  val hbmAPBFixedClockNode = FixedClockBroadcast()
   val hbmAPBClockNode = ClockSinkNode(freqMHz = hbmAPBFrequencyMHz, jitterPS = 230)
   hbmAPBFixedClockNode := wrangler.node := dutClockGroup
   hbmAPBClockNode := hbmAPBFixedClockNode

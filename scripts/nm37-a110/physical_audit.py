@@ -2,12 +2,80 @@
 import json
 import hashlib
 import math
+from dataclasses import dataclass
+import os
 from pathlib import Path
 import re
 import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 
 HELPER = Path(__file__).resolve().parent
+
+
+def within(path, directory):
+    try:
+        Path(path).resolve().relative_to(Path(directory).resolve())
+        return True
+    except ValueError:
+        return False
+
+
+@dataclass(frozen=True)
+class AuditContext:
+    """Original implementation inputs and independent re-audit outputs.
+
+    ``checkpoint`` is the original routed DCP below ``ip_root/obj``. The
+    original build/IP/DCP are read-only inputs. ``review_root`` is a disjoint
+    existing output directory; ``obj`` passed to inspect is its new report
+    tree. No implementation pass marker is created by this module.
+    """
+    build_root: Path
+    checkpoint: Path
+    ip_root: Path
+    review_root: Path
+
+    def __post_init__(self):
+        for name in ('build_root', 'checkpoint', 'ip_root', 'review_root'):
+            object.__setattr__(self, name, Path(getattr(self, name)).resolve())
+
+    def validate(self, obj):
+        obj = Path(obj).resolve()
+        assert self.build_root.is_dir() and (self.build_root / 'build.json').is_file(), 'Missing original build manifest'
+        assert self.ip_root.is_dir() and within(self.ip_root, self.build_root), 'Original IP root must be within original build'
+        assert self.checkpoint.is_file() and self.checkpoint == (self.ip_root / 'obj/post_route.dcp').resolve(), 'Expected original post_route.dcp from original IP root'
+        assert within(self.checkpoint, self.build_root), 'Checkpoint escapes original build'
+        assert self.review_root.is_dir(), 'Re-audit output directory must already exist'
+        assert not within(self.review_root, self.build_root) and not within(self.build_root, self.review_root), 'Re-audit output and original build must be disjoint'
+        assert obj.is_dir() and within(obj, self.review_root), 'New report root must be within re-audit output'
+        # Reject linked report trees, including a new-looking CDC path that
+        # actually resolves to the old implementation report.
+        assert not any(path.is_symlink() for path in obj.rglob('*')), 'Re-audit reports must not contain symlinks'
+        assert within(obj / 'audit/cdc.txt', self.review_root), 'New CDC report escapes re-audit output'
+        return self
+
+    def review_path(self, name):
+        path = self.review_root / name
+        assert within(path, self.review_root), 'CDC review output escapes re-audit directory'
+        assert not within(path, self.build_root), 'CDC review must not write original build'
+        return path
+
+    def describe(self, obj):
+        return {'mode': 'external_reaudit', 'build_root': str(self.build_root),
+                'checkpoint': str(self.checkpoint), 'ip_root': str(self.ip_root),
+                'report_root': str(Path(obj).resolve()), 'review_root': str(self.review_root)}
+
+
+def write_review_template(path, template):
+    """Replace the directory entry, never overwrite the target of a hard link."""
+    with tempfile.NamedTemporaryFile(mode='w', dir=path.parent, prefix='.cdc-review-',
+                                     suffix='.tmp', delete=False) as stream:
+        stream.write(json.dumps(template, indent=2) + '\n')
+        temporary = Path(stream.name)
+    try:
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def properties(path):
@@ -86,13 +154,16 @@ def cdc_rows(content):
     return rows
 
 
-def review_cdc(obj, rows, result=None):
+def review_cdc(obj, rows, result=None, context=None):
     """Every new Warning/Critical needs explicit, report-bound review.
 
     The reviewer creates OUT/cdc-review.json after examining actual routed
     evidence. This data cannot change implementation constraints or waive a
     failed timing/structural check; all such checks precede this function.
     """
+    obj = Path(obj)
+    if context is not None:
+        context.validate(obj)
     baseline = json.loads((HELPER / 'cdc-baseline.json').read_text())
     known = {tuple(row) for row in baseline['findings']}
     findings = [row for row in rows if row[1] in ('Critical', 'Warning')]
@@ -106,15 +177,19 @@ def review_cdc(obj, rows, result=None):
               'new_findings': [list(row) for row in new_findings], 'review_required': bool(new_findings)})
     if not new_findings:
         return result
-    out = obj.parents[3]
-    review_path = out / 'cdc-review.json'
-    bindings = {'build_sha256': out / 'build.json', 'checkpoint_sha256': obj / 'post_route.dcp',
+    out = context.review_root if context is not None else obj.parents[3]
+    review_path = context.review_path('cdc-review.json') if context is not None else out / 'cdc-review.json'
+    required_path = context.review_path('cdc-review.required.json') if context is not None else out / 'cdc-review.required.json'
+    bindings = {'build_sha256': (context.build_root if context is not None else out) / 'build.json',
+                'checkpoint_sha256': context.checkpoint if context is not None else obj / 'post_route.dcp',
                 'cdc_report_sha256': obj / 'audit/cdc.txt'}
     template = {'schema': 1, 'reviewer': '',
                 **{key: file_sha(path) for key, path in bindings.items()},
                 'reviewed_findings': [{'finding': list(row), 'disposition': 'pending',
                     'classification': '', 'rationale': '', 'evidence': []} for row in new_findings]}
-    (out / 'cdc-review.required.json').write_text(json.dumps(template, indent=2) + '\n')
+    if context is not None:
+        template['audit_context'] = context.describe(obj)
+    write_review_template(required_path, template)
     assert review_path.is_file(), 'New CDC Warning/Critical findings require ' + str(review_path) + '; see cdc-review.required.json'
     review = json.loads(review_path.read_text())
     assert review['schema'] == 1 and review['reviewer'].strip(), 'Invalid CDC review identity'
@@ -141,7 +216,12 @@ def review_cdc(obj, rows, result=None):
     return result
 
 
-def inspect(obj, result):
+def inspect(obj, result, context=None):
+    obj = Path(obj)
+    if context is not None:
+        context.validate(obj)
+        result['audit_context'] = context.describe(obj)
+    ip_root = context.ip_root if context is not None else obj.parent
     props = properties(obj / 'audit/run_properties.txt')
     result['dut'] = props
     assert props['part'] == 'xcvu37p_CIV-fsvh2892-2L-e'
@@ -179,7 +259,7 @@ def inspect(obj, result):
                        ('ref_period', 10.0), ('ref_hard_period', 10.0)]:
         assert abs(float(hbm[key]) - value) < 0.001, (key, hbm[key])
     assert float(hbm['apb_high']) >= 5 and float(hbm['apb_low']) >= 5
-    xcis = sorted(obj.parent.rglob('testxilinx_hbm.xci'))
+    xcis = sorted(ip_root.rglob('testxilinx_hbm.xci'))
     assert xcis, 'Missing generated HBM XCI'
     result['hbm_ip_configuration'] = []
     for path in xcis:
@@ -189,7 +269,7 @@ def inspect(obj, result):
         assert float(frequency) == 55 and abs(float(period) - 1000.0 / 55.0) < 0.001, 'HBM configured APB clock differs from implemented clock'
         result['hbm_ip_configuration'].append({'path': str(path), 'apb_mhz': float(frequency),
             'apb_period_ns': float(period), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    plls = sorted(obj.parent.rglob('harnessSysPLL.xci'))
+    plls = sorted(ip_root.rglob('harnessSysPLL.xci'))
     assert plls, 'Missing generated harness PLL XCI'
     result['pll_configuration'] = []
     for path in plls:
@@ -246,6 +326,6 @@ def inspect(obj, result):
     # startup. Preserve the difference even when missing/stale review fails.
     rows = cdc_rows((obj / 'audit/cdc.txt').read_text())
     result['cdc'] = {}
-    review_cdc(obj, rows, result['cdc'])
+    review_cdc(obj, rows, result['cdc'], context=context)
     result.update(constrained_sta_passed=True, hbm_startup_physical_passed=True,
                   board_signoff=False, cdc_review_required=True)

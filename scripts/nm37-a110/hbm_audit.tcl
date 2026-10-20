@@ -15,26 +15,40 @@ namespace eval hbm_audit {
  proc loads {p} {
   return [lsort -unique [get_pins -quiet -leaf -of_objects [get_nets -quiet -segments -of_objects $p] -filter {DIRECTION == IN}]]
  }
- proc transparent_connection {p expected fd label} {
-  set trace {}
-  for {set i 0} {$i < 8} {incr i} {
-   set driver [one [drivers $p] "$label driver"]
-   lappend trace $driver
-   if {$driver eq $expected} {puts $fd "$label=$trace"; return}
-   set c [one [get_cells -quiet -of_objects $driver] "$label buffer"]
-   set primitive [get_property REF_NAME $c]
-   if {$primitive ni {BUFG BUFGCE}} {error "HBM audit: $label has nontransparent source $driver ($primitive)"}
-   foreach property {IS_I_INVERTED IS_CE_INVERTED} {
-    if {[lsearch -exact [list_property $c] $property] >= 0 && [string toupper [get_property $property $c]] ni {0 FALSE NO 1'B0 1'H0}} {error "HBM audit: inverted/unknown buffer polarity in $label"}
-   }
-   if {$primitive eq "BUFGCE"} {
-    set enable [one [drivers [pin $c CE]] "$label buffer enable"]
-    if {[get_property REF_NAME [get_cells -quiet -of_objects $enable]] ne "VCC"} {error "HBM audit: gated buffer in $label"}
-   }
-   set p [pin $c I]
-  }
-  error "HBM audit: excessive or cyclic buffer chain in $label"
+proc checked_buffer {c fd label} {
+ set type [get_property REF_NAME $c]
+ if {$type ni {BUFG BUFGCE}} {error "HBM audit: nontransparent buffer $c ($type)"}
+ set roles {I}
+ if {$type eq "BUFGCE"} {lappend roles CE}
+ foreach role $roles {
+  set p [pin $c $role]
+  if {[lsearch -exact [list_property $p] IS_INVERTED] < 0} {error "HBM audit: IS_INVERTED unavailable on $p"}
+  set value [get_property IS_INVERTED $p]
+  puts $fd "${label}_${role}_pin_polarity=$p IS_INVERTED=$value"
+  if {[string toupper $value] ni {0 FALSE NO 1'B0 1'H0}} {error "HBM audit: inverted or unknown pin polarity at $p: $value"}
  }
+ if {$type eq "BUFGCE"} {
+  set enable [one [drivers [pin $c CE]] "buffer enable"]
+  set driver_type [get_property REF_NAME [get_cells -quiet -of_objects $enable]]
+  puts $fd "${label}_enable=$enable primitive=$driver_type"
+  if {$driver_type ne "VCC"} {error "HBM audit: buffer enable is not constant one: $c"}
+ }
+}
+proc transparent_connection {p expected fd label} {
+ set trace {}
+ for {set i 0} {$i < 8} {incr i} {
+  set driver [one [drivers $p] "$label driver"]
+  lappend trace $driver
+  set c [one [get_cells -quiet -of_objects $driver] "$label source"]
+  # Even a shared expected buffer is checked before accepting the connection.
+  if {[get_property REF_NAME $c] in {BUFG BUFGCE}} {checked_buffer $c $fd ${label}_buffer$i}
+  if {$driver eq $expected} {puts $fd "$label=$trace"; return}
+  if {[get_property REF_NAME $c] ni {BUFG BUFGCE}} {error "HBM audit: nontransparent source $driver"}
+  set p [pin $c I]
+ }
+ error "HBM audit: excessive/cyclic buffer chain $label"
+}
+
  proc clock {p} {return [one [get_clocks -quiet -of_objects $p] "clock at $p"]}
  proc root_clock {c} {
   set seen {}
@@ -165,6 +179,54 @@ namespace eval hbm_audit {
   puts $pf "pcie_reset_pin=$pcie_reset"
   puts $pf "pcie_reset_feedback_free=1"
  }
+ proc noninverted_pin {p} {
+  if {[lsearch -exact [list_property $p] IS_INVERTED] < 0 || [string toupper [get_property IS_INVERTED $p]] ni {0 FALSE NO 1'B0 1'H0}} {error "HBM audit: inverted or unknown pin polarity at $p"}
+ }
+ proc release_final {q expected_clock} {
+  set final [one [get_cells -quiet -of_objects $q] "wrangler final register"]
+  if {$q ne [pin $final Q] || ![regexp {^wrangler/nodeOut_reset_catcher(_[0-9]+)?/io_sync_reset_chain/output_chain/sync_0[^/]*$} $final]} {error "HBM audit: unexpected wrangler release final $q"}
+  set stem [file dirname $final]
+  set upstream1 [one [get_cells -quiet $stem/sync_1_reg] "wrangler stage1"]
+  set upstream2 [one [get_cells -quiet $stem/sync_2_reg] "wrangler stage2"]
+  set common_clr [drivers [pin $final CLR]]
+  one $common_clr "wrangler asynchronous clear driver"
+  foreach c [list $upstream2 $upstream1 $final] {
+   if {[get_property REF_NAME $c] ne "FDCE" || [get_property INIT $c] ni {0 1'b0}} {error "HBM audit: wrangler release chain type/INIT mismatch at $c"}
+   if {[clock [pin $c C]] ne $expected_clock || [drivers [pin $c CLR]] ne $common_clr} {error "HBM audit: wrangler release chain clock/reset mismatch"}
+   foreach role {C D CE CLR Q} {noninverted_pin [pin $c $role]}
+   set ce [one [drivers [pin $c CE]] "wrangler release chain enable"]
+   if {[get_property REF_NAME [get_cells -quiet -of_objects $ce]] ne "VCC"} {error "HBM audit: wrangler release chain gated enable"}
+  }
+  if {[drivers [pin $final D]] ne [list [pin $upstream1 Q]] || [drivers [pin $upstream1 D]] ne [list [pin $upstream2 Q]]} {error "HBM audit: wrangler release chain order mismatch"}
+  set first_d [one [drivers [pin $upstream2 D]] "wrangler release chain constant"]
+  if {[get_property REF_NAME [get_cells -quiet -of_objects $first_d]] ne "VCC"} {error "HBM audit: wrangler release chain is not filled with one"}
+  return $final
+ }
+ proc common_reset {clr apb axi fd} {
+  noninverted_pin $clr
+  set driver [one [drivers $clr] "HBM common cold-reset source"]
+  set lut [one [get_cells -quiet -of_objects $driver] "HBM common cold-reset logic"]
+  # ResetCatchAndSync_d3 exports !sync_0.Q. Therefore reset_APB OR
+  # reset_DUT is NAND(Q_APB,Q_DUT), with INIT=4'h7 (not an OR of Q).
+  if {[get_property REF_NAME $lut] ne "LUT2" || [string tolower [get_property INIT $lut]] ne "4'h7" || $driver ne [pin $lut O]} {error "HBM audit: common reset is not exact LUT2 NAND of release outputs"}
+  foreach role {I0 I1 O} {noninverted_pin [pin $lut $role]}
+  set causes {}; set clocks {}
+  foreach role {I0 I1} {
+   set q [one [drivers [pin $lut $role]] "common-reset release input"]
+   set ff [one [get_cells -quiet -of_objects $q] "common-reset release register"]
+   set c [clock [pin $ff C]]
+   if {$c ni [list $apb $axi]} {error "HBM audit: common reset release source outside APB/DUT clocks"}
+   release_final $q $c
+   lappend causes $q; lappend clocks $c
+   puts $fd "common_reset_$role=$q clock=$c"
+  }
+  if {[lsort $clocks] ne [lsort [list $apb $axi]] || [llength [lsort -unique $causes]] != 2} {error "HBM audit: common reset needs exactly one APB and one DUT release source"}
+  set causes [lsort $causes]
+  if {[fanin $clr] ne $causes} {error "HBM audit: common reset contains unexpected sources"}
+  puts $fd "common_reset_driver=$driver primitive=LUT2 INIT=4'h7"
+  puts $fd "common_reset_truth=NAND(APB_release_Q,DUT_release_Q)"
+  return [dict create driver $driver causes $causes]
+ }
  proc run {dir} {
   file mkdir $dir
   set pf [open $dir/properties.txt w]
@@ -195,7 +257,7 @@ namespace eval hbm_audit {
    set ref [clock [pin $hbm HBM_REF_CLK_0]]
    set ref_driver [one [drivers $ref_pin] "HBM reference buffer output"]
    set ref_buffer [one [get_cells -quiet -of_objects $ref_driver] "HBM reference buffer"]
-   if {[get_property REF_NAME $ref_buffer] ne "BUFG"} {error "HBM audit: unexpected HBM reference buffer primitive"}
+   checked_buffer $ref_buffer $pf ref_buffer
    transparent_connection $ref_pin [one [drivers [pin $hbm HBM_REF_CLK_0]] "board reference source"] $pf ref_buffer_chain
    period $axi [expr {1000.0/110.0}]
    period $apb [expr {1000.0/55.0}]
@@ -225,9 +287,12 @@ namespace eval hbm_audit {
     if {[file dirname [file dirname [lindex $cells 0]]] ne $startup} {error "HBM audit: synchronizers are not in one startup controller"}
    }
    puts $pf "startup_cell=$startup"
-   set common_reset [one [drivers [pin $startup io_reset]] "HBM common cold-reset source"]
-   set common_causes [fanin [pin $startup io_reset]]
-   if {![llength $common_causes]} {error "HBM audit: common cold-reset source has no startpoint"}
+   # The module io_reset boundary is optimized away in post_opt. Inspect
+   # the actual APB synchronizer CLR and prove its NAND of the two active-low
+   # reset-release FF outputs instead of assuming a surviving wrapper pin.
+   set common [common_reset [pin [lindex $a 0] CLR] $apb $axi $pf]
+   set common_reset [dict get $common driver]
+   set common_causes [dict get $common causes]
    if {[drivers [pin [lindex $a 0] CLR]] ne [list $common_reset]} {error "HBM audit: APB reset does not directly follow common cold reset"}
    if {[fanin [pin [lindex $x 0] CLR]] ne [lsort -unique [concat $common_causes [list [pin [lindex $a 2] Q]]]]} {error "HBM audit: AXI reset must depend only on common reset and APB reset release"}
    if {[fanin [pin [lindex $c 0] CLR]] ne [list [pin [lindex $x 2] Q]]} {error "HBM audit: completion synchronization reset must follow AXI reset release"}

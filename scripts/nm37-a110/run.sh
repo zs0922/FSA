@@ -17,8 +17,30 @@ name=chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config
 build="$A110_OUT/A110/fpga/$name"
 phase=${1:-help}
 case "$phase" in
-  help) echo 'Phases: check prepare units formal hbm-startup sim elaborate implement bitstream'; exit 0;;
+  help) echo 'Phases: check prepare units formal hbm-startup sim elaborate implement physical bitstream reaudit reaudit-accept reaudit-verify bitstream-from-reaudit'; exit 0;;
   check) python3 "$helper/check.py" sources; exit;;
+  physical)
+    python3 "$helper/check.py" gate
+    python3 "$helper/check.py" physical
+    ;;
+  reaudit)
+    python3 "$helper/reaudit.py" run --source "$ROOT" --build "$A110_OUT" \
+      --out "${A110_REAUDIT_OUT:?Set a new A110_REAUDIT_OUT outside the original build/source}"
+    ;;
+  reaudit-accept)
+    python3 "$helper/reaudit.py" accept --out "${A110_REAUDIT_OUT:?Set A110_REAUDIT_OUT}" \
+      --attempt "${A110_REAUDIT_ATTEMPT:?Set a new acceptance attempt name}"
+    ;;
+  reaudit-verify)
+    python3 "$helper/reaudit.py" verify --out "${A110_REAUDIT_OUT:?Set A110_REAUDIT_OUT}" \
+      --acceptance "${A110_REAUDIT_PASS:?Set the exact revised acceptance path}"
+    ;;
+  bitstream-from-reaudit)
+    python3 "$helper/reaudit.py" bitstream-from-reaudit \
+      --out "${A110_REAUDIT_OUT:?Set A110_REAUDIT_OUT}" \
+      --acceptance "${A110_REAUDIT_PASS:?Set the exact revised acceptance path}" \
+      --destination "${A110_BITSTREAM_OUT:?Set a new bitstream export directory}"
+    ;;
   prepare)
     [[ ! -e "$A110_OUT" ]] || { echo 'Refusing to reuse output directory' >&2; exit 2; }
     [[ ! -d "$ROOT/nm37-m1-pipeline" ]] || { echo "Use a fresh checkout; this workspace contains frozen experiment artifacts" >&2; exit 2; }

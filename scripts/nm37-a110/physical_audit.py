@@ -27,6 +27,10 @@ def xci_parameters(path):
             for element in ET.parse(path).iter() if element.tag.endswith('configurableElementValue')}
 
 
+def file_sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def reset_evidence(directory):
     recheck = subprocess.run(['tclsh', str(HELPER / 'check_reset_evidence.tcl'), str(directory)],
                              text=True, capture_output=True)
@@ -64,16 +68,77 @@ def reset_evidence(directory):
 
 def cdc_rows(content):
     rows = []
+    source_clock = destination_clock = None
     for line in content.splitlines():
+        if line.startswith('Source Clock: '):
+            source_clock = line.partition(': ')[2]
+        elif line.startswith('Destination Clock: '):
+            destination_clock = line.partition(': ')[2]
         if re.match(r'\s*\d+\s+CDC-\d+\s+(?:Critical|Warning|Info)', line):
             columns = re.split(r'\s{2,}', line.strip())
             assert len(columns) in (7, 8), 'Unparsed CDC detail: ' + line
             # Related clocks can have a blank exception column.
             if len(columns) == 7:
                 columns.insert(5, '')
-            rows.append(columns[1:])
+            assert source_clock is not None and destination_clock is not None, 'CDC detail without clock pair'
+            rows.append(columns[1:] + [source_clock, destination_clock])
     assert rows, 'Missing detailed CDC rows'
     return rows
+
+
+def review_cdc(obj, rows, result=None):
+    """Every new Warning/Critical needs explicit, report-bound review.
+
+    The reviewer creates OUT/cdc-review.json after examining actual routed
+    evidence. This data cannot change implementation constraints or waive a
+    failed timing/structural check; all such checks precede this function.
+    """
+    baseline = json.loads((HELPER / 'cdc-baseline.json').read_text())
+    known = {tuple(row) for row in baseline['findings']}
+    findings = [row for row in rows if row[1] in ('Critical', 'Warning')]
+    new_findings = sorted(set(tuple(row) for row in findings) - known)
+    if result is None:
+        result = {}
+    result.update({'critical_count': sum(row[1] == 'Critical' for row in findings),
+              'warning_count': sum(row[1] == 'Warning' for row in findings),
+              'baseline_critical_count': sum(row[1] == 'Critical' for row in known),
+              'baseline_warning_count': sum(row[1] == 'Warning' for row in known),
+              'new_findings': [list(row) for row in new_findings], 'review_required': bool(new_findings)})
+    if not new_findings:
+        return result
+    out = obj.parents[3]
+    review_path = out / 'cdc-review.json'
+    bindings = {'build_sha256': out / 'build.json', 'checkpoint_sha256': obj / 'post_route.dcp',
+                'cdc_report_sha256': obj / 'audit/cdc.txt'}
+    template = {'schema': 1, 'reviewer': '',
+                **{key: file_sha(path) for key, path in bindings.items()},
+                'reviewed_findings': [{'finding': list(row), 'disposition': 'pending',
+                    'classification': '', 'rationale': '', 'evidence': []} for row in new_findings]}
+    (out / 'cdc-review.required.json').write_text(json.dumps(template, indent=2) + '\n')
+    assert review_path.is_file(), 'New CDC Warning/Critical findings require ' + str(review_path) + '; see cdc-review.required.json'
+    review = json.loads(review_path.read_text())
+    assert review['schema'] == 1 and review['reviewer'].strip(), 'Invalid CDC review identity'
+    for key, path in bindings.items():
+        assert review[key] == file_sha(path), 'CDC review is stale: ' + key
+    covered = set()
+    for item in review['reviewed_findings']:
+        finding = tuple(item['finding'])
+        assert finding not in covered and finding in new_findings, 'Duplicate/foreign CDC review finding'
+        assert item['disposition'] == 'accepted' and item['rationale'].strip(), 'CDC finding was not accepted with a reason'
+        allowed = {'tool_recognition_limit', 'equivalent_existing_structure'}
+        if finding[1] == 'Warning':
+            allowed.add('timed_related_clock_crossing')
+        assert item['classification'] in allowed, 'A real CDC defect cannot be waived by this review'
+        assert item['evidence'], 'CDC acceptance must reference actual evidence'
+        for evidence in item['evidence']:
+            path = (out / evidence['path']).resolve()
+            path.relative_to(out.resolve())
+            assert path.is_file() and file_sha(path) == evidence['sha256'], 'Changed/missing CDC review evidence: ' + str(path)
+        covered.add(finding)
+    assert covered == set(new_findings), 'Incomplete CDC review'
+    result.update(review_required=False, review_sha256=file_sha(review_path),
+                  reviewer=review['reviewer'], reviewed_findings=review['reviewed_findings'])
+    return result
 
 
 def inspect(obj, result):
@@ -107,7 +172,11 @@ def inspect(obj, result):
     result['hbm'] = hbm
     assert hbm['status'] == 'PASS' and hbm['synchronizer_stages'] == '9'
     assert hbm['completion_crossing_timed'] == '1'
-    for key, value in [('apb_period', 1000.0 / 55.0), ('axi_period', 1000.0 / 110.0), ('ref_period', 10.0)]:
+    assert hbm['pcie_reset_monitor_clock'] == hbm['ref_clock']
+    assert hbm['pcie_reset_synchronizer_stages'] == '3' and hbm['pcie_reset_counter_bits'] == '14'
+    assert hbm['pcie_reset_feedback_free'] == '1'
+    for key, value in [('apb_period', 1000.0 / 55.0), ('axi_period', 1000.0 / 110.0),
+                       ('ref_period', 10.0), ('ref_hard_period', 10.0)]:
         assert abs(float(hbm[key]) - value) < 0.001, (key, hbm[key])
     assert float(hbm['apb_high']) >= 5 and float(hbm['apb_low']) >= 5
     xcis = sorted(obj.parent.rglob('testxilinx_hbm.xci'))
@@ -143,7 +212,9 @@ def inspect(obj, result):
                 [f'{chain}_stage{stage}' for chain in ('apb_reset', 'axi_reset', 'completion_sync')
                  for stage in ('01', '12')] +
                 [f'{chain}_clr{stage}' for chain in ('apb_reset', 'axi_reset', 'completion_sync')
-                 for stage in (0, 1, 2)] for kind in ('max', 'min')}
+                 for stage in (0, 1, 2)] +
+                ['pcie_reset_stage01', 'pcie_reset_stage12', 'pcie_released_clr'] +
+                [f'pcie_counter_clr{bit}' for bit in range(14)] for kind in ('max', 'min')}
     checks = {}
     for line in lines[1:]:
         name, kind, slack, start, end = line.split('\t')
@@ -152,18 +223,6 @@ def inspect(obj, result):
     assert set(checks) == expected, 'HBM synchronizer timing coverage incomplete'
     result['hbm_worst_timed_slack_ns'] = min(checks.values())
 
-    # Keep pre-existing warnings visible. No new critical endpoint is silently
-    # accepted, and every warning in the new startup logic requires review.
-    rows = cdc_rows((obj / 'audit/cdc.txt').read_text())
-    baseline = json.loads((HELPER / 'cdc-baseline.json').read_text())
-    known = {tuple(row) for row in baseline['critical_rows']}
-    critical = [row for row in rows if row[1] == 'Critical']
-    new_critical = [row for row in critical if tuple(row) not in known]
-    new_warnings = [row for row in rows if row[1] == 'Warning' and
-                    any(hbm['startup_cell'] + '/' in field for field in row[-2:])]
-    result['cdc'] = {'critical_count': len(critical), 'new_critical': new_critical,
-                     'startup_warnings': new_warnings, 'baseline_critical_count': len(known)}
-    assert not new_critical and not new_warnings, 'New CDC findings require explicit review: ' + repr(new_critical + new_warnings)
     check = (obj / 'audit/check_timing.txt').read_text()
     counts = dict((key, int(value)) for key, value in re.findall(r'^\d+\. checking (\w+) \((\d+)\)', check, re.M))
     expected_counts = dict.fromkeys(['no_clock', 'constant_clock', 'pulse_width_clock',
@@ -177,5 +236,10 @@ def inspect(obj, result):
     assert set(unused) == expected_unused and len(unused) == 30
     assert re.search(r'^prst_n$', check, re.M), 'Unexpected missing input delay'
     result['check_timing'] = counts
+    # Review every new Warning/Critical, including changed reset domains outside
+    # startup. Preserve the difference even when missing/stale review fails.
+    rows = cdc_rows((obj / 'audit/cdc.txt').read_text())
+    result['cdc'] = {}
+    review_cdc(obj, rows, result['cdc'])
     result.update(constrained_sta_passed=True, hbm_startup_physical_passed=True,
                   board_signoff=False, cdc_review_required=True)

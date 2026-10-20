@@ -1,7 +1,7 @@
 package chipyard.fpga.u280
 
 import chisel3._
-import chisel3.util.HasBlackBoxInline
+import chisel3.util.{HasBlackBoxInline, log2Ceil}
 import freechips.rocketchip.amba.axi4.{AXI4Bundle, AXI4BundleParameters}
 
 /** A single-bit, three-stage CDC synchronizer with asynchronous assertion of
@@ -30,6 +30,48 @@ module HBMAsyncLevelSynchronizer (
   assign q = sync[2];
 endmodule
 """)
+}
+
+/** Keep PCIe/XDMA in fundamental reset until the independent board clock has
+  * observed a continuously healthy DUT PLL for stableCycles cycles, after a
+  * three-edge reset-release synchronizer. NM37 uses 10000 cycles at 100 MHz.
+  *
+  * rawPllReset must come directly from the PLL clock node, BEFORE ResetWrangler.
+  * Feeding a wrangled reset here would deadlock: that reset waits for XDMA's
+  * axi_aresetn, which itself cannot release while PCIe is held in reset.
+  * This output must not reset the DUT PLL itself.
+  *
+  * Runtime lock loss therefore cold-resets the PCIe master as well as the
+  * downstream fabric/HBM. Recovery retrains PCIe and requires host software to
+  * reinitialize the device and reload memory; it does not preserve DMA work.
+  */
+class HBMPLLResetControl(stableCycles: Int = 10000) extends RawModule {
+  require(stableCycles >= 1)
+  val io = IO(new Bundle {
+    val monitorClock = Input(Clock())
+    val rawPllReset = Input(Bool())
+    val externalReset = Input(Bool())
+    val pcieResetN = Output(Bool())
+  })
+
+  val releaseSync = Module(new HBMAsyncLevelSynchronizer)
+  releaseSync.io.clock := io.monitorClock
+  releaseSync.io.reset := io.rawPllReset || io.externalReset
+  releaseSync.io.d := true.B
+  val qualificationResetN = releaseSync.io.q
+
+  withClockAndReset(io.monitorClock, (!qualificationResetN).asAsyncReset) {
+    val stableCount = RegInit(0.U(math.max(1, log2Ceil(stableCycles)).W))
+    val released = RegInit(false.B)
+    when (!released) {
+      when (stableCount === (stableCycles - 1).U) {
+        released := true.B
+      }.otherwise {
+        stableCount := stableCount + 1.U
+      }
+    }
+    io.pcieResetN := qualificationResetN && released
+  }
 }
 
 /** HBM cold-start sequencing across independently clocked APB and AXI domains.

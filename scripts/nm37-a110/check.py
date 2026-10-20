@@ -147,6 +147,9 @@ def seal(stage):
         assert result['passed'], 'HBM startup verification failed'
         assert result['clock_scenarios'] == 8 and result['gate_vectors'] == 32768
         assert result['checks'] > 100000
+        assert result['short_complete_faults'] == 8 and result['partial_initialization_resets'] == 8
+        assert result['pll_scenarios'] == 8 and result['pll_release_events'] == 32
+        assert result['pll_stable_cycles'] == 7
         for name, digest in result['inputs_sha256'].items():
             assert sha(Path(name)) == digest, 'Changed HBM verification input: ' + name
         for key, name in [('binary_sha256', 'obj/VHBMStartupVerificationHarness'),

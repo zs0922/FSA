@@ -10,6 +10,9 @@
 #include <string>
 
 static uint64_t checks = 0, gateVectors = 0, scenarioCount = 0;
+static uint64_t shortCompleteFaults = 0, partialInitializationResets = 0;
+static uint64_t pllScenarios = 0, pllReleaseEvents = 0;
+static constexpr unsigned pllStableCycles = 7;
 static uint64_t randomState = 0x98be271ac6048d31ULL;
 static uint32_t random32() {
     randomState ^= randomState << 13;
@@ -118,6 +121,16 @@ class Test {
         for (uint64_t i = 0; i < ticks; ++i) tick();
     }
 
+    void edges(unsigned count, bool apb) {
+        require(apb ? runApb : runAxi, "cannot wait for a stopped clock");
+        while (count) {
+            const bool old = apb ? dut->io_apbClock : dut->io_axiClock;
+            tick();
+            const bool now = apb ? dut->io_apbClock : dut->io_axiClock;
+            if (!old && now) --count;
+        }
+    }
+
     void reset(bool value) { dut->io_reset = value; eval(); }
 
     void complete(bool value) {
@@ -173,6 +186,8 @@ public:
         ++scenarioCount;
         dut->io_axiClock = dut->io_apbClock = 0;
         dut->io_reset = dut->io_apbComplete = 0;
+        dut->io_pllMonitorClock = dut->io_pllExternalReset = 0;
+        dut->io_pllRawReset = 1;
         dut->io_controls = 1023;
         randomPayload();
         dut->eval();
@@ -266,6 +281,19 @@ public:
         awaitReady();
         truthTable(true);
 
+        // A loss sampled for just one APB cycle must also latch fail-stop,
+        // even if the external level has returned before fault is observed.
+        complete(false);
+        edges(1, true);
+        complete(true);
+        for (unsigned i = 0; i < 24 && !dut->io_initializationFault; ++i) cycles(1);
+        require(dut->io_initializationFault && !dut->io_trafficReady,
+                "one sampled APB cycle of completion loss did not latch fault");
+        cycles(16);
+        require(dut->io_initializationFault && !dut->io_trafficReady,
+                "short completion loss recovered without common reset");
+        ++shortCompleteFaults;
+
         // Interrupt initialization before the completion pipeline drains.
         coldStart();
         complete(true);
@@ -273,6 +301,10 @@ public:
         // stale synchronized value may survive the following common reset.
         runAxi = false;
         cycles(4);
+        runAxi = true;
+        edges(1 + (scenarioCount % 2), false);
+        require(!dut->io_trafficReady,
+                "partial completion pipeline incorrectly enabled traffic");
         reset(true);
         complete(false);
         tick();
@@ -281,6 +313,7 @@ public:
         cycles(20);
         require(!dut->io_trafficReady && !dut->io_initializationFault,
                 "interrupted initialization leaked a stale completion/fault");
+        ++partialInitializationResets;
         complete(true);
         awaitReady();
 
@@ -298,6 +331,133 @@ public:
     }
 };
 
+class PLLTest {
+    std::unique_ptr<VHBMStartupVerificationHarness> dut;
+    unsigned halfPeriod, stableEdges = 0;
+    uint64_t time = 0, nextEdge;
+    bool runClock = false;
+
+    void require(bool ok, const std::string& message) const {
+        ++checks;
+        if (!ok) throw std::runtime_error("PLL scenario " + std::to_string(pllScenarios) +
+            ", tick " + std::to_string(time) + ": " + message);
+    }
+
+    void eval(bool rise = false) {
+        const bool oldResetN = dut->io_pllPcieResetN;
+        const bool cause = dut->io_pllRawReset || dut->io_pllExternalReset;
+        if (cause) stableEdges = 0;
+        else if (rise) ++stableEdges;
+        dut->eval();
+        require(bool(dut->io_pllPcieResetN) == (!cause && stableEdges >= pllStableCycles + 3),
+                "PCIe reset must assert immediately and release after exactly 3+N stable monitor edges");
+        if (!oldResetN && dut->io_pllPcieResetN) {
+            require(rise, "PCIe reset released away from a monitor rising edge");
+            ++pllReleaseEvents;
+        }
+        // The HBM clocks intentionally never run. PCIe reset qualification
+        // must still progress without waiting for HBM/XDMA readiness feedback.
+        require(!dut->io_trafficReady, "HBM unexpectedly became ready with both clocks stopped");
+    }
+
+    void tick() {
+        ++time;
+        bool rise = false;
+        if (time == nextEdge) {
+            nextEdge += halfPeriod;
+            if (runClock) { dut->io_pllMonitorClock ^= 1; rise = dut->io_pllMonitorClock; }
+        }
+        eval(rise);
+    }
+
+    void cycles(unsigned count) {
+        for (unsigned i = 0; i < count * 2 * halfPeriod; ++i) tick();
+    }
+
+    void edges(unsigned count) {
+        require(runClock, "cannot wait for a stopped monitor clock");
+        while (count) {
+            const bool old = dut->io_pllMonitorClock;
+            tick();
+            if (!old && dut->io_pllMonitorClock) --count;
+        }
+    }
+
+    void raw(bool value) { dut->io_pllRawReset = value; eval(); }
+    void external(bool value) { dut->io_pllExternalReset = value; eval(); }
+
+public:
+    PLLTest(unsigned half, unsigned phase) : dut(new VHBMStartupVerificationHarness),
+        halfPeriod(half), nextEdge(half + phase) {
+        ++pllScenarios;
+        dut->io_axiClock = dut->io_apbClock = dut->io_apbComplete = 0;
+        dut->io_reset = 1;
+        dut->io_controls = 0;
+        dut->io_pllMonitorClock = 0;
+        dut->io_pllRawReset = dut->io_pllExternalReset = 1;
+        eval();
+    }
+
+    void run() {
+        // Removing one cause cannot override the other; without monitor edges
+        // removing both causes also cannot release PCIe reset.
+        raw(false);
+        cycles(4);
+        external(false);
+        cycles(12);
+        runClock = true;
+        edges(pllStableCycles + 2);
+        require(!dut->io_pllPcieResetN, "qualification released one cycle early");
+        edges(1);
+        require(dut->io_pllPcieResetN, "qualification did not complete");
+        cycles(4);
+        dut->io_reset = 0;
+        eval();
+        dut->io_reset = 1;
+        eval();
+
+        // A sub-cycle loss of lock while monitorClock is stopped must assert
+        // reset asynchronously and require complete requalification on resume.
+        runClock = false;
+        raw(true);
+        tick();
+        raw(false);
+        cycles(6);
+        runClock = true;
+        edges(4);
+        // Lose lock again partway through qualification: no elapsed count may
+        // survive, even though this pulse does not contain a clock edge.
+        raw(true);
+        tick();
+        raw(false);
+        edges(pllStableCycles + 2);
+        require(!dut->io_pllPcieResetN, "lost lock did not restart qualification");
+        edges(1);
+        require(dut->io_pllPcieResetN, "second lock qualification did not complete");
+
+        // PERST is independent of PLL lock and restarts qualification too.
+        external(true);
+        cycles(2);
+        external(false);
+        edges(pllStableCycles + 2);
+        external(true);
+        tick();
+        external(false);
+        edges(pllStableCycles + 3);
+        require(dut->io_pllPcieResetN, "PERST re-entry did not qualify from zero");
+
+        // Interleaved causes must not release while either one remains set.
+        raw(true);
+        external(true);
+        raw(false);
+        cycles(pllStableCycles + 5);
+        external(false);
+        edges(pllStableCycles + 3);
+        require(dut->io_pllPcieResetN, "combined causes did not recover after a full stable interval");
+        dut->final();
+    }
+};
+
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     try {
@@ -309,10 +469,16 @@ int main(int argc, char** argv) {
             {500, 550, 499}, {31, 47, 0}, {19, 97, 7}, {59, 61, 43}
         };
         for (const auto& scenario : scenarios) Test(scenario).run();
+        for (unsigned i = 0; i < 8; ++i) PLLTest(5 + i * 2, i).run();
         std::cout << "PASS: independent-clock reset release, delayed/interrupted initialization, "
-                  << "fail-stop/re-entry, and all five AXI channels\n";
+                  << "fail-stop/re-entry, all five AXI channels, and PLL/PERST qualification\n";
         std::cout << "{\"passed\":true,\"clock_scenarios\":" << scenarioCount
-                  << ",\"gate_vectors\":" << gateVectors << ",\"checks\":" << checks << "}\n";
+                  << ",\"gate_vectors\":" << gateVectors << ",\"checks\":" << checks
+                  << ",\"short_complete_faults\":" << shortCompleteFaults
+                  << ",\"partial_initialization_resets\":" << partialInitializationResets
+                  << ",\"pll_scenarios\":" << pllScenarios
+                  << ",\"pll_stable_cycles\":" << pllStableCycles
+                  << ",\"pll_release_events\":" << pllReleaseEvents << "}\n";
         return 0;
     } catch (const std::exception& error) {
         std::cerr << "FAIL: " << error.what() << '\n';

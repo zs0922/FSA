@@ -105,7 +105,6 @@ class NM37TestHarnessImpl(outer: NM37FPGATestHarness) extends LazyRawModuleImp(o
   val pcie_rst_n_ibuff = Module(new IBUF)
   pcie_rst_n_ibuff.suggestName("pcie_rst_n_ibuff")
   pcie_rst_n_ibuff.io.I := prst_n
-  outer.pcie_rst_n := pcie_rst_n_ibuff.io.O
 
   val sysclk: Clock = outer.sysClkNode.out.head._1.clock
 
@@ -113,6 +112,16 @@ class NM37TestHarnessImpl(outer: NM37FPGATestHarness) extends LazyRawModuleImp(o
   outer.sdc.addAsyncPath(Seq(powerOnReset))
 
   outer.pllReset := powerOnReset
+
+  // The DUT PLL is independent of PCIe. Use its raw reset (unlocked or POR),
+  // not the wrangled reset that also waits for XDMA, to avoid a startup loop.
+  // A runtime loss of lock cold-resets XDMA before fabric/HBM can restart;
+  // software must reinitialize PCIe and reload memory after this event.
+  val pcieResetControl = Module(new chipyard.fpga.u280.HBMPLLResetControl(stableCycles = 10000))
+  pcieResetControl.io.monitorClock := sysclk
+  pcieResetControl.io.rawPllReset := outer.harnessSysPLL.out.head._1.member.data.head.reset.asBool
+  pcieResetControl.io.externalReset := !pcie_rst_n_ibuff.io.O
+  outer.pcie_rst_n := pcieResetControl.io.pcieResetN
 
   val hReset = Wire(Reset())
   hReset := outer.dutClockNode.in.head._1.reset

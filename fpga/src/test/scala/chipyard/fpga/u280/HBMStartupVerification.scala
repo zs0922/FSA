@@ -19,6 +19,10 @@ class HBMStartupVerificationHarness extends RawModule {
     val axiResetN = Output(Bool())
     val trafficReady = Output(Bool())
     val initializationFault = Output(Bool())
+    val pllMonitorClock = Input(Clock())
+    val pllRawReset = Input(Bool())
+    val pllExternalReset = Input(Bool())
+    val pllPcieResetN = Output(Bool())
     val controls = Input(UInt(10.W))
     val observed = Output(UInt(10.W))
     val aw = Input(UInt((new AXI4BundleAW(params)).getWidth.W))
@@ -37,6 +41,14 @@ class HBMStartupVerificationHarness extends RawModule {
   io.axiResetN := startup.io.axiResetN
   io.trafficReady := startup.io.trafficReady
   io.initializationFault := startup.io.initializationFault
+
+  // A non-power-of-two count catches terminal-count and reset/restart errors.
+  // Product hardware uses 10000 cycles; the state machine is identical here.
+  val pllReset = Module(new HBMPLLResetControl(stableCycles = 7))
+  pllReset.io.monitorClock := io.pllMonitorClock
+  pllReset.io.rawPllReset := io.pllRawReset
+  pllReset.io.externalReset := io.pllExternalReset
+  io.pllPcieResetN := pllReset.io.pcieResetN
 
   val gate = Module(new HBMAXIStartupGate(params))
   gate.io.enable := startup.io.trafficReady

@@ -1,0 +1,491 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `structure.ys' --
+
+1. Executing Verilog-2005 frontend: A70AccumulatorMiter.sv
+Parsing SystemVerilog input from `A70AccumulatorMiter.sv' to AST representation.
+Generating RTLIL representation for module `\ShiftRightJam'.
+Generating RTLIL representation for module `\A70LegacyRawFloat_FMA'.
+Generating RTLIL representation for module `\A70LegacyRawFloat_SplitIF'.
+Generating RTLIL representation for module `\A70LegacyRawFloat_MulAddExp2'.
+Generating RTLIL representation for module `\RawFloat_FMA'.
+Generating RTLIL representation for module `\RawFloat_SplitIF'.
+Generating RTLIL representation for module `\RawFloat_MulAddExp2'.
+Generating RTLIL representation for module `\FPAccUnit'.
+Generating RTLIL representation for module `\A70AccumulatorMiter'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \A70AccumulatorMiter
+Used module:     \FPAccUnit
+Used module:         \RawFloat_MulAddExp2
+Used module:             \RawFloat_SplitIF
+Used module:             \RawFloat_FMA
+Used module:                 \ShiftRightJam
+Used module:     \A70LegacyRawFloat_MulAddExp2
+Used module:         \A70LegacyRawFloat_SplitIF
+Used module:         \A70LegacyRawFloat_FMA
+
+2.2. Analyzing design hierarchy..
+Top module:  \A70AccumulatorMiter
+Used module:     \FPAccUnit
+Used module:         \RawFloat_MulAddExp2
+Used module:             \RawFloat_SplitIF
+Used module:             \RawFloat_FMA
+Used module:                 \ShiftRightJam
+Used module:     \A70LegacyRawFloat_MulAddExp2
+Used module:         \A70LegacyRawFloat_SplitIF
+Used module:         \A70LegacyRawFloat_FMA
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$A70AccumulatorMiter.sv:1090$492 in module A70AccumulatorMiter.
+Marked 1 switch rules as full_case in process $proc$A70AccumulatorMiter.sv:840$376 in module RawFloat_MulAddExp2.
+Marked 1 switch rules as full_case in process $proc$A70AccumulatorMiter.sv:819$375 in module RawFloat_MulAddExp2.
+Marked 1 switch rules as full_case in process $proc$A70AccumulatorMiter.sv:359$170 in module A70LegacyRawFloat_MulAddExp2.
+Marked 1 switch rules as full_case in process $proc$A70AccumulatorMiter.sv:338$169 in module A70LegacyRawFloat_MulAddExp2.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 63 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+     1/3: $0\valid[0:0]
+     2/3: $0\valid_r_1[0:0]
+     3/3: $0\valid_r[0:0]
+Creating decoders for process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+Creating decoders for process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:840$376'.
+     1/1: $1\casez_tmp_0[31:0]
+Creating decoders for process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:819$375'.
+     1/1: $1\casez_tmp[31:0]
+Creating decoders for process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+Creating decoders for process `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:359$170'.
+     1/1: $1\casez_tmp_0[31:0]
+Creating decoders for process `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:338$169'.
+     1/1: $1\casez_tmp[31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\RawFloat_MulAddExp2.\casez_tmp_0' from process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:840$376'.
+No latch inferred for signal `\RawFloat_MulAddExp2.\casez_tmp' from process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:819$375'.
+No latch inferred for signal `\A70LegacyRawFloat_MulAddExp2.\casez_tmp_0' from process `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:359$170'.
+No latch inferred for signal `\A70LegacyRawFloat_MulAddExp2.\casez_tmp' from process `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:338$169'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\A70AccumulatorMiter.\expected_r' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$568' with positive edge clock.
+Creating register for signal `\A70AccumulatorMiter.\expected_r_1' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$569' with positive edge clock.
+Creating register for signal `\A70AccumulatorMiter.\expected' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$570' with positive edge clock.
+Creating register for signal `\A70AccumulatorMiter.\valid_r' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$571' with positive edge clock.
+Creating register for signal `\A70AccumulatorMiter.\valid_r_1' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$572' with positive edge clock.
+Creating register for signal `\A70AccumulatorMiter.\valid' using process `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+  created $dff cell `$procdff$573' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_isZero' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$574' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_isInf' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$575' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_isNaN' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$576' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_sign' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$577' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_exp' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$578' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\faR_mantissa' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$579' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_isZero' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$580' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_isInf' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$581' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_isNaN' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$582' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_sign' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$583' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_exp' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$584' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fbR_mantissa' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$585' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_isZero' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$586' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_isInf' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$587' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_isNaN' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$588' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_sign' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$589' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_exp' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$590' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\fcR_mantissa' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$591' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\inExp2D_r' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$592' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\inExp2D_r_1' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$593' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\inExp2D' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$594' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\outIntD_r' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$595' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\outIntD_r_1' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$596' with positive edge clock.
+Creating register for signal `\RawFloat_MulAddExp2.\outIntD' using process `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+  created $dff cell `$procdff$597' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodExp' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$598' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodSign' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$599' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodIsZero' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$600' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\expDiff' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$601' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\alignShiftAmt' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$602' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\adderOutAbs' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$603' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodMantissa' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$604' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cShift' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$605' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cSticky' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$606' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cSign' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$607' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cExp' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$608' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cIsZero' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$609' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cIsInf' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$610' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cIsNaN' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$611' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\aIsNaN' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$612' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\bIsNaN' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$613' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\aIsInf' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$614' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\bIsInf' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$615' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cGtProd2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$616' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\expDiff2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$617' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\alignShiftAmt2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$618' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cSign2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$619' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cExp2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$620' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cIsZero2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$621' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\cIsInf2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$622' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodSign2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$623' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodIsZero2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$624' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodExp2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$625' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\hasNaN2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$626' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\prodHasInf2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$627' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\addInfInvalid2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$628' with positive edge clock.
+Creating register for signal `\RawFloat_FMA.\mulInfInvalid2' using process `\RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+  created $dff cell `$procdff$629' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+Removing empty process `A70AccumulatorMiter.$proc$A70AccumulatorMiter.sv:1090$492'.
+Removing empty process `RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:884$377'.
+Found and cleaned up 1 empty switch in `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:840$376'.
+Removing empty process `RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:840$376'.
+Found and cleaned up 1 empty switch in `\RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:819$375'.
+Removing empty process `RawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:819$375'.
+Removing empty process `RawFloat_FMA.$proc$A70AccumulatorMiter.sv:627$293'.
+Found and cleaned up 1 empty switch in `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:359$170'.
+Removing empty process `A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:359$170'.
+Found and cleaned up 1 empty switch in `\A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:338$169'.
+Removing empty process `A70LegacyRawFloat_MulAddExp2.$proc$A70AccumulatorMiter.sv:338$169'.
+Cleaned up 5 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiter.
+<suppressed ~3 debug messages>
+Optimizing module FPAccUnit.
+<suppressed ~3 debug messages>
+Optimizing module RawFloat_MulAddExp2.
+<suppressed ~4 debug messages>
+Optimizing module RawFloat_SplitIF.
+<suppressed ~1 debug messages>
+Optimizing module RawFloat_FMA.
+<suppressed ~1 debug messages>
+Optimizing module A70LegacyRawFloat_MulAddExp2.
+<suppressed ~4 debug messages>
+Optimizing module A70LegacyRawFloat_SplitIF.
+<suppressed ~1 debug messages>
+Optimizing module A70LegacyRawFloat_FMA.
+<suppressed ~1 debug messages>
+Optimizing module ShiftRightJam.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module FPAccUnit.
+Deleting now unused module RawFloat_MulAddExp2.
+Deleting now unused module RawFloat_SplitIF.
+Deleting now unused module RawFloat_FMA.
+Deleting now unused module A70LegacyRawFloat_MulAddExp2.
+Deleting now unused module A70LegacyRawFloat_SplitIF.
+Deleting now unused module A70LegacyRawFloat_FMA.
+Deleting now unused module ShiftRightJam.
+<suppressed ~9 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiter.
+<suppressed ~4 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiter'.
+Computing hashes of 625 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 569 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 557 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 547 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 545 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 543 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 542 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+<suppressed ~249 debug messages>
+Removed a total of 83 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \A70AccumulatorMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\gate.\mulAddExp2.\fma.$ternary$A70AccumulatorMiter.sv:507$227: \gate.mulAddExp2.fma._cAnchoredMantissa_T [75:0] -> { 1'1 \gate.mulAddExp2.fma._cAnchoredMantissa_T [74:0] }
+      Replacing known input bits on port B of cell $flatten\gate.\mulAddExp2.\fma.$ternary$A70AccumulatorMiter.sv:509$226: { \gate.mulAddExp2.fma._cAnchoredMantissa_T [74:0] 1'0 } -> { 1'1 \gate.mulAddExp2.fma._cAnchoredMantissa_T [73:0] 1'0 }
+      Replacing known input bits on port B of cell $flatten\gold.\fma.$ternary$A70AccumulatorMiter.sv:65$31: \gold.fma._cAnchoredMantissa_T [75:0] -> { 1'1 \gold.fma._cAnchoredMantissa_T [74:0] }
+      Replacing known input bits on port B of cell $flatten\gold.\fma.$ternary$A70AccumulatorMiter.sv:67$30: { \gold.fma._cAnchoredMantissa_T [74:0] 1'0 } -> { 1'1 \gold.fma._cAnchoredMantissa_T [73:0] 1'0 }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~319 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \A70AccumulatorMiter.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiter'.
+Computing hashes of 542 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 536 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 533 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 525 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 522 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 509 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 500 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 495 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 492 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 491 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 490 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 489 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 488 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 487 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 486 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 485 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 484 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 483 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 482 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 481 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 480 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 479 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 477 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 475 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 473 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Computing hashes of 471 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+<suppressed ~213 debug messages>
+Removed a total of 71 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$571 ($dff) from module A70AccumulatorMiter (D = $not$A70AccumulatorMiter.sv:1100$493_Y, Q = \valid_r, rval = 1'0).
+Adding SRST signal on $procdff$572 ($dff) from module A70AccumulatorMiter (D = \valid_r, Q = \valid_r_1, rval = 1'0).
+Adding SRST signal on $procdff$573 ($dff) from module A70AccumulatorMiter (D = \valid_r_1, Q = \valid, rval = 1'0).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \A70AccumulatorMiter..
+Removed 3 unused cells and 360 unused wires.
+<suppressed ~4 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \A70AccumulatorMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~245 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \A70AccumulatorMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiter'.
+Computing hashes of 468 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\gate.\mulAddExp2.\fma.$procdff$605 ($dff) from module A70AccumulatorMiter (D = $flatten\gate.\mulAddExp2.\fma.\shiftRightJam.$shr$A70AccumulatorMiter.sv:11$3_Y, Q = \gate.mulAddExp2.fma.cShift, rval = 74'00000000000000000000000000000000000000000000000000000000000000000000000000).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \A70AccumulatorMiter..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiter.
+
+5.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \A70AccumulatorMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~243 debug messages>
+
+5.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \A70AccumulatorMiter.
+Performed a total of 0 changes.
+
+5.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiter'.
+Computing hashes of 467 cells of `\A70AccumulatorMiter'.
+Finding duplicate cells in `\A70AccumulatorMiter'.
+Removed a total of 0 cells.
+
+5.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \A70AccumulatorMiter..
+
+5.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiter.
+
+5.23. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module A70AccumulatorMiter...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+8. Executing Verilog backend.
+
+8.1. Executing BMUXMAP pass.
+
+8.2. Executing DEMUXMAP pass.
+Dumping module `\A70AccumulatorMiter'.
+
+9. Printing statistics.
+
+=== A70AccumulatorMiter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      612 wires
+    10725 wire bits
+      341 public wires
+     8287 public wire bits
+        9 ports
+      164 port bits
+      467 cells
+       18   $add
+       45   $and
+       58   $dff
+        6   $eq
+        4   $gt
+        9   $logic_not
+        8   $lt
+        2   $mul
+      189   $mux
+        1   $ne
+       21   $not
+       39   $or
+        2   $pmux
+        5   $reduce_and
+       12   $reduce_or
+        9   $scopeinfo
+        4   $sdff
+        8   $shl
+        3   $shr
+       20   $sub
+        4   $xor
+
+End of script. Logfile hash: 73a51dbdce, time: 0.15s, user: 0.16s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 22% 2x read_verilog (0 sec), 16% 3x opt_clean (0 sec), ...

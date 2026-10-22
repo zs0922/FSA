@@ -1,0 +1,199 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `native.ys' --
+
+1. Executing JSON frontend.
+Importing module fixture from JSON tree.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \fixture
+
+2.2. Analyzing design hierarchy..
+Top module:  \fixture
+Removed 0 unused modules.
+
+3. Executing TECHMAP pass (map to technology primitives).
+
+3.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $dff.
+No more expansions possible.
+<suppressed ~83 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixture.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixture'.
+Computing hashes of 20 cells of `\fixture'.
+Finding duplicate cells in `\fixture'.
+Computing hashes of 17 cells of `\fixture'.
+Finding duplicate cells in `\fixture'.
+Computing hashes of 14 cells of `\fixture'.
+Finding duplicate cells in `\fixture'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fixture..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fixture.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixture'.
+Computing hashes of 14 cells of `\fixture'.
+Finding duplicate cells in `\fixture'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fixture..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixture.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fixture..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fixture.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fixture'.
+Computing hashes of 14 cells of `\fixture'.
+Finding duplicate cells in `\fixture'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fixture..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fixture.
+
+4.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module fixture...
+Found and reported 0 problems.
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 14 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 14 cells to SAT database.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 14 cells to SAT database.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 14 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \data
+Import show expression: \clock
+Import show expression: \mismatch
+
+Solving problem with 261 variables and 615 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                        Dec       Hex           Bin
+  ---- ------------------------------------------ ----------- --------- -------------
+  init $auto$jsonparse.cc:561:json_import$1                 0         0             0
+  init $auto$jsonparse.cc:561:json_import$11                0         0             0
+  init $auto$jsonparse.cc:561:json_import$12                0         0             0
+  init $auto$jsonparse.cc:561:json_import$13                0         0             0
+  init $auto$jsonparse.cc:561:json_import$14                0         0             0
+  init $auto$jsonparse.cc:561:json_import$15                0         0             0
+  init $auto$jsonparse.cc:561:json_import$4                 0         0             0
+  init $auto$jsonparse.cc:561:json_import$5                 0         0             0
+  init $auto$jsonparse.cc:561:json_import$6                 0         0             0
+  ---- ------------------------------------------ ----------- --------- -------------
+     1 \clock                                               0         0             0
+     1 \data                                                0         0           000
+     1 \mismatch                                            0         0             0
+  ---- ------------------------------------------ ----------- --------- -------------
+     2 \clock                                               0         0             0
+     2 \data                                                2         2           010
+     2 \mismatch                                            0         0             0
+ERROR: Called with -verify and proof did fail!
+  ---- ------------------------------------------ ----------- --------- -------------
+     3 \clock                                               0         0             0
+     3 \data                                                0         0           000
+     3 \mismatch                                            0         0             0
+  ---- ------------------------------------------ ----------- --------- -------------
+     4 \clock                                               0         0             0
+     4 \data                                                0         0           000
+     4 \mismatch                                            1         1             1
+

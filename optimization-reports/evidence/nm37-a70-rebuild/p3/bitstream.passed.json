@@ -1,0 +1,13 @@
+{
+  "source_lock_sha256": "8bc85973204dd0a2f37582367b62c28585104dc8682a3f714dde981ad7735d9b",
+  "roots": [
+    "bitstream",
+    "logs/bitstream.log"
+  ],
+  "files": {
+    "bitstream/NM37_A70.bit": "2ad3d1602f4a8b13f4ac64df03e18ff81208feb6d691bb69080558dd76ba993a",
+    "bitstream/drc.txt": "45d91c25d9caedc98d2d4614bacad83e377036ccc03eb33a571cc76cc95ba2db",
+    "bitstream/timing.txt": "0f2327eab204581cd4ad958a007b3e2f65018ae4e9985f4f024203d89e137aa0",
+    "logs/bitstream.log": "44a69b180dcd5f597852d91a378a47ea7df82a82551c14e8f54bcd23d76ff075"
+  }
+}

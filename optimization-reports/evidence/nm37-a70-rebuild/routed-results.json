@@ -1,0 +1,99 @@
+{
+  "p2": {
+    "resources": {
+      "lut": 375298,
+      "logic_lut": 371013,
+      "lutram": 3774,
+      "srl": 511,
+      "ff": 64683,
+      "ramb36": 60,
+      "ramb18": 0,
+      "uram": 0,
+      "dsp": 320,
+      "utilization_percent": {
+        "lut": 28.7876,
+        "ff": 2.4808,
+        "ramb36": 2.9762,
+        "dsp": 3.5461
+      }
+    },
+    "timing": {
+      "passed": false,
+      "global_summary": [
+        -0.182,
+        -93.724,
+        1220.0,
+        175612.0,
+        0.002,
+        0.0,
+        0.0,
+        175612.0,
+        0.0,
+        0.0,
+        0.0,
+        72659.0
+      ],
+      "dut": {
+        "part": "xcvu37p_CIV-fsvh2892-2L-e",
+        "dut_period": "14.286",
+        "dut_setup_wns": "-0.182",
+        "dut_hold_whs": "0.002"
+      }
+    },
+    "worst_dut_path": "Slack (VIOLATED) :        -0.182ns  (required time - arrival time)\n  Source:                 dutDomain/fsa/fsa/mxControl/io_acc_ctrl_pipe_b_cmd_reg[2]_rep__1/C\n                            (rising edge-triggered cell FDRE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@7.143ns period=14.286ns})\n  Destination:            dutDomain/fsa/fsa/accRAM_sram/banks_subBanks_sram_mem_1/banks_subBanks_sram_mem_1_0_ext/mem_0_0/ram_reg_0_31_182_195/RAMG_D1/I\n                            (rising edge-triggered cell RAMD32 clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@7.143ns period=14.286ns})\n  Path Group:             clk_out1_harnessSysPLL\n  Path Type:              Setup (Max at Slow Process Corner)\n  Requirement:            14.286ns  (clk_out1_harnessSysPLL rise@14.286ns - clk_out1_harnessSysPLL rise@0.000ns)\n  Data Path Delay:        14.344ns  (logic 5.075ns (35.381%)  route 9.269ns (64.619%))\n  Logic Levels:           54  (CARRY8=19 LUT2=5 LUT3=4 LUT4=4 LUT5=7 LUT6=15)\n  Clock Path Skew:        0.143ns (DCD - SCD + CPR)\n    Destination Clock Delay (DCD):    5.596ns = ( 19.881 - 14.286 ) \n    Source Clock Delay      (SCD):    5.225ns\n    Clock Pessimism Removal (CPR):    -0.227ns\n  Clock Uncertainty:      0.188ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE\n    Total System Jitter     (TSJ):    0.071ns\n    Discrete Jitter          (DJ):    0.370ns\n    Phase Error              (PE):    0.000ns\n  Clock Net Delay (Source):      3.071ns (routing 1.422ns, distribution 1.649ns)\n  Clock Net Delay (Destination): 2.982ns (routing 1.289ns, distribution 1.693ns)",
+    "checkpoint_sha256": "617b058379f452fe75141b6969a28f286bef3c941aca97da0e23290d62b59fe5",
+    "bitstream_exported": false,
+    "board_tested": false
+  },
+  "p3": {
+    "resources": {
+      "lut": 378248,
+      "logic_lut": 372342,
+      "lutram": 4958,
+      "srl": 948,
+      "ff": 71330,
+      "ramb36": 52,
+      "ramb18": 0,
+      "uram": 0,
+      "dsp": 288,
+      "utilization_percent": {
+        "lut": 29.0139,
+        "ff": 2.7357,
+        "ramb36": 2.5794,
+        "dsp": 3.1915
+      }
+    },
+    "timing": {
+      "passed": true,
+      "global_summary": [
+        0.047,
+        0.0,
+        0.0,
+        192967.0,
+        0.01,
+        0.0,
+        0.0,
+        192967.0,
+        0.0,
+        0.0,
+        0.0,
+        81055.0
+      ],
+      "dut": {
+        "part": "xcvu37p_CIV-fsvh2892-2L-e",
+        "dut_period": "14.286",
+        "dut_setup_wns": "0.419",
+        "dut_hold_whs": "0.010"
+      }
+    },
+    "worst_dut_path": "Slack (MET) :             0.419ns  (required time - arrival time)\n  Source:                 dutDomain/fsa/fsa/sa/pipe_b_10_cmd_reg[1]/C\n                            (rising edge-triggered cell FDRE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@7.143ns period=14.286ns})\n  Destination:            dutDomain/fsa/fsa/sa/cmp_out_pipe_b_11_mantissa_reg[5]/D\n                            (rising edge-triggered cell FDRE clocked by clk_out1_harnessSysPLL  {rise@0.000ns fall@7.143ns period=14.286ns})\n  Path Group:             clk_out1_harnessSysPLL\n  Path Type:              Setup (Max at Slow Process Corner)\n  Requirement:            14.286ns  (clk_out1_harnessSysPLL rise@14.286ns - clk_out1_harnessSysPLL rise@0.000ns)\n  Data Path Delay:        13.680ns  (logic 4.706ns (34.401%)  route 8.974ns (65.599%))\n  Logic Levels:           56  (CARRY8=23 LUT1=1 LUT2=4 LUT3=6 LUT4=2 LUT5=2 LUT6=18)\n  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)\n    Destination Clock Delay (DCD):    6.514ns = ( 20.799 - 14.286 ) \n    Source Clock Delay      (SCD):    6.407ns\n    Clock Pessimism Removal (CPR):    -0.131ns\n  Clock Uncertainty:      0.188ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE\n    Total System Jitter     (TSJ):    0.071ns\n    Discrete Jitter          (DJ):    0.370ns\n    Phase Error              (PE):    0.000ns\n  Clock Net Delay (Source):      3.447ns (routing 1.319ns, distribution 2.128ns)\n  Clock Net Delay (Destination): 3.161ns (routing 1.198ns, distribution 1.963ns)",
+    "checkpoint_sha256": "89af2e0680081b3b9f23ecd0f583d03c85fe76b62b65ab2553b3d4a265057707",
+    "bitstream_exported": true,
+    "board_tested": false,
+    "bitstream": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/bitstream/NM37_A70.bit",
+      "sha256": "2ad3d1602f4a8b13f4ac64df03e18ff81208feb6d691bb69080558dd76ba993a",
+      "bytes": 84989293
+    }
+  }
+}

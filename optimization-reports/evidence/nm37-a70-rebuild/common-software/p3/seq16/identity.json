@@ -1,0 +1,82 @@
+{
+  "binary": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/sim16/simulator",
+    "sha256": "18c98974ccea324206e1e9d70f66ebf348fcf0bcfe29b827cfa16a07d9d60aca"
+  },
+  "board_runtime": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-board/board_test.py",
+    "sha256": "57fa4bfa6b68b000c29bbe5f62fbc047fa0d3cc82b18e0776fd0cbb5cea764a8"
+  },
+  "config": {
+    "contents": {
+      "a_type": "fp32",
+      "acc_base": 0,
+      "acc_size": 1088,
+      "e_type": "fp16",
+      "inst_queue_size": 256,
+      "mem_align": 32,
+      "mem_base": 2147483648,
+      "mem_size": 268435456,
+      "sa_cols": 16,
+      "sa_rows": 16,
+      "spad_base": 0,
+      "spad_size": 3072
+    },
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/sim16/build/chipyard.harness.TestHarness.A70SinglePort16X16Fp16Config.FSAConfig.json",
+    "sha256": "247d40b749cee50e541acdbec7283f7deb5763952ac115b236378f021c664a2c"
+  },
+  "dram_sim_ini": {
+    "files": {
+      "DDR3_micron_64M_8B_x4_sg15.ini": "d80668c4f4cc1fe9a7dbaaf0b3e5230cf93e9058aa7e5d83cb25fa421aad3b37",
+      "system.ini": "0b360fe6d596cb4c66565d4ea52b78f6dd12148120d610957bcda2e95b55a464"
+    },
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/generators/testchipip/src/main/resources/dramsim2_ini"
+  },
+  "easyfloat_files": {
+    "README.md": "0d56da80cc1af5f41f1ff68e68e3efedf684a704bc9871654282c05a1f1eb132",
+    "fp_consts.py": "58af08705957a98a9770c229dcc92e3bf1d9013fb973963b5e10c3015c200e45",
+    "pyeasyfloat/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pyeasyfloat/backend.py": "162ea46e1870db622ae22a8a238ad2d15ff2d7cf93cf432d0cfcb5761011e241",
+    "pyeasyfloat/exp.py": "3fac553300081c29afd7f116f227673b02d4f9258d704c6769a044f794ccbde7",
+    "pyeasyfloat/float.py": "520db4ec620d4d1f100af777865bdd7a7bbc160f3d9b019f69d8b0f585614a96",
+    "pyeasyfloat/fma.py": "05af90fcabda123fcc242fa6f06354d54845a17ee963f28d6f6a40813ccf56ac",
+    "pyeasyfloat/fp_utils.py": "00ac8d19f6207f0d4701829c40434f02302edc58312b820d957a5c10e04db9a8",
+    "pyeasyfloat/reciprocal.py": "fa2d51f2fcdb49c56bb93c8d014cd5e5cf09283e2dba7c3c18cfbbbd9c623d18",
+    "pyeasyfloat/rounding.py": "07725db96ea950af5a2fe2d8ad2cd2f2fae15ad871b82dea2ee6706c3c3add64",
+    "pyproject.toml": "f23863881411dd9fa2b87fa77827f6aae86f527307be863a7c693a6545e4a897",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/exp2_accuracy.py": "12586b18cbe2d991215a0842e3fcd5c017a557779f9e5c2c197e95f3c14edf91",
+    "tests/exp_test.py": "6d6a6b221ea14304a2039c356e3a07ec734b2081222971f54b22188984b392ce",
+    "tests/fma_test.py": "44f842acad059607f77de3c644a925b18e11d105158d829c7831d897c7c07dc6",
+    "tests/reciprocal_test.py": "168b0c4553fd5b431faebbcb487b07e12554e40af3c1ab0f4478452be462cf39",
+    "uv.lock": "6d59a40690c0f1e49a4c85ffc870c23e886761a9e45f13b9be7bb93c58c07153"
+  },
+  "hardware_source": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3",
+  "hardware_source_commit": "73b3e42f3006818d13bc059818e11cc803f78dba",
+  "hardware_tested": false,
+  "max_cycles": 1000000,
+  "memory_mapping": "Simulator mem_base=0x80000000; board mem_base=0. Absolute DRAM addresses in instructions therefore differ from board runs, while generation/serialization logic is exactly shared.",
+  "seed": 0,
+  "seq": 16,
+  "software_files": {
+    "README.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fa_ref.py": "0924bd5a4a6844abba58bb9d475c94bffed3f8b0fbd7418ea1738fc459da4100",
+    "fsa/__init__.py": "c0651524f7ac8b3731f6659e9c38bc2422376f9ea37ff0429ae85a63c0dc8c7a",
+    "fsa/config.py": "f87f23265cf230419e0d9332a4f0bbb5fa5759173ab266185f61721fef6fe7df",
+    "fsa/dtype.py": "b2e1da6b5a9abb2c6a3ba101c2356c7bb562e2293eddc1e2749f010d9b46b00a",
+    "fsa/engine.py": "b8b9f98db6c6dcb4713c314730ff8e24a4c9c01f816b0bd8d7eab4161cd3bbbf",
+    "fsa/instructions.py": "cfcde827570e03730b8cd09a12b94396c68c99fd2866ef2c6d82f4d429e2e67f",
+    "fsa/kernel.py": "8899cb498de4d0a044e95bee5cb838cf3066db18044da7ed80d5b8abad524cea",
+    "fsa/mem.py": "bb6975dc877f7f97e9e421c2025b314dfa2073a06efed65cf6fb2d4dc824cf0d",
+    "fsa/tensor.py": "415aac0360bf265b7ac44ad90ecec130e6a48ddb3648bf3fe6f858a7852208f1",
+    "fsa/utils.py": "19d2621d75be47e7f40a15755bf24fe83eb7b360c77938225ac1d0969fd4a032",
+    "fsa/xdma.py": "7cb9a52955bd9584e59d8881294d543c1d591f3c37f29081f2c7d737748c50ab",
+    "fsa/xdma_mmio.py": "a729841731a3d7e9c66636aaee816e096b0b990a2ea027dfeea0850d6cf8934b",
+    "main.py": "aa6c7b59bbf08a2c9fc80991c75d1afc845b6f70b8cbf2e9ba3204f3f31307da",
+    "pyproject.toml": "fecba1bc535d0bd9d049c0fa80b9b24c496e8d0ae460225779b2225ad6658f05",
+    "uv.lock": "abd2f62df1919890d642ea368971967c72ba9468c548a59cddbbf17b6ef52bcd"
+  },
+  "software_root": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+  "verifier_sha256": "9779fc8d247abe45f7046c39a1e137b157e11c80418ed10f91dbaebb288a7cd5",
+  "workload": "Direct call to common board Runtime.__init__/prepare; FPGA.open_device/execute are never called."
+}

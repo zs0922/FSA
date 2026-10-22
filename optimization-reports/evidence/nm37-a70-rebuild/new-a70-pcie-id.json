@@ -1,0 +1,18 @@
+{
+  "p2": {
+    "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci",
+    "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+    "values": {
+      "MODELPARAM_VALUE.PF0_DEVICE_ID": "0x9038",
+      "PARAM_VALUE.pf0_device_id": "9038"
+    }
+  },
+  "p3": {
+    "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci",
+    "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+    "values": {
+      "MODELPARAM_VALUE.PF0_DEVICE_ID": "0x9038",
+      "PARAM_VALUE.pf0_device_id": "9038"
+    }
+  }
+}

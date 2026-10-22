@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "scope": "Independent static code review and live sidecar/method binding check; full CLI integration fixtures are reported separately, not skipped.",
+  "driver_files_sha256": {
+    "gate.py": "1e42365de8e842a54a97aeba90b70aaae73e0da71363bf0166f61b245effc61e",
+    "implementation-generated-catalog.json": "55c5e71830439a5a84f9a804776fcbb4b69c2413ac1510fef89fedff77635045",
+    "implementation_generated.py": "3de41df7caf88b0399bb3ba48e3951753fd8d671c0eaee39e017e31f3a09ce1c",
+    "run.sh": "c96acd6e08e9fa39d33adbba6d51b0fb835115ba5cb76dfe4c5021373b18ee1c"
+  },
+  "method_update_sha256": "6e773e5ea25e98a666c7c03a98599fbd7bce25112d381da522905049d324f741",
+  "sidecar_sha256": "2ead9f3d23705e97f9831466c1d33d00bea50fe2913b3550eeb700c5d732a497",
+  "original_inputs_checked": 128,
+  "new_implementation_files": 141,
+  "findings": [
+    "Old artifacts.py check revalidates old frozen helper/source/shell identity before any export.",
+    "Every original phase seal SHA is fixed by method update, and every phase current-file inventory must match exactly.",
+    "Elaboration permits only the exact141 SHA entries in separately verified sidecar; original inputs remain unchanged.",
+    "CDC acceptance file and all five report/DCP evidence SHA are checked, then old physical.py reruns full physical validation.",
+    "run.sh uses set-e, original bitstream.tcl and original artifacts.py bitstream seal; cd out preserves build journals.",
+    "A70_SOURCE environment must match build.json source; create-only physical-export-recheck.json must not already exist."
+  ],
+  "blockers": [],
+  "bitstream_exported_by_this_review": false
+}

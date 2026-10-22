@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "scope": "Independent static code review and live sidecar/method binding check; full CLI integration fixtures are reported separately, not skipped.",
+  "driver_files_sha256": {
+    "gate.py": "68bf640f5f904a537212ef5f99bde8ca469f96145c8ca65ef948e4a3f13f63e6",
+    "implementation-generated-catalog.json": "55c5e71830439a5a84f9a804776fcbb4b69c2413ac1510fef89fedff77635045",
+    "implementation_generated.py": "3de41df7caf88b0399bb3ba48e3951753fd8d671c0eaee39e017e31f3a09ce1c",
+    "run.sh": "c96acd6e08e9fa39d33adbba6d51b0fb835115ba5cb76dfe4c5021373b18ee1c"
+  },
+  "method_update_sha256": "51d40392e6d82c229caf7dcf7adf1113f37a42a69f6179029e747fa910ce0e7f",
+  "sidecar_sha256": "2ead9f3d23705e97f9831466c1d33d00bea50fe2913b3550eeb700c5d732a497",
+  "original_inputs_checked": 128,
+  "new_implementation_files": 141,
+  "findings": [
+    "Old artifacts.py check revalidates old frozen helper/source/shell identity before any export.",
+    "Every original phase seal SHA is fixed by method update, and every phase current-file inventory must match exactly.",
+    "Elaboration permits only the exact141 SHA entries in separately verified sidecar; original inputs remain unchanged.",
+    "CDC acceptance file and all five report/DCP evidence SHA are checked, then old physical.py reruns full physical validation.",
+    "run.sh uses set-e, original bitstream.tcl and original artifacts.py bitstream seal; cd out preserves build journals.",
+    "A70_SOURCE environment must match build.json source; create-only physical-export-recheck.json must not already exist."
+  ],
+  "blockers": [],
+  "bitstream_exported_by_this_review": false,
+  "version": 2,
+  "prior_review_file": "review/reviewed-export-driver-independent-review.json",
+  "prior_review_sha256": "f214f953a5143c188900e13a61dc7f35882300c24a0c02f004acde3470136be5",
+  "runtime_compatibility_only_change": true,
+  "runtime_update": "First reviewed-export invocation stopped before any hardware tool because the Vivado PATH Python lacks hashlib.file_digest. Use the already reviewed portable chunked SHA helper; old attempt source/method/log retained separately. No gate logic or hardware changed.",
+  "previous_method_record_matches_preserved_attempt": true,
+  "original_phase_seals_still_unchanged": true
+}

@@ -1,0 +1,11 @@
+{
+  "source_lock_sha256": "f105179fba82780216ab660451c09a9e894ae19d25291d519cf46aecc41360e9",
+  "roots": [
+    "generator.jar",
+    "logs/assembly.log"
+  ],
+  "files": {
+    "generator.jar": "7236eb9e689437290856180ae55a63b6103c082ca53e39b6085dbfbe2d84590b",
+    "logs/assembly.log": "29505ca1afbfad5ac9bb3dde6864c3a9bf3f7426bb0598c6cde3b0b8ec134cad"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "bitwise_equal": true,
+  "shape": [
+    32,
+    16
+  ],
+  "seed": 0,
+  "seq": 32,
+  "array_rows": 16,
+  "binary_sha256": "18c98974ccea324206e1e9d70f66ebf348fcf0bcfe29b827cfa16a07d9d60aca",
+  "config_sha256": "247d40b749cee50e541acdbec7283f7deb5763952ac115b236378f021c664a2c",
+  "actual_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+  "expected_sha256": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+  "input_sha256": {
+    "q": "4c2713892b923f089dbd9d57863dffd8e4495941e9f06fc6cea2a9b533fdefe7",
+    "k": "59d43f7c7b44fb146d59d3eb224086e80c40cbb96beb6cd4ebe8d21fe0e552a0",
+    "v": "83fa4d1c41d6e3de0b87d11a7dcf6be9c542fb3e431e276f6f366f661c168c99"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "actual_file_sha256": "46cd04de4de3b81e10f610d75976f4c7ea563e46a597a213284967d6ccade1f3",
+  "actual_sha256_raw": "d9b1a5feea470367d00a3eb02f3530e555df09ce0aacadac737494156c294ec2",
+  "bit_mismatches": 0,
+  "bitwise_equal": true,
+  "board_host_timing_measured": false,
+  "counters": {
+    "dmaActive": 712,
+    "dmaInst": 40,
+    "execTime": 3704,
+    "fence": 1,
+    "mxActive": 2808,
+    "mxBubble": 997,
+    "mxInst": 56,
+    "rawInst": 329
+  },
+  "expected_file_sha256": "46cd04de4de3b81e10f610d75976f4c7ea563e46a597a213284967d6ccade1f3",
+  "expected_sha256_raw": "d9b1a5feea470367d00a3eb02f3530e555df09ce0aacadac737494156c294ec2",
+  "hardware_tested": false,
+  "identity_sha256": "495da2439d2d7056f60539938a2e1b34ceafc31096fa893aff0cb659712dbe18",
+  "inputs": {
+    "K": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "b09a3797d8cee46d4a510e47a20c773ac1915cd109b7c3ef61e84e8ace7cec42",
+      "shape": [
+        64,
+        16
+      ]
+    },
+    "Q": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "60515e8c1a763b43d6636132b48749dbcb9ce67e6677c98bb174a18282abea2d",
+      "shape": [
+        64,
+        16
+      ]
+    },
+    "V": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "2686d563ae43a81638c565ef08abee05d88a40bb3ffe441e3433ddb730bce33c",
+      "shape": [
+        64,
+        16
+      ]
+    }
+  },
+  "instruction_words": 329,
+  "instructions_sha256": "30fafa6720c1d323a1bd4bac416d938fc6e29dfe69da149128bab423cc0b52bd",
+  "module_origins": {
+    "fa_ref": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fa_ref.py",
+      "sha256": "0924bd5a4a6844abba58bb9d475c94bffed3f8b0fbd7418ea1738fc459da4100"
+    },
+    "fsa": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/__init__.py",
+      "sha256": "c0651524f7ac8b3731f6659e9c38bc2422376f9ea37ff0429ae85a63c0dc8c7a"
+    },
+    "fsa.config": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/config.py",
+      "sha256": "f87f23265cf230419e0d9332a4f0bbb5fa5759173ab266185f61721fef6fe7df"
+    },
+    "fsa.dtype": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/dtype.py",
+      "sha256": "b2e1da6b5a9abb2c6a3ba101c2356c7bb562e2293eddc1e2749f010d9b46b00a"
+    },
+    "fsa.engine": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/engine.py",
+      "sha256": "b8b9f98db6c6dcb4713c314730ff8e24a4c9c01f816b0bd8d7eab4161cd3bbbf"
+    },
+    "fsa.instructions": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/instructions.py",
+      "sha256": "cfcde827570e03730b8cd09a12b94396c68c99fd2866ef2c6d82f4d429e2e67f"
+    },
+    "fsa.kernel": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/kernel.py",
+      "sha256": "8899cb498de4d0a044e95bee5cb838cf3066db18044da7ed80d5b8abad524cea"
+    },
+    "fsa.mem": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/mem.py",
+      "sha256": "bb6975dc877f7f97e9e421c2025b314dfa2073a06efed65cf6fb2d4dc824cf0d"
+    },
+    "fsa.tensor": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/tensor.py",
+      "sha256": "415aac0360bf265b7ac44ad90ecec130e6a48ddb3648bf3fe6f858a7852208f1"
+    },
+    "fsa.utils": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/utils.py",
+      "sha256": "19d2621d75be47e7f40a15755bf24fe83eb7b360c77938225ac1d0969fd4a032"
+    },
+    "fsa.xdma": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/xdma.py",
+      "sha256": "7cb9a52955bd9584e59d8881294d543c1d591f3c37f29081f2c7d737748c50ab"
+    },
+    "fsa.xdma_mmio": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/fsa/xdma_mmio.py",
+      "sha256": "a729841731a3d7e9c66636aaee816e096b0b990a2ea027dfeea0850d6cf8934b"
+    },
+    "main": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/fsa/python/main.py",
+      "sha256": "aa6c7b59bbf08a2c9fc80991c75d1afc845b6f70b8cbf2e9ba3204f3f31307da"
+    },
+    "pyeasyfloat": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pyeasyfloat.backend": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/backend.py",
+      "sha256": "162ea46e1870db622ae22a8a238ad2d15ff2d7cf93cf432d0cfcb5761011e241"
+    },
+    "pyeasyfloat.exp": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/exp.py",
+      "sha256": "3fac553300081c29afd7f116f227673b02d4f9258d704c6769a044f794ccbde7"
+    },
+    "pyeasyfloat.float": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/float.py",
+      "sha256": "520db4ec620d4d1f100af777865bdd7a7bbc160f3d9b019f69d8b0f585614a96"
+    },
+    "pyeasyfloat.fma": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/fma.py",
+      "sha256": "05af90fcabda123fcc242fa6f06354d54845a17ee963f28d6f6a40813ccf56ac"
+    },
+    "pyeasyfloat.fp_utils": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/fp_utils.py",
+      "sha256": "00ac8d19f6207f0d4701829c40434f02302edc58312b820d957a5c10e04db9a8"
+    },
+    "pyeasyfloat.reciprocal": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/reciprocal.py",
+      "sha256": "fa2d51f2fcdb49c56bb93c8d014cd5e5cf09283e2dba7c3c18cfbbbd9c623d18"
+    },
+    "pyeasyfloat.rounding": {
+      "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/generators/easyfloat/pyeasyfloat/rounding.py",
+      "sha256": "07725db96ea950af5a2fe2d8ad2cd2f2fae15ad871b82dea2ee6706c3c3add64"
+    }
+  },
+  "passed": true,
+  "scope": "Common host kernel/instruction/software-reference compatibility with this RTL simulator; not XDMA/MMIO, PCIe, HBM initialization, board frequency, or physical board validation.",
+  "seed": 0,
+  "seq": 64,
+  "shape": [
+    64,
+    16
+  ],
+  "simulator_host_elapsed_ns": 1474337029
+}

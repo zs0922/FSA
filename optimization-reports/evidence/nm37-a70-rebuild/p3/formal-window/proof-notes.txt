@@ -1,0 +1,54 @@
+A70 P3 complete finite-memory equivalence proof
+
+Result: PASS. Uses the supplied unchanged emitted A70AccumulatorMiter RTL.
+The actual legacy combinational oracle and actual P3 FPAccUnit are retained.
+No inputs, reset sequences, initial data states, or cutpoint equalities are assumed.
+Both the original valid-masked io_mismatch and the stronger unmasked data_mismatch
+are proven identically zero at the state following three rising clock edges.
+
+Transformation and completeness argument
+1. structure.ys parses the untouched emitted SV, lowers processes, flattens the
+   hierarchy, and applies ordinary Yosys opt. structure.json is that complete RTLIL.
+2. unroll.py recursively evaluates the output cones at symbolic time 3.
+   Every combinational cell is copied verbatim with its original parameters and
+   input connections at the same symbolic time. Shared nodes are memoized.
+   A positive-edge $dff Q bit at time t>0 is exactly its D bit at time t-1.
+   A positive-edge $sdff Q bit at time t>0 is exactly the reset-polarity-controlled
+   mux of SRST_VALUE and D at time t-1. Clocks are implicit rising-edge steps.
+   At t=0 every register would be an independent free input. There are NONE in
+   either output cone, checked with an assertion. Every primary input bit at every
+   referenced time is independent and free. There are exactly 100 such inputs:
+   a,b,c,exp2 at time 0 (97 bits), and reset at times 0,1,2 (3 bits).
+3. In this emitted miter there is exactly one $ne, implementing gate != expected.
+   It is additionally exported as data_mismatch, bypassing the fill-valid mask.
+   This stronger output is proved zero, so reset/fill gating cannot hide failures.
+4. Yosys opt shares identical cross-frame arithmetic, reducing two multipliers to
+   one. No cutpoints, blackboxes, or assumed internal equalities are introduced.
+   sat -verify proves both outputs zero with all 100 input bits unrestricted.
+5. Because neither cone reaches initial state, the same three-edge identity holds
+   from ANY initial state. Choose any later three-edge sliding window: its start
+   state is one of those arbitrary states, so both outputs are zero at its end.
+   Thus this is a complete all-time result after pipeline fill, not a bounded-only
+   claim, simulation, or a claim based on assumed pipeline register matching.
+
+Trust boundary: Yosys RTL lowering/optimization/SAT, and the small auditable
+unroll.py temporal-expansion transformation. The file is included in full.
+
+The installed Yosys 0.70 command set has no built-in temporal netlist unroll
+pass. Native sat -seq is the independent temporal reference used for fixtures;
+its expansion is internal to SAT and cannot be opt_merge-shared across frames.
+Seven positive/negative fixtures compare native sequential SAT at time depth+1
+(skipping the preceding depth outputs) against expanded combinational SAT.
+The cases cover 3-stage DFF, active-high/low SDFF with nonzero reset values,
+shared multi-output $alu, wrong latency, inverted data, and wrong reset polarity.
+Five further fixtures assert rejection of other clocks, negative edges, unknown
+cells, asynchronous registers, and initial-state-dependent cones.
+The transformation accepts only an explicit combinational type whitelist and
+requires every original register clock to be the sole top-level positive-edge
+clock. It rejects undefined constants in the expanded cone.
+
+This proof is not the original unmodified sat -tempinduct command, which is an
+independent alternative and may remain an incomplete attempt. No claim is made about reciprocal or FSA scheduling.
+
+Reproduce with a fresh output directory:
+  python3 run-proof.py --rtl /absolute/path/to/emitted-rtl --out /absolute/path/to/new-output --yosys /absolute/path/to/yowasp-yosys

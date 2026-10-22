@@ -1,0 +1,6 @@
+read_json native.json
+hierarchy -check -top fixture
+techmap
+opt
+check -assert
+sat -verify -seq 1 -prove-skip 0 -prove mismatch 0 -show-inputs -show-outputs

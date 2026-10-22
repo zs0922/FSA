@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "tests": 58,
+  "test_log_sha256": "6e1dfe08cd2c4943f60364d36a69c6267aaf9b47068e558a90577e40e33063ae",
+  "final_docs_package_extract_verified": true,
+  "package_fixture_only": true,
+  "resolved_document_links": [
+    {
+      "source": "board-tools/README.md",
+      "target": "docs/source-reproduction.md",
+      "resolved": "board-tools/docs/source-reproduction.md"
+    },
+    {
+      "source": "board-tools/docs/source-reproduction.md",
+      "target": "../README.md",
+      "resolved": "board-tools/README.md"
+    }
+  ],
+  "bash_blocks_syntax_checked": 9,
+  "historical_profile_environment_review": {
+    "A100": {
+      "commit": "0a3a2656df66043ea513a45bab8275c1be0ba76c",
+      "shell_commit": "d7c353201c61f1879afdb2fddf3c52283d450147",
+      "configuration": {
+        "fsa.pePipeline": "true",
+        "fsa.fanoutSplit": "false",
+        "fsa.pipelineConservative": "false",
+        "fsa.nm37MHz": "100"
+      },
+      "formal_requirements_sha256": "b68d56914dcf80f91c6082a3ef7233c16ce8feff8d609d40807ae8d954f66d62",
+      "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "uv_lock_present": true
+    },
+    "A110": {
+      "commit": "25673838e66ddef9031748ca40f7220c65acedaf",
+      "shell_commit": "d7c353201c61f1879afdb2fddf3c52283d450147",
+      "configuration": {
+        "fsa.pePipeline": "true",
+        "fsa.fanoutSplit": "false",
+        "fsa.pipelineConservative": "false",
+        "fsa.nm37MHz": "110"
+      },
+      "formal_requirements_sha256": "b68d56914dcf80f91c6082a3ef7233c16ce8feff8d609d40807ae8d954f66d62",
+      "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "uv_lock_present": true
+    }
+  },
+  "source_path_binding": "Each profile uses its own FSA_PYTHON and PYTHONPATH easyfloat root; verify_sim selects FSA and DRAMSim paths relative to its __file__; no original-machine build paths reused.",
+  "files": {
+    "scripts/nm37-board/package.py": "9445f36bae3147fb2914b4c9ba1ff7453ef0e4c8364bacbfacefaf60a9034ec2",
+    "scripts/nm37-board/test_package.py": "fae0deb916c33fb9e3f9366115ee0ee6933a53f5c5bb5247cd10b07d2faf4fd4",
+    "scripts/nm37-board/source_bundle.py": "52b2c7734dea1999258460c7a1dabd3ebbfa326db3645c4449891564f9c2c887",
+    "scripts/nm37-board/test_source_bundle.py": "6a5abb09a9b8e2b63f35ad958ffb74accae2504813240889e540f9f524d5a369",
+    "scripts/nm37-board/README.md": "a9e85cb0e8f5db65d8ed5d6cf7dac2d73b80b91e976ca0087896b2aff5907718",
+    "scripts/nm37-board/docs/source-reproduction.md": "221cbc8fbcb6231215cf4d6a001f552a1b36f40fe162d5193d3635eb1a500f18"
+  },
+  "hardware_accessed": false,
+  "new_a100_a110_build_executed": false
+}

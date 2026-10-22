@@ -1,0 +1,22 @@
+{
+  "change": "independent verification-method update; frozen source, JAR and emitted RTL unchanged",
+  "original_attempt": {
+    "directory": "formal",
+    "status": "interrupted_without_conclusion_after_alternative_proof_passed",
+    "exit_code": 130,
+    "log_sha256": "2ca70d2b03b3840b312bf2e4b76c8cc86f3df81308143a50c11a339a5d8febd0",
+    "driver_sha256": "5db5359e0cf1c1b11e94cb179a70c4bf4de68f40768609207da26cd62de4a6e5"
+  },
+  "accepted_proof": {
+    "directory": "formal-window",
+    "result_sha256": "dfe694e0cbf4dac91e0669f523fc017f5a141927eb03ed210704f8916d992d17",
+    "method": "exact three-edge finite-memory cone expansion plus unrestricted combinational SAT",
+    "parent_review": "Reviewed DFF/SDFF semantics, clock identity, combinational whitelist, empty initial-state cone, unmasked data comparison, semantic positive/negative fixtures and all 61 artifact hashes"
+  },
+  "source_lock_sha256": "8bc85973204dd0a2f37582367b62c28585104dc8682a3f714dde981ad7735d9b",
+  "generator_sha256": "c44eed225987a124aa0100d42213fcdddc83a958b94444db6e8d7baeda73466b",
+  "rtl_sha256": {
+    "A70AccumulatorMiter.sv": "ec356847bb5ae28dec9aa24e64155d92adbf3db6e18e987fa30bf5a96d29f9e8"
+  },
+  "no_input_reset_or_cutpoint_assumptions": true
+}

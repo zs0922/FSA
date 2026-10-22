@@ -1,0 +1,33 @@
+{
+  "historical_mislabeled_p3": {
+    "path": "/home/zhangsi/FSA/nm37-stage-results/p3/NM37FPGATestHarness-p3.bit",
+    "bytes": 84989293,
+    "sha256": "7c4f144144ddf3802cee797be3437488bb189e6b4d5e663048bb018dd3689367",
+    "header": {
+      "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+      "b": "xcvu37p_CIV-fsvh2892-2L-e",
+      "c": "2026/09/29",
+      "d": "05:44:23"
+    },
+    "payload_offset": 137,
+    "payload_bytes": 84989156,
+    "payload_sha256": "3f2f77a21926b6257114900759f86b403baeeda79153230e1b80c92f2d65fc45"
+  },
+  "new_a70_p3": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/bitstream/NM37_A70.bit",
+    "bytes": 84989293,
+    "sha256": "2ad3d1602f4a8b13f4ac64df03e18ff81208feb6d691bb69080558dd76ba993a",
+    "header": {
+      "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+      "b": "xcvu37p_CIV-fsvh2892-2L-e",
+      "c": "2026/10/22",
+      "d": "10:59:49"
+    },
+    "payload_offset": 137,
+    "payload_bytes": 84989156,
+    "payload_sha256": "2b3f86ef8f84c6e499408bfb9f9afe0479bea52f409390c6a106f4e3f26328bb"
+  },
+  "payloads_differ": true,
+  "meaning": "The configuration payload differs, independently of header timestamp/name changes. Optimized structure and correctness require the separate source/JAR/RTL/verification/implementation evidence chain.",
+  "board_tested": false
+}

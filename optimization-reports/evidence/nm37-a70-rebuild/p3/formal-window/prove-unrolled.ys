@@ -1,0 +1,8 @@
+read_json unrolled.json
+hierarchy -check -top A70AccumulatorMiterUnrolled
+opt
+check -assert
+stat
+write_json unrolled-optimized.json
+write_verilog -noattr unrolled-optimized.v
+sat -verify -prove io_mismatch 0 -prove data_mismatch 0 -show-inputs -show-outputs -dump_json counterexample.json -dump_vcd counterexample.vcd

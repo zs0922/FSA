@@ -1,0 +1,21 @@
+{
+  "accepted_for_board_test": true,
+  "board_tested": false,
+  "source_lock_sha256": "8bc85973204dd0a2f37582367b62c28585104dc8682a3f714dde981ad7735d9b",
+  "reviewed_utc": "2026-10-22T10:36:04.690276+00:00",
+  "analysis": "Parent acceptance of the independently reviewed actual routed P3 reports, source/RTL clock-reset inspection and exact 9-field CDC regression: all 300 crossings, 32 clocks, 45 clock-pair classifications, complete exceptions and constraint endpoints match the existing 70 MHz shell. Actual routed STA, fully-routed counts, bus skew and DRC pass. Candidate is authorized for controlled board testing; no hardware test or blanket CDC-clean claim. The source-lock and immutable phase seals bind the optimized P3 generator, emitted arithmetic/control structure, functional tests, proof and DCP.",
+  "known_boundaries": [
+    "30 existing Critical CDC classifications remain: 12 asynchronous reset, 2 POR combinational-before-synchronizer, 16 vendor PCIe pipe/GT fanout crossings; source structures and actual endpoints reviewed, not removed or claimed CDC-clean.",
+    "30 unused HBM AXI1..15 BREADY/RREADY constant-clock endpoints exactly match; no nonconstant-clock unconstrained endpoints.",
+    "Asynchronous prst_n has no input delay and an existing false-path boundary. Real reset/PCIe/HBM startup still requires board testing."
+  ],
+  "independent_review_sha256": "abcb630069d966ec579c05f8225d098f774f5f652b4f7d12079eb63741c494f6",
+  "source_review_sha256": "99b9b819fb0d46ac142a8c4035dec68b2d813c160c40145a8beec9f4ff292fde",
+  "evidence_sha256": {
+    "post_route.dcp": "89af2e0680081b3b9f23ecd0f583d03c85fe76b62b65ab2553b3d4a265057707",
+    "audit/cdc.txt": "92cbfaec9a8c4b17519420eabafe7c6347c2f934054cf05370877512f073f2be",
+    "audit/check_timing.txt": "c40bd28c84f896058de5132ee60a54d78808722621fd74315fa1d72273e460b9",
+    "audit/clock_interaction.txt": "45b9ccb420d124872601cff69856c68187708e14c8548e757a17026e92ad1ca1",
+    "audit/exceptions.txt": "6f81a050442f0dccc203fcde8028a242d749279d173fd96354b4e20a051af134"
+  }
+}

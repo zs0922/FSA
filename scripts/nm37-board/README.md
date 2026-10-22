@@ -238,3 +238,5 @@ python3 /path/to/restored-p3/scripts/nm37-a70-source-lock.py capture \
 已核对本任务的 A100 `0f1a643a...`、A110 `eeb1a1d0...` 以及工具集成 `47a123fe...`：它们的递归 gitlinks 使用此包中的相同 173 个依赖 pin，FSA/easyfloat 两个目录已直接版本化，不使用对应历史子仓 bundle；各自仍明确保留 11 个递归排除和 20 个 root 范围外 gitlinks。这只是源对象兼容性结论，完整编译、布局布线还需要各 profile 的构建入口、工具链和独立验收。
 
 目标服务器的分阶段编译、验证、布局布线与 A110 历史 reaudit 命令见 [源码恢复与比特流重建](docs/source-reproduction.md)。A100 使用修复门禁后的 `a100-reproduction`，A110 新构建/旧DCP审计使用 `a110-audited`，不要在加入新工具后的 integration checkout 上直接运行历史锁定入口。
+
+目标服务器的简洁操作顺序见 [151 板测操作单](docs/151-board-test.md)，包含 USER 占位、手动加载确认、三配置一致测试及结果保存要求。

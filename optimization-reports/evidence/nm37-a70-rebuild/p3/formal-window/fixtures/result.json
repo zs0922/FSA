@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "dff3",
+      "expected_equivalent": true,
+      "native": "PASS",
+      "expanded": "PASS"
+    },
+    {
+      "name": "wrong_latency",
+      "expected_equivalent": false,
+      "native": "EXPECTED_COUNTEREXAMPLE",
+      "expanded": "EXPECTED_COUNTEREXAMPLE"
+    },
+    {
+      "name": "wrong_value",
+      "expected_equivalent": false,
+      "native": "EXPECTED_COUNTEREXAMPLE",
+      "expanded": "EXPECTED_COUNTEREXAMPLE"
+    },
+    {
+      "name": "sdff_high",
+      "expected_equivalent": true,
+      "native": "PASS",
+      "expanded": "PASS"
+    },
+    {
+      "name": "sdff_low",
+      "expected_equivalent": true,
+      "native": "PASS",
+      "expanded": "PASS"
+    },
+    {
+      "name": "sdff_wrong_polarity",
+      "expected_equivalent": false,
+      "native": "EXPECTED_COUNTEREXAMPLE",
+      "expanded": "EXPECTED_COUNTEREXAMPLE"
+    },
+    {
+      "name": "multioutput_shared",
+      "expected_equivalent": true,
+      "native": "PASS",
+      "expanded": "PASS"
+    },
+    {
+      "name": "other_clock",
+      "rejected": true
+    },
+    {
+      "name": "negative_edge",
+      "rejected": true
+    },
+    {
+      "name": "unknown_cell",
+      "rejected": true
+    },
+    {
+      "name": "asynchronous_register",
+      "rejected": true
+    },
+    {
+      "name": "initial_state_dependency",
+      "rejected": true
+    }
+  ]
+}

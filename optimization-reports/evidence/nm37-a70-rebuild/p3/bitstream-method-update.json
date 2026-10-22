@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "accepted_by_parent": true,
+  "hardware_changed": false,
+  "source_lock_sha256": "8bc85973204dd0a2f37582367b62c28585104dc8682a3f714dde981ad7735d9b",
+  "original_frozen_driver_directory": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/release-drivers-p3-v2",
+  "original_driver_manifest_sha256": "ca5fcc890e0b633983279deb9709e49608ca0ceaff7cae0c25225e82a6d34e60",
+  "new_export_driver_files": {
+    "gate.py": "68bf640f5f904a537212ef5f99bde8ca469f96145c8ca65ef948e4a3f13f63e6",
+    "implementation-generated-catalog.json": "55c5e71830439a5a84f9a804776fcbb4b69c2413ac1510fef89fedff77635045",
+    "implementation_generated.py": "3de41df7caf88b0399bb3ba48e3951753fd8d671c0eaee39e017e31f3a09ce1c",
+    "run.sh": "c96acd6e08e9fa39d33adbba6d51b0fb835115ba5cb76dfe4c5021373b18ee1c"
+  },
+  "original_phase_seals_sha256": {
+    "assembly": "e82fed969c219c9483599c46cec352537d043cfb58d68d4b9c0b332f3d1da76f",
+    "units": "f0086ce71a4e6b80b35d787a560ac1f2dd80c74aeea65add00c4d359c7e954e2",
+    "formal": "bfebca6fa7ea20805b7d1ae7cc652444324ae1d857476668950026c627ed89e3",
+    "sim4": "fdf732c01ee229545cb1dd3664eacb796393a00ac0587b71a1554fe9473103a0",
+    "sim16": "aac1350830021c281c0c4517d308c12ef5c1e14354904a8ad34b5f04bf178772",
+    "elaborate": "f1ddd459367f1054e9696f873ab4c358aab9e29e388dc8ccba158d24d5f1e3a3",
+    "implement": "f3578b46fe9f16ce3ba2165636a4859efe60986301fcc50d6c43eb9d9caaa6c1"
+  },
+  "implementation_generated_seal_sha256": "2ead9f3d23705e97f9831466c1d33d00bea50fe2913b3550eeb700c5d732a497",
+  "cdc_constraint_review_sha256": "8fdbd6b099c97c5c2ee80dea457c9277ee0415adf049b03a089ecd0d98ad5083",
+  "approved_utc": "2026-10-22T10:50:12.375243+00:00",
+  "reason": "The unchanged original helper rejected 141 normal implementation-generated files outside obj. Original 128 elaboration artifacts are byte-identical, none missing. The fixed classifier restricts exact 141 names, binds SHA of all additions and existing original files, checks 5 IP explicit Tcl/XCI parameters and all project source references. This one-time export driver verifies old source/drivers/all phase seals, exact reviewed additions, the unchanged CDC acceptance and strict physical checks, then calls the original frozen bitstream Tcl. No old phase seal or build driver is rewritten, no hardware or routed checkpoint changes. New builds use the corrected artifacts.py sidecar binding automatically.",
+  "first_attempt": "bitstream-attempt01-blocked.json",
+  "runtime_compatibility_update": "First reviewed-export invocation stopped before any hardware tool because the Vivado PATH Python lacks hashlib.file_digest. Use the already reviewed portable chunked SHA helper; old attempt source/method/log retained separately. No gate logic or hardware changed.",
+  "previous_method_sha256": "6e773e5ea25e98a666c7c03a98599fbd7bce25112d381da522905049d324f741"
+}

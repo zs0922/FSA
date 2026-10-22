@@ -1,0 +1,1266 @@
+{
+  "stage": "p3",
+  "review_utc": "2026-10-22T10:35:16.535443+00:00",
+  "status": "ROUTED_REPORTS_REVIEWED",
+  "scope": "Read-only routed CDC/constraint endpoint comparison, not board execution or blanket CDC safety waiver.",
+  "source_review_sha256": "99b9b819fb0d46ac142a8c4035dec68b2d813c160c40145a8beec9f4ff292fde",
+  "structure_review_sha256": "9a712ab77d60701fd8cfd6ceb141faa8091fcabf29d8412270bc31f18095aff2",
+  "checkpoint_sha256": "89af2e0680081b3b9f23ecd0f583d03c85fe76b62b65ab2553b3d4a265057707",
+  "checkpoint_marker_matches": true,
+  "checkpoint_binding_note": "Final script-written checksum marker matches hashed DCP.",
+  "artifact_sha256": {
+    "audit/bus_skew.txt": "aeac38c62ba01b950e6165204443c29242ef401032db7e40cd38c08c0cc9d1ac",
+    "audit/cdc.txt": "92cbfaec9a8c4b17519420eabafe7c6347c2f934054cf05370877512f073f2be",
+    "audit/check_timing.txt": "c40bd28c84f896058de5132ee60a54d78808722621fd74315fa1d72273e460b9",
+    "audit/clock_interaction.txt": "45b9ccb420d124872601cff69856c68187708e14c8548e757a17026e92ad1ca1",
+    "audit/dsp_registers.tsv": "887032eeeadd78fc809af943647a6a2ace72f21cef8e17b79e20664cccf82b3c",
+    "audit/dut_hold_top100.txt": "8f3d01fc5fecdd3398bba5571f6488b8bbf487621a68dd638e4596d05d94a06a",
+    "audit/dut_setup_top100.txt": "8ea64056816e3a68db8d685d3ee3a2a17d05af44970b5a8e964c91bdd772abff",
+    "audit/exceptions.txt": "6f81a050442f0dccc203fcde8028a242d749279d173fd96354b4e20a051af134",
+    "audit/fanout_top200.txt": "3cadaa06646e5267b96d5d63e0fb80ec94499d91d08b97146ff446ccbc9a92a0",
+    "audit/post_synth_timing.txt": "29164b47c97ac00e8314ac624d5e29fec98b1a6892440c888463f8185780c802",
+    "audit/post_synth_utilization.txt": "e9d07576d75128fcda96baddb64270d18089a847522135a4f9fb81d2f690bc0d",
+    "audit/postroute_checkpoint.sha256": "10da2aeebd724201db20a536bf08dae0109aa275327d5966387259e2aade4cdb",
+    "audit/run_properties.txt": "98922c071a042c5995ebb734710a66cd56ffd721c9f090c699682c7a100a46bd",
+    "report/clocks.txt": "4fd2ceabbbb2bd45ab1ef3b3637a8e53d5cb46b1b2492b227c3c84b288f48a8f",
+    "report/complexity.txt": "53ab4a9f7048714134c93f9e671217c7392dfaf0c73048ddbbfa64387d1d76fd",
+    "report/congestion.txt": "756e98942df53d2c471d751f5fcbaba18354c6a232e3b16cfbb428f8a6c62561",
+    "report/datasheet.txt": "342085b7e37ee3f908292449cfed8b40c39928f24849c56b87629cf82aa74584",
+    "report/drc.txt": "eb15a74764c5cae85ac75b1e90b927abf1de0a0bbd43c228eb45c70423bb8ef0",
+    "report/fanout.txt": "9ed2226b1ef12bb3e2326dce2c93515602153808549844fff7acd22ae9f9b299",
+    "report/io.txt": "43261a8c6d46965ab4af0e8b7d5d1e3b7e6a6d579b89bb74bf2efe8fad8f5123",
+    "report/power.txt": "0479ae8f4b88c39ab77c24932095582b0138b5b0993cca6cac4dfe4209d4a472",
+    "report/route_status.txt": "a49c075a426771ad906542f7430ad4f7d88650dc6e7000a0e22c51b7b02429d2",
+    "report/timing.txt": "eafd66929e2f6a2b01fdd09f36c57638c3b7d7cecdc3df54641d4708d2698807",
+    "report/utilization.txt": "bbbc22b5eb741617ef506e65264651616066a0705fcc1a2c84e058bae630c646",
+    "report/utilization_flat.txt": "5f70033d1d798640312dee1475afadba87da442f97ca5f247d5cff6e8077bee9",
+    "report/utilization_slr.txt": "97d422ab3072f579bd14c5400ea137b852b9e92373bb710151b1116b55ceabc2"
+  },
+  "inspector_sha256": "bc978d4636a604aebb07819d9be6238730e8ceb7ee4646dd4fe9f2d9de9fc26f",
+  "implementation_log_sha256": "2873caec019ab85d35ea306f59d8dfb4a585a9f2fd10e3bd0baba65c8bff4f45",
+  "baseline_sha256": {
+    "cdc.txt": "2f12c025a20831391aeace3a4d636a5693ae851f0fe7020c012f049b7bfabe03",
+    "check_timing.txt": "8fa06e0232fa014d3edfe77505260186a7626340ca35cd0525882af3cf2565bf",
+    "clock_interaction.txt": "7c20f1f99ad0dd6fe90442a902d44cc4e04c9d7e9a04a20254a93e8dee4b2b36",
+    "exceptions.txt": "7d282860fc24c0e6c371763ef7946f1edc1e9c30ab4bc8a52e8612ea0b222d92"
+  },
+  "cdc": {
+    "comparison_fields": [
+      "id",
+      "severity",
+      "source_clock",
+      "destination_clock",
+      "cdc_type",
+      "depth",
+      "exception",
+      "source",
+      "destination"
+    ],
+    "baseline_rows": 300,
+    "candidate_rows": 300,
+    "baseline_counts": {
+      "CDC-3": 77,
+      "CDC-9": 22,
+      "CDC-8": 1,
+      "CDC-7": 12,
+      "CDC-10": 2,
+      "CDC-15": 170,
+      "CDC-11": 16
+    },
+    "candidate_counts": {
+      "CDC-3": 77,
+      "CDC-9": 22,
+      "CDC-8": 1,
+      "CDC-7": 12,
+      "CDC-10": 2,
+      "CDC-15": 170,
+      "CDC-11": 16
+    },
+    "full_fields_difference": {
+      "equal": true,
+      "added": [],
+      "removed": []
+    },
+    "critical_full_fields_difference": {
+      "equal": true,
+      "added": [],
+      "removed": []
+    },
+    "critical_rows": [
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "input port clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "prst_n",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+        "line": 54,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "input port clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "prst_n",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+        "line": 56,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE",
+        "line": 65,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-10",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "3",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR",
+        "line": 66,
+        "description": "Combinational logic detected before a synchronizer"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR",
+        "line": 67,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-10",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "_pcie_io_clocks_axi_aclk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "3",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE",
+        "line": 68,
+        "description": "Combinational logic detected before a synchronizer"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "_pcie_io_clocks_axi_aclk",
+        "destination_clock": "clk_out1_harnessSysPLL",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C",
+        "destination": "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "line": 104,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "clk_out1_harnessSysPLL",
+        "cdc_type": "User Ignored",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "wrangler/deglitched_deglitch/reg_0_reg/PRE",
+        "line": 125,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "input port clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "prst_n",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+        "line": 213,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "input port clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "prst_n",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+        "line": 214,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "input port clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "prst_n",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+        "line": 215,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR",
+        "line": 223,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR",
+        "line": 224,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-7",
+        "severity": "Critical",
+        "source_clock": "sys_clock",
+        "destination_clock": "pipe_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "0",
+        "exception": "False Path",
+        "source": "powerOnReset_fpga_power_on/power_on_reset_reg/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR",
+        "line": 225,
+        "description": "Asynchronous reset unknown CDC circuitry"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 458,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 460,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 461,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 463,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 464,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 466,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 467,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 469,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 470,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 472,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 473,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 475,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 476,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 478,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 479,
+        "description": "Fan-out from launch flop to destination clock"
+      },
+      {
+        "id": "CDC-11",
+        "severity": "Critical",
+        "source_clock": "pipe_clk",
+        "destination_clock": "xdma_ref_clk",
+        "cdc_type": "No Common Primary Clock",
+        "depth": "4",
+        "exception": "Asynch Clock Groups",
+        "source": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C",
+        "destination": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D",
+        "line": 481,
+        "description": "Fan-out from launch flop to destination clock"
+      }
+    ],
+    "known_critical_boundaries": "Existing12 CDC7 asynchronous-reset,2 CDC10 POR-before-synchronizer,16 CDC11 PCIe pipe/GT paths remain explicit shell/vendor review boundaries. Matching their fields is regression evidence, not proof of CDC/board safety."
+  },
+  "constraints": {
+    "counts": {
+      "no_clock": 0,
+      "constant_clock": 0,
+      "pulse_width_clock": 0,
+      "unconstrained_internal_endpoints": 30,
+      "no_input_delay": 1,
+      "no_output_delay": 0,
+      "multiple_clock": 0,
+      "generated_clocks": 0,
+      "loops": 0,
+      "partial_input_delay": 0,
+      "partial_output_delay": 0,
+      "latch_loops": 0
+    },
+    "all_expected_counts": true,
+    "hbm30_actual_endpoints": [
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<10>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<10>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<11>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<11>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<12>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<12>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<13>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<13>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<14>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<14>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<15>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<15>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<1>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<1>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<2>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<2>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<3>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<3>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<4>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<4>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<5>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<5>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<6>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<6>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<7>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<7>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<8>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<8>_INST/RREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<9>_INST/BREADY",
+      "dutDomain/ram_hbm/inst/ONE_STACK.u_hbm_top/ONE_STACK_HBM.hbm_one_stack_intf/HBM_SNGLBLI_INTF_AXI<9>_INST/RREADY"
+    ],
+    "hbm30_expected_match": true,
+    "additional_hbm_or_wrong_endpoints": [],
+    "missing_hbm_endpoints": [],
+    "max_delay_unconstrained_nonconstant": 0,
+    "prst_n_no_input_delay": true,
+    "check_timing_body_equal": true,
+    "clock_interaction": {
+      "equal": true,
+      "added": [],
+      "removed": [],
+      "actual": [
+        {
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "classification": "Clean",
+          "constraint": "Partial False Path",
+          "edges": "rise - rise",
+          "wns": "0.05"
+        },
+        {
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "classification": "Ignored",
+          "constraint": "Asynchronous Groups",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "0.66"
+        },
+        {
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "pipe_clk",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "2.97"
+        },
+        {
+          "source_clock": "clk_out1_harnessSysPLL",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "classification": "Ignored",
+          "constraint": "Asynchronous Groups",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "clk_out1_harnessSysPLL",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "classification": "Clean",
+          "constraint": "Partial False Path",
+          "edges": "rise - rise",
+          "wns": "0.42"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "classification": "Clean",
+          "constraint": "Partial False Path",
+          "edges": "rise - rise",
+          "wns": "0.19"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "0.11"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "destination_clock": "pipe_clk",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "0.62"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "4.13"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.67"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.93"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.60"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.86"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.88"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.74"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "3.92"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_intclk/O",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_intclk/O",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "998.71"
+        },
+        {
+          "source_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_intclk/O",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "Asynchronous Groups",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "pipe_clk",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "2.62"
+        },
+        {
+          "source_clock": "pipe_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "classification": "Clean",
+          "constraint": "Timed",
+          "edges": "rise - rise",
+          "wns": "0.54"
+        },
+        {
+          "source_clock": "pipe_clk",
+          "destination_clock": "pipe_clk",
+          "classification": "Clean",
+          "constraint": "Partial False Path",
+          "edges": "rise - rise",
+          "wns": "0.51"
+        },
+        {
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "Asynchronous Groups",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "sys_clock",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "sys_clock",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "classification": "Ignored",
+          "constraint": "False Path",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "pipe_clk",
+          "classification": "Ignored",
+          "constraint": "Asynchronous Groups",
+          "edges": "",
+          "wns": ""
+        },
+        {
+          "source_clock": "xdma_ref_clk",
+          "destination_clock": "xdma_ref_clk",
+          "classification": "Clean",
+          "constraint": "Partial False Path",
+          "edges": "rise - rise",
+          "wns": "7.18"
+        }
+      ]
+    },
+    "clock_inventory": {
+      "equal": true,
+      "baseline_file_sha256": "c13c5782b7a05876faec2254a535cb64ae984eb378fb9e6581a5fe58416c22f3",
+      "baseline_count": 32,
+      "candidate_count": 32,
+      "added": [],
+      "removed": [],
+      "actual": [
+        {
+          "name": "dutDomain/ram_hbm/inst/HBM_REF_CLK_0",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P",
+          "sources": "{dutDomain/ram_hbm/inst/HBM_REF_CLK_0}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[0].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[1].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[2].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[3].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[4].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[5].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[6].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O",
+          "period_ns": "5.000",
+          "waveform": "{0.000 2.500}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_cpll_cal_gtye4.gen_cpll_cal_inst[7].gen_inst_cpll_cal.gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_inst/gtwizard_ultrascale_v1_7_9_gtye4_cpll_cal_tx_i/bufg_gt_txoutclkmon_inst/O}"
+        },
+        {
+          "name": "pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_intclk/O",
+          "period_ns": "1000.000",
+          "waveform": "{0.000 500.000}",
+          "attributes": "P",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_intclk/O}"
+        },
+        {
+          "name": "sys_clock",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P",
+          "sources": "{sys_clock_p}"
+        },
+        {
+          "name": "xdma_ref_clk",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P",
+          "sources": "{xdma_refclk_p}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[0]",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[26].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[0]_1",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[0].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[1]",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[26].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[1].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[1]_1",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[1].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[2]",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[26].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[2].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[2]_1",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[27].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[2].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "GTYE4_CHANNEL_TXOUTCLK[3]",
+          "period_ns": "2.000",
+          "waveform": "{0.000 1.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_channel_container[26].gen_enabled_channel.gtye4_channel_wrapper_inst/channel_inst/gtye4_channel_gen.gen_gtye4_channel_inst[3].GTYE4_CHANNEL_PRIM_INST/TXOUTCLK}"
+        },
+        {
+          "name": "_pcie_io_clocks_axi_aclk",
+          "period_ns": "4.000",
+          "waveform": "{0.000 2.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_userclk/O}"
+        },
+        {
+          "name": "clk_out1_harnessSysPLL",
+          "period_ns": "14.286",
+          "waveform": "{0.000 7.143}",
+          "attributes": "P,G,A",
+          "sources": "{harnessSysPLL/inst/mmcme4_adv_inst/CLKOUT0}"
+        },
+        {
+          "name": "nm37_xdma_pcie4c_ip_gt_top_i_n_541",
+          "period_ns": "8.000",
+          "waveform": "{0.000 4.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_mcapclk/O}"
+        },
+        {
+          "name": "pipe_clk",
+          "period_ns": "4.000",
+          "waveform": "{0.000 2.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_clk_i/bufg_gt_pclk/O}"
+        },
+        {
+          "name": "qpll0outclk_out[0]",
+          "period_ns": "0.200",
+          "waveform": "{0.000 0.100}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[26].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL0OUTCLK}"
+        },
+        {
+          "name": "qpll0outclk_out[0]_1",
+          "period_ns": "0.200",
+          "waveform": "{0.000 0.100}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[27].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL0OUTCLK}"
+        },
+        {
+          "name": "qpll0outrefclk_out[0]",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[26].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL0OUTREFCLK}"
+        },
+        {
+          "name": "qpll0outrefclk_out[0]_1",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[27].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL0OUTREFCLK}"
+        },
+        {
+          "name": "qpll1outclk_out[0]",
+          "period_ns": "0.200",
+          "waveform": "{0.000 0.100}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[26].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL1OUTCLK}"
+        },
+        {
+          "name": "qpll1outclk_out[0]_1",
+          "period_ns": "0.200",
+          "waveform": "{0.000 0.100}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[27].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL1OUTCLK}"
+        },
+        {
+          "name": "qpll1outrefclk_out[0]",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[26].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL1OUTREFCLK}"
+        },
+        {
+          "name": "qpll1outrefclk_out[0]_1",
+          "period_ns": "10.000",
+          "waveform": "{0.000 5.000}",
+          "attributes": "P,G,A",
+          "sources": "{pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/gt_wizard.gtwizard_top_i/nm37_xdma_pcie4c_ip_gt_i/inst/gen_gtwizard_gtye4_top.nm37_xdma_pcie4c_ip_gt_gtwizard_gtye4_inst/gen_gtwizard_gtye4.gen_common.gen_common_container[27].gen_enabled_common.gtye4_common_wrapper_inst/common_inst/gtye4_common_gen.GTYE4_COMMON_PRIM_INST/QPLL1OUTREFCLK}"
+        }
+      ]
+    },
+    "exceptions_body_equal": true,
+    "exceptions_diff": {
+      "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/a70-p3-exceptions.diff",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    }
+  },
+  "timing": {
+    "passed": true,
+    "global_summary": [
+      0.047,
+      0.0,
+      0.0,
+      192967.0,
+      0.01,
+      0.0,
+      0.0,
+      192967.0,
+      0.0,
+      0.0,
+      0.0,
+      81055.0
+    ],
+    "dut": {
+      "part": "xcvu37p_CIV-fsvh2892-2L-e",
+      "dut_period": "14.286",
+      "dut_setup_wns": "0.419",
+      "dut_hold_whs": "0.010"
+    }
+  },
+  "route": {
+    "passed": true,
+    "counts": {
+      "# of routable nets": 477602,
+      "# of fully routed nets": 477602,
+      "# of nets with routing errors": 0
+    }
+  },
+  "cdc_constraint_regression_review_passed": true,
+  "physical_checks": {
+    "passed": true,
+    "result": {
+      "constrained_sta_passed": true,
+      "board_tested": false,
+      "cdc_review_required": true,
+      "constraint_review_required": true,
+      "constraint_counts": {
+        "no_clock": 0,
+        "constant_clock": 0,
+        "pulse_width_clock": 0,
+        "unconstrained_internal_endpoints": 30,
+        "no_input_delay": 1,
+        "no_output_delay": 0,
+        "multiple_clock": 0,
+        "generated_clocks": 0,
+        "loops": 0,
+        "partial_input_delay": 0,
+        "partial_output_delay": 0,
+        "latch_loops": 0
+      },
+      "dut": {
+        "part": "xcvu37p_CIV-fsvh2892-2L-e",
+        "dut_period": "14.286",
+        "dut_setup_wns": "0.419",
+        "dut_hold_whs": "0.010"
+      },
+      "timing_summary": [
+        0.047,
+        0.0,
+        0.0,
+        192967.0,
+        0.01,
+        0.0,
+        0.0,
+        192967.0,
+        0.0,
+        0.0,
+        0.0,
+        81055.0
+      ],
+      "route": [
+        477602,
+        477602,
+        0
+      ],
+      "bus_skew_worst_ns": 2.579,
+      "checkpoint_sha256": "89af2e0680081b3b9f23ecd0f583d03c85fe76b62b65ab2553b3d4a265057707",
+      "report_hashes": {
+        "report/clocks.txt": "4fd2ceabbbb2bd45ab1ef3b3637a8e53d5cb46b1b2492b227c3c84b288f48a8f",
+        "report/complexity.txt": "53ab4a9f7048714134c93f9e671217c7392dfaf0c73048ddbbfa64387d1d76fd",
+        "report/congestion.txt": "756e98942df53d2c471d751f5fcbaba18354c6a232e3b16cfbb428f8a6c62561",
+        "report/datasheet.txt": "342085b7e37ee3f908292449cfed8b40c39928f24849c56b87629cf82aa74584",
+        "report/drc.txt": "eb15a74764c5cae85ac75b1e90b927abf1de0a0bbd43c228eb45c70423bb8ef0",
+        "report/fanout.txt": "9ed2226b1ef12bb3e2326dce2c93515602153808549844fff7acd22ae9f9b299",
+        "report/io.txt": "43261a8c6d46965ab4af0e8b7d5d1e3b7e6a6d579b89bb74bf2efe8fad8f5123",
+        "report/power.txt": "0479ae8f4b88c39ab77c24932095582b0138b5b0993cca6cac4dfe4209d4a472",
+        "report/route_status.txt": "a49c075a426771ad906542f7430ad4f7d88650dc6e7000a0e22c51b7b02429d2",
+        "report/timing.txt": "eafd66929e2f6a2b01fdd09f36c57638c3b7d7cecdc3df54641d4708d2698807",
+        "report/utilization.txt": "bbbc22b5eb741617ef506e65264651616066a0705fcc1a2c84e058bae630c646",
+        "report/utilization_flat.txt": "5f70033d1d798640312dee1475afadba87da442f97ca5f247d5cff6e8077bee9",
+        "report/utilization_slr.txt": "97d422ab3072f579bd14c5400ea137b852b9e92373bb710151b1116b55ceabc2",
+        "audit/bus_skew.txt": "aeac38c62ba01b950e6165204443c29242ef401032db7e40cd38c08c0cc9d1ac",
+        "audit/cdc.txt": "92cbfaec9a8c4b17519420eabafe7c6347c2f934054cf05370877512f073f2be",
+        "audit/check_timing.txt": "c40bd28c84f896058de5132ee60a54d78808722621fd74315fa1d72273e460b9",
+        "audit/clock_interaction.txt": "45b9ccb420d124872601cff69856c68187708e14c8548e757a17026e92ad1ca1",
+        "audit/dsp_registers.tsv": "887032eeeadd78fc809af943647a6a2ace72f21cef8e17b79e20664cccf82b3c",
+        "audit/dut_hold_top100.txt": "8f3d01fc5fecdd3398bba5571f6488b8bbf487621a68dd638e4596d05d94a06a",
+        "audit/dut_setup_top100.txt": "8ea64056816e3a68db8d685d3ee3a2a17d05af44970b5a8e964c91bdd772abff",
+        "audit/exceptions.txt": "6f81a050442f0dccc203fcde8028a242d749279d173fd96354b4e20a051af134",
+        "audit/fanout_top200.txt": "3cadaa06646e5267b96d5d63e0fb80ec94499d91d08b97146ff446ccbc9a92a0",
+        "audit/post_synth_timing.txt": "29164b47c97ac00e8314ac624d5e29fec98b1a6892440c888463f8185780c802",
+        "audit/post_synth_utilization.txt": "e9d07576d75128fcda96baddb64270d18089a847522135a4f9fb81d2f690bc0d",
+        "audit/postroute_checkpoint.sha256": "10da2aeebd724201db20a536bf08dae0109aa275327d5966387259e2aade4cdb",
+        "audit/run_properties.txt": "98922c071a042c5995ebb734710a66cd56ffd721c9f090c699682c7a100a46bd"
+      }
+    },
+    "driver_sha256": "de198f0200106a2dc4a8eeeb74612de0531e044cc45e97c51a9760b97deec44d"
+  },
+  "board_test_candidate": true,
+  "board_test_candidate_scope": "Candidate for controlled board testing only when physical_checks and exact CDC/constraints regression comparison pass; existing shell reset/PCIe Critical classifications remain documented boundaries. Parent release gate decides any export.",
+  "board_tested": false,
+  "bitstream_exported_by_this_review": false,
+  "limitations": [
+    "Existing Critical CDC classifications are not resolved or waived by equivalence of recorded paths.",
+    "The30 HBM pins are identified from actual routed check_timing report and correlated to source-omitted interfaces1..15; this report does not independently query their constant drivers from Vivado.",
+    "prst_n source false path and applied no-input-delay warning remain an asynchronous-reset board boundary.",
+    "Full endpoint/exception changes that differ from baseline require explanation before release approval.",
+    "Timing is assessed separately; P2 cannot be called timing-passed solely because CDC matches."
+  ]
+}

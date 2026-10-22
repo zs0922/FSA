@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "bash_blocks_syntax_checked": 23,
+  "relative_docs_links": [
+    {
+      "source": "README.md",
+      "target": "docs/source-reproduction.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/151-board-test.md"
+    },
+    {
+      "source": "docs/151-board-test.md",
+      "target": "source-reproduction.md"
+    },
+    {
+      "source": "docs/source-reproduction.md",
+      "target": "../README.md"
+    }
+  ],
+  "guide_sha256": "07864e6df97f3951d7af55f2ecdae3cf3e1237ff44dfdf70919a7e535dc1f35d",
+  "final_archives_created": false,
+  "hardware_accessed": false
+}

@@ -1,0 +1,1799 @@
+{
+  "passed": true,
+  "repositories": 176,
+  "dependency_repositories": 175,
+  "tracked_files_checked": 477009,
+  "method": "Every regular file and symlink hashed as a Git blob and compared with ls-tree of the exact pin; explicit text/eol=crlf checkout transforms normalized and listed; modes, gitlinks, HEAD, clean status, remote and alternates checked independently.",
+  "declared_checkout_transformations": [
+    {
+      "repository": "generators/ara/ara/toolchain/riscv-llvm",
+      "path": "llvm/test/MC/AsmParser/preserve-comments-crlf.s",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "8bf094b73ef96aaf874bf3644274cb5e92d73401",
+      "normalized_git_blob": "27c5b2e070719e34eaba9eadc007ed1ed54376a0",
+      "raw_worktree_sha256": "1d21c1e5dc6bc57809bbac59bdcdfd1c7b99c1531ffdc700ee1ad02cc02d5d7b"
+    },
+    {
+      "repository": "generators/ara/ara/toolchain/riscv-llvm",
+      "path": "llvm/test/tools/llvm-mca/X86/directives-handle-crlf.s",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "67821474be72a9f142d4ddbc2f1ed9820924700f",
+      "normalized_git_blob": "db797a75c2617e4152cd8d06a45a8d69a1c91270",
+      "raw_worktree_sha256": "61d867b1992032a4ae53890210fd3ee4e1ed68f40e982616d784412d1c017044"
+    },
+    {
+      "repository": "generators/ara/ara/toolchain/riscv-llvm",
+      "path": "llvm/test/tools/split-file/Inputs/basic-aa.crlf",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "aa8822c8e1453543a4c9a1b012e8865b2fb2f7d8",
+      "normalized_git_blob": "0b9ddeb2fc12a1405569a5269f37d4c41f4b4654",
+      "raw_worktree_sha256": "c0f4c51937b2bd9b8582d7a66a41d98991e7df263cb0582925e3702c4f239e1e"
+    },
+    {
+      "repository": "generators/ara/ara/toolchain/riscv-llvm",
+      "path": "llvm/test/tools/split-file/Inputs/basic-bb.crlf",
+      "attributes": {
+        "text": "unspecified",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "3c765c42c01271a3a3ceaa92e8bf5e0d44c4153e",
+      "normalized_git_blob": "b6c3c808ec62fd7b693e657312037160695bbfda",
+      "raw_worktree_sha256": "71049ad75863b7c2bb17720bcfc11945b9cbfed2507e8e3e2571fb06f6058c65"
+    },
+    {
+      "repository": "generators/ara/ara/toolchain/riscv-llvm",
+      "path": "llvm/test/tools/split-file/basic.crlf.test",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "6d89c69064e5e9a89db3ff2b0dc5f4ff2090f309",
+      "normalized_git_blob": "f01074a87963028ea5fe008ea6452c06b8dd644b",
+      "raw_worktree_sha256": "e239166284fa9beea9834cd772966f75fcc28215da442980bfc392dc693972b7"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2008/fullbench/fullbench.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "82d5fba0fa6cbd597e68eea9bdaab8029df584d7",
+      "normalized_git_blob": "5e349dce95644ff02f7bf4177ef0c5cd29e0e2c5",
+      "raw_worktree_sha256": "98bb09f34b4c017c8cca9adfc11d24758ae5cd0dbbf1c9895a6e049e21b44e1e"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2008/fuzzer/fuzzer.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "d38e89150be3fcc10e95a5bdb074c50ddc3d6d4b",
+      "normalized_git_blob": "32f284684737150e41a2115368f54d52857f6b45",
+      "raw_worktree_sha256": "6aad63c0f1f94c90bafb73c823acacb76cafd04599f9a173717bc64e53cbdafa"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2008/zstd.sln",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "89b6993ba4e3ec81e801ae1a2e97e8bc36804c9a",
+      "normalized_git_blob": "97b88c8d02078443fdee2895e6e1804894a6d215",
+      "raw_worktree_sha256": "0c2f51b30d8a1a742f0fc3250bae1dd6f546f826bf536e12c6f68a70ee0ce423"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2008/zstd/zstd.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "3a688afe6ae58ad5705d2ee96c1102ceb5444c5e",
+      "normalized_git_blob": "c7eec577db38a6966e31e8a0c0edbe3ef0030dfa",
+      "raw_worktree_sha256": "fbb55ad0f16d9b05eac063714f1a021cf0285015d12bb522b8108316efcfef19"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2008/zstdlib/zstdlib.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "d1099eb5ac5ff2069e02cfe4ec9113795c347c8f",
+      "normalized_git_blob": "88c1aee26d507bfe27461fa82a660a4156b7daf1",
+      "raw_worktree_sha256": "3aa3fdbf4d22b4b7b78733f21afe0fe6f78cb8d3b284450a76ab0bd4abf30500"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/datagen/datagen.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "38738df560f7daad1aa4dd2dd88598a3fb7b7b36",
+      "normalized_git_blob": "a66358a0d3a6bd3741c06c607c7d0020ea99358e",
+      "raw_worktree_sha256": "084f510000a301a1993f2740fed0155717b7517b5963c1ea1c2291286f1c9e32"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/fullbench-dll/fullbench-dll.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "5a547d535baa0141e43e023bdec6820b5373bfdc",
+      "normalized_git_blob": "befdc04451303eb8b1071ed948ae3532a98898e5",
+      "raw_worktree_sha256": "66e4d8ef96e5f53c419bd50d0e9d1b31b14de3bfcee261509022ee36d9d095f3"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/fullbench/fullbench.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "fd3fdff18fb30c46bd8e1a37393aed72a1e91ece",
+      "normalized_git_blob": "2e0a042b0e82b98e61543a4ee168ba2600d2f3ba",
+      "raw_worktree_sha256": "f654c1379c51879ab383c145c71eee64c11921dc06412d93e834872a15632761"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/fuzzer/fuzzer.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "473f207086eb6d551402cb189b9dc6b6bec8b136",
+      "normalized_git_blob": "91974ec7fa21e8680efef0cd7b7569f273b48476",
+      "raw_worktree_sha256": "b494a70b662d4666fdef7ab64bb467d1ef67946f5c414bbb6074739501885b0d"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/libzstd-dll/libzstd-dll.rc",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "d3c00b4bd74b16edfa9d5c8fa4d2a499a983f17e",
+      "normalized_git_blob": "ee9f56280432ecffc731326ac67780fbbe02c5e8",
+      "raw_worktree_sha256": "4ba381c1ba03d875790b15082ed1668a07a68584b2acb13171ddf41b8bcae610"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/libzstd-dll/libzstd-dll.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "18e1dcc4cb43db69386ba6ed1bdc7b8979120e54",
+      "normalized_git_blob": "a0aa897ce01b8285a6dfb0a9ce1d5caa90fcd9e3",
+      "raw_worktree_sha256": "0103e5d378c950a252c429eca96849ce683b4040a0efa617934da19a67b9a7eb"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/libzstd/libzstd.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "8323ac472853c65bbdacc94b36a182132a385fd1",
+      "normalized_git_blob": "17c08d703614606335250ae44201e8adbce52ff8",
+      "raw_worktree_sha256": "b6acd424ec20e7f118ea02bbe489778f717cc8c00e7c74fc7d4eff729a148376"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/zstd.sln",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "ddcf8401a21de6f82f875918e05b5d7b7578c3cf",
+      "normalized_git_blob": "12032db44fca8d790b678db2e1625bb344707465",
+      "raw_worktree_sha256": "8063f7bc7e5ccc4087076da8f43d03440615ed8782cecc71db4a5edf0f40d159"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/zstd/zstd.rc",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "4a8aef3b1392cb74386289eebff87aebd15cb656",
+      "normalized_git_blob": "f5e404730d219436b859005ed2a7b84197ac2426",
+      "raw_worktree_sha256": "fc9c650fb1614694f6496584b1377f188a349bcdedc657fec0542e82758cae1b"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS2010/zstd/zstd.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "226526d456693bf3ba460131de5761325b0be947",
+      "normalized_git_blob": "46e22f42e9b643104c0056e5e1229bd61e5da7e7",
+      "raw_worktree_sha256": "36e11849427dbb80a3dc21da07272f1542d22fbe0c5d2dae850d573a526d8db4"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2010.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "60fbbf69e327d667cdf1dfae2fb20799a1c40b50",
+      "normalized_git_blob": "c3bc1763e265ef6d6e938ba0bb721435b1c4366a",
+      "raw_worktree_sha256": "99385fe13bf132c2c30639a8372b4fbcd34e21322a8de374a6731a3c91184f99"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2012.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "4328bae921af6c74150f6390bc94bf428688b9b0",
+      "normalized_git_blob": "d7399a9d677a744529230d550a1d866ae0526c4c",
+      "raw_worktree_sha256": "43ec66eb99d7389afeb0b03c1863f751648c10b2f08ce1f5bfcf66c89be02220"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2013.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "f906d90258385b939aee12939fa2e4078104607f",
+      "normalized_git_blob": "486ba6cf0a57007f60c207b8f6fe04c74623a66c",
+      "raw_worktree_sha256": "3e6e170dfc54d05071e6aaa00d653648f83f5d44007954d908dbefca8cae9f8b"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2015.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "798e9dcb06b5d529534bc8c1fada00cb72a2009d",
+      "normalized_git_blob": "abc41c9a0080570165ee0aebee755a3cf411de49",
+      "raw_worktree_sha256": "420a6d81afffccd80f71e44a3d63e0d335a6f01a5098f6ea06def319f614252e"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2017.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "aa2011671d56000841a801c63ea97b03eb8741db",
+      "normalized_git_blob": "a810faa532e7dc3ca0cd357433b3ff5956d79e6e",
+      "raw_worktree_sha256": "ffca4b2a7e2b8241c858620205eea2fdcec2f79c8dc956ee1fc41b80a2a2f391"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2017Community.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "90b69a80bf1f0587a9412ea799ec78765798ee68",
+      "normalized_git_blob": "133e1b4565d5f92551304c487c321070964defbd",
+      "raw_worktree_sha256": "0c0c878a0a9674d1c779fcd26390af46570eede0e3ae3086f735c200b7f48d54"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2017Enterprise.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "99863ff6cab7934314c0dd8ae30431ff3a7cda7d",
+      "normalized_git_blob": "6a70932052bc2f90b021dd8c7a7b879caf42f332",
+      "raw_worktree_sha256": "7967e51b6628940ec5ff01fdfe84b141fd017975794d011bf91f194d74517937"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.VS2017Professional.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "d56ccabae715e823ac35e770e5e998d227fc61c7",
+      "normalized_git_blob": "d183519dff275ded399466bafab8af42c8a70264",
+      "raw_worktree_sha256": "eb88d7128808d4c8040357e5dca6726619e9da336d50f254bb759cf5bc9e1d21"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "build/VS_scripts/build.generic.cmd",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "d43c134edbecb5b1c0b5a0475b3b226a1e38d292",
+      "normalized_git_blob": "b24e6ed4bdbd4b046249b861b94bebcd49b021eb",
+      "raw_worktree_sha256": "231ad4604bb58d3b3bbc9ab84848421fdb98295bba5d2c0250fd4f2d4398d9e2"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "contrib/VS2005/fullbench/fullbench.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "94e288f71f7cedcb8a9492b3685d4629afc7a3bc",
+      "normalized_git_blob": "98f8593769a93fa9c4e5a6e5ae1ba1fadeac4c80",
+      "raw_worktree_sha256": "3fb6770b780241d07b9a2098355ead61b8a49e21d6c4dcc5aed628ad4d1eee50"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "contrib/VS2005/fuzzer/fuzzer.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "04003fcff7cc6307aa111cc5ffdca1f673537cea",
+      "normalized_git_blob": "d182535fe2d7a1585aa8ed7e61e2851f21447589",
+      "raw_worktree_sha256": "48e345992e0a90b5f8d8b49867e03f42ded95217b932126494271cf78a7673e9"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "contrib/VS2005/zstd.sln",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "dfc73b4685aa3319e5528ad4904fd61b2a00618b",
+      "normalized_git_blob": "0c31ae126c01ab01a33cb7e88f29f35004c6d59d",
+      "raw_worktree_sha256": "1095bb9942dbd88434174043b5c83bb031f7f4b42c7e35974040804492cccbb5"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "contrib/VS2005/zstd/zstd.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "94e5b6be5f50f12e389101e9e5072b4aad2a812a",
+      "normalized_git_blob": "78645d18a360ba910b3954b8679ddb3e3daae104",
+      "raw_worktree_sha256": "db3e0255c17f2cfa95a9b88ef7528b1e80aa03ba9b84eae700a71882eabd53bc"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "contrib/VS2005/zstdlib/zstdlib.vcproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "0ad30b6a517416c57d1559556fd9c027d2ab6dfd",
+      "normalized_git_blob": "67ddd2dba3a2d030bdd1ab82a024ebebe5c471c3",
+      "raw_worktree_sha256": "8156e24174f8a5aa8452e75343b9cd471d2afd77328ec178bafad557c13e9347"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "lib/dll/example/build_package.bat",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "e410c63b289dc5169ec3e23f1de8deff717af0f7",
+      "normalized_git_blob": "8baabc7b2c6e47e24476b7419195e546b65322f8",
+      "raw_worktree_sha256": "34509ff536dd9303475f8a1de32bab856f67d0ab9c48eefc939bc8b672c88221"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "lib/dll/example/fullbench-dll.sln",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "ef8d4c024629f30593e253f844b1ce9eadeff2a1",
+      "normalized_git_blob": "72e302e7f5d4dcbffa24b8495fd4eab1c712b11b",
+      "raw_worktree_sha256": "af0c9152e1109cea3e7a997e59dc435f032526c238e95681741e2a2f12ad0a74"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "lib/dll/example/fullbench-dll.vcxproj",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "fbea7832c8063e19614a984ed79f49dcebea7f2f",
+      "normalized_git_blob": "44bbaf788e76b540770a83577ef9837f7d1439b4",
+      "raw_worktree_sha256": "4f932405a188a42bf7d8d525d72f62c24e0145092fab1f313331e1c637572d6f"
+    },
+    {
+      "repository": "generators/compress-acc/software/zstd",
+      "path": "programs/windres/zstd.rc",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "4a8aef3b1392cb74386289eebff87aebd15cb656",
+      "normalized_git_blob": "f5e404730d219436b859005ed2a7b84197ac2426",
+      "raw_worktree_sha256": "fc9c650fb1614694f6496584b1377f188a349bcdedc657fec0542e82758cae1b"
+    },
+    {
+      "repository": "generators/gemmini/software/onnxruntime-riscv",
+      "path": "csharp/OnnxRuntime.CSharp.sln",
+      "attributes": {
+        "text": "set",
+        "eol": "crlf"
+      },
+      "raw_worktree_blob": "48efcefc3c7375513f9d6e1f4b47eca923bb8344",
+      "normalized_git_blob": "c6df04f633004ec9cb65338ba9227baf5b335ad2",
+      "raw_worktree_sha256": "5d81a04706a2e1c84e365c217b5fee6b3822204c3d59f297839aae9e599c9dee"
+    }
+  ],
+  "root_commit": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+  "unpopulated_gitlinks": {
+    "sims/firesim/platforms/f1/aws-fpga": {
+      "gitlink": "53223d71ce20f02925c74b81da3e6ff0deb79fe2",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/platforms/rhsresearch_nitefury_ii/NiteFury-and-LiteFury-firesim": {
+      "gitlink": "dfed09d33196ba4c96bca0ca2b078ce1bdb16c8c",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/platforms/xilinx_vcu118/garnet-firesim": {
+      "gitlink": "e0bb020ac0ff6c3731cb82cfc9789963a0e1c382",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/berkeley-hardfloat": {
+      "gitlink": "26f00d00c3f3f57480065e02bfcfde3d3b41ec51",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/cde": {
+      "gitlink": "2bcaeae2b9914bd25497ce3c6fa62dc5ca80e09f",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/diplomacy": {
+      "gitlink": "a042ff6df083624ceba471367d4292c91b43f7e6",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/rocket-chip": {
+      "gitlink": "1b9f43352c7fd6e4e81cb244b422f6c605ffd3df",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/utils/fireperf/FlameGraph": {
+      "gitlink": "cd9ee4c4449775a2f867acf31c84b7fe4b132ad5",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "software/baremetal-ide": {
+      "gitlink": "1d3c44bb120fc0e0a3df3a44b58f6c41c2a5106a",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/coremark": {
+      "gitlink": "cf8b8f7d82e085b3ecb31865fa40fb3dd62554f2",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/embench/embench-iot": {
+      "gitlink": "d9b30cdf805133bef9db5f7ecf84ae1ce8124291",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/firemarshal": {
+      "gitlink": "21119e5ce922ff9302f0bc9d2d7349c77f7ac064",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/firesim-paper-workloads": {
+      "gitlink": "172265a3c74fc6dcd492cb3753ee21a319cffdcc",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/nvdla-workload": {
+      "gitlink": "30290c3ed8014577fa2ad234fa1b731a082299fb",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/spec2017": {
+      "gitlink": "83e33110472c47aaa762257ed7c053ff1278834c",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/tacit_decoder": {
+      "gitlink": "db38ff14bc2a1285b17d106bfaa5909622a6092f",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "software/zephyrproject/zephyr": {
+      "gitlink": "cd45a528d3bf81f9c7aa2a63f9fe512eee0881b0",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/libgloss": {
+      "gitlink": "39234a16247ab1fa234821b251f1f1870c3de343",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-isa-sim": {
+      "gitlink": "76858cc3aa178446584eae52f82e0a933e71f8db",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-openocd": {
+      "gitlink": "8f59570468edcf53854d2fd6dabf57b8db7d23c9",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-pk": {
+      "gitlink": "abadfdc507d5a75b6272dc360e70a80a510c758a",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-spike-devices": {
+      "gitlink": "887b868db313805c7163f7cc519a7b9e74d92c98",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-tests": {
+      "gitlink": "0494f954a3d8d2ca9e4972da7a01e94b6a909bce",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "toolchains/riscv-tools/riscv-tools-feedstock": {
+      "gitlink": "56c29e01ba3e705c563edd1271a387119bddb5a5",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "tools/axe": {
+      "gitlink": "4a7cf86960425fbf0b6224865b745ff511dc5742",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "tools/circt": {
+      "gitlink": "481cb60add7358934414a3c6b396f5d29ad934fe",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "tools/dsptools/fixedpoint": {
+      "gitlink": "ef164009e40ce5a5abe61ebcc11c12ff82e34014",
+      "reason": "build.sbt: dsptools.dependsOn(fixedpoint), tools/fixedpoint"
+    },
+    "tools/install-circt": {
+      "gitlink": "3f8dda6e1c1965537b5801a43c81c287bac4eae4",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    },
+    "tools/rocket-dsp-utils/tools/dsptools": {
+      "gitlink": "8f4336639578d2e2dbaf61e542ee1f0fa8d79e63",
+      "reason": "build.sbt: rocket_dsp_utils.dependsOn(dsptools), tools/dsptools"
+    },
+    "tools/rocket-dsp-utils/tools/rocket-chip": {
+      "gitlink": "281e5c8f2e1cca68439fe04799d7be855db92517",
+      "reason": "build.sbt: rocket_dsp_utils.dependsOn(rocketchip), generators/rocket-chip"
+    },
+    "tools/torture": {
+      "gitlink": "b2b66a66d51b360e0ae95017774d03377c78c574",
+      "reason": "Outside supplied NM37 source-lock build scope"
+    }
+  },
+  "records": {
+    ".": {
+      "head": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+      "tracked_files": 575,
+      "content_inventory_sha256": "7a7047775b2972d6a8b64ded8cb54a71f159ff484d5251d47e47eeb92f253938",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "fpga/fpga-shells": {
+      "head": "d7c353201c61f1879afdb2fddf3c52283d450147",
+      "tracked_files": 198,
+      "content_inventory_sha256": "c17cdb2fd7b45f5f68312ec6cf5a8b8e37f3d3547b76d9b9e637052e0bb9e6a6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara": {
+      "head": "0c4fd8813fa33d6a35a8d9cb27aa48302919d17f",
+      "tracked_files": 11,
+      "content_inventory_sha256": "59f8ea9666e85ff309d34c4db8e73a69187a3c5fd7c1f21c1ddfc5448214a103",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara": {
+      "head": "df5b8d4cd4a335e8531a4db8b78c829fb7fb4030",
+      "tracked_files": 959,
+      "content_inventory_sha256": "070164cfcc3d56172b4c627045032cff8f5243442fc69acd81bef5e276f566c3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/newlib": {
+      "head": "2e4ecbb3f0d574d18eddb97eff9421db45fb0da7",
+      "tracked_files": 6470,
+      "content_inventory_sha256": "b257398b9017225b487947806ee1d47994b24e8f83a2d95c0813f48428ba2f48",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain": {
+      "head": "5842fde8ee5bb3371643b60ed34906eff7a5fa31",
+      "tracked_files": 988,
+      "content_inventory_sha256": "d1bdac7e8f15e87188d584776c9e9431396b299be849108cfb155ea7c8fb1455",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu": {
+      "head": "57dfc2c4d51e770ed3f617e5d1456d1e2bacf3f0",
+      "tracked_files": 7007,
+      "content_inventory_sha256": "1adfc99cadc1cf81a51037acdfa084dbc59d045187d68a5cb5f6d0ec60b7971d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/capstone": {
+      "head": "22ead3e0bfdb87516656453336160e0a37b066bf",
+      "tracked_files": 630,
+      "content_inventory_sha256": "9dc67c2f4da435a406c077bdc7ccbd50956d71c12946799c870cf92c41fa8515",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/dtc": {
+      "head": "88f18909db731a627456f26d779445f84e449536",
+      "tracked_files": 284,
+      "content_inventory_sha256": "f92050bf27524927733b977c584234813d8749eed3c427881d70eda1d7bb43e6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/QemuMacDrivers": {
+      "head": "90c488d5f4a407342247b9ea869df1c2d9c8e266",
+      "tracked_files": 23,
+      "content_inventory_sha256": "1c30edc4390d6c5d6bd44da740579609f3958ac45ed8ceea47c347e81261a5fa",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/SLOF": {
+      "head": "a5b428e1c1eae703bdd62a3f527223c291ee3fdc",
+      "tracked_files": 569,
+      "content_inventory_sha256": "403fe7cbc267501de088380fdccd5cda89e57a8f07adddcf9509b49f1572a8b1",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2": {
+      "head": "20d2e5a125e34fc8501026613a71549b2a1a3e54",
+      "tracked_files": 7729,
+      "content_inventory_sha256": "1a040089417e1558f081b6c8474233fb0017d87d99c58f5e6b506c380e9550d3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3": {
+      "head": "b64af41c3276f97f0e181920400ee056b9c88037",
+      "tracked_files": 478,
+      "content_inventory_sha256": "47518ef102c90b54c55d46f09d38dda67c4ce0013ffbc90eace2111143249105",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl": {
+      "head": "50eaac9f3337667259de725451f201e784599687",
+      "tracked_files": 18155,
+      "content_inventory_sha256": "ad2183db4df38777c118c36a56c8c15ea8f9ff263dba10d28b318554a89547c3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/boringssl": {
+      "head": "2070f8ad9151dc8f3a73bffaa146b5e6937a583f",
+      "tracked_files": 3786,
+      "content_inventory_sha256": "a0d329e0ad31fc8f2abc636dec41a81808d2a0221978a87eb68e8d0542fba553",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/krb5": {
+      "head": "b9ad6c49505c96a088326b62a52568e3484f2168",
+      "tracked_files": 2877,
+      "content_inventory_sha256": "d669bb11a83137c361a9d7acd727dc483a3475dff56bae3de575fd3490d85789",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography": {
+      "head": "09403100de2f6f1cdd0d484dcb8e620f1c335c8f",
+      "tracked_files": 2505,
+      "content_inventory_sha256": "0ff8d2d5c07ecd36406e5db9d3a3106c3c5f74a2ce309d65f36f480621e13198",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/ipxe": {
+      "head": "de4565cbe76ea9f7913a01f331be3ee901bb6e17",
+      "tracked_files": 1769,
+      "content_inventory_sha256": "24d37494c47dffbaccc822fe89fffbd1fd65b58a15c8c4b53502db89d16cf093",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/openbios": {
+      "head": "c79e0ecb84f4f1ee3f73f521622e264edd1bf174",
+      "tracked_files": 684,
+      "content_inventory_sha256": "401e52a97d23b6b7a00b786cf501a7310dc6054859f71758a8ea5f11a97a25b8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/openhackware": {
+      "head": "c559da7c8eec5e45ef1f67978827af6f0b9546f5",
+      "tracked_files": 64,
+      "content_inventory_sha256": "56f53d174d0fe83ee640a382225c6b6b1b9c71abf85e70e7e70e6b6d6f1045ae",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/qemu-palcode": {
+      "head": "bf0e13698872450164fa7040da36a95d2d4b326f",
+      "tracked_files": 38,
+      "content_inventory_sha256": "558bb24d511f0ca145ae629908e76f3ab5aac6ac41b1cca9a711ca39898d3a91",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/seabios": {
+      "head": "a5cab58e9a3fb6e168aba919c5669bea406573b4",
+      "tracked_files": 283,
+      "content_inventory_sha256": "0896d23e7a07a5acacf7c9a68d1140672d509a74bd7b96140f75dc5733f3da71",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/seabios-hppa": {
+      "head": "0f4fe84658165e96ce35870fd19fc634e182e77b",
+      "tracked_files": 296,
+      "content_inventory_sha256": "76e08e3429ecead56b3be2d832c9d6947362ce298209720034e4a879ee903846",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/sgabios": {
+      "head": "cbaee52287e5f32373181cff50a00b6c4ac9015a",
+      "tracked_files": 7,
+      "content_inventory_sha256": "7d39d22bbc4679971831a3a86c497521a3b81c84cf8027ea0ed330ea62ea1529",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/skiboot": {
+      "head": "261ca8e779e5138869a45f174caa49be6a274501",
+      "tracked_files": 1171,
+      "content_inventory_sha256": "ba7e6dc2a155d8c8b1e5f0a55b4906eb2c13280227dad57fcc9ac87f18a4cd63",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/u-boot": {
+      "head": "d3689267f92c5956e09cc7d1baa4700141662bff",
+      "tracked_files": 14580,
+      "content_inventory_sha256": "f93402d4d8cdd2b5c5aef0915dc8590c66c3f6815f2d95516e29b3a2be97b44e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/u-boot-sam460ex": {
+      "head": "60b3916f33e617a815973c5a6df77055b2e3a588",
+      "tracked_files": 3703,
+      "content_inventory_sha256": "eef27bf168c8e0b270fd278b0b59482bebae67ad4c40a64f0fd92c286019aafa",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/slirp": {
+      "head": "f0da6726207b740f6101028b2992f918477a4b08",
+      "tracked_files": 65,
+      "content_inventory_sha256": "f7232a19fc0379b20fce3ba19e8d9791d5226a05a25090847f8017f59d6f8c6d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/tests/fp/berkeley-softfloat-3": {
+      "head": "b64af41c3276f97f0e181920400ee056b9c88037",
+      "tracked_files": 478,
+      "content_inventory_sha256": "47518ef102c90b54c55d46f09d38dda67c4ce0013ffbc90eace2111143249105",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/tests/fp/berkeley-testfloat-3": {
+      "head": "5a59dcec19327396a011a17fd924aed4fec416b3",
+      "tracked_files": 206,
+      "content_inventory_sha256": "86a57f1436d2383fcad9c9ca53efaea03f1be82fd866122545b4f01fe0cbabe2",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/ui/keycodemapdb": {
+      "head": "6b3d716e2b6472eb7189d3220552280ef3d832ce",
+      "tracked_files": 17,
+      "content_inventory_sha256": "92e3398e814cc34d4084b7c7b881ad1fc6ce660b5ed0ea2926d0b67c32229d35",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-binutils": {
+      "head": "c5ef83e53e2528c0737bb0f40e6b77dc8b82eac8",
+      "tracked_files": 34456,
+      "content_inventory_sha256": "2ee6c1b8d5518f9ad2e1228e656c4a43b0be497a7991c890265a7db8edcbb0e5",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-dejagnu": {
+      "head": "4ea498a8e1fafeb568530d84db1880066478c86b",
+      "tracked_files": 146,
+      "content_inventory_sha256": "9975c519221ca4ddf86b18e42715e7379915207d07f6a696bdfafbbeee97228e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-gcc": {
+      "head": "8b5d91c3564454b584adbbf4c5f65610c35e5660",
+      "tracked_files": 88760,
+      "content_inventory_sha256": "374a803926bdf2a12528e1230350d0ae85b5cbbcc4348fa5e5538ef6cd323b0d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-gdb": {
+      "head": "c3eb4078520dad8234ffd7fbf893ac0da23ad3c8",
+      "tracked_files": 32815,
+      "content_inventory_sha256": "8db880b1861758e7d3bbd443c040b93f10a276a7c7c8e62dccf214ff05361089",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-glibc": {
+      "head": "06983fe52cfe8e4779035c27e8cc5d2caab31531",
+      "tracked_files": 17234,
+      "content_inventory_sha256": "31afb8a96767e29da34d39aecc64c7d5bbd42491bc5d8f3094f4d8b7c807c97e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-newlib": {
+      "head": "0d24a86822a5ee73d6a6aa69e2a0118aa1e35204",
+      "tracked_files": 7787,
+      "content_inventory_sha256": "6c41d57aa219dda21b8f1b4a34b30054f5a10bf510082d9f858b38898ca6c0e1",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-isa-sim": {
+      "head": "5cf439b24e945db47edf6e259044c923384ccdfd",
+      "tracked_files": 1567,
+      "content_inventory_sha256": "6b1adf5a20c2a08be8b6e535e5c37dccb528f582a49d7590c11bb831aca86f18",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/riscv-llvm": {
+      "head": "5047104a76445bb424e480594f0eb2ed768315b3",
+      "tracked_files": 123078,
+      "content_inventory_sha256": "0560f45a94182fc69a53f8b6790e0b2f9600ede48c8d1c0bf0a436907f291c1b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ara/ara/toolchain/verilator": {
+      "head": "7d2d32420a630befa4097170ecbf227e04e32522",
+      "tracked_files": 5367,
+      "content_inventory_sha256": "408b02a30ed13709c7a96ab22e6ef829ed6fcbdcb4a9cd300457dbc77454fae7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/bar-fetchers": {
+      "head": "bd02692fe6cb5197df90dc39051d31369ef61fcd",
+      "tracked_files": 10,
+      "content_inventory_sha256": "26438757f003525c00b4e9c915c6905698232e0caa8297a24e59b18a6fde0f22",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/boom": {
+      "head": "3d305f2ff5dab9371d9c95754888d4b49baea556",
+      "tracked_files": 243,
+      "content_inventory_sha256": "4cdbb09b66bd002a992230b2228797249f6077a705fafa0e756460606bac5221",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/caliptra-aes-acc": {
+      "head": "8bcd6b6bc118e7bb493ed7cf2fed0472624f9093",
+      "tracked_files": 65,
+      "content_inventory_sha256": "0d2f6a2bd442e0fcd401f9196eefd5b33a677c413d04cb303bef9b15b9311368",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc": {
+      "head": "0d5ffefb70529176e1161a9331dbef52878ed5c7",
+      "tracked_files": 196,
+      "content_inventory_sha256": "73cd14a10b9423585ae85b94e15706f884e32f4aee5d4b7f44123036e858cef8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/lzbench": {
+      "head": "609d783118ca6026aa0d1bab7e485a62b6c7e4f0",
+      "tracked_files": 1066,
+      "content_inventory_sha256": "99640a4928e7f6d45eb3c9ab3f71d0b2e0964fc61c993c473597266478988bb9",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/software-snappy/snappy": {
+      "head": "6a2b78a379e4a6ca11eaacb3e26bea397a46d74b",
+      "tracked_files": 47,
+      "content_inventory_sha256": "554c4e58b867bf29fdf444e2fada913c6197fd1b746b21ffdabbacfcbedc4a59",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/software-snappy/snappy/third_party/benchmark": {
+      "head": "bf585a2789e30585b4e3ce6baf11ef2750b54677",
+      "tracked_files": 148,
+      "content_inventory_sha256": "d890c4aab66bb87a5bbf10fca4d9544476e5baff8cbe17e0fec01f12dc483238",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/software-snappy/snappy/third_party/googletest": {
+      "head": "18f8200e3079b0e54fa00cb7ac55d4c39dcf6da6",
+      "tracked_files": 260,
+      "content_inventory_sha256": "5dce73f0cbc83b77906aa3080a8c3ab3eae5077de7822ccb8a83d2fecbd82752",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/software/benchmarks/HyperCompressBench": {
+      "head": "32f72601cc4a1bd747b402e3f66e3efe0e410b81",
+      "tracked_files": 35481,
+      "content_inventory_sha256": "2ada931cadb8622b51c2331e65c89c2cdf21134dc5defcdf34915c88cefdd3b6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/compress-acc/software/zstd": {
+      "head": "e47e674cd09583ff0503f0f6defd6d23d8b718d3",
+      "tracked_files": 488,
+      "content_inventory_sha256": "313bcc7f608e474ce2743b6845501a226d4b78df52e2ce947502d786b7f3fa66",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/constellation": {
+      "head": "3750a9eb10f54ec3f85178e7ff11ed6182fd7c7d",
+      "tracked_files": 99,
+      "content_inventory_sha256": "59646d2445c9e1895205a76e4740e8249bccdfa3a106dea9a99a9b0a587bb565",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/constellation/espresso": {
+      "head": "2cc477880bd99a40f257155a676fc61fd53e0d9e",
+      "tracked_files": 199,
+      "content_inventory_sha256": "1e067279e4f9cebc65264c62832439a99ecd37101386f9bbbcdacdb5897bc436",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/constellation/src/main/resources/csrc/netrace": {
+      "head": "bf30293e05da0ff7057be209deb7dc0317f08b09",
+      "tracked_files": 15,
+      "content_inventory_sha256": "18196d558091d4481b1432d006ec95a194fb034124d51aad074a461714b9d995",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6": {
+      "head": "17e9b5119f2e7021f1bce67f2601dedc5bfecc5c",
+      "tracked_files": 11,
+      "content_inventory_sha256": "bd39736897fea6930572feb569d78919d73dc2d238f209ca72578ba4e4521738",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6": {
+      "head": "6000e32b4181304901adc4c8d72870ebc94473a5",
+      "tracked_files": 869,
+      "content_inventory_sha256": "9f16c406d6a379f72b9d92d721e6612101173f6858c14dba5562dc0d00619b8b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_node": {
+      "head": "157e5f00a37440d53f2e5b3aabfc9d454530e688",
+      "tracked_files": 7,
+      "content_inventory_sha256": "1ef24926f76c2cdc9dbeaf7c3a848c18bfdf751486392317ef6f01a1953ff8eb",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_timer": {
+      "head": "6c84f69d2e92bd766f609b5dd47ece723359bd24",
+      "tracked_files": 5,
+      "content_inventory_sha256": "59e1d9378338a8bcee4155ca0821954df34b3e042f6f22adec8dd8e0804f117c",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_uart": {
+      "head": "ac3461ce23832e02903b9d2d7d4edd7fcb89bd92",
+      "tracked_files": 16,
+      "content_inventory_sha256": "cb9d8112dad2eb5b668fc1fbaad3274fbf96e261a091011b1bad495cbecae3e3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/ariane-ethernet": {
+      "head": "6a5436bf110f83ebb13119dbd82650ccd8f947c9",
+      "tracked_files": 18,
+      "content_inventory_sha256": "2ca514aabd9c4a3b168858d067d2347074536cc44a603579673cf54d50b0a421",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/axi2apb": {
+      "head": "53e7b9f1b16e3f4d4aadc8fbf880d05879f54fe8",
+      "tracked_files": 9,
+      "content_inventory_sha256": "5efb369000093fe298b85735ab21d663fd7b010621d593b5b30fb590bae9f744",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/axi_slice": {
+      "head": "aae8ca49dcfbfa8e44e1938a2e4a768db83006cb",
+      "tracked_files": 14,
+      "content_inventory_sha256": "f374994d870d09e690afdf00295e2ad12a8bb3324a4eb4dfb8085a6c69dcefd5",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi": {
+      "head": "3f5d5b540a6403c5c611e507a14e99d9e7f22edf",
+      "tracked_files": 40,
+      "content_inventory_sha256": "e30b0ed461439e802f0837a7c4527e711df36869012b8d885ef0e87911c4f2f0",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_mem_if": {
+      "head": "4650ca9006d3ed7dddb3078af150467087823c19",
+      "tracked_files": 10,
+      "content_inventory_sha256": "cedba492d8d1bfc67d246bf453aa1ae044ab2774ef8538b74fe243a3480e73a9",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_node": {
+      "head": "a29a69a543e96d0c9f79ea9c7df20580b3da5002",
+      "tracked_files": 25,
+      "content_inventory_sha256": "ff9211f0406aed32a94a9ed84bdb85dd413bffa4a47b0e341bce33efccfd755b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_riscv_atomics": {
+      "head": "550881f12e22dfae405612fc1df6368f4c003e68",
+      "tracked_files": 14,
+      "content_inventory_sha256": "2766067a5cecda9cc19c0788a4ff2ed5836604550b5196818ec125529b88f1b5",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/common_cells": {
+      "head": "b2a4b2d3decdfc152ad9b4564a48ed3b2649fd6c",
+      "tracked_files": 98,
+      "content_inventory_sha256": "715cc22a4c43c3fb961cdb3e3b4129d9f89cb4e9828fe5c65c4aa8bf0ad65ffb",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpga-support": {
+      "head": "a3ba269c0fc6cfcee6f81e5d9af018a08e479d2b",
+      "tracked_files": 44,
+      "content_inventory_sha256": "7f037386537a793da31a75c4d1f140627938580dce7825add28ea6bc1e517397",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu": {
+      "head": "79f75e0a0fdab6ebc3840a14077c39f4934321fe",
+      "tracked_files": 28,
+      "content_inventory_sha256": "c0d97815c0ed170a204f158bd02623cd819c3e965a84e309fa212896cbd57d50",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/src/common_cells": {
+      "head": "790f2385c01c83022474eede55809666209216e3",
+      "tracked_files": 79,
+      "content_inventory_sha256": "3d6417b15d0e2c500517ae6fa9495dce4ac333c02fa5ee8d868926935c80d246",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/src/fpu_div_sqrt_mvp": {
+      "head": "83a601f97934ed5e06d737b9c80d98b08867c5fa",
+      "tracked_files": 13,
+      "content_inventory_sha256": "46deaf8c3f3621a20a03023fb68937126ac59c6cc5e48ff8f55db00f2d55d582",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/tb/flexfloat": {
+      "head": "28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61",
+      "tracked_files": 30,
+      "content_inventory_sha256": "3d39507d3181ff9a5d8078359b9a19765cce21adbb3ae53dd7347f3b465c3023",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/register_interface": {
+      "head": "d8aeccc65fdbbb30ef9dd28e065c2947a2396eab",
+      "tracked_files": 14,
+      "content_inventory_sha256": "cdc4317925de2e2f409142fe12ed838d294c7a49d4f03a66b4ab91d0ae649d1a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/riscv-dbg": {
+      "head": "6d768ac6371356b6e382c01ae7d860dd3e45248b",
+      "tracked_files": 21,
+      "content_inventory_sha256": "4fbb3a6b20691c09da307ee8763ae6351d124306af7fb3cdfd52c5f7c789e431",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/rv_plic": {
+      "head": "ebe3e9888920f1f757b75bab81dc80f804896f57",
+      "tracked_files": 17,
+      "content_inventory_sha256": "9d88dfaf3ad448ceca7ecc544ba499dfd9ded7be907d2508e63ff11f96a501c9",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/tech_cells_generic": {
+      "head": "ffe7818dc24eba29cf3634d404d1b3b85034272b",
+      "tracked_files": 38,
+      "content_inventory_sha256": "9163de5f4566098e927a5de9209f713f095cabf7e482a40a1dbc0f6272537708",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/tb/common_verification": {
+      "head": "a1e569119cdf2d25cecceee4016acd98030f6886",
+      "tracked_files": 13,
+      "content_inventory_sha256": "dd9fe9217f22e5e155c7e4a428ce7d9e5d3f0b392ec3c90ee0b3238b77eb7684",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/tb/dromajo": {
+      "head": "8acade8725d5e6cbf373304b348a8d77e0a5c713",
+      "tracked_files": 55,
+      "content_inventory_sha256": "3b34634a82da22379cc94b7a6de14b9cb4145dbf6558588fdf9543ebd0035fd0",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/diplomacy": {
+      "head": "6590276fa4dac315ae7c7c01371b954c5687a473",
+      "tracked_files": 52,
+      "content_inventory_sha256": "58e49b99996ddad70af14b6323b35afc5dba9166a05188f77c01a9b1ecf972ae",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/easyfloat": {
+      "head": "44e1c369659c2c397548d2aecfc4ded3a74a111e",
+      "tracked_files": 27,
+      "content_inventory_sha256": "dd7b82c52547a282600252c3a5c2ab2701d54db0b7aa557d36c9e08d0e84c633",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/fft-generator": {
+      "head": "dde437e3585328478e64a9be10635f051e40f635",
+      "tracked_files": 11,
+      "content_inventory_sha256": "cf4da8d69769281c34965b678fe5b4519475f5a562f5c3cbf191fa3c7334d20a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/fsa": {
+      "head": "f4051d9e6e1aac80b74fee9c9cff0096e19f7acf",
+      "tracked_files": 60,
+      "content_inventory_sha256": "d5494f1e25dad7b5dd01db6bfbcf73da0fa95e1fe400c979f100e431776afa2b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini": {
+      "head": "7a7e0e17d80669d7d32561a3ffc9721e943333af",
+      "tracked_files": 100,
+      "content_inventory_sha256": "644c74ed3bc611434d030387c25ee745cfdaa6f4bced4d72a4258a7dcbf5cd36",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/gemmini-rocc-tests": {
+      "head": "7c540b3adf1b86ad93d07f893abe3a73489b568e",
+      "tracked_files": 115,
+      "content_inventory_sha256": "0044bee0fec0fbff616fa8ef2fa220038b50709daf89d9e291916ecb4d041c8b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/riscv-tests": {
+      "head": "c84daca8824635b7d896003c78f9c6245997cf7a",
+      "tracked_files": 446,
+      "content_inventory_sha256": "5368fdb980e9a98ec8e81b1d16c28fb69bdab84ec3fae4eeee76a41bdc27c379",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/riscv-tests/env": {
+      "head": "0666378f353599d01fc48562b431b1dd049faab5",
+      "tracked_files": 13,
+      "content_inventory_sha256": "8b69e6002e11f0460e47bf9a461fb9a13dfc66aacd17527bf77fc629152656d3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/rocc-software": {
+      "head": "fddb795a0b52e82f8f4ce9ead9b1428440a62ab0",
+      "tracked_files": 6,
+      "content_inventory_sha256": "a4a6a222e4801d617c68f6cdbbb29ab3252a6ce893f0d24fed17ddcf864b86d7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/libgemmini": {
+      "head": "ea8f7ed7afd68e001fb06ddccad9a023c990961d",
+      "tracked_files": 6,
+      "content_inventory_sha256": "bf61448e794fe9c59be5a4e1a475d0ab219befcd6449397ab76dc30b52d3c418",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv": {
+      "head": "f6d2fc95463316ec47d7f832f35be03c26887922",
+      "tracked_files": 5369,
+      "content_inventory_sha256": "bcb22f0294be80b4d2d91081987361a424f0d19afad0270e903ba9cdec4db478",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary": {
+      "head": "fd5fe3de507d4a19f5923c5d4c267e3d730500a9",
+      "tracked_files": 525,
+      "content_inventory_sha256": "73e7360388c70495d33dacc449c7569b0c5d6c148b9802584d9ab1680661e72d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary/src/3rdParty/eigen": {
+      "head": "efd9867ff0e8df23016ac6c9828d0d7bf8bec1b1",
+      "tracked_files": 1744,
+      "content_inventory_sha256": "ad7f76a57a61d525427af226b165c253c70bdf6505b2294ccc57c34855c31184",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary/src/3rdParty/re2": {
+      "head": "30cad267151fa8f1b17da8c1ef0571da6da9a8f1",
+      "tracked_files": 132,
+      "content_inventory_sha256": "e0f61b0ddc4e8655ef4af29de22c35c869ba59c2e40a86e3b37c833daab339b7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/SafeInt/safeint": {
+      "head": "39de59d5bca3a226a241b29571abe1493d15d07a",
+      "tracked_files": 101,
+      "content_inventory_sha256": "f54ae80aa4d6c5310dc215716071240cc8440be78509d1218d9e717284a13928",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/coremltools": {
+      "head": "523d5e03d86c26267ee6bdf17dd20f6ce6bdadd7",
+      "tracked_files": 2578,
+      "content_inventory_sha256": "0b4940de99c0a12469519ebe0bb74ad5c2835ba79339720cfe309267a064d600",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/cub": {
+      "head": "c3cceac115c072fb63df1836ff46d8c60d9eb304",
+      "tracked_files": 154,
+      "content_inventory_sha256": "ee9ac67074a7d77d602aa3d42690344351475b31cd67275d721b541460c4bd48",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/cxxopts": {
+      "head": "3c73d91c0b04e2b59462f0a741be8c07024c1bc0",
+      "tracked_files": 21,
+      "content_inventory_sha256": "d0dda3a398c4e3c2d8ba9395056649c1110db0d12265f234d1bb82f7a7ed2aaf",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/date": {
+      "head": "e7e1482087f58913b80a20b04d5c58d9d6d90155",
+      "tracked_files": 126,
+      "content_inventory_sha256": "120a5b95689370511fd59b1e8ea6bd068f0be1408daa359632b55f3ed20ff6d6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/dlpack": {
+      "head": "e1e11e0d555c08bec08a6c7773aa777dfcaae9da",
+      "tracked_files": 23,
+      "content_inventory_sha256": "04b59a3ea32d9ba1a63f62719d7790115c330284d7cb681ec24375c248c8bbb6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/eigen": {
+      "head": "d10b27fe37736d2944630ecd7557cefa95cf87c9",
+      "tracked_files": 1761,
+      "content_inventory_sha256": "d411876d19bb5000e0c2471e3354a4d52ac28bb4d2e3e0bd99d737ace9d04e61",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/emsdk": {
+      "head": "8b32b7def837a15e766039501630549149d3db41",
+      "tracked_files": 54,
+      "content_inventory_sha256": "7ef83e13887e0b5b88a5fff9cfef65d170d72f417f433fbd303ae150fae40a6c",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/flatbuffers": {
+      "head": "6df40a2471737b27271bdd9b900ab5f3aec746c7",
+      "tracked_files": 705,
+      "content_inventory_sha256": "30bdd1fc666caabdeaac14d69e170e2d01bd11f3cbdcf372fa686ef7c2dd8a9d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/googletest": {
+      "head": "703bd9caab50b139428cea1aaff9974ebee5742e",
+      "tracked_files": 263,
+      "content_inventory_sha256": "e7b60f92d9014bee6bf23b3f4f449d0b3219bbb4b043298dbcfa369c4571742f",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/json": {
+      "head": "d98bf0278d6f59a58271425963a8422ff48fe249",
+      "tracked_files": 1888,
+      "content_inventory_sha256": "c6725c72d0a8ba25fe90f4491876435ee864fc81c4df1a96eb6d5794fc24521a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/libprotobuf-mutator": {
+      "head": "7a2ed51a6b682a83e345ff49fc4cfd7ca47550db",
+      "tracked_files": 56,
+      "content_inventory_sha256": "e9d2f4242918244db74e8ba56b2738e645917ac5cd384c3a28e938d405f7d7e1",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/mimalloc": {
+      "head": "2d54553b7a78c7c35620b827e7e5ab2228ecb495",
+      "tracked_files": 214,
+      "content_inventory_sha256": "b64b3a5bf9f9356a092552b4d225443bc98932ac9d06d7a15d1c452fdce40e2f",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/mp11": {
+      "head": "21cace4e574180ba64d9307a5e4ea9e5e94d3e8d",
+      "tracked_files": 246,
+      "content_inventory_sha256": "acd8c99d9ba0a39fa518ac00943201ebefc467df6c3a6012f238fba3a87bdcaa",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/nsync": {
+      "head": "436617053d0f39a1019a371c3a9aa599b3cb2cea",
+      "tracked_files": 312,
+      "content_inventory_sha256": "2599920e93676d41af6ededd813de226f7946aad7c72d7a0ad23e2e174809a83",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx": {
+      "head": "971632833036c576cf95499291f689f8bb3519e1",
+      "tracked_files": 4233,
+      "content_inventory_sha256": "7fc00b1c13d3b0ed42b7dacbbca61401fc0b0c8b31acec2f536c0e878fa3543c",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt": {
+      "head": "984e57c7768a9bea3d2a8369ed199529f603d13b",
+      "tracked_files": 49,
+      "content_inventory_sha256": "6c864192c1bfe64662e611a75f58cac24cfe14f7e928d566c508c693e4ed613a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx": {
+      "head": "553df22c67bee5f0fe6599cff60f1afc6748c635",
+      "tracked_files": 3067,
+      "content_inventory_sha256": "485ac45067ca44cae160b1070b30d20ad50db02b172d5ace94d000a1c4dd6874",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/benchmark": {
+      "head": "e776aa0275e293707b6a0901e0e8d8a8a3679508",
+      "tracked_files": 108,
+      "content_inventory_sha256": "734633985c9b4bf8cf28342a3e8310232fd6d0642fbcd10d3a5dcd2ba39ad051",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/pybind11": {
+      "head": "09f082940113661256310e3f4811aa7261a9fa05",
+      "tracked_files": 187,
+      "content_inventory_sha256": "5409342cf3b0d450b7639dcd9754a51c7ba2bbd514c162d0b26cee4c4863fe87",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/pybind11/tools/clang": {
+      "head": "6a00cbc4a9b8e68b71caf7f774b3f9c753ae84d5",
+      "tracked_files": 6,
+      "content_inventory_sha256": "16ff0beddcb14947249c51264d5c150ee6034457209f32fd8cff7d8262de5261",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx/third_party/benchmark": {
+      "head": "e776aa0275e293707b6a0901e0e8d8a8a3679508",
+      "tracked_files": 108,
+      "content_inventory_sha256": "734633985c9b4bf8cf28342a3e8310232fd6d0642fbcd10d3a5dcd2ba39ad051",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx/third_party/pybind11": {
+      "head": "59a2ac2745d8a57ac94c6accced73620d59fb844",
+      "tracked_files": 220,
+      "content_inventory_sha256": "47ef45a4c566585e084f0616c1987b118372f5727cece7b4d64d922b7d5e96ad",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/optional-lite": {
+      "head": "4acf4553baa886e10e6613fe1452b706b0250e78",
+      "tracked_files": 41,
+      "content_inventory_sha256": "628c0d5a2a7ed9202454c604d639fe6175144190b79bed7457142238543d52e8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf": {
+      "head": "2dc747c574b68a808ea4699d26942c8132fe2b09",
+      "tracked_files": 2446,
+      "content_inventory_sha256": "6637d599eb003db31a00e994c5832289e53af3fc9069e9cecc945f5e810f7fa9",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf/third_party/benchmark": {
+      "head": "5b7683f49e1e9223cf9927b24f6fd3d6bd82e3f8",
+      "tracked_files": 83,
+      "content_inventory_sha256": "1bfb017e25375ec5a4371cc7b85b968fa696bd6784886e16688c1f05deacc25d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf/third_party/googletest": {
+      "head": "5ec7f0c4a113e2f18ac2c6cc7df51ad6afc24081",
+      "tracked_files": 334,
+      "content_inventory_sha256": "977682205299f1f78b37abe2a51fc4d6dd1321571d3365ba4b99fe797106e274",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/re2": {
+      "head": "30cad267151fa8f1b17da8c1ef0571da6da9a8f1",
+      "tracked_files": 132,
+      "content_inventory_sha256": "e0f61b0ddc4e8655ef4af29de22c35c869ba59c2e40a86e3b37c833daab339b7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tensorboard": {
+      "head": "373eb09e4c5d2b3cc2493f0949dc4be6b6a45e81",
+      "tracked_files": 1101,
+      "content_inventory_sha256": "83c6d8ed2d5f0deb2b5e903b72ad67f1375b126f3d7c4b8a0e38f543665809e3",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm": {
+      "head": "eab844a87298d500f1924f8a7cadb4cbee426093",
+      "tracked_files": 1863,
+      "content_inventory_sha256": "81d83ed73aeea21f4f8b0352e473d7845c5b71c15bc2238630b5c5f9dcec9f5d",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/HalideIR": {
+      "head": "b257a9221ee1e5180d994b3488ddcc259b0ac157",
+      "tracked_files": 49,
+      "content_inventory_sha256": "a4b2b1f23c2291d11e7f84153f955de5cc416b080aca5a1f986a483a530bbeac",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/dlpack": {
+      "head": "5c792cef3aee54ad8b7000111c9dc1797f327b59",
+      "tracked_files": 20,
+      "content_inventory_sha256": "5e0053492b3dea6b16c5ef088ec6c112ab61cf1d3a2346c20768b7dfb591747f",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/dmlc-core": {
+      "head": "d07fb7a443b5db8a89d65a15a024af6a425615a5",
+      "tracked_files": 166,
+      "content_inventory_sha256": "93d0aaeac4ca4c85a173c986d73616ef0249d248d9e37365171475ea8e586f54",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/rang": {
+      "head": "cabe04d6d6b05356fa8f9741704924788f0dd762",
+      "tracked_files": 18,
+      "content_inventory_sha256": "00043fc26eca408980e869f45a9ccfa92852e475e19606df169440d1ed03436f",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/wil": {
+      "head": "e8c599bca6c56c44b6730ad93f6abbc9ecd60fc1",
+      "tracked_files": 67,
+      "content_inventory_sha256": "cae9aa1087e90a60738150cb8bbb24c2a0a07b153860f5cc1a3c0905dc0c1d89",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/gemmini/software/onnxruntime-riscv/systolic_runner/halide_interop/Halide": {
+      "head": "045a6cc3e478e8e0e2c8891fc83b0fc70649b6db",
+      "tracked_files": 1744,
+      "content_inventory_sha256": "1eb66f0adc8f7da9ea519c4c8c9a872ad10417138f0ee8b1a62e9753fb84a2c7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/hardfloat": {
+      "head": "4225367ed282aadd70f4cbd131f6959f4d00c502",
+      "tracked_files": 137,
+      "content_inventory_sha256": "6ccaff2fcfeee57f783384b398f0e764172c55c8a0853f23b762cb4970b6b3fa",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/hardfloat/berkeley-softfloat-3": {
+      "head": "5c06db33fc1e2130f67c045327b0ec949032df1d",
+      "tracked_files": 478,
+      "content_inventory_sha256": "52f3c671f2c983096971537e237bca833cd51f92f2dec77c4ce5dc027a609e2a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/hardfloat/berkeley-testfloat-3": {
+      "head": "06b20075dd3c1a5d0dd007a93643282832221612",
+      "tracked_files": 206,
+      "content_inventory_sha256": "cbb5d07de93ef919944fb5d05ec9365f645bbdaacb00e8fd04b1e45d3a8434a8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ibex": {
+      "head": "1800a1bf9f4ef5b4bf396e4bd1fdc36117c2a7a5",
+      "tracked_files": 11,
+      "content_inventory_sha256": "c239168f9864d4eac434643b00475d33d780b24fe374844226d2b5f11d95fded",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/ibex/src/main/resources/vsrc/ibex": {
+      "head": "48f11c673348908c37d3eaa9bd1cd0a5b5c69253",
+      "tracked_files": 1286,
+      "content_inventory_sha256": "6b8caf6365e2a1682aefec7a7c3b5a50b74b0f87cdc4a29e3a9128eb5c095eca",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/icenet": {
+      "head": "6fd35bf5a28310c61671fce7309526b56d91e35d",
+      "tracked_files": 28,
+      "content_inventory_sha256": "e9f220d7ebf04b6e863f29e4988456ef5edeebf1efde87d1dba92f1349cb3cc8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/mempress": {
+      "head": "0b362f9031a50b5af24d9d9606b8bbddd5bbc00c",
+      "tracked_files": 19,
+      "content_inventory_sha256": "5b144b709451d194ba48f4e0cbd0f56a4e8338bae4a65751274088680bee2a98",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/nvdla": {
+      "head": "768abfbcd6f1cab97eaca802d5841faeb46a1d92",
+      "tracked_files": 1495,
+      "content_inventory_sha256": "735e20d0564f56695a5b58f579b45a2f992e7bf989284c5769ab6768bb101204",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/nvdla/src/main/resources/hw": {
+      "head": "8e06b1b9d85aab65b40d43d08eec5ea4681ff715",
+      "tracked_files": 788,
+      "content_inventory_sha256": "b1ee1309d9da33c89f688f7efd34378b563ff4ee200868b6dd95ca92baaaf17e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance": {
+      "head": "b4310b2077ca9f4676b1ae7405efa69501ad631d",
+      "tracked_files": 56,
+      "content_inventory_sha256": "80a66deabcef2b5109d972cb6803117109dcf86f671cf77ed9b01fae3bde9bff",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/cyclotron": {
+      "head": "ca6933c4ec0ba1d9d7ec5452d325a8cdd8c2120d",
+      "tracked_files": 28,
+      "content_inventory_sha256": "907be3b3c579119da84b2ddefe2bed284b3cc47d3991bdc4a6b9db5af4a0e83e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex": {
+      "head": "c8529c4339d2cb4e11764f8487f1d2770c0ff4b3",
+      "tracked_files": 1335,
+      "content_inventory_sha256": "2863c692841c9a33e519467f110ed050809b00106976354fc289a214713dbe7a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/fpnew": {
+      "head": "25a0d6763ffe83e1c8701bef5758996c484c1f58",
+      "tracked_files": 200,
+      "content_inventory_sha256": "96495a80b560fa59d38966f2c8e81605972d0c5b18b502f6714526dce606ad9a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/fpnew/tb/flexfloat": {
+      "head": "28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61",
+      "tracked_files": 30,
+      "content_inventory_sha256": "3d39507d3181ff9a5d8078359b9a19765cce21adbb3ae53dd7347f3b465c3023",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/ramulator": {
+      "head": "214f635845214adf030367939655d172ef0fed5f",
+      "tracked_files": 181,
+      "content_inventory_sha256": "3d4dfb9e5f73d487ec63c4dea7afdd48c1bca8140cb16f7e15c6f6725b06e6d2",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/softfloat": {
+      "head": "eb498c55bab0f49c3903f69524e2674abe71c26b",
+      "tracked_files": 487,
+      "content_inventory_sha256": "48e5134345543bc9f614042e8f79a4dc2ca3d18137fe2d70cc9532c4c2d27f6e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rerocc": {
+      "head": "8b672f4e836c111d09e135e8981b611d120692de",
+      "tracked_files": 21,
+      "content_inventory_sha256": "cc0e5479ecdb274722d412aef89ca7a96f7254a7bc3ab3c80d3942646d57f9a0",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/riscv-sodor": {
+      "head": "32d49f96dd9ff37ff7fb2eab875a285f6e4dc295",
+      "tracked_files": 91,
+      "content_inventory_sha256": "27a29973ef65f26b0bc7a0cc7488503f17fe5d0047309cdbb84115545f542182",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocc-acc-utils": {
+      "head": "33ea77110ca9c28c5c7eb3c6b67ae74096ea8b37",
+      "tracked_files": 11,
+      "content_inventory_sha256": "e5f840ee260e85174c57e94c3a14131d02073bfd28b072a653317a56c4647368",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip": {
+      "head": "c9a3244cf51ba424efcbb7d9fa50b3b3ad9ebbfb",
+      "tracked_files": 409,
+      "content_inventory_sha256": "786bd6038cb0e56b14841ab17aa646d396e1e4a80bd89aa4b14b60fe005b1b03",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip-blocks": {
+      "head": "c8c14f7b47c3c790022c293bc7e4309f5c5ed523",
+      "tracked_files": 85,
+      "content_inventory_sha256": "c6ec6d51341ebcdec54bd3f4d6c903c6e1e56cfc778e435aa6739feaf48602a6",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip-inclusive-cache": {
+      "head": "8e157c808c8ba019b6fdb42232c4e6ac6b11b439",
+      "tracked_files": 27,
+      "content_inventory_sha256": "0c15c645eaf3b1343d711cf8aa812572158d7d2fb07ffcc7c972058736b200ef",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/cde": {
+      "head": "52768c97a27b254c0cc0ac9401feb55b29e18c28",
+      "tracked_files": 15,
+      "content_inventory_sha256": "ff80de8863a60d838dcadc613d545d0f890988f44a2d9d93814ff5d65f5ee18b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/chisel": {
+      "head": "e3bcc90db37f1aec9f8048813f4f0666098d9bee",
+      "tracked_files": 684,
+      "content_inventory_sha256": "da516e930488226ac819d924e64d387b4af0c22bb1bc0bb0c1dd445903826c94",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/diplomacy": {
+      "head": "edf375300d99a4c260a214d7c1553de0040771d7",
+      "tracked_files": 52,
+      "content_inventory_sha256": "3c72d430fab5aee4b5bef75ebb1ad1ffeb93bd07dcb579772696788573bbfd32",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/hardfloat": {
+      "head": "d93aa570806013dea479a92ba9bb33d1f2d4f69f",
+      "tracked_files": 137,
+      "content_inventory_sha256": "5ba27ef0c8108bb783b1223ac5a580851911eb74a269a64b52f430345c193cc1",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/hardfloat/berkeley-softfloat-3": {
+      "head": "5c06db33fc1e2130f67c045327b0ec949032df1d",
+      "tracked_files": 478,
+      "content_inventory_sha256": "52f3c671f2c983096971537e237bca833cd51f92f2dec77c4ce5dc027a609e2a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/rocket-chip/dependencies/hardfloat/berkeley-testfloat-3": {
+      "head": "06b20075dd3c1a5d0dd007a93643282832221612",
+      "tracked_files": 206,
+      "content_inventory_sha256": "cbb5d07de93ef919944fb5d05ec9365f645bbdaacb00e8fd04b1e45d3a8434a8",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/saturn": {
+      "head": "a898bdcb0e14f2a86d57f3b46b078a4cc32041dc",
+      "tracked_files": 318,
+      "content_inventory_sha256": "fbdb1716b8bd7a2683f3390a958b0d22eae1f968acfc32adffb36efcfde174c5",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/saturn/benchmarks/env": {
+      "head": "1c577dc7c7d6aee27b8d5cb0e2e87c8473e3ad12",
+      "tracked_files": 13,
+      "content_inventory_sha256": "50f256f37c04d681ff7cdbd105d897c1388cd0121ca0d06412f40b9953f79026",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/saturn/riscv-vector-tests": {
+      "head": "20200cc00c33729b442335d84db8af3166d211fd",
+      "tracked_files": 746,
+      "content_inventory_sha256": "5c72605b997557d3c95f100b04a69393c5cd9b3ac462f0050464b3b7ce0298da",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/saturn/riscv-vector-tests/env/riscv-test-env": {
+      "head": "1c577dc7c7d6aee27b8d5cb0e2e87c8473e3ad12",
+      "tracked_files": 13,
+      "content_inventory_sha256": "50f256f37c04d681ff7cdbd105d897c1388cd0121ca0d06412f40b9953f79026",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/shuttle": {
+      "head": "cb9313d03637ca52d0ccf27ac8e986a0d454befb",
+      "tracked_files": 28,
+      "content_inventory_sha256": "8e325df043d847646828966f9fedeaec4fca548b452ea15d8322d783548bbfdf",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/tacit": {
+      "head": "73923941a9ef62eb24fb3fef2f0e1494db7f8cf5",
+      "tracked_files": 5,
+      "content_inventory_sha256": "4230471ca5df3c31e5342927fc3e228ff045299f87a169e99083ae0d5c9f6750",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/testchipip": {
+      "head": "4b19a1ad06b5f68d3bd331c29ae4a5066a8bc5c1",
+      "tracked_files": 120,
+      "content_inventory_sha256": "f87441f17be9d4601613ca3d24ac0c69c0980c5c2fff63a3e62e58b4a596228a",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv": {
+      "head": "10a351329eb2f8b0ebf29331e0fe911fe3bb5a9b",
+      "tracked_files": 7,
+      "content_inventory_sha256": "163b2d3aef0d35d0abc2a4bd5e8fe24811b358059bcb965c844162feca78d742",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv": {
+      "head": "b9f015acde910a75612e6598f56567fb549e4604",
+      "tracked_files": 189,
+      "content_inventory_sha256": "de8a928f794a0f6cab07b5c29060c5bb352c0b41cc6cd22c28e5ee43fe62a582",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/NaxSoftware": {
+      "head": "3c613a25f7f6450ad1f7763c173c45b4a97ddf21",
+      "tracked_files": 1304,
+      "content_inventory_sha256": "89b4129dea056cb9d1ae871ba985a2f977b1f7624c513d2c59937da8c567ee89",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/SpinalHDL": {
+      "head": "fc89224e30e9122905da5b706fd5d1ee02332489",
+      "tracked_files": 1283,
+      "content_inventory_sha256": "0591814b892d5d615fb8769548108e8b90448652c3bf10255c7f9b83551dc668",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/SpinalHDL/tester/src/test/python/cocotblib": {
+      "head": "a98830423924fc89bfebae84cb802fc90d352602",
+      "tracked_files": 14,
+      "content_inventory_sha256": "ede06206c6306a6287cb582326b913e7cb8bf1938bba8fe19e3120263b5c4620",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/riscv-isa-sim": {
+      "head": "5f4eca2c0a5ee7808ad235f5230f3bd2c14a6ffa",
+      "tracked_files": 1548,
+      "content_inventory_sha256": "a3c3c2ada5635106a2536b5a542532bb1ce3a12f6775366611be3874222a9e5e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/rvls": {
+      "head": "2c8665ea418a6829686417615efeeb79023a5cf5",
+      "tracked_files": 31,
+      "content_inventory_sha256": "c405004dfc56a7cf95b154a415b41869eb598025be8721be169eab7846bc81ed",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "sims/firesim": {
+      "head": "b084672c2f8cf32e55d78f73a001074c23f8a2b8",
+      "tracked_files": 878,
+      "content_inventory_sha256": "6e17089a1c9052c79bbd49623de684bcbafb4b990db4eb494f62ee7b0373f0b7",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/DRAMSim2": {
+      "head": "44322e2f935d7dac83b7adf8dd270b41a54c6acb",
+      "tracked_files": 63,
+      "content_inventory_sha256": "fc9c8c3a728a9a5a99a4dd566b223c70ce96df7ee22886dc66177132ea2fa78e",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/cde": {
+      "head": "2bcaeae2b9914bd25497ce3c6fa62dc5ca80e09f",
+      "tracked_files": 15,
+      "content_inventory_sha256": "315a5a0df808102dcf5807e390855afa22453dca14afc136dc2ffcae6d4b7497",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/dsptools": {
+      "head": "a310a157cab6e569d30741eae4ca5592069cab7c",
+      "tracked_files": 121,
+      "content_inventory_sha256": "821b0346aa5421ee5fde81a5bb984efd1727600027e8dbd06e10056dd11a7550",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/firrtl2": {
+      "head": "09156cae09cb37c530322c6005649d2380c3eb0e",
+      "tracked_files": 446,
+      "content_inventory_sha256": "592c2aa209e0bed2d9d397f2329f4b9c0e7508e73b3577c05875e742ea52eecc",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/fixedpoint": {
+      "head": "ef164009e40ce5a5abe61ebcc11c12ff82e34014",
+      "tracked_files": 24,
+      "content_inventory_sha256": "f75bfb62a695993b40a69a225608a541da95b1965314eb87993bae9930fa7c7b",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    },
+    "tools/rocket-dsp-utils": {
+      "head": "6ee2309f80a54b404795f227793d2a54e1dfadf8",
+      "tracked_files": 92,
+      "content_inventory_sha256": "d86619deeb34930db2994510a60e83b1849ba9a7c995d54813fb2af6489c6fcc",
+      "all_files_match_pinned_git_blob_after_declared_eol": true,
+      "no_remotes_or_alternates": true
+    }
+  }
+}

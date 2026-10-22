@@ -1,0 +1,1059 @@
+{
+  "all_remotes_and_alternates_absent": true,
+  "local_url_entries_absent": true,
+  "passed": true,
+  "records": {
+    "fpga/fpga-shells": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "d7c353201c61f1879afdb2fddf3c52283d450147",
+      "relative": "fpga/fpga-shells"
+    },
+    "generators/ara": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "0c4fd8813fa33d6a35a8d9cb27aa48302919d17f",
+      "relative": "generators/ara"
+    },
+    "generators/ara/ara": {
+      "active_without_url": true,
+      "parent": "generators/ara",
+      "pin": "df5b8d4cd4a335e8531a4db8b78c829fb7fb4030",
+      "relative": "ara"
+    },
+    "generators/ara/ara/toolchain/newlib": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara",
+      "pin": "2e4ecbb3f0d574d18eddb97eff9421db45fb0da7",
+      "relative": "toolchain/newlib"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara",
+      "pin": "5842fde8ee5bb3371643b60ed34906eff7a5fa31",
+      "relative": "toolchain/riscv-gnu-toolchain"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "57dfc2c4d51e770ed3f617e5d1456d1e2bacf3f0",
+      "relative": "qemu"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/capstone": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "22ead3e0bfdb87516656453336160e0a37b066bf",
+      "relative": "capstone"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/dtc": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "88f18909db731a627456f26d779445f84e449536",
+      "relative": "dtc"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/QemuMacDrivers": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "90c488d5f4a407342247b9ea869df1c2d9c8e266",
+      "relative": "roms/QemuMacDrivers"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/SLOF": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "a5b428e1c1eae703bdd62a3f527223c291ee3fdc",
+      "relative": "roms/SLOF"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "20d2e5a125e34fc8501026613a71549b2a1a3e54",
+      "relative": "roms/edk2"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2",
+      "pin": "b64af41c3276f97f0e181920400ee056b9c88037",
+      "relative": "ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2",
+      "pin": "50eaac9f3337667259de725451f201e784599687",
+      "relative": "CryptoPkg/Library/OpensslLib/openssl"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/boringssl": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl",
+      "pin": "2070f8ad9151dc8f3a73bffaa146b5e6937a583f",
+      "relative": "boringssl"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/krb5": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl",
+      "pin": "b9ad6c49505c96a088326b62a52568e3484f2168",
+      "relative": "krb5"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl/pyca-cryptography": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/edk2/CryptoPkg/Library/OpensslLib/openssl",
+      "pin": "09403100de2f6f1cdd0d484dcb8e620f1c335c8f",
+      "relative": "pyca-cryptography"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/ipxe": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "de4565cbe76ea9f7913a01f331be3ee901bb6e17",
+      "relative": "roms/ipxe"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/openbios": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "c79e0ecb84f4f1ee3f73f521622e264edd1bf174",
+      "relative": "roms/openbios"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/openhackware": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "c559da7c8eec5e45ef1f67978827af6f0b9546f5",
+      "relative": "roms/openhackware"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/qemu-palcode": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "bf0e13698872450164fa7040da36a95d2d4b326f",
+      "relative": "roms/qemu-palcode"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/seabios": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "a5cab58e9a3fb6e168aba919c5669bea406573b4",
+      "relative": "roms/seabios"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/seabios-hppa": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "0f4fe84658165e96ce35870fd19fc634e182e77b",
+      "relative": "roms/seabios-hppa"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/sgabios": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "cbaee52287e5f32373181cff50a00b6c4ac9015a",
+      "relative": "roms/sgabios"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/skiboot": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "261ca8e779e5138869a45f174caa49be6a274501",
+      "relative": "roms/skiboot"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/u-boot": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "d3689267f92c5956e09cc7d1baa4700141662bff",
+      "relative": "roms/u-boot"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/roms/u-boot-sam460ex": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "60b3916f33e617a815973c5a6df77055b2e3a588",
+      "relative": "roms/u-boot-sam460ex"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/slirp": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "f0da6726207b740f6101028b2992f918477a4b08",
+      "relative": "slirp"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/tests/fp/berkeley-softfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "b64af41c3276f97f0e181920400ee056b9c88037",
+      "relative": "tests/fp/berkeley-softfloat-3"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/tests/fp/berkeley-testfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "5a59dcec19327396a011a17fd924aed4fec416b3",
+      "relative": "tests/fp/berkeley-testfloat-3"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu/ui/keycodemapdb": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain/qemu",
+      "pin": "6b3d716e2b6472eb7189d3220552280ef3d832ce",
+      "relative": "ui/keycodemapdb"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-binutils": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "c5ef83e53e2528c0737bb0f40e6b77dc8b82eac8",
+      "relative": "riscv-binutils"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-dejagnu": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "4ea498a8e1fafeb568530d84db1880066478c86b",
+      "relative": "riscv-dejagnu"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-gcc": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "8b5d91c3564454b584adbbf4c5f65610c35e5660",
+      "relative": "riscv-gcc"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-gdb": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "c3eb4078520dad8234ffd7fbf893ac0da23ad3c8",
+      "relative": "riscv-gdb"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-glibc": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "06983fe52cfe8e4779035c27e8cc5d2caab31531",
+      "relative": "riscv-glibc"
+    },
+    "generators/ara/ara/toolchain/riscv-gnu-toolchain/riscv-newlib": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara/toolchain/riscv-gnu-toolchain",
+      "pin": "0d24a86822a5ee73d6a6aa69e2a0118aa1e35204",
+      "relative": "riscv-newlib"
+    },
+    "generators/ara/ara/toolchain/riscv-isa-sim": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara",
+      "pin": "5cf439b24e945db47edf6e259044c923384ccdfd",
+      "relative": "toolchain/riscv-isa-sim"
+    },
+    "generators/ara/ara/toolchain/riscv-llvm": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara",
+      "pin": "5047104a76445bb424e480594f0eb2ed768315b3",
+      "relative": "toolchain/riscv-llvm"
+    },
+    "generators/ara/ara/toolchain/verilator": {
+      "active_without_url": true,
+      "parent": "generators/ara/ara",
+      "pin": "7d2d32420a630befa4097170ecbf227e04e32522",
+      "relative": "toolchain/verilator"
+    },
+    "generators/bar-fetchers": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "bd02692fe6cb5197df90dc39051d31369ef61fcd",
+      "relative": "generators/bar-fetchers"
+    },
+    "generators/boom": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "3d305f2ff5dab9371d9c95754888d4b49baea556",
+      "relative": "generators/boom"
+    },
+    "generators/caliptra-aes-acc": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "8bcd6b6bc118e7bb493ed7cf2fed0472624f9093",
+      "relative": "generators/caliptra-aes-acc"
+    },
+    "generators/compress-acc": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "0d5ffefb70529176e1161a9331dbef52878ed5c7",
+      "relative": "generators/compress-acc"
+    },
+    "generators/compress-acc/lzbench": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc",
+      "pin": "609d783118ca6026aa0d1bab7e485a62b6c7e4f0",
+      "relative": "lzbench"
+    },
+    "generators/compress-acc/software-snappy/snappy": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc",
+      "pin": "6a2b78a379e4a6ca11eaacb3e26bea397a46d74b",
+      "relative": "software-snappy/snappy"
+    },
+    "generators/compress-acc/software-snappy/snappy/third_party/benchmark": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc/software-snappy/snappy",
+      "pin": "bf585a2789e30585b4e3ce6baf11ef2750b54677",
+      "relative": "third_party/benchmark"
+    },
+    "generators/compress-acc/software-snappy/snappy/third_party/googletest": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc/software-snappy/snappy",
+      "pin": "18f8200e3079b0e54fa00cb7ac55d4c39dcf6da6",
+      "relative": "third_party/googletest"
+    },
+    "generators/compress-acc/software/benchmarks/HyperCompressBench": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc",
+      "pin": "32f72601cc4a1bd747b402e3f66e3efe0e410b81",
+      "relative": "software/benchmarks/HyperCompressBench"
+    },
+    "generators/compress-acc/software/zstd": {
+      "active_without_url": true,
+      "parent": "generators/compress-acc",
+      "pin": "e47e674cd09583ff0503f0f6defd6d23d8b718d3",
+      "relative": "software/zstd"
+    },
+    "generators/constellation": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "3750a9eb10f54ec3f85178e7ff11ed6182fd7c7d",
+      "relative": "generators/constellation"
+    },
+    "generators/constellation/espresso": {
+      "active_without_url": true,
+      "parent": "generators/constellation",
+      "pin": "2cc477880bd99a40f257155a676fc61fd53e0d9e",
+      "relative": "espresso"
+    },
+    "generators/constellation/src/main/resources/csrc/netrace": {
+      "active_without_url": true,
+      "parent": "generators/constellation",
+      "pin": "bf30293e05da0ff7057be209deb7dc0317f08b09",
+      "relative": "src/main/resources/csrc/netrace"
+    },
+    "generators/cva6": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "17e9b5119f2e7021f1bce67f2601dedc5bfecc5c",
+      "relative": "generators/cva6"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6": {
+      "active_without_url": true,
+      "parent": "generators/cva6",
+      "pin": "6000e32b4181304901adc4c8d72870ebc94473a5",
+      "relative": "src/main/resources/cva6/vsrc/cva6"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_node": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "157e5f00a37440d53f2e5b3aabfc9d454530e688",
+      "relative": "fpga/src/apb_node"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_timer": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "6c84f69d2e92bd766f609b5dd47ece723359bd24",
+      "relative": "fpga/src/apb_timer"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/apb_uart": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "ac3461ce23832e02903b9d2d7d4edd7fcb89bd92",
+      "relative": "fpga/src/apb_uart"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/ariane-ethernet": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "6a5436bf110f83ebb13119dbd82650ccd8f947c9",
+      "relative": "fpga/src/ariane-ethernet"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/axi2apb": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "53e7b9f1b16e3f4d4aadc8fbf880d05879f54fe8",
+      "relative": "fpga/src/axi2apb"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/fpga/src/axi_slice": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "aae8ca49dcfbfa8e44e1938a2e4a768db83006cb",
+      "relative": "fpga/src/axi_slice"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "3f5d5b540a6403c5c611e507a14e99d9e7f22edf",
+      "relative": "src/axi"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_mem_if": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "4650ca9006d3ed7dddb3078af150467087823c19",
+      "relative": "src/axi_mem_if"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_node": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "a29a69a543e96d0c9f79ea9c7df20580b3da5002",
+      "relative": "src/axi_node"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/axi_riscv_atomics": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "550881f12e22dfae405612fc1df6368f4c003e68",
+      "relative": "src/axi_riscv_atomics"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/common_cells": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "b2a4b2d3decdfc152ad9b4564a48ed3b2649fd6c",
+      "relative": "src/common_cells"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpga-support": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "a3ba269c0fc6cfcee6f81e5d9af018a08e479d2b",
+      "relative": "src/fpga-support"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "79f75e0a0fdab6ebc3840a14077c39f4934321fe",
+      "relative": "src/fpu"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/src/common_cells": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu",
+      "pin": "790f2385c01c83022474eede55809666209216e3",
+      "relative": "src/common_cells"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/src/fpu_div_sqrt_mvp": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu",
+      "pin": "83a601f97934ed5e06d737b9c80d98b08867c5fa",
+      "relative": "src/fpu_div_sqrt_mvp"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu/tb/flexfloat": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/fpu",
+      "pin": "28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61",
+      "relative": "tb/flexfloat"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/register_interface": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "d8aeccc65fdbbb30ef9dd28e065c2947a2396eab",
+      "relative": "src/register_interface"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/riscv-dbg": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "6d768ac6371356b6e382c01ae7d860dd3e45248b",
+      "relative": "src/riscv-dbg"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/rv_plic": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "ebe3e9888920f1f757b75bab81dc80f804896f57",
+      "relative": "src/rv_plic"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/src/tech_cells_generic": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "ffe7818dc24eba29cf3634d404d1b3b85034272b",
+      "relative": "src/tech_cells_generic"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/tb/common_verification": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "a1e569119cdf2d25cecceee4016acd98030f6886",
+      "relative": "tb/common_verification"
+    },
+    "generators/cva6/src/main/resources/cva6/vsrc/cva6/tb/dromajo": {
+      "active_without_url": true,
+      "parent": "generators/cva6/src/main/resources/cva6/vsrc/cva6",
+      "pin": "8acade8725d5e6cbf373304b348a8d77e0a5c713",
+      "relative": "tb/dromajo"
+    },
+    "generators/diplomacy": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "6590276fa4dac315ae7c7c01371b954c5687a473",
+      "relative": "generators/diplomacy"
+    },
+    "generators/easyfloat": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "44e1c369659c2c397548d2aecfc4ded3a74a111e",
+      "relative": "generators/easyfloat"
+    },
+    "generators/fft-generator": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "dde437e3585328478e64a9be10635f051e40f635",
+      "relative": "generators/fft-generator"
+    },
+    "generators/fsa": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "f4051d9e6e1aac80b74fee9c9cff0096e19f7acf",
+      "relative": "generators/fsa"
+    },
+    "generators/gemmini": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "7a7e0e17d80669d7d32561a3ffc9721e943333af",
+      "relative": "generators/gemmini"
+    },
+    "generators/gemmini/software/gemmini-rocc-tests": {
+      "active_without_url": true,
+      "parent": "generators/gemmini",
+      "pin": "7c540b3adf1b86ad93d07f893abe3a73489b568e",
+      "relative": "software/gemmini-rocc-tests"
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/riscv-tests": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/gemmini-rocc-tests",
+      "pin": "c84daca8824635b7d896003c78f9c6245997cf7a",
+      "relative": "riscv-tests"
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/riscv-tests/env": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/gemmini-rocc-tests/riscv-tests",
+      "pin": "0666378f353599d01fc48562b431b1dd049faab5",
+      "relative": "env"
+    },
+    "generators/gemmini/software/gemmini-rocc-tests/rocc-software": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/gemmini-rocc-tests",
+      "pin": "fddb795a0b52e82f8f4ce9ead9b1428440a62ab0",
+      "relative": "rocc-software"
+    },
+    "generators/gemmini/software/libgemmini": {
+      "active_without_url": true,
+      "parent": "generators/gemmini",
+      "pin": "ea8f7ed7afd68e001fb06ddccad9a023c990961d",
+      "relative": "software/libgemmini"
+    },
+    "generators/gemmini/software/onnxruntime-riscv": {
+      "active_without_url": true,
+      "parent": "generators/gemmini",
+      "pin": "f6d2fc95463316ec47d7f832f35be03c26887922",
+      "relative": "software/onnxruntime-riscv"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "fd5fe3de507d4a19f5923c5d4c267e3d730500a9",
+      "relative": "cmake/external/FeaturizersLibrary"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary/src/3rdParty/eigen": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary",
+      "pin": "efd9867ff0e8df23016ac6c9828d0d7bf8bec1b1",
+      "relative": "src/3rdParty/eigen"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary/src/3rdParty/re2": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/FeaturizersLibrary",
+      "pin": "30cad267151fa8f1b17da8c1ef0571da6da9a8f1",
+      "relative": "src/3rdParty/re2"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/SafeInt/safeint": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "39de59d5bca3a226a241b29571abe1493d15d07a",
+      "relative": "cmake/external/SafeInt/safeint"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/coremltools": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "523d5e03d86c26267ee6bdf17dd20f6ce6bdadd7",
+      "relative": "cmake/external/coremltools"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/cub": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "c3cceac115c072fb63df1836ff46d8c60d9eb304",
+      "relative": "cmake/external/cub"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/cxxopts": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "3c73d91c0b04e2b59462f0a741be8c07024c1bc0",
+      "relative": "cmake/external/cxxopts"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/date": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "e7e1482087f58913b80a20b04d5c58d9d6d90155",
+      "relative": "cmake/external/date"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/dlpack": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "e1e11e0d555c08bec08a6c7773aa777dfcaae9da",
+      "relative": "cmake/external/dlpack"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/eigen": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "d10b27fe37736d2944630ecd7557cefa95cf87c9",
+      "relative": "cmake/external/eigen"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/emsdk": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "8b32b7def837a15e766039501630549149d3db41",
+      "relative": "cmake/external/emsdk"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/flatbuffers": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "6df40a2471737b27271bdd9b900ab5f3aec746c7",
+      "relative": "cmake/external/flatbuffers"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/googletest": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "703bd9caab50b139428cea1aaff9974ebee5742e",
+      "relative": "cmake/external/googletest"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/json": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "d98bf0278d6f59a58271425963a8422ff48fe249",
+      "relative": "cmake/external/json"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/libprotobuf-mutator": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "7a2ed51a6b682a83e345ff49fc4cfd7ca47550db",
+      "relative": "cmake/external/libprotobuf-mutator"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/mimalloc": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "2d54553b7a78c7c35620b827e7e5ab2228ecb495",
+      "relative": "cmake/external/mimalloc"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/mp11": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "21cace4e574180ba64d9307a5e4ea9e5e94d3e8d",
+      "relative": "cmake/external/mp11"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/nsync": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "436617053d0f39a1019a371c3a9aa599b3cb2cea",
+      "relative": "cmake/external/nsync"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "971632833036c576cf95499291f689f8bb3519e1",
+      "relative": "cmake/external/onnx"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "984e57c7768a9bea3d2a8369ed199529f603d13b",
+      "relative": "cmake/external/onnx-tensorrt"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt",
+      "pin": "553df22c67bee5f0fe6599cff60f1afc6748c635",
+      "relative": "third_party/onnx"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/benchmark": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx",
+      "pin": "e776aa0275e293707b6a0901e0e8d8a8a3679508",
+      "relative": "third_party/benchmark"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/pybind11": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx",
+      "pin": "09f082940113661256310e3f4811aa7261a9fa05",
+      "relative": "third_party/pybind11"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/pybind11/tools/clang": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx-tensorrt/third_party/onnx/third_party/pybind11",
+      "pin": "6a00cbc4a9b8e68b71caf7f774b3f9c753ae84d5",
+      "relative": "tools/clang"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx/third_party/benchmark": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx",
+      "pin": "e776aa0275e293707b6a0901e0e8d8a8a3679508",
+      "relative": "third_party/benchmark"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx/third_party/pybind11": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/onnx",
+      "pin": "59a2ac2745d8a57ac94c6accced73620d59fb844",
+      "relative": "third_party/pybind11"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/optional-lite": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "4acf4553baa886e10e6613fe1452b706b0250e78",
+      "relative": "cmake/external/optional-lite"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "2dc747c574b68a808ea4699d26942c8132fe2b09",
+      "relative": "cmake/external/protobuf"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf/third_party/benchmark": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf",
+      "pin": "5b7683f49e1e9223cf9927b24f6fd3d6bd82e3f8",
+      "relative": "third_party/benchmark"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf/third_party/googletest": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/protobuf",
+      "pin": "5ec7f0c4a113e2f18ac2c6cc7df51ad6afc24081",
+      "relative": "third_party/googletest"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/re2": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "30cad267151fa8f1b17da8c1ef0571da6da9a8f1",
+      "relative": "cmake/external/re2"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tensorboard": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "373eb09e4c5d2b3cc2493f0949dc4be6b6a45e81",
+      "relative": "cmake/external/tensorboard"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "eab844a87298d500f1924f8a7cadb4cbee426093",
+      "relative": "cmake/external/tvm"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/HalideIR": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm",
+      "pin": "b257a9221ee1e5180d994b3488ddcc259b0ac157",
+      "relative": "3rdparty/HalideIR"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/dlpack": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm",
+      "pin": "5c792cef3aee54ad8b7000111c9dc1797f327b59",
+      "relative": "3rdparty/dlpack"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/dmlc-core": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm",
+      "pin": "d07fb7a443b5db8a89d65a15a024af6a425615a5",
+      "relative": "3rdparty/dmlc-core"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm/3rdparty/rang": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv/cmake/external/tvm",
+      "pin": "cabe04d6d6b05356fa8f9741704924788f0dd762",
+      "relative": "3rdparty/rang"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/cmake/external/wil": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "e8c599bca6c56c44b6730ad93f6abbc9ecd60fc1",
+      "relative": "cmake/external/wil"
+    },
+    "generators/gemmini/software/onnxruntime-riscv/systolic_runner/halide_interop/Halide": {
+      "active_without_url": true,
+      "parent": "generators/gemmini/software/onnxruntime-riscv",
+      "pin": "045a6cc3e478e8e0e2c8891fc83b0fc70649b6db",
+      "relative": "systolic_runner/halide_interop/Halide"
+    },
+    "generators/hardfloat": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "4225367ed282aadd70f4cbd131f6959f4d00c502",
+      "relative": "generators/hardfloat"
+    },
+    "generators/hardfloat/berkeley-softfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/hardfloat",
+      "pin": "5c06db33fc1e2130f67c045327b0ec949032df1d",
+      "relative": "berkeley-softfloat-3"
+    },
+    "generators/hardfloat/berkeley-testfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/hardfloat",
+      "pin": "06b20075dd3c1a5d0dd007a93643282832221612",
+      "relative": "berkeley-testfloat-3"
+    },
+    "generators/ibex": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "1800a1bf9f4ef5b4bf396e4bd1fdc36117c2a7a5",
+      "relative": "generators/ibex"
+    },
+    "generators/ibex/src/main/resources/vsrc/ibex": {
+      "active_without_url": true,
+      "parent": "generators/ibex",
+      "pin": "48f11c673348908c37d3eaa9bd1cd0a5b5c69253",
+      "relative": "src/main/resources/vsrc/ibex"
+    },
+    "generators/icenet": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "6fd35bf5a28310c61671fce7309526b56d91e35d",
+      "relative": "generators/icenet"
+    },
+    "generators/mempress": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "0b362f9031a50b5af24d9d9606b8bbddd5bbc00c",
+      "relative": "generators/mempress"
+    },
+    "generators/nvdla": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "768abfbcd6f1cab97eaca802d5841faeb46a1d92",
+      "relative": "generators/nvdla"
+    },
+    "generators/nvdla/src/main/resources/hw": {
+      "active_without_url": true,
+      "parent": "generators/nvdla",
+      "pin": "8e06b1b9d85aab65b40d43d08eec5ea4681ff715",
+      "relative": "src/main/resources/hw"
+    },
+    "generators/radiance": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "b4310b2077ca9f4676b1ae7405efa69501ad631d",
+      "relative": "generators/radiance"
+    },
+    "generators/radiance/cyclotron": {
+      "active_without_url": true,
+      "parent": "generators/radiance",
+      "pin": "ca6933c4ec0ba1d9d7ec5452d325a8cdd8c2120d",
+      "relative": "cyclotron"
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex": {
+      "active_without_url": true,
+      "parent": "generators/radiance",
+      "pin": "c8529c4339d2cb4e11764f8487f1d2770c0ff4b3",
+      "relative": "src/main/resources/vsrc/vortex"
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/fpnew": {
+      "active_without_url": true,
+      "parent": "generators/radiance/src/main/resources/vsrc/vortex",
+      "pin": "25a0d6763ffe83e1c8701bef5758996c484c1f58",
+      "relative": "third_party/fpnew"
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/fpnew/tb/flexfloat": {
+      "active_without_url": true,
+      "parent": "generators/radiance/src/main/resources/vsrc/vortex/third_party/fpnew",
+      "pin": "28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61",
+      "relative": "tb/flexfloat"
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/ramulator": {
+      "active_without_url": true,
+      "parent": "generators/radiance/src/main/resources/vsrc/vortex",
+      "pin": "214f635845214adf030367939655d172ef0fed5f",
+      "relative": "third_party/ramulator"
+    },
+    "generators/radiance/src/main/resources/vsrc/vortex/third_party/softfloat": {
+      "active_without_url": true,
+      "parent": "generators/radiance/src/main/resources/vsrc/vortex",
+      "pin": "eb498c55bab0f49c3903f69524e2674abe71c26b",
+      "relative": "third_party/softfloat"
+    },
+    "generators/rerocc": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "8b672f4e836c111d09e135e8981b611d120692de",
+      "relative": "generators/rerocc"
+    },
+    "generators/riscv-sodor": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "32d49f96dd9ff37ff7fb2eab875a285f6e4dc295",
+      "relative": "generators/riscv-sodor"
+    },
+    "generators/rocc-acc-utils": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "33ea77110ca9c28c5c7eb3c6b67ae74096ea8b37",
+      "relative": "generators/rocc-acc-utils"
+    },
+    "generators/rocket-chip": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "c9a3244cf51ba424efcbb7d9fa50b3b3ad9ebbfb",
+      "relative": "generators/rocket-chip"
+    },
+    "generators/rocket-chip-blocks": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "c8c14f7b47c3c790022c293bc7e4309f5c5ed523",
+      "relative": "generators/rocket-chip-blocks"
+    },
+    "generators/rocket-chip-inclusive-cache": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "8e157c808c8ba019b6fdb42232c4e6ac6b11b439",
+      "relative": "generators/rocket-chip-inclusive-cache"
+    },
+    "generators/rocket-chip/dependencies/cde": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip",
+      "pin": "52768c97a27b254c0cc0ac9401feb55b29e18c28",
+      "relative": "dependencies/cde"
+    },
+    "generators/rocket-chip/dependencies/chisel": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip",
+      "pin": "e3bcc90db37f1aec9f8048813f4f0666098d9bee",
+      "relative": "dependencies/chisel"
+    },
+    "generators/rocket-chip/dependencies/diplomacy": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip",
+      "pin": "edf375300d99a4c260a214d7c1553de0040771d7",
+      "relative": "dependencies/diplomacy"
+    },
+    "generators/rocket-chip/dependencies/hardfloat": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip",
+      "pin": "d93aa570806013dea479a92ba9bb33d1f2d4f69f",
+      "relative": "dependencies/hardfloat"
+    },
+    "generators/rocket-chip/dependencies/hardfloat/berkeley-softfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip/dependencies/hardfloat",
+      "pin": "5c06db33fc1e2130f67c045327b0ec949032df1d",
+      "relative": "berkeley-softfloat-3"
+    },
+    "generators/rocket-chip/dependencies/hardfloat/berkeley-testfloat-3": {
+      "active_without_url": true,
+      "parent": "generators/rocket-chip/dependencies/hardfloat",
+      "pin": "06b20075dd3c1a5d0dd007a93643282832221612",
+      "relative": "berkeley-testfloat-3"
+    },
+    "generators/saturn": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "a898bdcb0e14f2a86d57f3b46b078a4cc32041dc",
+      "relative": "generators/saturn"
+    },
+    "generators/saturn/benchmarks/env": {
+      "active_without_url": true,
+      "parent": "generators/saturn",
+      "pin": "1c577dc7c7d6aee27b8d5cb0e2e87c8473e3ad12",
+      "relative": "benchmarks/env"
+    },
+    "generators/saturn/riscv-vector-tests": {
+      "active_without_url": true,
+      "parent": "generators/saturn",
+      "pin": "20200cc00c33729b442335d84db8af3166d211fd",
+      "relative": "riscv-vector-tests"
+    },
+    "generators/saturn/riscv-vector-tests/env/riscv-test-env": {
+      "active_without_url": true,
+      "parent": "generators/saturn/riscv-vector-tests",
+      "pin": "1c577dc7c7d6aee27b8d5cb0e2e87c8473e3ad12",
+      "relative": "env/riscv-test-env"
+    },
+    "generators/shuttle": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "cb9313d03637ca52d0ccf27ac8e986a0d454befb",
+      "relative": "generators/shuttle"
+    },
+    "generators/tacit": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "73923941a9ef62eb24fb3fef2f0e1494db7f8cf5",
+      "relative": "generators/tacit"
+    },
+    "generators/testchipip": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "4b19a1ad06b5f68d3bd331c29ae4a5066a8bc5c1",
+      "relative": "generators/testchipip"
+    },
+    "generators/vexiiriscv": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "10a351329eb2f8b0ebf29331e0fe911fe3bb5a9b",
+      "relative": "generators/vexiiriscv"
+    },
+    "generators/vexiiriscv/VexiiRiscv": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv",
+      "pin": "b9f015acde910a75612e6598f56567fb549e4604",
+      "relative": "VexiiRiscv"
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/NaxSoftware": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv/VexiiRiscv",
+      "pin": "3c613a25f7f6450ad1f7763c173c45b4a97ddf21",
+      "relative": "ext/NaxSoftware"
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/SpinalHDL": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv/VexiiRiscv",
+      "pin": "fc89224e30e9122905da5b706fd5d1ee02332489",
+      "relative": "ext/SpinalHDL"
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/SpinalHDL/tester/src/test/python/cocotblib": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv/VexiiRiscv/ext/SpinalHDL",
+      "pin": "a98830423924fc89bfebae84cb802fc90d352602",
+      "relative": "tester/src/test/python/cocotblib"
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/riscv-isa-sim": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv/VexiiRiscv",
+      "pin": "5f4eca2c0a5ee7808ad235f5230f3bd2c14a6ffa",
+      "relative": "ext/riscv-isa-sim"
+    },
+    "generators/vexiiriscv/VexiiRiscv/ext/rvls": {
+      "active_without_url": true,
+      "parent": "generators/vexiiriscv/VexiiRiscv",
+      "pin": "2c8665ea418a6829686417615efeeb79023a5cf5",
+      "relative": "ext/rvls"
+    },
+    "sims/firesim": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "b084672c2f8cf32e55d78f73a001074c23f8a2b8",
+      "relative": "sims/firesim"
+    },
+    "tools/DRAMSim2": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "44322e2f935d7dac83b7adf8dd270b41a54c6acb",
+      "relative": "tools/DRAMSim2"
+    },
+    "tools/cde": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "2bcaeae2b9914bd25497ce3c6fa62dc5ca80e09f",
+      "relative": "tools/cde"
+    },
+    "tools/dsptools": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "a310a157cab6e569d30741eae4ca5592069cab7c",
+      "relative": "tools/dsptools"
+    },
+    "tools/firrtl2": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "09156cae09cb37c530322c6005649d2380c3eb0e",
+      "relative": "tools/firrtl2"
+    },
+    "tools/fixedpoint": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "ef164009e40ce5a5abe61ebcc11c12ff82e34014",
+      "relative": "tools/fixedpoint"
+    },
+    "tools/rocket-dsp-utils": {
+      "active_without_url": true,
+      "parent": ".",
+      "pin": "6ee2309f80a54b404795f227793d2a54e1dfadf8",
+      "relative": "tools/rocket-dsp-utils"
+    }
+  },
+  "registered": 175,
+  "tool_sha256": "52b2c7734dea1999258460c7a1dabd3ebbfa326db3645c4449891564f9c2c887"
+}

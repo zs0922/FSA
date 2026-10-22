@@ -1,0 +1,296 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `prove-unrolled.ys' --
+
+1. Executing JSON frontend.
+Importing module A70AccumulatorMiterUnrolled from JSON tree.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \A70AccumulatorMiterUnrolled
+
+2.2. Analyzing design hierarchy..
+Top module:  \A70AccumulatorMiterUnrolled
+Removed 0 unused modules.
+
+3. Executing OPT pass (performing simple optimizations).
+
+3.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiterUnrolled.
+
+3.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 473 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 463 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 454 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 452 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 449 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 446 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 444 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 442 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 441 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 440 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+<suppressed ~99 debug messages>
+Removed a total of 33 cells.
+
+3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \A70AccumulatorMiterUnrolled..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~397 debug messages>
+
+3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \A70AccumulatorMiterUnrolled.
+Performed a total of 0 changes.
+
+3.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 440 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 437 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 434 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 433 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 432 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 431 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 430 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+3.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \A70AccumulatorMiterUnrolled..
+Removed 0 unused cells and 672 unused wires.
+<suppressed ~1 debug messages>
+
+3.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiterUnrolled.
+
+3.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \A70AccumulatorMiterUnrolled..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~388 debug messages>
+
+3.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \A70AccumulatorMiterUnrolled.
+Performed a total of 0 changes.
+
+3.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\A70AccumulatorMiterUnrolled'.
+Computing hashes of 430 cells of `\A70AccumulatorMiterUnrolled'.
+Finding duplicate cells in `\A70AccumulatorMiterUnrolled'.
+Removed a total of 0 cells.
+
+3.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \A70AccumulatorMiterUnrolled..
+
+3.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module A70AccumulatorMiterUnrolled.
+
+3.16. Finished fast OPT passes. (There is nothing left to do.)
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module A70AccumulatorMiterUnrolled...
+Found and reported 0 problems.
+
+5. Printing statistics.
+
+=== A70AccumulatorMiterUnrolled ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     8096 wires
+     8096 wire bits
+      102 public wires
+      102 public wire bits
+      102 ports
+      102 port bits
+      430 cells
+       14   $add
+       36   $and
+        6   $eq
+        3   $gt
+        9   $logic_not
+        6   $lt
+        1   $mul
+      263   $mux
+        1   $ne
+       17   $not
+       28   $or
+        2   $pmux
+        5   $reduce_and
+       11   $reduce_or
+        7   $shl
+        2   $shr
+       17   $sub
+        2   $xor
+
+6. Executing JSON backend.
+
+7. Executing Verilog backend.
+
+7.1. Executing BMUXMAP pass.
+
+7.2. Executing DEMUXMAP pass.
+Dumping module `\A70AccumulatorMiterUnrolled'.
+
+8. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 430 cells to SAT database.
+Import proof-constraint: \io_mismatch = 1'0
+Import proof-constraint: \data_mismatch = 1'0
+Final proof equation: { \data_mismatch \io_mismatch } = 2'00
+Import show expression: \io_a_bit0_t0
+Import show expression: \io_a_bit10_t0
+Import show expression: \io_a_bit11_t0
+Import show expression: \io_a_bit12_t0
+Import show expression: \io_a_bit13_t0
+Import show expression: \io_a_bit14_t0
+Import show expression: \io_a_bit15_t0
+Import show expression: \io_a_bit16_t0
+Import show expression: \io_a_bit17_t0
+Import show expression: \io_a_bit18_t0
+Import show expression: \io_a_bit19_t0
+Import show expression: \io_a_bit1_t0
+Import show expression: \io_a_bit20_t0
+Import show expression: \io_a_bit21_t0
+Import show expression: \io_a_bit22_t0
+Import show expression: \io_a_bit23_t0
+Import show expression: \io_a_bit24_t0
+Import show expression: \io_a_bit25_t0
+Import show expression: \io_a_bit26_t0
+Import show expression: \io_a_bit27_t0
+Import show expression: \io_a_bit28_t0
+Import show expression: \io_a_bit29_t0
+Import show expression: \io_a_bit2_t0
+Import show expression: \io_a_bit30_t0
+Import show expression: \io_a_bit31_t0
+Import show expression: \io_a_bit3_t0
+Import show expression: \io_a_bit4_t0
+Import show expression: \io_a_bit5_t0
+Import show expression: \io_a_bit6_t0
+Import show expression: \io_a_bit7_t0
+Import show expression: \io_a_bit8_t0
+Import show expression: \io_a_bit9_t0
+Import show expression: \io_b_bit0_t0
+Import show expression: \io_b_bit10_t0
+Import show expression: \io_b_bit11_t0
+Import show expression: \io_b_bit12_t0
+Import show expression: \io_b_bit13_t0
+Import show expression: \io_b_bit14_t0
+Import show expression: \io_b_bit15_t0
+Import show expression: \io_b_bit16_t0
+Import show expression: \io_b_bit17_t0
+Import show expression: \io_b_bit18_t0
+Import show expression: \io_b_bit19_t0
+Import show expression: \io_b_bit1_t0
+Import show expression: \io_b_bit20_t0
+Import show expression: \io_b_bit21_t0
+Import show expression: \io_b_bit22_t0
+Import show expression: \io_b_bit23_t0
+Import show expression: \io_b_bit24_t0
+Import show expression: \io_b_bit25_t0
+Import show expression: \io_b_bit26_t0
+Import show expression: \io_b_bit27_t0
+Import show expression: \io_b_bit28_t0
+Import show expression: \io_b_bit29_t0
+Import show expression: \io_b_bit2_t0
+Import show expression: \io_b_bit30_t0
+Import show expression: \io_b_bit31_t0
+Import show expression: \io_b_bit3_t0
+Import show expression: \io_b_bit4_t0
+Import show expression: \io_b_bit5_t0
+Import show expression: \io_b_bit6_t0
+Import show expression: \io_b_bit7_t0
+Import show expression: \io_b_bit8_t0
+Import show expression: \io_b_bit9_t0
+Import show expression: \io_c_bit0_t0
+Import show expression: \io_c_bit10_t0
+Import show expression: \io_c_bit11_t0
+Import show expression: \io_c_bit12_t0
+Import show expression: \io_c_bit13_t0
+Import show expression: \io_c_bit14_t0
+Import show expression: \io_c_bit15_t0
+Import show expression: \io_c_bit16_t0
+Import show expression: \io_c_bit17_t0
+Import show expression: \io_c_bit18_t0
+Import show expression: \io_c_bit19_t0
+Import show expression: \io_c_bit1_t0
+Import show expression: \io_c_bit20_t0
+Import show expression: \io_c_bit21_t0
+Import show expression: \io_c_bit22_t0
+Import show expression: \io_c_bit23_t0
+Import show expression: \io_c_bit24_t0
+Import show expression: \io_c_bit25_t0
+Import show expression: \io_c_bit26_t0
+Import show expression: \io_c_bit27_t0
+Import show expression: \io_c_bit28_t0
+Import show expression: \io_c_bit29_t0
+Import show expression: \io_c_bit2_t0
+Import show expression: \io_c_bit30_t0
+Import show expression: \io_c_bit31_t0
+Import show expression: \io_c_bit3_t0
+Import show expression: \io_c_bit4_t0
+Import show expression: \io_c_bit5_t0
+Import show expression: \io_c_bit6_t0
+Import show expression: \io_c_bit7_t0
+Import show expression: \io_c_bit8_t0
+Import show expression: \io_c_bit9_t0
+Import show expression: \io_exp2_bit0_t0
+Import show expression: \reset_bit0_t0
+Import show expression: \reset_bit0_t1
+Import show expression: \reset_bit0_t2
+Import show expression: \data_mismatch
+Import show expression: \io_mismatch
+
+Solving problem with 81458 variables and 228624 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 2914052142, time: 6.44s, user: 6.45s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 98% 1x sat (6 sec), 0% 2x read_json (0 sec), ...

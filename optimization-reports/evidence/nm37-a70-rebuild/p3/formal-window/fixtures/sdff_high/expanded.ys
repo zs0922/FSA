@@ -1,0 +1,6 @@
+read_json expanded.json
+hierarchy -check -top fixture
+techmap
+opt
+check -assert
+sat -verify  -prove mismatch 0 -show-inputs -show-outputs

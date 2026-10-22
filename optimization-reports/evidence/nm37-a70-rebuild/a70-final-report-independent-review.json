@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "document_file": "nm37-a70-rebuild-20261022/src/optimization-reports/NM37_A70_REBUILD_TRANSFER.md",
+  "document_sha256": "26dee5699ac2be0464c3271472aca05f905db5c574be98d2bba6eb3a9677ed46",
+  "scope": "Read-only technical fact/metric boundary review using original routed reports and12 original runtime result files. Pending bit SHA and delivery tail explicitly excluded. No extra full-tree tests.",
+  "raw_evidence_sha256": {
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/utilization.txt": "5319ff6c223af47d4e2c3127642bda86f0357738b8927761e33f26d282f7785b",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/timing.txt": "4d439098e98176fce2009217ffd21bf2e9a0e9bd7d4977da35aa66ca767726ef",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/dut_setup_top100.txt": "a1c2011aafc26002c718ee7c4d6dbab069e01a9696502b29c3144c9acac4683c",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt": "3d486fff2423f19703bd6cc9f2a5e52d0b84bcd8dbde78e2249a7f38069c5816",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt": "92b801093807410fc6dec5bab37373c2dc47f5afd09d917b5f2d0587b3672fb5",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/clock_interaction.txt": "6bc1339b64bbe1beea3eceac18ca491981e65a42f909bede30f4c653cea65b1f",
+    "nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/exceptions.txt": "fc8bb6642da9957c593ab0f1e35d130ca0a1bfee90226b8ee231671fb995c82c",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/utilization.txt": "bbbc22b5eb741617ef506e65264651616066a0705fcc1a2c84e058bae630c646",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/timing.txt": "eafd66929e2f6a2b01fdd09f36c57638c3b7d7cecdc3df54641d4708d2698807",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/dut_setup_top100.txt": "8ea64056816e3a68db8d685d3ee3a2a17d05af44970b5a8e964c91bdd772abff",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt": "92cbfaec9a8c4b17519420eabafe7c6347c2f934054cf05370877512f073f2be",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt": "c40bd28c84f896058de5132ee60a54d78808722621fd74315fa1d72273e460b9",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/clock_interaction.txt": "45b9ccb420d124872601cff69856c68187708e14c8548e757a17026e92ad1ca1",
+    "nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/exceptions.txt": "6f81a050442f0dccc203fcde8028a242d749279d173fd96354b4e20a051af134",
+    "nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/utilization.txt": "6504bd5288728b2a9235c73d4962af2e4daa406b80934b34db6bd6b7f7dfc398",
+    "nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/report/timing.txt": "b812721ff64cc26533b2de3775a54a5b1e49e3035e89b0c4e2d811426e8b114d",
+    "nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/dut_setup_top100.txt": "ef5016f57fdf83b399f642049db2ff530aae0b7061a25df7d8c4eaf740f42b57",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/report/utilization_flat.txt": "4dc025ad2c1913f87188f0b453a2db64ce15f8a5db1ab305d01036c6ad637f0d",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/report/timing.txt": "e73e11ad141759fa22aebf5ac3bbeb02c011c8a1143dcce8afe7aa5a6cfde9c8",
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/audit/run_properties.txt": "df2868cecd4c334a60bdca2416866d397f96bb1dd0c21c0564641194d211a557",
+    "nm37-a70-rebuild-20261022/review/common-software-p2/seq16/result.json": "a209d01f2fac285d784a212eadd8dbfc79592eaeb4dee323cd5ff42edf8aa888",
+    "nm37-a70-rebuild-20261022/review/common-software-p2/seq32/result.json": "0eb9a155f193c72f841d073b268a60954c4845b20d04154fb3b5734fe95bf515",
+    "nm37-a70-rebuild-20261022/review/common-software-p2/seq64/result.json": "e8ab936a44073fcf046da289b3dfd6c8314850b1f517a7032906e913cf9eafee",
+    "nm37-a70-rebuild-20261022/review/common-software-p3/seq16/result.json": "a3426ba5c03c663ad36ee64e0a721276c14a0d7037204d72fefc3ef5904c4c43",
+    "nm37-a70-rebuild-20261022/review/common-software-p3/seq32/result.json": "f53615195d965efef074ee5972422a880a0dc26e2483056651f0c11b62a2ef7b",
+    "nm37-a70-rebuild-20261022/review/common-software-p3/seq64/result.json": "c5ea6d524e40c3274297777715a2f6a2237ec555aff9e712424318702d1c7e08",
+    "nm37-a70-rebuild-20261022/review/common-software-a100/seq16/result.json": "77f44ab9b2820bc404456266fd084a50e8afbc51ea455dec9f0f6fd09d32338f",
+    "nm37-a70-rebuild-20261022/review/common-software-a100/seq32/result.json": "05b1a0c5375db561d36b41ca38063108a753a09a037cfcff5dd7e55f78335508",
+    "nm37-a70-rebuild-20261022/review/common-software-a100/seq64/result.json": "41c9acf1c2f71b7336a58fb705b19eac5b1a1a86cf62e2043d3ed589b74e93de",
+    "nm37-a70-rebuild-20261022/review/common-software-a110/seq16/result.json": "6cf0c2224465247a6c429ab5b29402bf139a38ca083e7764b768351c615b32e7",
+    "nm37-a70-rebuild-20261022/review/common-software-a110/seq32/result.json": "173d78f1b09f1767f7b6591b953c6d8be6bc82ca61937c3fd2b9799aedd2158f",
+    "nm37-a70-rebuild-20261022/review/common-software-a110/seq64/result.json": "14e22657ddac7941d547b60cad42ba6519881f9bff7c982bb28f97641ca506e2"
+  },
+  "verified": [
+    "P2/P3/A100/A110 routed resources and timing",
+    "P2 failing setup path source/destination,54 levels,14.344ns delay with5.075ns logic/9.269ns routing",
+    "P3 complete route, bus skew, DCP and CDC/constraint boundaries from prior independent raw report review",
+    "All12 common-software counters and bitwise correctness; simulator-versus-board distinction",
+    "Formal exact-window scope, no initial-state leaves, no valid masking, reciprocal/scheduling exclusion",
+    "Exact141 generated-artifact policy and unchanged128 original elaboration files; old seals remain immutable"
+  ],
+  "substantive_factual_errors": [],
+  "suggestions": [
+    {
+      "topic": "counter label",
+      "text": "Label execTime/frequency as exec_us (not measured), rather than active, to avoid confusion with mxActive.",
+      "status": "resolved in current documentation"
+    },
+    {
+      "topic": "links",
+      "text": "Add direct Markdown links to window_proof/run-proof.py and implementation_generated.py; existing implementation-generated README link resolves.",
+      "status": "resolved in current documentation"
+    }
+  ],
+  "freeze_inputs_modified": false,
+  "prior_review_file": "nm37-a70-rebuild-20261022/review/a70-transfer-document-review.json",
+  "prior_review_sha256": "a379426b4fdd63a2bbeafd965832fd35ddb468de2873d878f610b6d05e3bffd2",
+  "suggestions_resolved": true,
+  "resolved_tool_readme_links": [
+    {
+      "label": "\u5b9e\u65bd\u751f\u6210\u7269\u95e8\u7981",
+      "target": "implementation-generated-README.md",
+      "exists": true
+    },
+    {
+      "label": "\u4e09\u62cd\u7a97\u53e3\u5f62\u5f0f\u5165\u53e3",
+      "target": "verify/window_proof/run-proof.py",
+      "exists": true
+    },
+    {
+      "label": "\u5b9e\u65bd\u751f\u6210\u7269\u5206\u7c7b/\u5c01\u5370\u5de5\u5177",
+      "target": "implementation_generated.py",
+      "exists": true
+    }
+  ],
+  "readme_file": "nm37-a70-rebuild-20261022/src/scripts/nm37-a70/README-build.md",
+  "readme_sha256": "81d7a3e261197d17f999c41dfdbae05ce70b31ac60ddd073c07cac0e81929b13",
+  "excluded_pending_sections": [
+    "Final bitstream file SHA and export completion",
+    "Final delivery package SHA and local commit tail"
+  ],
+  "bitstream_or_delivery_acceptance_granted": false
+}

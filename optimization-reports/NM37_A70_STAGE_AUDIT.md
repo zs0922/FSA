@@ -2,6 +2,8 @@
 
 核查日期：2026-10-22。依据 `/home/zhangsi/FSA/nm37-stage-results` 的原始 bitstream、Vivado 报告、构建日志、Git 提交与补丁。本次只读核查，不重新布局布线、不烧板。机器可读统计、完整文件 SHA-256 和原始行号见 [audit.json](evidence/nm37-a70-stage-audit/audit.json)。旧仓及原产物未修改。
 
+后续已按独立源码重建 P2/P3，并获得真实 P3 的 70MHz 实现结果；构建顺序修复、验证、失败的 P2 对照及统一迁移见 [重建与板测迁移报告](NM37_A70_REBUILD_TRANSFER.md)。本审计中的旧文件测量继续保留原始身份。
+
 ## 结论
 
 历史 baseline/P1/P2/P3 四份 70 MHz bitstream 均存在。此前“没有找到 A70 bitstream”仅适用于当前 FSA-m1 工作区，未覆盖该历史目录，不能泛化为不存在历史 A70。历史 A70 不应与后来的 M1 A70（尤其保留 ShiftRightJam 的 A 配置）合并为同一版本。

@@ -1,0 +1,3701 @@
+{
+  "status": "SOURCE_REVIEW_COMPLETE_ROUTE_REVIEW_PENDING",
+  "postroute_accepted": false,
+  "scope": "Read-only actual frozen P2/P3 shell/source/RTL/IP/constraint inspection plus historical reference reports. Candidate routed reports are deliberately not accepted by this review.",
+  "stages": {
+    "p2": {
+      "actual_output": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config",
+      "ip_parameters": {
+        "pll": {
+          "values": {
+            "PARAM_VALUE.PRIM_IN_FREQ": "100.0",
+            "PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ": "70.0",
+            "PARAM_VALUE.NUM_OUT_CLKS": "1"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci",
+            "sha256": "31644d0806d6d34b29ca25c8104c5a58bad09adefbdd0917b684b80d204cb0ba",
+            "matches": [
+              {
+                "line": 419,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ\">70.0</spirit:configurableElementValue>"
+              },
+              {
+                "line": 567,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.NUM_OUT_CLKS\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 605,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PRIM_IN_FREQ\">100.0</spirit:configurableElementValue>"
+              },
+              {
+                "line": 697,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 707,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.NUM_OUT_CLKS\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 708,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PRIM_IN_FREQ\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "xdma": {
+          "values": {
+            "PARAM_VALUE.axisten_freq": "250",
+            "PARAM_VALUE.axi_data_width": "256_bit"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci",
+            "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+            "matches": [
+              {
+                "line": 1192,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.axi_data_width\">256_bit</spirit:configurableElementValue>"
+              },
+              {
+                "line": 1223,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.axisten_freq\">250</spirit:configurableElementValue>"
+              },
+              {
+                "line": 2238,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.axi_data_width\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 2243,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.axisten_freq\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "axi_converter": {
+          "values": {
+            "PARAM_VALUE.ACLK_ASYNC": "1",
+            "PARAM_VALUE.SYNCHRONIZATION_STAGES": "3",
+            "PARAM_VALUE.DATA_WIDTH": "256",
+            "PARAM_VALUE.PROTOCOL": "AXI4"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_axi_clock_converter_0/xdma_master_axi_clock_converter_0.xci",
+            "sha256": "e318a00c5029985332e31e01d4fb0ccfdf0fcb7b7faa592b3f6f2f763d82b98d",
+            "matches": [
+              {
+                "line": 109,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.ACLK_ASYNC\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 116,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.DATA_WIDTH\">256</spirit:configurableElementValue>"
+              },
+              {
+                "line": 118,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PROTOCOL\">AXI4</spirit:configurableElementValue>"
+              },
+              {
+                "line": 121,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\">3</spirit:configurableElementValue>"
+              },
+              {
+                "line": 158,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.DATA_WIDTH\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 160,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PROTOCOL\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 162,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "lite_converter": {
+          "values": {
+            "PARAM_VALUE.ACLK_ASYNC": "1",
+            "PARAM_VALUE.SYNCHRONIZATION_STAGES": "3",
+            "PARAM_VALUE.DATA_WIDTH": "32",
+            "PARAM_VALUE.PROTOCOL": "AXI4LITE"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_lite_axi_clock_converter_0/xdma_master_lite_axi_clock_converter_0.xci",
+            "sha256": "9dd19de7c3c8c733088ccbb756cf77761f06970582727ff62cf7cf45044c9f24",
+            "matches": [
+              {
+                "line": 109,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.ACLK_ASYNC\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 116,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.DATA_WIDTH\">32</spirit:configurableElementValue>"
+              },
+              {
+                "line": 118,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PROTOCOL\">AXI4LITE</spirit:configurableElementValue>"
+              },
+              {
+                "line": 121,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\">3</spirit:configurableElementValue>"
+              },
+              {
+                "line": 166,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.DATA_WIDTH\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 168,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PROTOCOL\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 170,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "hbm": {
+          "values": {
+            "PARAM_VALUE.USER_APB_EN": "false",
+            "PARAM_VALUE.USER_HBM_DENSITY": "8GB",
+            "PARAM_VALUE.USER_HBM_STACK": "1",
+            "PARAM_VALUE.USER_CLK_SEL_LIST0": "AXI_00_ACLK",
+            "PARAM_VALUE.USER_HBM_REF_CLK_0": "100",
+            "PARAM_VALUE.USER_APB_PCLK_0": "100",
+            "PARAM_VALUE.USER_AXI_INPUT_CLK_FREQ": "100"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/testxilinx_hbm/testxilinx_hbm.xci",
+            "sha256": "0f40d773eb56f49e819a89fae0c48507d87d930bf0e0b8e0377b49665a9e8dfa",
+            "matches": [
+              {
+                "line": 3858,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_APB_EN\">false</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3859,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_APB_PCLK_0\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3871,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_AXI_INPUT_CLK_FREQ\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3915,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_CLK_SEL_LIST0\">AXI_00_ACLK</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3963,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_DENSITY\">8GB</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3988,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_REF_CLK_0\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3998,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_STACK\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 7436,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_APB_EN\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7437,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_CLK_SEL_LIST0\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7439,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_HBM_DENSITY\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7440,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_HBM_STACK\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        }
+      },
+      "expected_clock_domains": [
+        {
+          "name": "sys_clock",
+          "MHz": 100,
+          "uses": "Board input; POR; PLL input; HBM reference"
+        },
+        {
+          "name": "clk_out1_harnessSysPLL",
+          "MHz": 70,
+          "uses": "FSA/PE/CMP/ACC/control/RAM; HBM AXI00; APB0 clock"
+        },
+        {
+          "name": "_pcie_io_clocks_axi_aclk",
+          "MHz": 250,
+          "uses": "XDMA M_AXI and AXI-lite; source sides of the two converters"
+        },
+        {
+          "name": "xdma_ref_clk/PCIe pipe/GT internal",
+          "MHz": "PCIe-IP-defined",
+          "uses": "PCIe ref, GT lanes and internal pipe clock; existing vendor-IP boundary"
+        }
+      ],
+      "actual_clock_reset_connections": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+        "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+        "matches": [
+          {
+            "line": 164,
+            "text": ".auto_in_1_clock  (_pcie_io_clocks_axi_aclk),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:62:24]"
+          },
+          {
+            "line": 165,
+            "text": ".auto_in_1_reset  (~_pcie_io_clocks_axi_aresetn),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:62:24, :100:18]"
+          },
+          {
+            "line": 166,
+            "text": ".auto_in_0_clock  (_harnessSysPLL_clk_out1),\t// @[fpga/fpga-shells/src/main/scala/shell/xilinx/XilinxShell.scala:84:55]"
+          },
+          {
+            "line": 167,
+            "text": ".auto_in_0_reset  (~_harnessSysPLL_locked | _sysClkBroadcast_auto_anon_out_0_reset),\t// @[fpga/fpga-shells/src/main/scala/clocks/PLLFactory.scala:78:{20,35}, fpga/fpga-shells/src/main/scala/shell/xilinx/XilinxShell.scala:84:55, generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 168,
+            "text": ".auto_out_1_clock (_wrangler_auto_out_1_clock),"
+          },
+          {
+            "line": 169,
+            "text": ".auto_out_1_reset (_wrangler_auto_out_1_reset),"
+          },
+          {
+            "line": 170,
+            "text": ".auto_out_0_clock (_wrangler_auto_out_0_clock),"
+          },
+          {
+            "line": 171,
+            "text": ".auto_out_0_reset (_wrangler_auto_out_0_reset)"
+          },
+          {
+            "line": 246,
+            "text": ".io_clocks_sys_clk                 (_xdma_refclk_ibufds_ODIV2),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:113:26]"
+          },
+          {
+            "line": 247,
+            "text": ".io_clocks_sys_clk_gt              (_xdma_refclk_ibufds_O),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:113:26]"
+          },
+          {
+            "line": 248,
+            "text": ".io_clocks_sys_rst_n               (_pcie_rst_n_ibuff_O & ~_powerOnReset_fpga_power_on_power_on_reset),\t// @[fpga/fpga-shells/src/main/scala/ip/xilinx/Xilinx.scala:103:21, fpga/src/main/scala/nm37/CustomOverlays.scala:122:{35,38}, fpga/src/main/scala/nm37/TestHarness.scala:94:32]"
+          },
+          {
+            "line": 249,
+            "text": ".io_clocks_axi_aclk                (_pcie_io_clocks_axi_aclk),"
+          },
+          {
+            "line": 250,
+            "text": ".io_clocks_axi_aresetn             (_pcie_io_clocks_axi_aresetn)"
+          },
+          {
+            "line": 253,
+            "text": ".auto_master_clock_in_clock (_dutFixedClockNode_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 254,
+            "text": ".auto_master_clock_in_reset (_dutFixedClockNode_auto_anon_out_1_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 255,
+            "text": ".auto_slave_clock_in_clock  (_axiClkFixedNode_auto_anon_out_0_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 256,
+            "text": ".auto_slave_clock_in_reset  (_axiClkFixedNode_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 331,
+            "text": ".auto_master_clock_in_clock (_dutFixedClockNode_auto_anon_out_2_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 332,
+            "text": ".auto_master_clock_in_reset (_dutFixedClockNode_auto_anon_out_2_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 333,
+            "text": ".auto_slave_clock_in_clock  (_axiClkFixedNode_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 334,
+            "text": ".auto_slave_clock_in_reset  (_axiClkFixedNode_auto_anon_out_1_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 441,
+            "text": ".auto_ram_hbmref_clock_in_clock      (_sysClkBroadcast_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 442,
+            "text": ".auto_ram_slave_clock_nodes_in_clock (_dutFixedClockNode_auto_anon_out_4_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 443,
+            "text": ".auto_ram_slave_clock_nodes_in_reset (_dutFixedClockNode_auto_anon_out_4_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 444,
+            "text": ".auto_clock_in_clock                 (_dutFixedClockNode_auto_anon_out_3_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 445,
+            "text": ".auto_clock_in_reset                 (_dutFixedClockNode_auto_anon_out_3_reset)\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 448,
+            "text": ".clk_in1  (_sysClkBroadcast_auto_anon_out_0_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 449,
+            "text": ".clk_out1 (_harnessSysPLL_clk_out1),"
+          },
+          {
+            "line": 450,
+            "text": ".reset    (_sysClkBroadcast_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 451,
+            "text": ".locked   (_harnessSysPLL_locked)"
+          },
+          {
+            "line": 487,
+            "text": ".reset         (_dutFixedClockNode_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          }
+        ]
+      },
+      "source_clock_topology": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/nm37/TestHarness.scala",
+        "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+        "matches": [
+          {
+            "line": 29,
+            "text": "val sysClkBroadcast = FixedClockBroadcast(Some(ClockParameters(freqMHz = 100)))"
+          },
+          {
+            "line": 37,
+            "text": "val dutFreqMHz = 70"
+          },
+          {
+            "line": 40,
+            "text": "val dutClockNode = ClockSinkNode(freqMHz = dutFreqMHz, jitterPS = 230)"
+          },
+          {
+            "line": 41,
+            "text": "dutFixedClockNode := wrangler.node := dutClockGroup := harnessSysPLL"
+          },
+          {
+            "line": 49,
+            "text": "dutDomain.clockNode := dutFixedClockNode"
+          },
+          {
+            "line": 69,
+            "text": "ram.slaveClockNodes(0) := dutFixedClockNode"
+          },
+          {
+            "line": 71,
+            "text": "ram.HBMRefClockNode := sysClkBroadcast"
+          },
+          {
+            "line": 109,
+            "text": "def referenceClockFreqMHz = outer.dutFreqMHz"
+          }
+        ]
+      },
+      "source_cdc_topology": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/nm37/CustomOverlays.scala",
+        "sha256": "becabed396ffda8e4ad873cd528d4fd99b8b76509c977c14cf04aa3af41ff03f",
+        "matches": [
+          {
+            "line": 63,
+            "text": "val masterClockConverter = LazyModule(new LazyAXI4ClockConverter(\"xdma_master\", isAXILite = false))"
+          },
+          {
+            "line": 64,
+            "text": "val masterLiteClockConverter = LazyModule(new LazyAXI4ClockConverter(\"xdma_master_lite\", isAXILite = true))"
+          },
+          {
+            "line": 74,
+            "text": "masterClockConverter.node := pcie.master"
+          },
+          {
+            "line": 75,
+            "text": "masterLiteClockConverter.node := pcie.masterLite"
+          },
+          {
+            "line": 77,
+            "text": "masterClockConverter.slaveClockNode := axiClkFixedNode"
+          },
+          {
+            "line": 78,
+            "text": "masterLiteClockConverter.slaveClockNode := axiClkFixedNode"
+          },
+          {
+            "line": 79,
+            "text": "masterClockConverter.masterClockNode := designInput.masterClockNode"
+          },
+          {
+            "line": 80,
+            "text": "masterLiteClockConverter.masterClockNode := designInput.masterClockNode"
+          },
+          {
+            "line": 82,
+            "text": "val master: AXI4OutwardNode = masterClockConverter.node"
+          },
+          {
+            "line": 83,
+            "text": "val masterLite: AXI4OutwardNode = masterLiteClockConverter.node"
+          },
+          {
+            "line": 99,
+            "text": "axi.clock := pcie.module.io.clocks.axi_aclk"
+          },
+          {
+            "line": 100,
+            "text": "axi.reset := !pcie.module.io.clocks.axi_aresetn"
+          },
+          {
+            "line": 101,
+            "text": "pcie.module.io.clocks.sys_rst_n := b.srstn"
+          },
+          {
+            "line": 105,
+            "text": "shell.sdc.addGroup(clocks = Seq(s\"${name}_ref_clk\"), pins = Seq(pcie.module.blackbox.io.axi_aclk))"
+          },
+          {
+            "line": 106,
+            "text": "shell.sdc.addAsyncPath(Seq(pcie.module.blackbox.io.axi_aresetn))"
+          }
+        ]
+      },
+      "reset_wrangler": {
+        "debounce_ticks": 7000,
+        "debounce_width": 13,
+        "reset_catch_depth": 3,
+        "evidence": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+          "sha256": "efe56645201fdd621a9463b428e7c54fee03fa1eb855a8555fb1ba6a0b1217a8",
+          "matches": [
+            {
+              "line": 15,
+              "text": "wire        causes = auto_in_0_reset | auto_in_1_reset;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 16,
+              "text": "wire        increment = _debounced_debounce_io_q != 13'h1B58;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:36:28, generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:86:21]"
+            },
+            {
+              "line": 17,
+              "text": "AsyncResetRegVec_w13_i0 debounced_debounce (\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:86:21]"
+            },
+            {
+              "line": 18,
+              "text": ".clock (auto_in_0_clock),"
+            },
+            {
+              "line": 19,
+              "text": ".reset (causes),\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 28,
+              "text": ".io_rst (causes)\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 30,
+              "text": "ResetCatchAndSync_d3 nodeOut_reset_catcher (\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:39:28]"
+            },
+            {
+              "line": 31,
+              "text": ".clock         (auto_in_0_clock),"
+            },
+            {
+              "line": 32,
+              "text": ".reset         (_deglitched_deglitch_io_q),\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:71:21]"
+            },
+            {
+              "line": 35,
+              "text": "ResetCatchAndSync_d3 nodeOut_reset_catcher_1 (\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:39:28]"
+            },
+            {
+              "line": 36,
+              "text": ".clock         (auto_in_1_clock),"
+            },
+            {
+              "line": 37,
+              "text": ".reset         (_deglitched_deglitch_io_q),\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:71:21]"
+            },
+            {
+              "line": 40,
+              "text": "assign auto_out_1_clock = auto_in_1_clock;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:16:9]"
+            },
+            {
+              "line": 41,
+              "text": "assign auto_out_0_clock = auto_in_0_clock;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:16:9]"
+            }
+          ]
+        },
+        "synchronizer": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv",
+          "sha256": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+          "matches": [
+            {
+              "line": 9,
+              "text": "AsyncResetSynchronizerShiftReg_w1_d3_i0 io_sync_reset_chain (\t// @[generators/rocket-chip/src/main/scala/util/ShiftReg.scala:45:23]"
+            },
+            {
+              "line": 14,
+              "text": "assign io_sync_reset = ~_io_sync_reset_chain_io_q;\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:13:7, :29:7, generators/rocket-chip/src/main/scala/util/ShiftReg.scala:45:23]"
+            }
+          ]
+        },
+        "primitive": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv",
+          "sha256": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+          "matches": [
+            {
+              "line": 52,
+              "text": "reg sync_0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 53,
+              "text": "reg sync_1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 54,
+              "text": "reg sync_2;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 55,
+              "text": "always @(posedge clock or posedge reset) begin\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:68:19]"
+            },
+            {
+              "line": 57,
+              "text": "sync_0 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 58,
+              "text": "sync_1 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 59,
+              "text": "sync_2 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 62,
+              "text": "sync_0 <= sync_1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 63,
+              "text": "sync_1 <= sync_2;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 64,
+              "text": "sync_2 <= 1'h1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 66,
+              "text": "end // always @(posedge, posedge)"
+            }
+          ]
+        }
+      },
+      "prst_n": {
+        "asynchronous_external_reset": true,
+        "input_delay_specified": false,
+        "source": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/nm37/TestHarness.scala",
+          "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+          "matches": [
+            {
+              "line": 88,
+              "text": "val prst_n = IO(Input(Bool())).suggestName(\"prst_n\")"
+            },
+            {
+              "line": 89,
+              "text": "outer.xdc.addPackagePin(prst_n, \"BF5\")"
+            },
+            {
+              "line": 90,
+              "text": "outer.xdc.addIOStandard(prst_n, \"LVCMOS18\")"
+            },
+            {
+              "line": 91,
+              "text": "outer.xdc.addPullup(prst_n)"
+            },
+            {
+              "line": 92,
+              "text": "outer.sdc.addAsyncPath(Seq(prst_n))"
+            },
+            {
+              "line": 96,
+              "text": "pcie_rst_n_ibuff.io.I := prst_n"
+            },
+            {
+              "line": 101,
+              "text": "val powerOnReset: Bool = PowerOnResetFPGAOnly(sysclk)"
+            },
+            {
+              "line": 102,
+              "text": "outer.sdc.addAsyncPath(Seq(powerOnReset))"
+            }
+          ]
+        },
+        "board_pin": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.xdc",
+          "sha256": "a632015b5f10be4d729760e61a32f287304e77f234209e09281f6af89fc4d2cf",
+          "matches": [
+            {
+              "line": 7,
+              "text": "set_property PACKAGE_PIN {BF5} [get_ports {prst_n}]"
+            },
+            {
+              "line": 8,
+              "text": "set_property IOSTANDARD {LVCMOS18} [get_ports {prst_n}]"
+            },
+            {
+              "line": 9,
+              "text": "set_property PULLUP {TRUE} [get_ports {prst_n}]"
+            }
+          ]
+        },
+        "actual_pcie_reset_logic": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+          "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+          "matches": [
+            {
+              "line": 248,
+              "text": ".io_clocks_sys_rst_n               (_pcie_rst_n_ibuff_O & ~_powerOnReset_fpga_power_on_power_on_reset),\t// @[fpga/fpga-shells/src/main/scala/ip/xilinx/Xilinx.scala:103:21, fpga/src/main/scala/nm37/CustomOverlays.scala:122:{35,38}, fpga/src/main/scala/nm37/TestHarness.scala:94:32]"
+            },
+            {
+              "line": 479,
+              "text": ".I (prst_n)"
+            }
+          ]
+        }
+      },
+      "constraints": {
+        "shell_sdc": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.sdc",
+          "sha256": "7449a627171a06931e558777ce7ce30ecf644bbf129f06a1957f6a925c7e2a3f",
+          "matches": [
+            {
+              "line": 2,
+              "text": "create_clock -name sys_clock -period 10.0 [get_ports {sys_clock_p}]"
+            },
+            {
+              "line": 4,
+              "text": "create_clock -name xdma_ref_clk -period 10.0 [get_ports {xdma_refclk_p}]"
+            },
+            {
+              "line": 5,
+              "text": "set_input_jitter xdma_ref_clk 0.5"
+            },
+            {
+              "line": 7,
+              "text": "set_clock_groups -asynchronous \\"
+            },
+            {
+              "line": 9,
+              "text": "harnessSysPLL/clk_out1 \\"
+            },
+            {
+              "line": 12,
+              "text": "xdma_ref_clk \\"
+            },
+            {
+              "line": 14,
+              "text": "pcie/blackbox/axi_aclk \\"
+            },
+            {
+              "line": 17,
+              "text": "set_false_path -through [get_pins {pcie/blackbox/axi_aresetn}]"
+            },
+            {
+              "line": 18,
+              "text": "set_false_path -through [get_ports {prst_n}]"
+            },
+            {
+              "line": 19,
+              "text": "set_false_path -through [get_pins {powerOnReset_fpga_power_on/power_on_reset}]"
+            }
+          ]
+        },
+        "hbm_ip_xdc": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/hdl/par/hbm_ip.xdc",
+          "sha256": "5e03814a297533573ec54e3cabec1ffd878105f58977eb574071523dc55d0b5a",
+          "matches": [
+            {
+              "line": 2,
+              "text": "create_clock -period 10.00 [get_ports HBM_REF_CLK_0]"
+            },
+            {
+              "line": 3,
+              "text": "#create_clock -period 10.0 [get_ports APB_0_PCLK]"
+            }
+          ]
+        },
+        "nominal_metadata_caveat": "HBM XCI nominal USER_APB_PCLK_0 and USER_AXI_INPUT_CLK_FREQ are 100, while actual APB0/AXI00 fabric wires are DUT70. The reviewed HBM XDC creates the matching 100MHz HBM reference clock; its APB100 create_clock is commented out. Verify applied routed clock propagation instead of inferring a separate APB100/110 domain from metadata."
+      },
+      "unused_hbm_interfaces": {
+        "active_fabric_interfaces": [
+          "AXI_00"
+        ],
+        "omitted_named_input_ports": [
+          "AXI_01_ACLK",
+          "AXI_01_ARESET_N",
+          "AXI_01_BREADY",
+          "AXI_01_RREADY",
+          "AXI_02_ACLK",
+          "AXI_02_ARESET_N",
+          "AXI_02_BREADY",
+          "AXI_02_RREADY",
+          "AXI_03_ACLK",
+          "AXI_03_ARESET_N",
+          "AXI_03_BREADY",
+          "AXI_03_RREADY",
+          "AXI_04_ACLK",
+          "AXI_04_ARESET_N",
+          "AXI_04_BREADY",
+          "AXI_04_RREADY",
+          "AXI_05_ACLK",
+          "AXI_05_ARESET_N",
+          "AXI_05_BREADY",
+          "AXI_05_RREADY",
+          "AXI_06_ACLK",
+          "AXI_06_ARESET_N",
+          "AXI_06_BREADY",
+          "AXI_06_RREADY",
+          "AXI_07_ACLK",
+          "AXI_07_ARESET_N",
+          "AXI_07_BREADY",
+          "AXI_07_RREADY",
+          "AXI_08_ACLK",
+          "AXI_08_ARESET_N",
+          "AXI_08_BREADY",
+          "AXI_08_RREADY",
+          "AXI_09_ACLK",
+          "AXI_09_ARESET_N",
+          "AXI_09_BREADY",
+          "AXI_09_RREADY",
+          "AXI_10_ACLK",
+          "AXI_10_ARESET_N",
+          "AXI_10_BREADY",
+          "AXI_10_RREADY",
+          "AXI_11_ACLK",
+          "AXI_11_ARESET_N",
+          "AXI_11_BREADY",
+          "AXI_11_RREADY",
+          "AXI_12_ACLK",
+          "AXI_12_ARESET_N",
+          "AXI_12_BREADY",
+          "AXI_12_RREADY",
+          "AXI_13_ACLK",
+          "AXI_13_ARESET_N",
+          "AXI_13_BREADY",
+          "AXI_13_RREADY",
+          "AXI_14_ACLK",
+          "AXI_14_ARESET_N",
+          "AXI_14_BREADY",
+          "AXI_14_RREADY",
+          "AXI_15_ACLK",
+          "AXI_15_ARESET_N",
+          "AXI_15_BREADY",
+          "AXI_15_RREADY"
+        ],
+        "source_facts": "Actual Chisel blackbox and generated instantiation expose/connect only AXI00. Actual vendor wrapper declares AXI01..15. Those named inputs are OMITTED in ram_hbm instantiation, not explicitly tied in source. Synthesis constant resolution must be confirmed on the new netlist.",
+        "actual_instantiation": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv",
+          "sha256": "cab0ba32353d294042023054f11f0e1eb983a6153d9c44d43c1aeb30675fb04d",
+          "matches": [
+            {
+              "line": 238,
+              "text": "testxilinx_hbm ram_hbm (\t// @[fpga/src/main/scala/u280/AXIHBM.scala:83:21]"
+            },
+            {
+              "line": 239,
+              "text": ".AXI_00_ACLK     (auto_ram_slave_clock_nodes_in_clock),"
+            },
+            {
+              "line": 240,
+              "text": ".AXI_00_ARESET_N (~auto_ram_slave_clock_nodes_in_reset),\t// @[fpga/src/main/scala/u280/AXIHBM.scala:100:32]"
+            },
+            {
+              "line": 241,
+              "text": ".HBM_REF_CLK_0   (auto_ram_hbmref_clock_in_clock),"
+            },
+            {
+              "line": 257,
+              "text": ".AXI_00_BREADY   (_axi4yank_auto_out_b_ready),\t// @[generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:125:30]"
+            },
+            {
+              "line": 270,
+              "text": ".AXI_00_RREADY   (_axi4yank_auto_out_r_ready),\t// @[generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:125:30]"
+            },
+            {
+              "line": 271,
+              "text": ".APB_0_PCLK      (auto_ram_slave_clock_nodes_in_clock),"
+            },
+            {
+              "line": 272,
+              "text": ".APB_0_PRESET_N  (~auto_ram_slave_clock_nodes_in_reset)\t// @[fpga/src/main/scala/u280/AXIHBM.scala:105:31]"
+            }
+          ]
+        },
+        "source": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/u280/AXIHBM.scala",
+          "sha256": "428be3d279981a1dfc4cc04767b838da28142eb9bceffe84dcfec3f6b7161f76",
+          "matches": [
+            {
+              "line": 21,
+              "text": "val AXI_00_ACLK = Input(Clock())"
+            },
+            {
+              "line": 41,
+              "text": "require(portNum > 0 && portNum <= 1)"
+            },
+            {
+              "line": 47,
+              "text": "|    CONFIG.USER_APB_EN {false} \\\\"
+            },
+            {
+              "line": 48,
+              "text": "|    CONFIG.USER_CLK_SEL_LIST0 {AXI_00_ACLK} \\\\"
+            },
+            {
+              "line": 102,
+              "text": "hbmIO.APB_0_PCLK := slaveClocks(i)"
+            }
+          ]
+        },
+        "vendor_wrapper_declarations": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/synth/testxilinx_hbm.v",
+          "sha256": "b9b7da992f81558a711f5cb670dc98a565fcc0982dd3629581635cd55a869167",
+          "matches": [
+            {
+              "line": 648,
+              "text": "input wire AXI_01_ACLK;"
+            },
+            {
+              "line": 651,
+              "text": "input wire AXI_01_ARESET_N;"
+            },
+            {
+              "line": 677,
+              "text": "input wire AXI_01_RREADY;"
+            },
+            {
+              "line": 679,
+              "text": "input wire AXI_01_BREADY;"
+            },
+            {
+              "line": 691,
+              "text": "input wire AXI_02_ACLK;"
+            },
+            {
+              "line": 694,
+              "text": "input wire AXI_02_ARESET_N;"
+            },
+            {
+              "line": 720,
+              "text": "input wire AXI_02_RREADY;"
+            },
+            {
+              "line": 722,
+              "text": "input wire AXI_02_BREADY;"
+            },
+            {
+              "line": 734,
+              "text": "input wire AXI_03_ACLK;"
+            },
+            {
+              "line": 737,
+              "text": "input wire AXI_03_ARESET_N;"
+            },
+            {
+              "line": 763,
+              "text": "input wire AXI_03_RREADY;"
+            },
+            {
+              "line": 765,
+              "text": "input wire AXI_03_BREADY;"
+            },
+            {
+              "line": 777,
+              "text": "input wire AXI_04_ACLK;"
+            },
+            {
+              "line": 780,
+              "text": "input wire AXI_04_ARESET_N;"
+            },
+            {
+              "line": 806,
+              "text": "input wire AXI_04_RREADY;"
+            },
+            {
+              "line": 808,
+              "text": "input wire AXI_04_BREADY;"
+            },
+            {
+              "line": 820,
+              "text": "input wire AXI_05_ACLK;"
+            },
+            {
+              "line": 823,
+              "text": "input wire AXI_05_ARESET_N;"
+            },
+            {
+              "line": 849,
+              "text": "input wire AXI_05_RREADY;"
+            },
+            {
+              "line": 851,
+              "text": "input wire AXI_05_BREADY;"
+            },
+            {
+              "line": 863,
+              "text": "input wire AXI_06_ACLK;"
+            },
+            {
+              "line": 866,
+              "text": "input wire AXI_06_ARESET_N;"
+            },
+            {
+              "line": 892,
+              "text": "input wire AXI_06_RREADY;"
+            },
+            {
+              "line": 894,
+              "text": "input wire AXI_06_BREADY;"
+            },
+            {
+              "line": 906,
+              "text": "input wire AXI_07_ACLK;"
+            },
+            {
+              "line": 909,
+              "text": "input wire AXI_07_ARESET_N;"
+            },
+            {
+              "line": 935,
+              "text": "input wire AXI_07_RREADY;"
+            },
+            {
+              "line": 937,
+              "text": "input wire AXI_07_BREADY;"
+            },
+            {
+              "line": 949,
+              "text": "input wire AXI_08_ACLK;"
+            },
+            {
+              "line": 952,
+              "text": "input wire AXI_08_ARESET_N;"
+            },
+            {
+              "line": 978,
+              "text": "input wire AXI_08_RREADY;"
+            },
+            {
+              "line": 980,
+              "text": "input wire AXI_08_BREADY;"
+            },
+            {
+              "line": 992,
+              "text": "input wire AXI_09_ACLK;"
+            },
+            {
+              "line": 995,
+              "text": "input wire AXI_09_ARESET_N;"
+            },
+            {
+              "line": 1021,
+              "text": "input wire AXI_09_RREADY;"
+            },
+            {
+              "line": 1023,
+              "text": "input wire AXI_09_BREADY;"
+            },
+            {
+              "line": 1035,
+              "text": "input wire AXI_10_ACLK;"
+            },
+            {
+              "line": 1038,
+              "text": "input wire AXI_10_ARESET_N;"
+            },
+            {
+              "line": 1064,
+              "text": "input wire AXI_10_RREADY;"
+            },
+            {
+              "line": 1066,
+              "text": "input wire AXI_10_BREADY;"
+            },
+            {
+              "line": 1078,
+              "text": "input wire AXI_11_ACLK;"
+            },
+            {
+              "line": 1081,
+              "text": "input wire AXI_11_ARESET_N;"
+            },
+            {
+              "line": 1107,
+              "text": "input wire AXI_11_RREADY;"
+            },
+            {
+              "line": 1109,
+              "text": "input wire AXI_11_BREADY;"
+            },
+            {
+              "line": 1121,
+              "text": "input wire AXI_12_ACLK;"
+            },
+            {
+              "line": 1124,
+              "text": "input wire AXI_12_ARESET_N;"
+            },
+            {
+              "line": 1150,
+              "text": "input wire AXI_12_RREADY;"
+            },
+            {
+              "line": 1152,
+              "text": "input wire AXI_12_BREADY;"
+            },
+            {
+              "line": 1164,
+              "text": "input wire AXI_13_ACLK;"
+            },
+            {
+              "line": 1167,
+              "text": "input wire AXI_13_ARESET_N;"
+            },
+            {
+              "line": 1193,
+              "text": "input wire AXI_13_RREADY;"
+            },
+            {
+              "line": 1195,
+              "text": "input wire AXI_13_BREADY;"
+            },
+            {
+              "line": 1207,
+              "text": "input wire AXI_14_ACLK;"
+            },
+            {
+              "line": 1210,
+              "text": "input wire AXI_14_ARESET_N;"
+            },
+            {
+              "line": 1236,
+              "text": "input wire AXI_14_RREADY;"
+            },
+            {
+              "line": 1238,
+              "text": "input wire AXI_14_BREADY;"
+            },
+            {
+              "line": 1250,
+              "text": "input wire AXI_15_ACLK;"
+            },
+            {
+              "line": 1253,
+              "text": "input wire AXI_15_ARESET_N;"
+            },
+            {
+              "line": 1279,
+              "text": "input wire AXI_15_RREADY;"
+            },
+            {
+              "line": 1281,
+              "text": "input wire AXI_15_BREADY;"
+            }
+          ]
+        }
+      },
+      "changed_datapath_clocking": {
+        "MatrixEngineController.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+          "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+          "matches": [
+            {
+              "line": 65,
+              "text": "input        clock,\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:204:7]"
+            },
+            {
+              "line": 666,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:220:18]"
+            },
+            {
+              "line": 1019,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:204:7]"
+            },
+            {
+              "line": 1590,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1787,
+              "text": ".clock                             (clock),"
+            }
+          ]
+        },
+        "Accumulator.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv",
+          "sha256": "9c6ec881171399461c46007115c1e07a3ef45d2c95e627ec58beef2bbdec06a5",
+          "matches": [
+            {
+              "line": 47,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/Accumulator.scala:29:7]"
+            },
+            {
+              "line": 315,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/Accumulator.scala:29:7]"
+            },
+            {
+              "line": 547,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 566,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 585,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 604,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 623,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 642,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 661,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 680,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 699,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 718,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 737,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 756,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 775,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 794,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 813,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 832,
+              "text": ".clock                             (clock),"
+            }
+          ]
+        },
+        "FSA.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+          "matches": [
+            {
+              "line": 65,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/FSA.scala:64:7]"
+            },
+            {
+              "line": 537,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/FSA.scala:64:7]"
+            },
+            {
+              "line": 589,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 786,
+              "text": ".clock                       (clock),"
+            },
+            {
+              "line": 889,
+              "text": ".clock              (clock),"
+            },
+            {
+              "line": 988,
+              "text": ".clock                          (clock),"
+            },
+            {
+              "line": 1250,
+              "text": ".clock                   (clock),"
+            },
+            {
+              "line": 1400,
+              "text": ".clock                       (clock),"
+            },
+            {
+              "line": 1440,
+              "text": ".clock                      (clock),"
+            }
+          ]
+        },
+        "FPAccUnit.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+          "sha256": "1eb22ef7202c174186362c37aae64427007071c01e49fb4b265efb34a92c7f4e",
+          "matches": [
+            {
+              "line": 3,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala:44:7]"
+            },
+            {
+              "line": 78,
+              "text": ".clock                 (clock),"
+            }
+          ]
+        }
+      },
+      "candidate_postroute_review": {
+        "accepted": false,
+        "reviewed": false,
+        "expected_reports": [
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/clock_interaction.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/exceptions.txt"
+        ],
+        "reason": "Await explicit routed artifact notification and full endpoint/exception comparison. Source equivalence is not route signoff."
+      }
+    },
+    "p3": {
+      "actual_output": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config",
+      "ip_parameters": {
+        "pll": {
+          "values": {
+            "PARAM_VALUE.PRIM_IN_FREQ": "100.0",
+            "PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ": "70.0",
+            "PARAM_VALUE.NUM_OUT_CLKS": "1"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci",
+            "sha256": "31644d0806d6d34b29ca25c8104c5a58bad09adefbdd0917b684b80d204cb0ba",
+            "matches": [
+              {
+                "line": 419,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ\">70.0</spirit:configurableElementValue>"
+              },
+              {
+                "line": 567,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.NUM_OUT_CLKS\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 605,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PRIM_IN_FREQ\">100.0</spirit:configurableElementValue>"
+              },
+              {
+                "line": 697,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.CLKOUT1_REQUESTED_OUT_FREQ\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 707,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.NUM_OUT_CLKS\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 708,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PRIM_IN_FREQ\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "xdma": {
+          "values": {
+            "PARAM_VALUE.axisten_freq": "250",
+            "PARAM_VALUE.axi_data_width": "256_bit"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci",
+            "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+            "matches": [
+              {
+                "line": 1192,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.axi_data_width\">256_bit</spirit:configurableElementValue>"
+              },
+              {
+                "line": 1223,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.axisten_freq\">250</spirit:configurableElementValue>"
+              },
+              {
+                "line": 2238,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.axi_data_width\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 2243,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.axisten_freq\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "axi_converter": {
+          "values": {
+            "PARAM_VALUE.ACLK_ASYNC": "1",
+            "PARAM_VALUE.SYNCHRONIZATION_STAGES": "3",
+            "PARAM_VALUE.DATA_WIDTH": "256",
+            "PARAM_VALUE.PROTOCOL": "AXI4"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_axi_clock_converter_0/xdma_master_axi_clock_converter_0.xci",
+            "sha256": "e318a00c5029985332e31e01d4fb0ccfdf0fcb7b7faa592b3f6f2f763d82b98d",
+            "matches": [
+              {
+                "line": 109,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.ACLK_ASYNC\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 116,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.DATA_WIDTH\">256</spirit:configurableElementValue>"
+              },
+              {
+                "line": 118,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PROTOCOL\">AXI4</spirit:configurableElementValue>"
+              },
+              {
+                "line": 121,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\">3</spirit:configurableElementValue>"
+              },
+              {
+                "line": 158,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.DATA_WIDTH\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 160,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PROTOCOL\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 162,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "lite_converter": {
+          "values": {
+            "PARAM_VALUE.ACLK_ASYNC": "1",
+            "PARAM_VALUE.SYNCHRONIZATION_STAGES": "3",
+            "PARAM_VALUE.DATA_WIDTH": "32",
+            "PARAM_VALUE.PROTOCOL": "AXI4LITE"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_lite_axi_clock_converter_0/xdma_master_lite_axi_clock_converter_0.xci",
+            "sha256": "9dd19de7c3c8c733088ccbb756cf77761f06970582727ff62cf7cf45044c9f24",
+            "matches": [
+              {
+                "line": 109,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.ACLK_ASYNC\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 116,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.DATA_WIDTH\">32</spirit:configurableElementValue>"
+              },
+              {
+                "line": 118,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.PROTOCOL\">AXI4LITE</spirit:configurableElementValue>"
+              },
+              {
+                "line": 121,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\">3</spirit:configurableElementValue>"
+              },
+              {
+                "line": 166,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.DATA_WIDTH\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 168,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.PROTOCOL\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 170,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.SYNCHRONIZATION_STAGES\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        },
+        "hbm": {
+          "values": {
+            "PARAM_VALUE.USER_APB_EN": "false",
+            "PARAM_VALUE.USER_HBM_DENSITY": "8GB",
+            "PARAM_VALUE.USER_HBM_STACK": "1",
+            "PARAM_VALUE.USER_CLK_SEL_LIST0": "AXI_00_ACLK",
+            "PARAM_VALUE.USER_HBM_REF_CLK_0": "100",
+            "PARAM_VALUE.USER_APB_PCLK_0": "100",
+            "PARAM_VALUE.USER_AXI_INPUT_CLK_FREQ": "100"
+          },
+          "evidence": {
+            "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/testxilinx_hbm/testxilinx_hbm.xci",
+            "sha256": "0f40d773eb56f49e819a89fae0c48507d87d930bf0e0b8e0377b49665a9e8dfa",
+            "matches": [
+              {
+                "line": 3858,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_APB_EN\">false</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3859,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_APB_PCLK_0\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3871,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_AXI_INPUT_CLK_FREQ\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3915,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_CLK_SEL_LIST0\">AXI_00_ACLK</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3963,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_DENSITY\">8GB</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3988,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_REF_CLK_0\">100</spirit:configurableElementValue>"
+              },
+              {
+                "line": 3998,
+                "text": "<spirit:configurableElementValue spirit:referenceId=\"PARAM_VALUE.USER_HBM_STACK\">1</spirit:configurableElementValue>"
+              },
+              {
+                "line": 7436,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_APB_EN\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7437,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_CLK_SEL_LIST0\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7439,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_HBM_DENSITY\" xilinx:valueSource=\"user\"/>"
+              },
+              {
+                "line": 7440,
+                "text": "<xilinx:configElementInfo xilinx:referenceId=\"PARAM_VALUE.USER_HBM_STACK\" xilinx:valueSource=\"user\"/>"
+              }
+            ]
+          }
+        }
+      },
+      "expected_clock_domains": [
+        {
+          "name": "sys_clock",
+          "MHz": 100,
+          "uses": "Board input; POR; PLL input; HBM reference"
+        },
+        {
+          "name": "clk_out1_harnessSysPLL",
+          "MHz": 70,
+          "uses": "FSA/PE/CMP/ACC/control/RAM; HBM AXI00; APB0 clock"
+        },
+        {
+          "name": "_pcie_io_clocks_axi_aclk",
+          "MHz": 250,
+          "uses": "XDMA M_AXI and AXI-lite; source sides of the two converters"
+        },
+        {
+          "name": "xdma_ref_clk/PCIe pipe/GT internal",
+          "MHz": "PCIe-IP-defined",
+          "uses": "PCIe ref, GT lanes and internal pipe clock; existing vendor-IP boundary"
+        }
+      ],
+      "actual_clock_reset_connections": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+        "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+        "matches": [
+          {
+            "line": 164,
+            "text": ".auto_in_1_clock  (_pcie_io_clocks_axi_aclk),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:62:24]"
+          },
+          {
+            "line": 165,
+            "text": ".auto_in_1_reset  (~_pcie_io_clocks_axi_aresetn),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:62:24, :100:18]"
+          },
+          {
+            "line": 166,
+            "text": ".auto_in_0_clock  (_harnessSysPLL_clk_out1),\t// @[fpga/fpga-shells/src/main/scala/shell/xilinx/XilinxShell.scala:84:55]"
+          },
+          {
+            "line": 167,
+            "text": ".auto_in_0_reset  (~_harnessSysPLL_locked | _sysClkBroadcast_auto_anon_out_0_reset),\t// @[fpga/fpga-shells/src/main/scala/clocks/PLLFactory.scala:78:{20,35}, fpga/fpga-shells/src/main/scala/shell/xilinx/XilinxShell.scala:84:55, generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 168,
+            "text": ".auto_out_1_clock (_wrangler_auto_out_1_clock),"
+          },
+          {
+            "line": 169,
+            "text": ".auto_out_1_reset (_wrangler_auto_out_1_reset),"
+          },
+          {
+            "line": 170,
+            "text": ".auto_out_0_clock (_wrangler_auto_out_0_clock),"
+          },
+          {
+            "line": 171,
+            "text": ".auto_out_0_reset (_wrangler_auto_out_0_reset)"
+          },
+          {
+            "line": 246,
+            "text": ".io_clocks_sys_clk                 (_xdma_refclk_ibufds_ODIV2),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:113:26]"
+          },
+          {
+            "line": 247,
+            "text": ".io_clocks_sys_clk_gt              (_xdma_refclk_ibufds_O),\t// @[fpga/src/main/scala/nm37/CustomOverlays.scala:113:26]"
+          },
+          {
+            "line": 248,
+            "text": ".io_clocks_sys_rst_n               (_pcie_rst_n_ibuff_O & ~_powerOnReset_fpga_power_on_power_on_reset),\t// @[fpga/fpga-shells/src/main/scala/ip/xilinx/Xilinx.scala:103:21, fpga/src/main/scala/nm37/CustomOverlays.scala:122:{35,38}, fpga/src/main/scala/nm37/TestHarness.scala:94:32]"
+          },
+          {
+            "line": 249,
+            "text": ".io_clocks_axi_aclk                (_pcie_io_clocks_axi_aclk),"
+          },
+          {
+            "line": 250,
+            "text": ".io_clocks_axi_aresetn             (_pcie_io_clocks_axi_aresetn)"
+          },
+          {
+            "line": 253,
+            "text": ".auto_master_clock_in_clock (_dutFixedClockNode_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 254,
+            "text": ".auto_master_clock_in_reset (_dutFixedClockNode_auto_anon_out_1_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 255,
+            "text": ".auto_slave_clock_in_clock  (_axiClkFixedNode_auto_anon_out_0_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 256,
+            "text": ".auto_slave_clock_in_reset  (_axiClkFixedNode_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 331,
+            "text": ".auto_master_clock_in_clock (_dutFixedClockNode_auto_anon_out_2_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 332,
+            "text": ".auto_master_clock_in_reset (_dutFixedClockNode_auto_anon_out_2_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 333,
+            "text": ".auto_slave_clock_in_clock  (_axiClkFixedNode_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 334,
+            "text": ".auto_slave_clock_in_reset  (_axiClkFixedNode_auto_anon_out_1_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 441,
+            "text": ".auto_ram_hbmref_clock_in_clock      (_sysClkBroadcast_auto_anon_out_1_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 442,
+            "text": ".auto_ram_slave_clock_nodes_in_clock (_dutFixedClockNode_auto_anon_out_4_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 443,
+            "text": ".auto_ram_slave_clock_nodes_in_reset (_dutFixedClockNode_auto_anon_out_4_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 444,
+            "text": ".auto_clock_in_clock                 (_dutFixedClockNode_auto_anon_out_3_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 445,
+            "text": ".auto_clock_in_reset                 (_dutFixedClockNode_auto_anon_out_3_reset)\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 448,
+            "text": ".clk_in1  (_sysClkBroadcast_auto_anon_out_0_clock),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 449,
+            "text": ".clk_out1 (_harnessSysPLL_clk_out1),"
+          },
+          {
+            "line": 450,
+            "text": ".reset    (_sysClkBroadcast_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          },
+          {
+            "line": 451,
+            "text": ".locked   (_harnessSysPLL_locked)"
+          },
+          {
+            "line": 487,
+            "text": ".reset         (_dutFixedClockNode_auto_anon_out_0_reset),\t// @[generators/rocket-chip/src/main/scala/prci/ClockGroup.scala:115:114]"
+          }
+        ]
+      },
+      "source_clock_topology": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/nm37/TestHarness.scala",
+        "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+        "matches": [
+          {
+            "line": 29,
+            "text": "val sysClkBroadcast = FixedClockBroadcast(Some(ClockParameters(freqMHz = 100)))"
+          },
+          {
+            "line": 37,
+            "text": "val dutFreqMHz = 70"
+          },
+          {
+            "line": 40,
+            "text": "val dutClockNode = ClockSinkNode(freqMHz = dutFreqMHz, jitterPS = 230)"
+          },
+          {
+            "line": 41,
+            "text": "dutFixedClockNode := wrangler.node := dutClockGroup := harnessSysPLL"
+          },
+          {
+            "line": 49,
+            "text": "dutDomain.clockNode := dutFixedClockNode"
+          },
+          {
+            "line": 69,
+            "text": "ram.slaveClockNodes(0) := dutFixedClockNode"
+          },
+          {
+            "line": 71,
+            "text": "ram.HBMRefClockNode := sysClkBroadcast"
+          },
+          {
+            "line": 109,
+            "text": "def referenceClockFreqMHz = outer.dutFreqMHz"
+          }
+        ]
+      },
+      "source_cdc_topology": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/nm37/CustomOverlays.scala",
+        "sha256": "becabed396ffda8e4ad873cd528d4fd99b8b76509c977c14cf04aa3af41ff03f",
+        "matches": [
+          {
+            "line": 63,
+            "text": "val masterClockConverter = LazyModule(new LazyAXI4ClockConverter(\"xdma_master\", isAXILite = false))"
+          },
+          {
+            "line": 64,
+            "text": "val masterLiteClockConverter = LazyModule(new LazyAXI4ClockConverter(\"xdma_master_lite\", isAXILite = true))"
+          },
+          {
+            "line": 74,
+            "text": "masterClockConverter.node := pcie.master"
+          },
+          {
+            "line": 75,
+            "text": "masterLiteClockConverter.node := pcie.masterLite"
+          },
+          {
+            "line": 77,
+            "text": "masterClockConverter.slaveClockNode := axiClkFixedNode"
+          },
+          {
+            "line": 78,
+            "text": "masterLiteClockConverter.slaveClockNode := axiClkFixedNode"
+          },
+          {
+            "line": 79,
+            "text": "masterClockConverter.masterClockNode := designInput.masterClockNode"
+          },
+          {
+            "line": 80,
+            "text": "masterLiteClockConverter.masterClockNode := designInput.masterClockNode"
+          },
+          {
+            "line": 82,
+            "text": "val master: AXI4OutwardNode = masterClockConverter.node"
+          },
+          {
+            "line": 83,
+            "text": "val masterLite: AXI4OutwardNode = masterLiteClockConverter.node"
+          },
+          {
+            "line": 99,
+            "text": "axi.clock := pcie.module.io.clocks.axi_aclk"
+          },
+          {
+            "line": 100,
+            "text": "axi.reset := !pcie.module.io.clocks.axi_aresetn"
+          },
+          {
+            "line": 101,
+            "text": "pcie.module.io.clocks.sys_rst_n := b.srstn"
+          },
+          {
+            "line": 105,
+            "text": "shell.sdc.addGroup(clocks = Seq(s\"${name}_ref_clk\"), pins = Seq(pcie.module.blackbox.io.axi_aclk))"
+          },
+          {
+            "line": 106,
+            "text": "shell.sdc.addAsyncPath(Seq(pcie.module.blackbox.io.axi_aresetn))"
+          }
+        ]
+      },
+      "reset_wrangler": {
+        "debounce_ticks": 7000,
+        "debounce_width": 13,
+        "reset_catch_depth": 3,
+        "evidence": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv",
+          "sha256": "efe56645201fdd621a9463b428e7c54fee03fa1eb855a8555fb1ba6a0b1217a8",
+          "matches": [
+            {
+              "line": 15,
+              "text": "wire        causes = auto_in_0_reset | auto_in_1_reset;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 16,
+              "text": "wire        increment = _debounced_debounce_io_q != 13'h1B58;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:36:28, generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:86:21]"
+            },
+            {
+              "line": 17,
+              "text": "AsyncResetRegVec_w13_i0 debounced_debounce (\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:86:21]"
+            },
+            {
+              "line": 18,
+              "text": ".clock (auto_in_0_clock),"
+            },
+            {
+              "line": 19,
+              "text": ".reset (causes),\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 28,
+              "text": ".io_rst (causes)\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:22:61]"
+            },
+            {
+              "line": 30,
+              "text": "ResetCatchAndSync_d3 nodeOut_reset_catcher (\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:39:28]"
+            },
+            {
+              "line": 31,
+              "text": ".clock         (auto_in_0_clock),"
+            },
+            {
+              "line": 32,
+              "text": ".reset         (_deglitched_deglitch_io_q),\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:71:21]"
+            },
+            {
+              "line": 35,
+              "text": "ResetCatchAndSync_d3 nodeOut_reset_catcher_1 (\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:39:28]"
+            },
+            {
+              "line": 36,
+              "text": ".clock         (auto_in_1_clock),"
+            },
+            {
+              "line": 37,
+              "text": ".reset         (_deglitched_deglitch_io_q),\t// @[generators/rocket-chip/src/main/scala/util/AsyncResetReg.scala:71:21]"
+            },
+            {
+              "line": 40,
+              "text": "assign auto_out_1_clock = auto_in_1_clock;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:16:9]"
+            },
+            {
+              "line": 41,
+              "text": "assign auto_out_0_clock = auto_in_0_clock;\t// @[generators/rocket-chip/src/main/scala/prci/ResetWrangler.scala:16:9]"
+            }
+          ]
+        },
+        "synchronizer": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv",
+          "sha256": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+          "matches": [
+            {
+              "line": 9,
+              "text": "AsyncResetSynchronizerShiftReg_w1_d3_i0 io_sync_reset_chain (\t// @[generators/rocket-chip/src/main/scala/util/ShiftReg.scala:45:23]"
+            },
+            {
+              "line": 14,
+              "text": "assign io_sync_reset = ~_io_sync_reset_chain_io_q;\t// @[generators/rocket-chip/src/main/scala/util/ResetCatchAndSync.scala:13:7, :29:7, generators/rocket-chip/src/main/scala/util/ShiftReg.scala:45:23]"
+            }
+          ]
+        },
+        "primitive": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv",
+          "sha256": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+          "matches": [
+            {
+              "line": 52,
+              "text": "reg sync_0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 53,
+              "text": "reg sync_1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 54,
+              "text": "reg sync_2;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 55,
+              "text": "always @(posedge clock or posedge reset) begin\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:68:19]"
+            },
+            {
+              "line": 57,
+              "text": "sync_0 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 58,
+              "text": "sync_1 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 59,
+              "text": "sync_2 <= 1'h0;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 62,
+              "text": "sync_0 <= sync_1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 63,
+              "text": "sync_1 <= sync_2;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87]"
+            },
+            {
+              "line": 64,
+              "text": "sync_2 <= 1'h1;\t// @[generators/rocket-chip/src/main/scala/util/SynchronizerReg.scala:51:87, :68:19]"
+            },
+            {
+              "line": 66,
+              "text": "end // always @(posedge, posedge)"
+            }
+          ]
+        }
+      },
+      "prst_n": {
+        "asynchronous_external_reset": true,
+        "input_delay_specified": false,
+        "source": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/nm37/TestHarness.scala",
+          "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+          "matches": [
+            {
+              "line": 88,
+              "text": "val prst_n = IO(Input(Bool())).suggestName(\"prst_n\")"
+            },
+            {
+              "line": 89,
+              "text": "outer.xdc.addPackagePin(prst_n, \"BF5\")"
+            },
+            {
+              "line": 90,
+              "text": "outer.xdc.addIOStandard(prst_n, \"LVCMOS18\")"
+            },
+            {
+              "line": 91,
+              "text": "outer.xdc.addPullup(prst_n)"
+            },
+            {
+              "line": 92,
+              "text": "outer.sdc.addAsyncPath(Seq(prst_n))"
+            },
+            {
+              "line": 96,
+              "text": "pcie_rst_n_ibuff.io.I := prst_n"
+            },
+            {
+              "line": 101,
+              "text": "val powerOnReset: Bool = PowerOnResetFPGAOnly(sysclk)"
+            },
+            {
+              "line": 102,
+              "text": "outer.sdc.addAsyncPath(Seq(powerOnReset))"
+            }
+          ]
+        },
+        "board_pin": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.xdc",
+          "sha256": "a632015b5f10be4d729760e61a32f287304e77f234209e09281f6af89fc4d2cf",
+          "matches": [
+            {
+              "line": 7,
+              "text": "set_property PACKAGE_PIN {BF5} [get_ports {prst_n}]"
+            },
+            {
+              "line": 8,
+              "text": "set_property IOSTANDARD {LVCMOS18} [get_ports {prst_n}]"
+            },
+            {
+              "line": 9,
+              "text": "set_property PULLUP {TRUE} [get_ports {prst_n}]"
+            }
+          ]
+        },
+        "actual_pcie_reset_logic": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv",
+          "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+          "matches": [
+            {
+              "line": 248,
+              "text": ".io_clocks_sys_rst_n               (_pcie_rst_n_ibuff_O & ~_powerOnReset_fpga_power_on_power_on_reset),\t// @[fpga/fpga-shells/src/main/scala/ip/xilinx/Xilinx.scala:103:21, fpga/src/main/scala/nm37/CustomOverlays.scala:122:{35,38}, fpga/src/main/scala/nm37/TestHarness.scala:94:32]"
+            },
+            {
+              "line": 479,
+              "text": ".I (prst_n)"
+            }
+          ]
+        }
+      },
+      "constraints": {
+        "shell_sdc": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.sdc",
+          "sha256": "7449a627171a06931e558777ce7ce30ecf644bbf129f06a1957f6a925c7e2a3f",
+          "matches": [
+            {
+              "line": 2,
+              "text": "create_clock -name sys_clock -period 10.0 [get_ports {sys_clock_p}]"
+            },
+            {
+              "line": 4,
+              "text": "create_clock -name xdma_ref_clk -period 10.0 [get_ports {xdma_refclk_p}]"
+            },
+            {
+              "line": 5,
+              "text": "set_input_jitter xdma_ref_clk 0.5"
+            },
+            {
+              "line": 7,
+              "text": "set_clock_groups -asynchronous \\"
+            },
+            {
+              "line": 9,
+              "text": "harnessSysPLL/clk_out1 \\"
+            },
+            {
+              "line": 12,
+              "text": "xdma_ref_clk \\"
+            },
+            {
+              "line": 14,
+              "text": "pcie/blackbox/axi_aclk \\"
+            },
+            {
+              "line": 17,
+              "text": "set_false_path -through [get_pins {pcie/blackbox/axi_aresetn}]"
+            },
+            {
+              "line": 18,
+              "text": "set_false_path -through [get_ports {prst_n}]"
+            },
+            {
+              "line": 19,
+              "text": "set_false_path -through [get_pins {powerOnReset_fpga_power_on/power_on_reset}]"
+            }
+          ]
+        },
+        "hbm_ip_xdc": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/hdl/par/hbm_ip.xdc",
+          "sha256": "5e03814a297533573ec54e3cabec1ffd878105f58977eb574071523dc55d0b5a",
+          "matches": [
+            {
+              "line": 2,
+              "text": "create_clock -period 10.00 [get_ports HBM_REF_CLK_0]"
+            },
+            {
+              "line": 3,
+              "text": "#create_clock -period 10.0 [get_ports APB_0_PCLK]"
+            }
+          ]
+        },
+        "nominal_metadata_caveat": "HBM XCI nominal USER_APB_PCLK_0 and USER_AXI_INPUT_CLK_FREQ are 100, while actual APB0/AXI00 fabric wires are DUT70. The reviewed HBM XDC creates the matching 100MHz HBM reference clock; its APB100 create_clock is commented out. Verify applied routed clock propagation instead of inferring a separate APB100/110 domain from metadata."
+      },
+      "unused_hbm_interfaces": {
+        "active_fabric_interfaces": [
+          "AXI_00"
+        ],
+        "omitted_named_input_ports": [
+          "AXI_01_ACLK",
+          "AXI_01_ARESET_N",
+          "AXI_01_BREADY",
+          "AXI_01_RREADY",
+          "AXI_02_ACLK",
+          "AXI_02_ARESET_N",
+          "AXI_02_BREADY",
+          "AXI_02_RREADY",
+          "AXI_03_ACLK",
+          "AXI_03_ARESET_N",
+          "AXI_03_BREADY",
+          "AXI_03_RREADY",
+          "AXI_04_ACLK",
+          "AXI_04_ARESET_N",
+          "AXI_04_BREADY",
+          "AXI_04_RREADY",
+          "AXI_05_ACLK",
+          "AXI_05_ARESET_N",
+          "AXI_05_BREADY",
+          "AXI_05_RREADY",
+          "AXI_06_ACLK",
+          "AXI_06_ARESET_N",
+          "AXI_06_BREADY",
+          "AXI_06_RREADY",
+          "AXI_07_ACLK",
+          "AXI_07_ARESET_N",
+          "AXI_07_BREADY",
+          "AXI_07_RREADY",
+          "AXI_08_ACLK",
+          "AXI_08_ARESET_N",
+          "AXI_08_BREADY",
+          "AXI_08_RREADY",
+          "AXI_09_ACLK",
+          "AXI_09_ARESET_N",
+          "AXI_09_BREADY",
+          "AXI_09_RREADY",
+          "AXI_10_ACLK",
+          "AXI_10_ARESET_N",
+          "AXI_10_BREADY",
+          "AXI_10_RREADY",
+          "AXI_11_ACLK",
+          "AXI_11_ARESET_N",
+          "AXI_11_BREADY",
+          "AXI_11_RREADY",
+          "AXI_12_ACLK",
+          "AXI_12_ARESET_N",
+          "AXI_12_BREADY",
+          "AXI_12_RREADY",
+          "AXI_13_ACLK",
+          "AXI_13_ARESET_N",
+          "AXI_13_BREADY",
+          "AXI_13_RREADY",
+          "AXI_14_ACLK",
+          "AXI_14_ARESET_N",
+          "AXI_14_BREADY",
+          "AXI_14_RREADY",
+          "AXI_15_ACLK",
+          "AXI_15_ARESET_N",
+          "AXI_15_BREADY",
+          "AXI_15_RREADY"
+        ],
+        "source_facts": "Actual Chisel blackbox and generated instantiation expose/connect only AXI00. Actual vendor wrapper declares AXI01..15. Those named inputs are OMITTED in ram_hbm instantiation, not explicitly tied in source. Synthesis constant resolution must be confirmed on the new netlist.",
+        "actual_instantiation": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv",
+          "sha256": "cab0ba32353d294042023054f11f0e1eb983a6153d9c44d43c1aeb30675fb04d",
+          "matches": [
+            {
+              "line": 238,
+              "text": "testxilinx_hbm ram_hbm (\t// @[fpga/src/main/scala/u280/AXIHBM.scala:83:21]"
+            },
+            {
+              "line": 239,
+              "text": ".AXI_00_ACLK     (auto_ram_slave_clock_nodes_in_clock),"
+            },
+            {
+              "line": 240,
+              "text": ".AXI_00_ARESET_N (~auto_ram_slave_clock_nodes_in_reset),\t// @[fpga/src/main/scala/u280/AXIHBM.scala:100:32]"
+            },
+            {
+              "line": 241,
+              "text": ".HBM_REF_CLK_0   (auto_ram_hbmref_clock_in_clock),"
+            },
+            {
+              "line": 257,
+              "text": ".AXI_00_BREADY   (_axi4yank_auto_out_b_ready),\t// @[generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:125:30]"
+            },
+            {
+              "line": 270,
+              "text": ".AXI_00_RREADY   (_axi4yank_auto_out_r_ready),\t// @[generators/rocket-chip/src/main/scala/amba/axi4/UserYanker.scala:125:30]"
+            },
+            {
+              "line": 271,
+              "text": ".APB_0_PCLK      (auto_ram_slave_clock_nodes_in_clock),"
+            },
+            {
+              "line": 272,
+              "text": ".APB_0_PRESET_N  (~auto_ram_slave_clock_nodes_in_reset)\t// @[fpga/src/main/scala/u280/AXIHBM.scala:105:31]"
+            }
+          ]
+        },
+        "source": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/u280/AXIHBM.scala",
+          "sha256": "428be3d279981a1dfc4cc04767b838da28142eb9bceffe84dcfec3f6b7161f76",
+          "matches": [
+            {
+              "line": 21,
+              "text": "val AXI_00_ACLK = Input(Clock())"
+            },
+            {
+              "line": 41,
+              "text": "require(portNum > 0 && portNum <= 1)"
+            },
+            {
+              "line": 47,
+              "text": "|    CONFIG.USER_APB_EN {false} \\\\"
+            },
+            {
+              "line": 48,
+              "text": "|    CONFIG.USER_CLK_SEL_LIST0 {AXI_00_ACLK} \\\\"
+            },
+            {
+              "line": 102,
+              "text": "hbmIO.APB_0_PCLK := slaveClocks(i)"
+            }
+          ]
+        },
+        "vendor_wrapper_declarations": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/synth/testxilinx_hbm.v",
+          "sha256": "b9b7da992f81558a711f5cb670dc98a565fcc0982dd3629581635cd55a869167",
+          "matches": [
+            {
+              "line": 648,
+              "text": "input wire AXI_01_ACLK;"
+            },
+            {
+              "line": 651,
+              "text": "input wire AXI_01_ARESET_N;"
+            },
+            {
+              "line": 677,
+              "text": "input wire AXI_01_RREADY;"
+            },
+            {
+              "line": 679,
+              "text": "input wire AXI_01_BREADY;"
+            },
+            {
+              "line": 691,
+              "text": "input wire AXI_02_ACLK;"
+            },
+            {
+              "line": 694,
+              "text": "input wire AXI_02_ARESET_N;"
+            },
+            {
+              "line": 720,
+              "text": "input wire AXI_02_RREADY;"
+            },
+            {
+              "line": 722,
+              "text": "input wire AXI_02_BREADY;"
+            },
+            {
+              "line": 734,
+              "text": "input wire AXI_03_ACLK;"
+            },
+            {
+              "line": 737,
+              "text": "input wire AXI_03_ARESET_N;"
+            },
+            {
+              "line": 763,
+              "text": "input wire AXI_03_RREADY;"
+            },
+            {
+              "line": 765,
+              "text": "input wire AXI_03_BREADY;"
+            },
+            {
+              "line": 777,
+              "text": "input wire AXI_04_ACLK;"
+            },
+            {
+              "line": 780,
+              "text": "input wire AXI_04_ARESET_N;"
+            },
+            {
+              "line": 806,
+              "text": "input wire AXI_04_RREADY;"
+            },
+            {
+              "line": 808,
+              "text": "input wire AXI_04_BREADY;"
+            },
+            {
+              "line": 820,
+              "text": "input wire AXI_05_ACLK;"
+            },
+            {
+              "line": 823,
+              "text": "input wire AXI_05_ARESET_N;"
+            },
+            {
+              "line": 849,
+              "text": "input wire AXI_05_RREADY;"
+            },
+            {
+              "line": 851,
+              "text": "input wire AXI_05_BREADY;"
+            },
+            {
+              "line": 863,
+              "text": "input wire AXI_06_ACLK;"
+            },
+            {
+              "line": 866,
+              "text": "input wire AXI_06_ARESET_N;"
+            },
+            {
+              "line": 892,
+              "text": "input wire AXI_06_RREADY;"
+            },
+            {
+              "line": 894,
+              "text": "input wire AXI_06_BREADY;"
+            },
+            {
+              "line": 906,
+              "text": "input wire AXI_07_ACLK;"
+            },
+            {
+              "line": 909,
+              "text": "input wire AXI_07_ARESET_N;"
+            },
+            {
+              "line": 935,
+              "text": "input wire AXI_07_RREADY;"
+            },
+            {
+              "line": 937,
+              "text": "input wire AXI_07_BREADY;"
+            },
+            {
+              "line": 949,
+              "text": "input wire AXI_08_ACLK;"
+            },
+            {
+              "line": 952,
+              "text": "input wire AXI_08_ARESET_N;"
+            },
+            {
+              "line": 978,
+              "text": "input wire AXI_08_RREADY;"
+            },
+            {
+              "line": 980,
+              "text": "input wire AXI_08_BREADY;"
+            },
+            {
+              "line": 992,
+              "text": "input wire AXI_09_ACLK;"
+            },
+            {
+              "line": 995,
+              "text": "input wire AXI_09_ARESET_N;"
+            },
+            {
+              "line": 1021,
+              "text": "input wire AXI_09_RREADY;"
+            },
+            {
+              "line": 1023,
+              "text": "input wire AXI_09_BREADY;"
+            },
+            {
+              "line": 1035,
+              "text": "input wire AXI_10_ACLK;"
+            },
+            {
+              "line": 1038,
+              "text": "input wire AXI_10_ARESET_N;"
+            },
+            {
+              "line": 1064,
+              "text": "input wire AXI_10_RREADY;"
+            },
+            {
+              "line": 1066,
+              "text": "input wire AXI_10_BREADY;"
+            },
+            {
+              "line": 1078,
+              "text": "input wire AXI_11_ACLK;"
+            },
+            {
+              "line": 1081,
+              "text": "input wire AXI_11_ARESET_N;"
+            },
+            {
+              "line": 1107,
+              "text": "input wire AXI_11_RREADY;"
+            },
+            {
+              "line": 1109,
+              "text": "input wire AXI_11_BREADY;"
+            },
+            {
+              "line": 1121,
+              "text": "input wire AXI_12_ACLK;"
+            },
+            {
+              "line": 1124,
+              "text": "input wire AXI_12_ARESET_N;"
+            },
+            {
+              "line": 1150,
+              "text": "input wire AXI_12_RREADY;"
+            },
+            {
+              "line": 1152,
+              "text": "input wire AXI_12_BREADY;"
+            },
+            {
+              "line": 1164,
+              "text": "input wire AXI_13_ACLK;"
+            },
+            {
+              "line": 1167,
+              "text": "input wire AXI_13_ARESET_N;"
+            },
+            {
+              "line": 1193,
+              "text": "input wire AXI_13_RREADY;"
+            },
+            {
+              "line": 1195,
+              "text": "input wire AXI_13_BREADY;"
+            },
+            {
+              "line": 1207,
+              "text": "input wire AXI_14_ACLK;"
+            },
+            {
+              "line": 1210,
+              "text": "input wire AXI_14_ARESET_N;"
+            },
+            {
+              "line": 1236,
+              "text": "input wire AXI_14_RREADY;"
+            },
+            {
+              "line": 1238,
+              "text": "input wire AXI_14_BREADY;"
+            },
+            {
+              "line": 1250,
+              "text": "input wire AXI_15_ACLK;"
+            },
+            {
+              "line": 1253,
+              "text": "input wire AXI_15_ARESET_N;"
+            },
+            {
+              "line": 1279,
+              "text": "input wire AXI_15_RREADY;"
+            },
+            {
+              "line": 1281,
+              "text": "input wire AXI_15_BREADY;"
+            }
+          ]
+        }
+      },
+      "changed_datapath_clocking": {
+        "MatrixEngineController.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+          "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+          "matches": [
+            {
+              "line": 65,
+              "text": "input        clock,\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:204:7]"
+            },
+            {
+              "line": 666,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:220:18]"
+            },
+            {
+              "line": 1019,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/MatrixEngineController.scala:204:7]"
+            },
+            {
+              "line": 1590,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1787,
+              "text": ".clock                             (clock),"
+            }
+          ]
+        },
+        "Accumulator.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv",
+          "sha256": "5df70422efdebe477ed119a638a81e5d10681f7f2a3fa1ab339c95f2814d880b",
+          "matches": [
+            {
+              "line": 47,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/Accumulator.scala:29:7]"
+            },
+            {
+              "line": 470,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/Accumulator.scala:29:7]"
+            },
+            {
+              "line": 1030,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1049,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1068,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1087,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1106,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1125,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1144,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1163,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1182,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1201,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1220,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1239,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1258,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1277,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1296,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 1315,
+              "text": ".clock                             (clock),"
+            }
+          ]
+        },
+        "FSA.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+          "matches": [
+            {
+              "line": 65,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/FSA.scala:64:7]"
+            },
+            {
+              "line": 543,
+              "text": "always @(posedge clock) begin\t// @[generators/fsa/src/main/scala/fsa/FSA.scala:64:7]"
+            },
+            {
+              "line": 612,
+              "text": ".clock                             (clock),"
+            },
+            {
+              "line": 809,
+              "text": ".clock                       (clock),"
+            },
+            {
+              "line": 912,
+              "text": ".clock              (clock),"
+            },
+            {
+              "line": 1011,
+              "text": ".clock                          (clock),"
+            },
+            {
+              "line": 1273,
+              "text": ".clock                   (clock),"
+            },
+            {
+              "line": 1423,
+              "text": ".clock                       (clock),"
+            },
+            {
+              "line": 1463,
+              "text": ".clock                      (clock),"
+            }
+          ]
+        },
+        "FPAccUnit.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+          "sha256": "9c96fba5307847379d44c430982b526efba7aa9e5f60a06e01a7331a41fd4f3d",
+          "matches": [
+            {
+              "line": 3,
+              "text": "input         clock,\t// @[generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala:44:7]"
+            },
+            {
+              "line": 51,
+              "text": ".clock            (clock),"
+            },
+            {
+              "line": 79,
+              "text": ".clock                 (clock),"
+            }
+          ]
+        },
+        "RawFloat_MulAddExp2_1.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+          "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+          "matches": [
+            {
+              "line": 47,
+              "text": "input         clock,\t// @[generators/easyfloat/src/main/scala/easyfloat/Exp2.scala:66:7]"
+            },
+            {
+              "line": 115,
+              "text": "always @(posedge clock) begin\t// @[generators/easyfloat/src/main/scala/easyfloat/Exp2.scala:66:7]"
+            },
+            {
+              "line": 185,
+              "text": ".clock           (clock),"
+            }
+          ]
+        },
+        "RawFloat_FMA_17.sv": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_17.sv",
+          "sha256": "9ed35f9541a89441327e8657c291ebb545383e2c131db975c5badd062cf07e8b",
+          "matches": [
+            {
+              "line": 47,
+              "text": "input         clock,\t// @[generators/easyfloat/src/main/scala/easyfloat/FMA.scala:7:7]"
+            },
+            {
+              "line": 128,
+              "text": "always @(posedge clock) begin\t// @[generators/easyfloat/src/main/scala/easyfloat/FMA.scala:7:7]"
+            }
+          ]
+        }
+      },
+      "candidate_postroute_review": {
+        "accepted": false,
+        "reviewed": false,
+        "expected_reports": [
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/clock_interaction.txt",
+          "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/exceptions.txt"
+        ],
+        "reason": "Await explicit routed artifact notification and full endpoint/exception comparison. Source equivalence is not route signoff."
+      }
+    }
+  },
+  "cross_stage": {
+    "shell_manifest_equal": true,
+    "key_actual_shell_rtl_byte_identical": {
+      "NM37FPGATestHarness.sv": true,
+      "ClockSinkDomain.sv": true,
+      "ResetWrangler.sv": true,
+      "LazyAXI4ClockConverter.sv": true,
+      "LazyAXI4ClockConverter_1.sv": true,
+      "CustomXDMA.sv": true
+    },
+    "new_clock_domains_from_controlPipe_ACC": 0,
+    "conclusion": "controlPipe=1 and ACC entry1+internal2 add registers on the existing single DUT clock. Actual P2/P3 shell clock/reset/CDCs are byte-identical; no new clock generator, derived clock or crossing was introduced by these datapath changes."
+  },
+  "historical_references": {
+    "historical_70MHz_A": {
+      "cdc_report_file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+      "sha256": "2f12c025a20831391aeace3a4d636a5693ae851f0fe7020c012f049b7bfabe03",
+      "summary_counts": {
+        "CDC-3": 77,
+        "CDC-7": 12,
+        "CDC-8": 1,
+        "CDC-9": 22,
+        "CDC-10": 2,
+        "CDC-11": 16,
+        "CDC-15": 170
+      },
+      "critical_count": 30,
+      "critical_rows": [
+        {
+          "line": 54,
+          "source_clock": "input port clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry                     0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+        },
+        {
+          "line": 56,
+          "source_clock": "input port clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry                     0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+        },
+        {
+          "line": 65,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+        },
+        {
+          "line": 66,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-10  Critical  Combinational logic detected before a synchronizer      3  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR"
+        },
+        {
+          "line": 67,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+        },
+        {
+          "line": 68,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "4  CDC-10  Critical  Combinational logic detected before a synchronizer      3  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE"
+        },
+        {
+          "line": 104,
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "cdc_type": "No Common Primary Clock",
+          "row": "29  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                     0  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C                                                                                                                                                                  wrangler/deglitched_deglitch/reg_0_reg/PRE"
+        },
+        {
+          "line": 125,
+          "source_clock": "sys_clock",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "cdc_type": "User Ignored",
+          "row": "14  CDC-7   Critical  Asynchronous reset unknown CDC circuitry            0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  wrangler/deglitched_deglitch/reg_0_reg/PRE"
+        },
+        {
+          "line": 213,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+        },
+        {
+          "line": 214,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+        },
+        {
+          "line": 215,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+        },
+        {
+          "line": 223,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+        },
+        {
+          "line": 224,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+        },
+        {
+          "line": 225,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+        },
+        {
+          "line": 458,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 460,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 461,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "4  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 463,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "6  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 464,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "7  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 466,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "9  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 467,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "10  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 469,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "12  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 470,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "13  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 472,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "15  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 473,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "16  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 475,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "18  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 476,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "19  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 478,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "21  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 479,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "22  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 481,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "24  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        }
+      ],
+      "check_timing": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+        "sha256": "8fa06e0232fa014d3edfe77505260186a7626340ca35cd0525882af3cf2565bf",
+        "unused_hbm_constant_clock_endpoints": [
+          {
+            "interface": 10,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 10,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 11,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 11,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 12,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 12,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 13,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 13,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 14,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 14,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 15,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 15,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 1,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 1,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 2,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 2,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 3,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 3,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 4,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 4,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 5,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 5,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 6,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 6,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 7,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 7,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 8,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 8,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 9,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 9,
+            "pin": "RREADY"
+          }
+        ],
+        "prst_n_no_input_delay": true,
+        "evidence": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+          "sha256": "8fa06e0232fa014d3edfe77505260186a7626340ca35cd0525882af3cf2565bf",
+          "matches": [
+            {
+              "line": 19,
+              "text": "2. checking constant_clock (0)"
+            },
+            {
+              "line": 21,
+              "text": "4. checking unconstrained_internal_endpoints (30)"
+            },
+            {
+              "line": 22,
+              "text": "5. checking no_input_delay (1)"
+            },
+            {
+              "line": 36,
+              "text": "2. checking constant_clock (0)"
+            },
+            {
+              "line": 46,
+              "text": "4. checking unconstrained_internal_endpoints (30)"
+            },
+            {
+              "line": 48,
+              "text": "There are 0 pins that are not constrained for maximum delay."
+            },
+            {
+              "line": 50,
+              "text": "There are 30 pins that are not constrained for maximum delay due to constant clock. (MEDIUM)"
+            },
+            {
+              "line": 84,
+              "text": "5. checking no_input_delay (1)"
+            },
+            {
+              "line": 88,
+              "text": "prst_n"
+            }
+          ]
+        }
+      }
+    },
+    "historical_A100": {
+      "cdc_report_file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt",
+      "sha256": "e24982eac0072297be34cd55f32a97dd8ea9062cf2ada3588d71885a61cd9273",
+      "summary_counts": {
+        "CDC-3": 77,
+        "CDC-7": 12,
+        "CDC-8": 1,
+        "CDC-9": 22,
+        "CDC-10": 2,
+        "CDC-11": 16,
+        "CDC-15": 172
+      },
+      "critical_count": 30,
+      "critical_rows": [
+        {
+          "line": 54,
+          "source_clock": "input port clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry                     0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+        },
+        {
+          "line": 56,
+          "source_clock": "input port clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry                     0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+        },
+        {
+          "line": 65,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/as_mac_in_detect_user_reg/PRE"
+        },
+        {
+          "line": 66,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-10  Critical  Combinational logic detected before a synchronizer      3  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_cdc/arststages_ff_reg[0]/CLR"
+        },
+        {
+          "line": 67,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_lnk_up_reg/CLR"
+        },
+        {
+          "line": 68,
+          "source_clock": "sys_clock",
+          "destination_clock": "_pcie_io_clocks_axi_aclk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "4  CDC-10  Critical  Combinational logic detected before a synchronizer      3  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_cdc/arststages_ff_reg[0]/PRE"
+        },
+        {
+          "line": 105,
+          "source_clock": "_pcie_io_clocks_axi_aclk",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "cdc_type": "No Common Primary Clock",
+          "row": "30  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                     0  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/user_reset_reg/C                                                                                                                                                                  wrangler/deglitched_deglitch/reg_0_reg/PRE"
+        },
+        {
+          "line": 127,
+          "source_clock": "sys_clock",
+          "destination_clock": "clk_out1_harnessSysPLL",
+          "cdc_type": "User Ignored",
+          "row": "15  CDC-7   Critical  Asynchronous reset unknown CDC circuitry            0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  wrangler/deglitched_deglitch/reg_0_reg/PRE"
+        },
+        {
+          "line": 215,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+        },
+        {
+          "line": 216,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+        },
+        {
+          "line": 217,
+          "source_clock": "input port clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  prst_n         pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+        },
+        {
+          "line": 225,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[0]/CLR"
+        },
+        {
+          "line": 226,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "2  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/pipe_tx_rate_ff_reg[1]/CLR"
+        },
+        {
+          "line": 227,
+          "source_clock": "sys_clock",
+          "destination_clock": "pipe_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-7  Critical  Asynchronous reset unknown CDC circuitry      0  False Path  powerOnReset_fpga_power_on/power_on_reset_reg/C  pcie/blackbox/inst/pcie4c_ip_i/inst/speed_change_in_progress_reg/CLR"
+        },
+        {
+          "line": 460,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "1  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 462,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "3  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[0].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 463,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "4  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 465,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "6  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[1].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 466,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "7  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 468,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "9  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[2].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 469,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "10  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 471,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "12  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[3].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 472,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "13  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 474,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "15  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[4].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 475,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "16  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 477,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "18  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[5].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 478,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "19  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 480,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "21  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[6].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 481,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "22  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/phy_rate_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][1]/C                                                                                                                                                                                                                                                          pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].cdr_ctrl_on_eidle_i/sync_gen34/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        },
+        {
+          "line": 483,
+          "source_clock": "pipe_clk",
+          "destination_clock": "xdma_ref_clk",
+          "cdc_type": "No Common Primary Clock",
+          "row": "24  CDC-11  Critical  Fan-out from launch flop to destination clock      4  Asynch Clock Groups  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/phy_pipeline/as_mac_in_detect_chain/with_ff_chain.ff_chain_gen[0].sync_rst.ff_chain_reg[1][0]/C                                                                                                                                                                                                                                                  pcie/blackbox/inst/pcie4c_ip_i/inst/nm37_xdma_pcie4c_ip_gt_top_i/diablo_gt.diablo_gt_phy_wrapper/phy_lane[7].receiver_detect_termination_i/sync_mac_in_detect/sync_vec[0].sync_cell_i/sync_reg[0]/D"
+        }
+      ],
+      "check_timing": {
+        "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+        "sha256": "4b75a227fd684f6f50683e3406ba9e31903fbe4c8183d32d93be60c4e38d5b25",
+        "unused_hbm_constant_clock_endpoints": [
+          {
+            "interface": 10,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 10,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 11,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 11,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 12,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 12,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 13,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 13,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 14,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 14,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 15,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 15,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 1,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 1,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 2,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 2,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 3,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 3,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 4,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 4,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 5,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 5,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 6,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 6,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 7,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 7,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 8,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 8,
+            "pin": "RREADY"
+          },
+          {
+            "interface": 9,
+            "pin": "BREADY"
+          },
+          {
+            "interface": 9,
+            "pin": "RREADY"
+          }
+        ],
+        "prst_n_no_input_delay": true,
+        "evidence": {
+          "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt",
+          "sha256": "4b75a227fd684f6f50683e3406ba9e31903fbe4c8183d32d93be60c4e38d5b25",
+          "matches": [
+            {
+              "line": 19,
+              "text": "2. checking constant_clock (0)"
+            },
+            {
+              "line": 21,
+              "text": "4. checking unconstrained_internal_endpoints (30)"
+            },
+            {
+              "line": 22,
+              "text": "5. checking no_input_delay (1)"
+            },
+            {
+              "line": 36,
+              "text": "2. checking constant_clock (0)"
+            },
+            {
+              "line": 46,
+              "text": "4. checking unconstrained_internal_endpoints (30)"
+            },
+            {
+              "line": 48,
+              "text": "There are 0 pins that are not constrained for maximum delay."
+            },
+            {
+              "line": 50,
+              "text": "There are 30 pins that are not constrained for maximum delay due to constant clock. (MEDIUM)"
+            },
+            {
+              "line": 84,
+              "text": "5. checking no_input_delay (1)"
+            },
+            {
+              "line": 88,
+              "text": "prst_n"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "historical_interpretation": {
+    "critical_boundaries": {
+      "CDC-7": "12 asynchronous-reset paths at external prst_n/POR to PCIe reset state and PCIe/POR to wrangler deglitch. Must compare complete fields, not just count.",
+      "CDC-10": "2 POR logic-before-synchronizer paths to PCIe user_lnk_up/user_reset.",
+      "CDC-11": "16 pipe_clk -> xdma_ref_clk lane rate/CDR and receiver-detect paths inside existing PCIe IP."
+    },
+    "A100_difference": "A100 has CDC-15=172 versus 70MHz reference170 because the reset debounce extends from 13bits/7000ticks to14bits/10000ticks. Current actual P2/P3 stay13bits/7000ticks. Do not use the A100 count blindly.",
+    "boundary_status": "Recorded historical classifications remain existing review/signoff boundaries, not newly accepted CDC correctness or board-level safety claims."
+  },
+  "routed_acceptance_checklist": [
+    {
+      "check": "Clock inventory and frequency propagation",
+      "expected": "DUT PLL70, sys/HBMref100, XDMA AXI250; no newly unconstrained FSA/ACC clocks. Inspect HBM nominal100 metadata versus actual70 propagated clock.",
+      "status": "PENDING"
+    },
+    {
+      "check": "AXI converter structure and reset crossings",
+      "expected": "Full and lite converters remain async with3 synchronizer stages; no bypass/reconvergence or new unsynchronized FSA crossing. Review ASYNC_REG depths and exceptions on actual instances.",
+      "status": "PENDING"
+    },
+    {
+      "check": "Reset external and wrangler/PCIe boundary",
+      "expected": "Compare CDC-7/10/11 full source/destination/clock/type/depth/exception rows to70MHz baseline; re-evaluate new paths, do not waive unchanged Criticals automatically.",
+      "status": "PENDING"
+    },
+    {
+      "check": "Unused HBM30 internal endpoints",
+      "expected": "Exactly interfaces1..15 BREADY and RREADY, each demonstrably unused/constant-clock on new implemented netlist; active interface0 must not appear. Source named-port omissions alone are not final tieoff evidence.",
+      "status": "PENDING"
+    },
+    {
+      "check": "prst_n no_input_delay and asynchronous exceptions",
+      "expected": "Confirm BF5 external active-low reset, through false path reach and actual recovery/removal/reset synchronization boundary. Historical no_input_delay1 persists despite source false path; inspect applied constraint reach instead of declaring constrained.",
+      "status": "PENDING"
+    },
+    {
+      "check": "check_timing and clock interaction exceptions",
+      "expected": "0 max-delay-unconstrained internal endpoints excluding the individually reviewed constant-clock30. Compare no_clock/multiple_clock/pulse_width and missing-delay categories; inspect actual clock groups/false paths for accidental coverage of timed FSA datapaths.",
+      "status": "PENDING"
+    },
+    {
+      "check": "Actual routed provenance",
+      "expected": "Bind CDC/check_timing/clock_interaction/exceptions/netlist reports to final P2/P3 source/RTL/IP hashes and routed checkpoint. This source review grants no route acceptance.",
+      "status": "PENDING"
+    }
+  ],
+  "files": {
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci": {
+      "sha256": "31644d0806d6d34b29ca25c8104c5a58bad09adefbdd0917b684b80d204cb0ba",
+      "lines": 721
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci": {
+      "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+      "lines": 2296
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_axi_clock_converter_0/xdma_master_axi_clock_converter_0.xci": {
+      "sha256": "e318a00c5029985332e31e01d4fb0ccfdf0fcb7b7faa592b3f6f2f763d82b98d",
+      "lines": 198
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_lite_axi_clock_converter_0/xdma_master_lite_axi_clock_converter_0.xci": {
+      "sha256": "9dd19de7c3c8c733088ccbb756cf77761f06970582727ff62cf7cf45044c9f24",
+      "lines": 198
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/testxilinx_hbm/testxilinx_hbm.xci": {
+      "sha256": "0f40d773eb56f49e819a89fae0c48507d87d930bf0e0b8e0377b49665a9e8dfa",
+      "lines": 7635
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv": {
+      "sha256": "cab0ba32353d294042023054f11f0e1eb983a6153d9c44d43c1aeb30675fb04d",
+      "lines": 669
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/synth/testxilinx_hbm.v": {
+      "sha256": "b9b7da992f81558a711f5cb670dc98a565fcc0982dd3629581635cd55a869167",
+      "lines": 3778
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv": {
+      "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+      "lines": 491
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/nm37/TestHarness.scala": {
+      "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+      "lines": 118
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/nm37/CustomOverlays.scala": {
+      "sha256": "becabed396ffda8e4ad873cd528d4fd99b8b76509c977c14cf04aa3af41ff03f",
+      "lines": 165
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv": {
+      "sha256": "efe56645201fdd621a9463b428e7c54fee03fa1eb855a8555fb1ba6a0b1217a8",
+      "lines": 43
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv": {
+      "sha256": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+      "lines": 16
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv": {
+      "sha256": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+      "lines": 94
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.xdc": {
+      "sha256": "a632015b5f10be4d729760e61a32f287304e77f234209e09281f6af89fc4d2cf",
+      "lines": 9
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.sdc": {
+      "sha256": "7449a627171a06931e558777ce7ce30ecf644bbf129f06a1957f6a925c7e2a3f",
+      "lines": 21
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/hdl/par/hbm_ip.xdc": {
+      "sha256": "5e03814a297533573ec54e3cabec1ffd878105f58977eb574071523dc55d0b5a",
+      "lines": 6
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2/fpga/src/main/scala/u280/AXIHBM.scala": {
+      "sha256": "428be3d279981a1dfc4cc04767b838da28142eb9bceffe84dcfec3f6b7161f76",
+      "lines": 111
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv": {
+      "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+      "lines": 2163
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv": {
+      "sha256": "9c6ec881171399461c46007115c1e07a3ef45d2c95e627ec58beef2bbdec06a5",
+      "lines": 899
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv": {
+      "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+      "lines": 1491
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv": {
+      "sha256": "1eb22ef7202c174186362c37aae64427007071c01e49fb4b265efb34a92c7f4e",
+      "lines": 104
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/harnessSysPLL/harnessSysPLL.xci": {
+      "sha256": "31644d0806d6d34b29ca25c8104c5a58bad09adefbdd0917b684b80d204cb0ba",
+      "lines": 721
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/ip/nm37_xdma/nm37_xdma.xci": {
+      "sha256": "e75ed2477ef40caeee02d6b44e56e0bf8dfd858aa0b27a6300b5ec2856339f5b",
+      "lines": 2296
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_axi_clock_converter_0/xdma_master_axi_clock_converter_0.xci": {
+      "sha256": "e318a00c5029985332e31e01d4fb0ccfdf0fcb7b7faa592b3f6f2f763d82b98d",
+      "lines": 198
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/xdma_master_lite_axi_clock_converter_0/xdma_master_lite_axi_clock_converter_0.xci": {
+      "sha256": "9dd19de7c3c8c733088ccbb756cf77761f06970582727ff62cf7cf45044c9f24",
+      "lines": 198
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.srcs/sources_1/ip/testxilinx_hbm/testxilinx_hbm.xci": {
+      "sha256": "0f40d773eb56f49e819a89fae0c48507d87d930bf0e0b8e0377b49665a9e8dfa",
+      "lines": 7635
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ClockSinkDomain.sv": {
+      "sha256": "cab0ba32353d294042023054f11f0e1eb983a6153d9c44d43c1aeb30675fb04d",
+      "lines": 669
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/synth/testxilinx_hbm.v": {
+      "sha256": "b9b7da992f81558a711f5cb670dc98a565fcc0982dd3629581635cd55a869167",
+      "lines": 3778
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/NM37FPGATestHarness.sv": {
+      "sha256": "8e8b83520e9b0b82ab7038a4941a1fce0bf7615d45b8c827b5ab163c9a858c23",
+      "lines": 491
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/nm37/TestHarness.scala": {
+      "sha256": "5bc91e58a3aa80376d5716bb4dc4dc498f572b86735308fbc79f4e65c00a0fb8",
+      "lines": 118
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/nm37/CustomOverlays.scala": {
+      "sha256": "becabed396ffda8e4ad873cd528d4fd99b8b76509c977c14cf04aa3af41ff03f",
+      "lines": 165
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetWrangler.sv": {
+      "sha256": "efe56645201fdd621a9463b428e7c54fee03fa1eb855a8555fb1ba6a0b1217a8",
+      "lines": 43
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ResetCatchAndSync_d3.sv": {
+      "sha256": "d6d837ff4bd33b567c81a9eea8df6078bed65c403657e78b2d1151890dea25ec",
+      "lines": 16
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AsyncResetSynchronizerPrimitiveShiftReg_d3_i0.sv": {
+      "sha256": "16c58fc194d2bd529027fa84a02b26c14bbaa29428cd0b73de48d4d1502ebc24",
+      "lines": 94
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.xdc": {
+      "sha256": "a632015b5f10be4d729760e61a32f287304e77f234209e09281f6af89fc4d2cf",
+      "lines": 9
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.shell.sdc": {
+      "sha256": "7449a627171a06931e558777ce7ce30ecf644bbf129f06a1957f6a925c7e2a3f",
+      "lines": 21
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/NM37FPGATestHarness.gen/sources_1/ip/testxilinx_hbm/hdl/par/hbm_ip.xdc": {
+      "sha256": "5e03814a297533573ec54e3cabec1ffd878105f58977eb574071523dc55d0b5a",
+      "lines": 6
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/fpga/src/main/scala/u280/AXIHBM.scala": {
+      "sha256": "428be3d279981a1dfc4cc04767b838da28142eb9bceffe84dcfec3f6b7161f76",
+      "lines": 111
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv": {
+      "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+      "lines": 2163
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv": {
+      "sha256": "5df70422efdebe477ed119a638a81e5d10681f7f2a3fa1ab339c95f2814d880b",
+      "lines": 1382
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv": {
+      "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+      "lines": 1514
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv": {
+      "sha256": "9c96fba5307847379d44c430982b526efba7aa9e5f60a06e01a7331a41fd4f3d",
+      "lines": 105
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv": {
+      "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+      "lines": 232
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_17.sv": {
+      "sha256": "9ed35f9541a89441327e8657c291ebb545383e2c131db975c5badd062cf07e8b",
+      "lines": 226
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/shell.json": {
+      "sha256": "a252b24c6ec2439e720448656cbe8904f993d83fa806386295e2ae3a870f9ec7",
+      "lines": 209
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/shell.json": {
+      "sha256": "a252b24c6ec2439e720448656cbe8904f993d83fa806386295e2ae3a870f9ec7",
+      "lines": 209
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter.sv": {
+      "sha256": "b0547b3dfc07b21e417557e4a31ea6c85fe1f56b16170da6bfa35f524636729e",
+      "lines": 162
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter.sv": {
+      "sha256": "b0547b3dfc07b21e417557e4a31ea6c85fe1f56b16170da6bfa35f524636729e",
+      "lines": 162
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter_1.sv": {
+      "sha256": "0b7039f2d112018c44feb1274e5e0aba39866a90be38949cf487542607b1a954",
+      "lines": 121
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/LazyAXI4ClockConverter_1.sv": {
+      "sha256": "0b7039f2d112018c44feb1274e5e0aba39866a90be38949cf487542607b1a954",
+      "lines": 121
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CustomXDMA.sv": {
+      "sha256": "464252c4ac1ed6579baa4d0d15e9bfde81b1684bf6da959fde4d2fee371414bd",
+      "lines": 137
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CustomXDMA.sv": {
+      "sha256": "464252c4ac1ed6579baa4d0d15e9bfde81b1684bf6da959fde4d2fee371414bd",
+      "lines": 137
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt": {
+      "sha256": "2f12c025a20831391aeace3a4d636a5693ae851f0fe7020c012f049b7bfabe03",
+      "lines": 506
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-m1-shiftjam/A/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt": {
+      "sha256": "8fa06e0232fa014d3edfe77505260186a7626340ca35cd0525882af3cf2565bf",
+      "lines": 131
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/cdc.txt": {
+      "sha256": "e24982eac0072297be34cd55f32a97dd8ea9062cf2ada3588d71885a61cd9273",
+      "lines": 508
+    },
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/optimization-reports/nm37-a100-evidence/pipeline/A100/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/obj/audit/check_timing.txt": {
+      "sha256": "4b75a227fd684f6f50683e3406ba9e31903fbe4c8183d32d93be60c4e38d5b25",
+      "lines": 131
+    }
+  },
+  "inspector_sha256": "6b9612c6f1c7653a19a46d50559602d7a7b23652bde9c3fc3cc6f68d0cf4d6e1"
+}

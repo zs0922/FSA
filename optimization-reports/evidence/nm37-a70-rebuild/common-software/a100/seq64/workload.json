@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "K": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "b09a3797d8cee46d4a510e47a20c773ac1915cd109b7c3ef61e84e8ace7cec42",
+      "shape": [
+        64,
+        16
+      ]
+    },
+    "Q": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "60515e8c1a763b43d6636132b48749dbcb9ce67e6677c98bb174a18282abea2d",
+      "shape": [
+        64,
+        16
+      ]
+    },
+    "V": {
+      "dtype": "<f2",
+      "sha256_raw_c_order": "2686d563ae43a81638c565ef08abee05d88a40bb3ffe441e3433ddb730bce33c",
+      "shape": [
+        64,
+        16
+      ]
+    }
+  },
+  "instruction_words": 329,
+  "instructions_sha256": "30fafa6720c1d323a1bd4bac416d938fc6e29dfe69da149128bab423cc0b52bd",
+  "reference_sha256": "46cd04de4de3b81e10f610d75976f4c7ea563e46a597a213284967d6ccade1f3",
+  "runtime_versions": {
+    "numpy": "2.2.5",
+    "pyeasyfloat": "0.1.4",
+    "torch": "2.6.0"
+  }
+}

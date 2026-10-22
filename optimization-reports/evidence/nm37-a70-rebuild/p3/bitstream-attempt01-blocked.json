@@ -1,0 +1,10 @@
+{
+  "phase": "bitstream",
+  "attempt": 1,
+  "exit_code": 1,
+  "vivado_export_started": false,
+  "bitstream_created": false,
+  "reason": "Frozen elaboration membership gate rejected implementation-generated files outside obj. Original sealed files: zero changed, zero removed. 141 additions require separate review and seal.",
+  "original_exception": "AssertionError: Phase artifacts changed: elaborate",
+  "delta_evidence": "review/p3-post-implementation-elaboration-delta.json"
+}

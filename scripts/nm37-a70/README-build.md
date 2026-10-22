@@ -124,3 +124,7 @@ python3 "$A70_SRC/scripts/nm37-a70-source-lock.py" verify \
 可分别用阶段 checkout 的 `git bundle create <output> HEAD` 保留两个修复提交及可达历史，再由迁移工具导出子模块对象。打包完成后，应在不依赖原机器 `.git/objects`、工作区绝对路径或共享缓存的目录做提取和源码恢复检查。Vivado 安装、许可和板卡驱动属于目标服务器环境，不能由 Git bundle 代替。
 
 目前仅准备本地构建/迁移材料；不在安装器中连接 `10.128.157.151`，不烧板、不 push。
+
+Vivado 实施阶段新增工程/IP文件的精确分类、独立封印及旧构建恢复规则见 [实施生成物门禁](implementation-generated-README.md)。本次已审目录为 P3 的 141 项；其它布局必须显式复核，原始 RTL/Tcl 变化仍拒绝。
+
+可直接查看 [三拍窗口形式入口](verify/window_proof/run-proof.py) 与 [实施生成物分类/封印工具](implementation_generated.py)。

@@ -1,0 +1,9 @@
+{
+  "src/scripts/nm37-a70/install_historical.py": "be9161fc928243b527adff62b6b58687297ae4778d9bed0ea228c9f68f4a36cc",
+  "src/scripts/nm37-a70/prepare_historical.py": "b6ee6b4952ba71a2038f03f61f1465c86c773870cc6da88ca98da9a7da7dc788",
+  "src/scripts/nm37-a70/source_lock.py": "74e3fbb7979f18923421a58ac702ecc60011fe9b453b26597af6048335aa036b",
+  "src/scripts/nm37-a70/verify/scala/A70SinglePortConfig.scala": "b8c181dd97f54daa677f27e2da42e61a617e707830bfe2bd13d6a191c8bf7428",
+  "src/scripts/nm37-a70/verify/scala/A70AccumulatorVerification.scala": "8e43a1847c00af32b2241e4b63e59af7e87c0145358637638b9f64e510df7d6c",
+  "migration-restore-check/.nm37-a70/install-state.json": "90626165ba91fa8b8d91df9666fefcb4ef3b6265c38871f56d8f9ada6abe81bd",
+  "migration-restore-check/.nm37-a70/patch-state.json": "a4390df34ef39a53039e3096188b3ba43fe43e6fb854d247c48ccdbfa3092158"
+}

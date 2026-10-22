@@ -1,0 +1,51 @@
+{
+  "passed_for_available_profiles": true,
+  "integration_pending": true,
+  "profile_objects": {
+    "integration": {
+      "status": "pending_H1",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src"
+    },
+    "historical-p2-clean": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37"
+    },
+    "historical-p3-clean": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b"
+    },
+    "historical-p2": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p2",
+      "commit": "f7d31bb197b93eef9dc416d0508e550894531665"
+    },
+    "historical-p3": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3",
+      "commit": "73b3e42f3006818d13bc059818e11cc803f78dba"
+    },
+    "a100-source-snapshot": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "0f1a643a58894dc52b46d4058f39d12205405644"
+    },
+    "a100-reproduction": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "0a3a2656df66043ea513a45bab8275c1be0ba76c"
+    },
+    "a110-apb55": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67"
+    },
+    "a110-audited": {
+      "status": "verified_commit_object",
+      "repository": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src",
+      "commit": "25673838e66ddef9031748ca40f7220c65acedaf"
+    }
+  },
+  "main_bundle_exported": false
+}

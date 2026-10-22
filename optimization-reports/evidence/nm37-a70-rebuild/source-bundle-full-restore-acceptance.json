@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "scope": "Offline source-object restoration and immutable historical overlay input equivalence; not FPGA rebuild or board test",
+  "root_commit": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+  "restored_dependencies": 175,
+  "independent_repositories": 176,
+  "raw_git_tree_files_checked": 477009,
+  "declared_eol_crlf_transformations": 39,
+  "installer_phases": {
+    "drycheck": "passed",
+    "install": "passed",
+    "verify": "passed"
+  },
+  "reference_source_lock": "final-p3-v2/source-lock.json",
+  "common_input_files_content_equal": 478173,
+  "content_changes": 0,
+  "removed_files": 0,
+  "added_installer_tool_files": [
+    "scripts/nm37-a70-build.sh",
+    "scripts/nm37-a70-install.py",
+    "scripts/nm37-a70-source-lock.py"
+  ],
+  "mode_differences": {
+    "seven_overlay_files": "0664 to 0644",
+    "scripts/nm37-a70-prepare.py": "0664 to 0755"
+  },
+  "submodule_registration_followup": "All 175 restored gitlinks marked active in parent local Git config; no upstream/local URLs, remotes or alternates added. New restores do this automatically; fixture tests pass.",
+  "exclusions": {
+    "explicit_recursive": 11,
+    "root_out_of_scope": 20
+  },
+  "not_included": [
+    "Vivado installation/licence",
+    "installed compiler/RISC-V toolchains",
+    "sbt/Python dependency download caches",
+    "final integration main bundle (awaits final commit)"
+  ],
+  "evidence": {
+    "migration-source-deps/dependencies.json": "5ddea5b2f6d1bad793845d41399b3643695b0094a8a4f8bacd6bc8b710f996ac",
+    "migration-source-deps/source-lock.json": "bd3d641f4b459d55985fd9f6d20fe0b0696ca6e6e23d84fad50197e408db5124",
+    "migration-historical-main-check/main.json": "e35630b5646a702dc988c2f658eb9a02520d14e583d34e384da642f71cb56852",
+    "migration-restore-check-restore.json": "26cc843cccd5fbec90fef12e7ed098b616a45152a99f8821ef76106bbbaf2743",
+    "review/source-bundle-full-restore-git-inputs.json": "a1398804132666ac98f741488fe8aa3476f9bd47755964961e13f4e2e336ac52",
+    "review/source-bundle-active-registration.json": "5ddede749c2d73cfa7f098106165b638818a0a7921d49999cd6603a2e1f776bc",
+    "review/source-bundle-installed-input-digests.json": "6cd6f9a41142077a0a08ee9a9f953cd2bd97886dd7dd6da49d33cd332a2c6f6d",
+    "review/migration-restored-p3-source-lock.json": "9c118558c2c0c40dddbac1d8e4fec3e346096b4520d0455ceb8f26a0bd6a4a0e",
+    "review/source-bundle-restored-vs-final-p3-v2.json": "de9e7f4094ae6ea79b4b0aa97a9fba0b15c1d052e8f28cd3982176fb0bcda712",
+    "review/source-bundle-profile-compatibility.json": "59681539b68dcef1806be60813b3d7daee80ddabeb065545b5c7b4f41b0af484"
+  }
+}

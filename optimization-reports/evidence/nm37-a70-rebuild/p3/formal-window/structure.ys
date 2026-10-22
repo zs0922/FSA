@@ -1,0 +1,9 @@
+read_verilog -sv A70AccumulatorMiter.sv
+hierarchy -check -top A70AccumulatorMiter
+proc
+flatten
+opt
+check -assert
+write_json structure.json
+write_verilog -noattr optimized.v
+stat

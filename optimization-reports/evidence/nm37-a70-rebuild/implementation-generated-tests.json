@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "cases": [
+    "real_P3_141_classification",
+    "copied_real_layout_positive",
+    "record_and_check_positive",
+    "record_is_create_only",
+    "original_RTL_mutation",
+    "original_Tcl_mutation",
+    "generated_RTL_mutation_after_seal",
+    "XCI_explicit_config_mismatch",
+    "XCI_raw_mutation_after_seal",
+    "obj_IP_XCI_mutation_after_seal",
+    "original_file_removed",
+    "generated_file_removed",
+    "unlisted_new_RTL_inside_gen",
+    "unlisted_new_Tcl",
+    "project_external_source_injection",
+    "generated_symlink_rejected",
+    "sidecar_policy_fingerprint_tamper",
+    "original_elaboration_seal_never_changed",
+    "artifacts_implement_seal_binds_sidecar",
+    "artifacts_bitstream_gate_positive",
+    "pre_implementation_gate_stays_exact",
+    "integrated_gate_rejects_generated_RTL_change",
+    "integrated_gate_rejects_original_Tcl_change",
+    "integrated_gate_rejects_unbound_sidecar"
+  ],
+  "count": 24,
+  "test_script_sha256": "d17d972d9a3d66b8e3d0cfcee4d5121724955e5df886662bbf31b6fbc5aba80b",
+  "tested_code_sha256": {
+    "artifacts.py": "6085850d3a2bc926a07094d1fe5059fb4dfb4d60d14e82c2a16558ddc08284ae",
+    "implementation_generated.py": "3de41df7caf88b0399bb3ba48e3951753fd8d671c0eaee39e017e31f3a09ce1c",
+    "implementation-generated-catalog.json": "55c5e71830439a5a84f9a804776fcbb4b69c2413ac1510fef89fedff77635045"
+  },
+  "notes": "All24 tests completed before documentation addition. Six CLI checks retained full original source_lock.py verify; frozen source/helper/seals unchanged."
+}

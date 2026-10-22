@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import implementation_generated
 
 
 def sha(p):
@@ -64,8 +65,16 @@ def main():
         paths = [p.resolve() for p in a.paths]
         roots = [str(p.relative_to(out)) for p in paths]
         exclusions = [p / 'obj' for p in paths if p.is_dir()] if a.phase == 'elaborate' else []
-        write(out / (a.phase + '.passed.json'), {'source_lock_sha256': sha(lock), 'roots': roots,
-              'files': inventory(paths, out, exclusions)})
+        data = {'source_lock_sha256': sha(lock), 'roots': roots,
+                'files': inventory(paths, out, exclusions)}
+        if a.phase == 'implement':
+            sidecar = out / 'implementation-generated.passed.json'
+            if sidecar.exists():
+                implementation_generated.check(out)
+            else:
+                implementation_generated.record(out)
+            data['implementation_generated_seal_sha256'] = sha(sidecar)
+        write(out / (a.phase + '.passed.json'), data)
     elif a.action == 'gate':
         phases = ['assembly', 'sim4', 'sim16', 'elaborate']
         if a.phase == 'bitstream':
@@ -77,7 +86,18 @@ def main():
             assert data['source_lock_sha256'] == sha(lock), phase
             paths = [out / name for name in data['roots']]
             exclusions = [p / 'obj' for p in paths if p.is_dir()] if phase == 'elaborate' else []
-            assert data['files'] and data['files'] == inventory(paths, out, exclusions), 'Phase artifacts changed: ' + phase
+            actual = inventory(paths, out, exclusions)
+            assert data['files'], 'Empty phase seal: ' + phase
+            if phase == 'elaborate' and data['files'] != actual and a.phase == 'bitstream':
+                # Original elaboration inputs stay exact; only separately sealed,
+                # catalogued implementation additions are permitted.
+                implementation_generated.check(out)
+            else:
+                assert data['files'] == actual, 'Phase artifacts changed: ' + phase
+            if phase == 'implement':
+                sidecar = out / 'implementation-generated.passed.json'
+                assert data.get('implementation_generated_seal_sha256') == sha(sidecar), 'Implementation additions seal is not bound to implementation phase'
+                implementation_generated.check(out)
         if a.phase == 'bitstream':
             review = json.loads((out / 'cdc-constraint-review.json').read_text())
             assert review['accepted_for_board_test'] is True and review['board_tested'] is False

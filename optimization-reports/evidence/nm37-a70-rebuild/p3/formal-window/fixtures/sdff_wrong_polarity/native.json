@@ -1,0 +1,199 @@
+{
+  "modules": {
+    "fixture": {
+      "attributes": {},
+      "ports": {
+        "clock": {
+          "direction": "input",
+          "bits": [
+            2
+          ]
+        },
+        "data": {
+          "direction": "input",
+          "bits": [
+            3,
+            4,
+            5
+          ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [
+            6
+          ]
+        },
+        "mismatch": {
+          "direction": "output",
+          "bits": [
+            16
+          ]
+        }
+      },
+      "cells": {
+        "mux": {
+          "hide_name": 0,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "11"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              3,
+              4,
+              5
+            ],
+            "B": [
+              "1",
+              "0",
+              "1"
+            ],
+            "S": [
+              6
+            ],
+            "Y": [
+              7,
+              8,
+              9
+            ]
+          }
+        },
+        "gold": {
+          "hide_name": 0,
+          "type": "$dff",
+          "parameters": {
+            "WIDTH": "11",
+            "CLK_POLARITY": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [
+              2
+            ],
+            "D": [
+              7,
+              8,
+              9
+            ],
+            "Q": [
+              10,
+              11,
+              12
+            ]
+          }
+        },
+        "gate": {
+          "hide_name": 0,
+          "type": "$sdff",
+          "parameters": {
+            "WIDTH": "11",
+            "CLK_POLARITY": "1",
+            "SRST_POLARITY": "0",
+            "SRST_VALUE": "101"
+          },
+          "attributes": {},
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "SRST": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [
+              2
+            ],
+            "D": [
+              3,
+              4,
+              5
+            ],
+            "SRST": [
+              6
+            ],
+            "Q": [
+              13,
+              14,
+              15
+            ]
+          }
+        },
+        "neq": {
+          "hide_name": 0,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              10,
+              11,
+              12
+            ],
+            "B": [
+              13,
+              14,
+              15
+            ],
+            "Y": [
+              16
+            ]
+          }
+        }
+      },
+      "netnames": {
+        "clock": {
+          "hide_name": 0,
+          "bits": [
+            2
+          ],
+          "attributes": {}
+        },
+        "data": {
+          "hide_name": 0,
+          "bits": [
+            3,
+            4,
+            5
+          ],
+          "attributes": {}
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [
+            6
+          ],
+          "attributes": {}
+        },
+        "mismatch": {
+          "hide_name": 0,
+          "bits": [
+            16
+          ],
+          "attributes": {}
+        }
+      }
+    }
+  }
+}

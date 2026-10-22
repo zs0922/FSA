@@ -1,0 +1,4 @@
+part=xcvu37p_CIV-fsvh2892-2L-e
+dut_period=14.286
+dut_setup_wns=-0.182
+dut_hold_whs=0.002

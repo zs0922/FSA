@@ -1,0 +1,312 @@
+{
+  "modules": {
+    "fixture": {
+      "attributes": {},
+      "ports": {
+        "clock": {
+          "direction": "input",
+          "bits": [
+            2
+          ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [
+            3,
+            4,
+            5
+          ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [
+            6,
+            7,
+            8
+          ]
+        },
+        "mismatch": {
+          "direction": "output",
+          "bits": [
+            28
+          ]
+        }
+      },
+      "cells": {
+        "alu": {
+          "hide_name": 0,
+          "type": "$alu",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "11"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "CI": "input",
+            "BI": "input",
+            "X": "output",
+            "Y": "output",
+            "CO": "output"
+          },
+          "connections": {
+            "A": [
+              3,
+              4,
+              5
+            ],
+            "B": [
+              6,
+              7,
+              8
+            ],
+            "CI": [
+              "0"
+            ],
+            "BI": [
+              "0"
+            ],
+            "X": [
+              9,
+              10,
+              11
+            ],
+            "Y": [
+              12,
+              13,
+              14
+            ],
+            "CO": [
+              15,
+              16,
+              17
+            ]
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "100"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              3,
+              4,
+              5
+            ],
+            "B": [
+              6,
+              7,
+              8
+            ],
+            "Y": [
+              18,
+              19,
+              20,
+              21
+            ]
+          }
+        },
+        "xor": {
+          "hide_name": 0,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "11"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              3,
+              4,
+              5
+            ],
+            "B": [
+              6,
+              7,
+              8
+            ],
+            "Y": [
+              22,
+              23,
+              24
+            ]
+          }
+        },
+        "neq_y": {
+          "hide_name": 0,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              12,
+              13,
+              14
+            ],
+            "B": [
+              18,
+              19,
+              20
+            ],
+            "Y": [
+              25
+            ]
+          }
+        },
+        "neq_co": {
+          "hide_name": 0,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "1",
+            "B_WIDTH": "1",
+            "Y_WIDTH": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              17
+            ],
+            "B": [
+              21
+            ],
+            "Y": [
+              26
+            ]
+          }
+        },
+        "neq_x": {
+          "hide_name": 0,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "0",
+            "B_SIGNED": "0",
+            "A_WIDTH": "11",
+            "B_WIDTH": "11",
+            "Y_WIDTH": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              9,
+              10,
+              11
+            ],
+            "B": [
+              22,
+              23,
+              24
+            ],
+            "Y": [
+              27
+            ]
+          }
+        },
+        "error": {
+          "hide_name": 0,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "0",
+            "A_WIDTH": "11",
+            "Y_WIDTH": "1"
+          },
+          "attributes": {},
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [
+              25,
+              26,
+              27
+            ],
+            "Y": [
+              28
+            ]
+          }
+        }
+      },
+      "netnames": {
+        "clock": {
+          "hide_name": 0,
+          "bits": [
+            2
+          ],
+          "attributes": {}
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [
+            3,
+            4,
+            5
+          ],
+          "attributes": {}
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [
+            6,
+            7,
+            8
+          ],
+          "attributes": {}
+        },
+        "mismatch": {
+          "hide_name": 0,
+          "bits": [
+            28
+          ],
+          "attributes": {}
+        }
+      }
+    }
+  }
+}

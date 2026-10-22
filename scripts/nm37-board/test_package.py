@@ -155,6 +155,41 @@ class PackageTest(unittest.TestCase):
         c = pkg.archive(self.output, self.root / 'c.tar.gz')
         self.assertEqual(a['sha256'], c['sha256'])
 
+    def test_long_evidence_basename_roundtrip_is_deterministic_and_verified(self):
+        # This shape occurs in the actual archived A110 IP-generation evidence.
+        basename = ('chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.'
+                    'xdma_master_lite_axi_clock_converter_0.vivado.tcl')
+        self.assertGreater(len(basename.encode()), 100)
+        relative = ('docs/repository/optimization-reports/evidence/nm37-a110-apb/'
+                    'build/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.'
+                    'EmptyNM37Config/' + basename)
+        original = self.root / basename
+        original.write_bytes(b'# fixture only: long evidence filename\n')
+        self.spec['attachments'] = [{'path': str(original), 'sha256': b.sha(original),
+                                     'destination': relative}]
+        self.build()
+        first = self.root / 'long-a.tar.gz'
+        second = self.root / 'long-b.tar.gz'
+        a = pkg.archive(self.output, first)
+        c = pkg.archive(self.output, second)
+        self.assertEqual(a['sha256'], c['sha256'])
+        with tarfile.open(first) as tar:
+            member = tar.getmember(relative)
+            self.assertTrue(member.isfile())
+            self.assertEqual(member.pax_headers, {'path': relative})
+            self.assertEqual((member.uid, member.gid, member.mtime, member.mode), (0, 0, 0, 0o644))
+            self.assertEqual((member.uname, member.gname), ('', ''))
+            self.assertEqual(tar.extractfile(member).read(), original.read_bytes())
+        extracted = self.root / 'long-extracted'
+        self.assertTrue(pkg.extract(first, extracted, a['sha256'])['verified'])
+        self.assertTrue(pkg.verify(extracted)['verified'])
+        self.assertEqual((extracted / relative).read_bytes(), original.read_bytes())
+        info = json.loads((extracted / 'package.json').read_text())
+        self.assertEqual(info['files'][relative]['sha256'], b.sha(original))
+        (extracted / relative).write_text('changed long-path evidence')
+        with self.assertRaises(ValueError):
+            pkg.verify(extracted)
+
     def test_attachment_escape_rejected(self):
         self.spec['attachments'] = [{'path': str(self.root / 'image.bit'),
                                      'sha256': b.sha(self.root / 'image.bit'), 'destination': '../bad'}]

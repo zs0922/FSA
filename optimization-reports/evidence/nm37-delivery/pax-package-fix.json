@@ -1,0 +1,17 @@
+{
+  "issue": "Real A110 evidence basename exceeds USTAR 100-byte limit. Preserve the exact name using normalized PAX rather than a delivery-only writer.",
+  "tests": 59,
+  "passed": true,
+  "coverage": "Long-basename build/archive twice with identical SHA/extract/verify and metadata normalization; post-extraction mutation rejected; all board/source-bundle tests pass.",
+  "code_sha256": {
+    "package.py": "3145e78e333eaae9dc1cc92cb1de44b7a17ee3d74884ea87e229aae28c1e9244",
+    "test_package.py": "dd7bc707f9fc8660b44dc0f73881a666fb54ab52c988c530ac5c0f9952626387"
+  },
+  "log_sha256": {
+    "package-long-basename-before-fix.log": "2dd0d3777a891a1da972a07c92b4638091b5496fc7fd42cb04085f2e610a9f20",
+    "package-pax-after-fix.log": "417413efdadac623f2e4da8725fdeeb8c42b80ef92fda7f29570067976068a09",
+    "nm37-board-pax-full-tests.log": "7848c3a6611ecf25ed4b5375638e24ac554e6465d123fc189092405a2e174202"
+  },
+  "hardware_changed": false,
+  "board_tested": false
+}

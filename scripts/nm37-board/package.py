@@ -192,7 +192,9 @@ def archive(root, destination):
         raise ValueError('Archive must not exist')
     destination.parent.mkdir(parents=True, exist_ok=True)
     with destination.open('xb') as raw, gzip.GzipFile(filename='', mode='wb', fileobj=raw, mtime=0) as compressed:
-        with tarfile.open(fileobj=compressed, mode='w|', format=tarfile.USTAR_FORMAT) as tar:
+        # PAX preserves original evidence names longer than USTAR's basename
+        # limit. Normalize metadata before addfile generates any PAX headers.
+        with tarfile.open(fileobj=compressed, mode='w|', format=tarfile.PAX_FORMAT) as tar:
             package_info = json.loads((root / 'package.json').read_text())
             for name in sorted(set(package_info['files']) | RESERVED):
                 path = root / name
@@ -201,6 +203,7 @@ def archive(root, destination):
                     info.uid = info.gid = info.mtime = 0
                     info.uname = info.gname = ''
                     info.mode = 0o644
+                    info.pax_headers = {}
                     with path.open('rb') as f:
                         tar.addfile(info, f)
     return {'archive': str(destination), 'sha256': sha(destination), 'bytes': destination.stat().st_size}

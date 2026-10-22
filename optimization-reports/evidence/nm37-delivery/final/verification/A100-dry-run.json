@@ -1,0 +1,80 @@
+{
+  "bdf": "0000:81:00.0",
+  "clock_mhz_assumed": 100,
+  "configuration_id": "A100",
+  "counter_scope": "SET_ACTIVE done->active clears eight perf counters, not cumulative enq/deq. Preserve all ten raw uint32 values; enq/deq per-run modulo 2^32 deltas must equal submitted word count (<2^32). No active-cycle overflow correction; mxBubble is ready&&!valid, not total array idle.",
+  "device": "xdma0",
+  "dry_run": true,
+  "external_timeout_required": true,
+  "hardware_tested": false,
+  "host_execute_boundary": "entry/return of FPGA.execute: serialization + input HBM writes + /tmp debug writes + SET_ACTIVE + queue submission + polling/printed counters + output HBM reads; excludes kernel compilation, reference, file summaries",
+  "hostname": "server48",
+  "loaded_bitstream_identity": "operator declaration; no hardware readback/frequency measurement",
+  "loaded_bitstream_sha256_declared": "f698413a3379cdc2b1155fbce9dc4acdb417935f711058654e2663151659c0cf",
+  "manifest": {
+    "bitstream": {
+      "path": "bitstreams/A100.bit",
+      "sha256": "f698413a3379cdc2b1155fbce9dc4acdb417935f711058654e2663151659c0cf"
+    },
+    "build_id": "original-A100-20261013",
+    "clock_mhz": 100,
+    "config": {
+      "path": "configs/A100.FSAConfig.json",
+      "sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba"
+    },
+    "configuration_id": "A100",
+    "hardware_source_commit": "0f1a643a58894dc52b46d4058f39d12205405644",
+    "schema_version": 2,
+    "software": {
+      "easyfloat": {
+        "files": {
+          "README.md": "0d56da80cc1af5f41f1ff68e68e3efedf684a704bc9871654282c05a1f1eb132",
+          "fp_consts.py": "58af08705957a98a9770c229dcc92e3bf1d9013fb973963b5e10c3015c200e45",
+          "pyeasyfloat/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pyeasyfloat/backend.py": "162ea46e1870db622ae22a8a238ad2d15ff2d7cf93cf432d0cfcb5761011e241",
+          "pyeasyfloat/exp.py": "3fac553300081c29afd7f116f227673b02d4f9258d704c6769a044f794ccbde7",
+          "pyeasyfloat/float.py": "520db4ec620d4d1f100af777865bdd7a7bbc160f3d9b019f69d8b0f585614a96",
+          "pyeasyfloat/fma.py": "05af90fcabda123fcc242fa6f06354d54845a17ee963f28d6f6a40813ccf56ac",
+          "pyeasyfloat/fp_utils.py": "00ac8d19f6207f0d4701829c40434f02302edc58312b820d957a5c10e04db9a8",
+          "pyeasyfloat/reciprocal.py": "fa2d51f2fcdb49c56bb93c8d014cd5e5cf09283e2dba7c3c18cfbbbd9c623d18",
+          "pyeasyfloat/rounding.py": "07725db96ea950af5a2fe2d8ad2cd2f2fae15ad871b82dea2ee6706c3c3add64",
+          "pyproject.toml": "f23863881411dd9fa2b87fa77827f6aae86f527307be863a7c693a6545e4a897",
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/exp2_accuracy.py": "12586b18cbe2d991215a0842e3fcd5c017a557779f9e5c2c197e95f3c14edf91",
+          "tests/exp_test.py": "6d6a6b221ea14304a2039c356e3a07ec734b2081222971f54b22188984b392ce",
+          "tests/fma_test.py": "44f842acad059607f77de3c644a925b18e11d105158d829c7831d897c7c07dc6",
+          "tests/reciprocal_test.py": "168b0c4553fd5b431faebbcb487b07e12554e40af3c1ab0f4478452be462cf39",
+          "uv.lock": "6d59a40690c0f1e49a4c85ffc870c23e886761a9e45f13b9be7bb93c58c07153"
+        },
+        "path": "software/generators/easyfloat"
+      },
+      "files": {
+        "README.md": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fa_ref.py": "0924bd5a4a6844abba58bb9d475c94bffed3f8b0fbd7418ea1738fc459da4100",
+        "fsa/__init__.py": "c0651524f7ac8b3731f6659e9c38bc2422376f9ea37ff0429ae85a63c0dc8c7a",
+        "fsa/config.py": "f87f23265cf230419e0d9332a4f0bbb5fa5759173ab266185f61721fef6fe7df",
+        "fsa/dtype.py": "b2e1da6b5a9abb2c6a3ba101c2356c7bb562e2293eddc1e2749f010d9b46b00a",
+        "fsa/engine.py": "b8b9f98db6c6dcb4713c314730ff8e24a4c9c01f816b0bd8d7eab4161cd3bbbf",
+        "fsa/instructions.py": "cfcde827570e03730b8cd09a12b94396c68c99fd2866ef2c6d82f4d429e2e67f",
+        "fsa/kernel.py": "8899cb498de4d0a044e95bee5cb838cf3066db18044da7ed80d5b8abad524cea",
+        "fsa/mem.py": "bb6975dc877f7f97e9e421c2025b314dfa2073a06efed65cf6fb2d4dc824cf0d",
+        "fsa/tensor.py": "415aac0360bf265b7ac44ad90ecec130e6a48ddb3648bf3fe6f858a7852208f1",
+        "fsa/utils.py": "19d2621d75be47e7f40a15755bf24fe83eb7b360c77938225ac1d0969fd4a032",
+        "fsa/xdma.py": "7cb9a52955bd9584e59d8881294d543c1d591f3c37f29081f2c7d737748c50ab",
+        "fsa/xdma_mmio.py": "a729841731a3d7e9c66636aaee816e096b0b990a2ea027dfeea0850d6cf8934b",
+        "main.py": "aa6c7b59bbf08a2c9fc80991c75d1afc845b6f70b8cbf2e9ba3204f3f31307da",
+        "pyproject.toml": "fecba1bc535d0bd9d049c0fa80b9b24c496e8d0ae460225779b2225ad6658f05",
+        "uv.lock": "abd2f62df1919890d642ea368971967c72ba9468c548a59cddbbf17b6ef52bcd"
+      },
+      "path": "software/generators/fsa/python"
+    },
+    "source_identity_kind": "reconstructed_source_snapshot"
+  },
+  "manifest_sha256": "37d5d8cafe8d2818baabe79ec73e891bc8b6546f4db647235cfe03fd5fa9358d",
+  "python": "3.14.6 | packaged by Anaconda, Inc. | (main, Jun 18 2026, 21:28:09) [GCC 14.3.0]",
+  "repeat": 1,
+  "schema_version": 1,
+  "seed": 0,
+  "seq": 16,
+  "warmup": 0
+}

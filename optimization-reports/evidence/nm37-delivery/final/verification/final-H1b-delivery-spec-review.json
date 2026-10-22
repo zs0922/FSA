@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "integration_commit": "d589b230b975730c108426591e552c056008e82a",
+  "configurations": 3,
+  "profiles": 9,
+  "attachments": 1752,
+  "attachment_bytes": 1451248950,
+  "relative_report_links_complete": true,
+  "historical_absolute_links_preserved": [
+    {
+      "report": "optimization-reports/NM37_A110_APB.md",
+      "historical_absolute_link": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/export/NM37_A110.bit"
+    }
+  ],
+  "main_spec_sha256": "0853edcf9d4a3cb6170d4beae0d43e59f3feeb50c843404f2ef3505cbd88fbef",
+  "board_spec_sha256": "5d9a7c0b43ff5be62272e5f2a636adadb9338ba2917b925a23c2d6294684cc28",
+  "archives_created": false
+}

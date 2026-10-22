@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "kind": "nm37-final-delivery",
+  "status": "verified_ready_for_manual_transfer_and_board_test",
+  "formal_delivery_directory": "delivery-final",
+  "superseded_directory": "delivery",
+  "integration_commit": "d589b230b975730c108426591e552c056008e82a",
+  "integration_commit_role": "tools/software/reports; each hardware identity listed separately",
+  "archives": [
+    {
+      "path": "nm37-board-transfer.tar.gz",
+      "sha256": "d6916f7a272e7b1fb73410776ab78d50f10a720a1ba071f4fda68333aaa98330",
+      "bytes": 1434503752
+    },
+    {
+      "path": "nm37-source-transfer.tar.gz",
+      "sha256": "e6d651e42f5608a2afb827cd7981387bfbeda186582c89d3d9acc341f81db825",
+      "bytes": 6176289879
+    }
+  ],
+  "board_package_sha256": "5c4f9c3d769d255bfdc4d163cb80ccb9d740f3512418931597bc2d412e8ee943",
+  "hardware_configurations": [
+    {
+      "configuration_id": "A70-P3",
+      "hardware_source_commit": "73b3e42f3006818d13bc059818e11cc803f78dba",
+      "build_id": "a70-p3-rebuild-20261022-final-v2",
+      "source_identity_kind": "built_commit",
+      "bitstream_sha256": "2ad3d1602f4a8b13f4ac64df03e18ff81208feb6d691bb69080558dd76ba993a",
+      "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "manifest_path": "nm37-board-transfer/A70-P3.manifest.json"
+    },
+    {
+      "configuration_id": "A100",
+      "hardware_source_commit": "0f1a643a58894dc52b46d4058f39d12205405644",
+      "build_id": "original-A100-20261013",
+      "source_identity_kind": "reconstructed_source_snapshot",
+      "bitstream_sha256": "f698413a3379cdc2b1155fbce9dc4acdb417935f711058654e2663151659c0cf",
+      "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "manifest_path": "nm37-board-transfer/A100.manifest.json"
+    },
+    {
+      "configuration_id": "A110-APB55",
+      "hardware_source_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+      "build_id": "apb110-build04",
+      "source_identity_kind": "built_commit",
+      "bitstream_sha256": "f3ffe9b90b60fb9ea00594381174bbf47e1f1bb435f2e98cfd32ca292fe11f86",
+      "config_sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "manifest_path": "nm37-board-transfer/A110-APB55.manifest.json"
+    }
+  ],
+  "excluded_board_configurations": {
+    "A70-P2": "routed DUT setup slack -0.182 ns; no accepted bitstream; history remains in source bundle"
+  },
+  "source_profiles": {
+    "a100-reproduction": "0a3a2656df66043ea513a45bab8275c1be0ba76c",
+    "a100-source-snapshot": "0f1a643a58894dc52b46d4058f39d12205405644",
+    "a110-apb55": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+    "a110-audited": "25673838e66ddef9031748ca40f7220c65acedaf",
+    "historical-p2": "f7d31bb197b93eef9dc416d0508e550894531665",
+    "historical-p2-clean": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37",
+    "historical-p3": "73b3e42f3006818d13bc059818e11cc803f78dba",
+    "historical-p3-clean": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+    "integration": "d589b230b975730c108426591e552c056008e82a"
+  },
+  "main_bundle_sha256": "acfde27a74229b67c7b0299fed6eefa1323ff1b44548de7140479abdc36c7cc0",
+  "verification": {
+    "unit_tests_passed": 59,
+    "package_tests_passed": 14,
+    "actual_board_archive_extract_and_inventory_verify": true,
+    "three_configuration_dry_runs_passed": true,
+    "offline_device_parameters_are_fixtures": true,
+    "archive_long_basename_and_normalized_pax_checked": true,
+    "relative_report_and_tool_links_checked": 109,
+    "source_archive_members_stream_hashed": 178,
+    "all_169_standalone_bundles_empty_database_verified": true,
+    "historical_full_restore_dependency_paths": 175,
+    "a100_a110_matching_dependency_paths": 173,
+    "unique_dependency_bundles": 168,
+    "explicit_recursive_exclusions": 11,
+    "root_out_of_scope_gitlinks": 20
+  },
+  "boundaries": {
+    "hardware_programmed": false,
+    "hardware_tested": false,
+    "ssh_or_remote_operations_performed": false,
+    "push_performed": false,
+    "toolchains_vivado_drivers_python_wheels_included": false,
+    "a100_a110_pnr_rerun_in_this_packaging_task": false,
+    "a100_source_is_reconstructed_snapshot_not_original_clean_commit_build": true,
+    "h2_delivery_receipt_commit_not_inside_archives": true
+  },
+  "verification_files": {
+    "verification/A100-dry-run.json": {
+      "sha256": "441560330425de217c5a810097889785b981ebb4ffd4cc22f917c826d78260ac",
+      "bytes": 5184
+    },
+    "verification/A110-APB55-dry-run.json": {
+      "sha256": "01dc08092c4e0dc0ead32ee230b9419d6fb40c56a6364c0acb9f8b41b3214b8d",
+      "bytes": 5183
+    },
+    "verification/A70-P3-dry-run.json": {
+      "sha256": "538d7ec9de9ce6cd5e3fddef4ab2d498f7155686fda105a1570377175e7f5024",
+      "bytes": 5183
+    },
+    "verification/common-software-four-config-comparison.json": {
+      "sha256": "89d569f0725d97b8fc54262c441333a8c51164036a84aac2d74049a606dc248b",
+      "bytes": 6920
+    },
+    "verification/common-software-memory-topology.json": {
+      "sha256": "0129b81b7383c5e6b4c97df5ba9ac208197aaca0a0524d934e6ff6558bc7db10",
+      "bytes": 3262
+    },
+    "verification/final-H1b-board-validation.json": {
+      "sha256": "26ac192d66a268377d42f33e07d9fb6dfa3baaf57f4e92bcdd257c26c31a8417",
+      "bytes": 3264
+    },
+    "verification/final-H1b-delivery-spec-review.json": {
+      "sha256": "74daabdcf3103f161bdf1b5614dbfa2df775d33e50c3b3a07340ae4f9c0cf3b6",
+      "bytes": 682
+    },
+    "verification/final-H1b-dependency-copy.json": {
+      "sha256": "499f70ce82bf60b80644b962fd576ad2f092315616ced70d414fc29c61758223",
+      "bytes": 32792
+    },
+    "verification/final-H1b-source-validation.json": {
+      "sha256": "db77f8b4c595f2a8b6e1d058f7e2ce1864395cd490c86903c2f66496bdce7a1b",
+      "bytes": 1346
+    },
+    "verification/final_receipt.py": {
+      "sha256": "56905e6ad41eb29aa443f88e535339b3306c1f62779e8d0d889afd7a2961aa5e",
+      "bytes": 7811
+    },
+    "verification/nm37-board-pax-full-tests.log": {
+      "sha256": "7848c3a6611ecf25ed4b5375638e24ac554e6465d123fc189092405a2e174202",
+      "bytes": 7340
+    },
+    "verification/old-H1-writer-final-status.json": {
+      "sha256": "66a7ed585c75223c04829e529beaa9fa92c697952462c46c53e287e5973887d0",
+      "bytes": 1248
+    },
+    "verification/package-pax-after-fix.log": {
+      "sha256": "417413efdadac623f2e4da8725fdeeb8c42b80ef92fda7f29570067976068a09",
+      "bytes": 1739
+    },
+    "verification/package-pax-fix-review.json": {
+      "sha256": "908d276fd7ba7fbb84b6125f815f494780ffa9eb37396aea122b38f478e9ebda",
+      "bytes": 1294
+    },
+    "verification/source-bundle-full-restore-acceptance.json": {
+      "sha256": "ce20440defb857e9b95f9feb3754036cb928be2cdc9e1b01b6df883c5c6b7970",
+      "bytes": 2607
+    },
+    "verification/source-bundle-profile-compatibility.json": {
+      "sha256": "59681539b68dcef1806be60813b3d7daee80ddabeb065545b5c7b4f41b0af484",
+      "bytes": 135006
+    },
+    "verification/source-bundle-restored-vs-final-p3-v2.json": {
+      "sha256": "de9e7f4094ae6ea79b4b0aa97a9fba0b15c1d052e8f28cd3982176fb0bcda712",
+      "bytes": 2833
+    },
+    "verification/verify_final_board.py": {
+      "sha256": "cfaeb650851aff8dfdee4fc3611e517969805e9b3a5bc6ad6b8fcf36ae370977",
+      "bytes": 3570
+    },
+    "verification/verify_final_source.py": {
+      "sha256": "4ec890cff411d8d83aefac702b67d11db3c163b805a2e3f0ff0053e969be59ef",
+      "bytes": 2408
+    }
+  }
+}

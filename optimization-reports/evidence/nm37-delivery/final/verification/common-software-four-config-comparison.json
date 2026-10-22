@@ -1,0 +1,243 @@
+{
+  "passed": true,
+  "hardware_tested": false,
+  "scope": "Shared board Runtime workload on four existing independent RTL simulators. Same inputs/instructions/output; simulator memory geometry differs between historical A70 and later A100/A110. Not measured PCIe/HBM board performance.",
+  "a100_binary_provenance": {
+    "metadata_sha256": "471c0b966bd82c8b9e405c839ff6b3b0c4e81e39695d7b13418ade18ed8b49c2",
+    "simulator_sha256": "d6f09ed87011c2f84cd5b6a42b3c31d17d0f3bbf3bb8404db6e967a57167428b",
+    "rtl_files_verified": 224,
+    "generator_sha256": "55d04ff753195966be9d0cec4eac68cc61c9e5907a3354814e4fa321a21794d4",
+    "source_commit_note": "Rerun identity hardware_source_commit identifies the current directory supplying DRAMSim ini, not the historical simulator build commit. The old build metadata and reconstructed-source audit establish actual build provenance."
+  },
+  "rows": [
+    {
+      "seq": 16,
+      "seed": 0,
+      "counters": {
+        "p2": {
+          "dmaActive": 101,
+          "dmaInst": 4,
+          "execTime": 394,
+          "fence": 1,
+          "mxActive": 179,
+          "mxBubble": 167,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "p3": {
+          "dmaActive": 101,
+          "dmaInst": 4,
+          "execTime": 442,
+          "fence": 1,
+          "mxActive": 249,
+          "mxBubble": 111,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "a100": {
+          "dmaActive": 76,
+          "dmaInst": 4,
+          "execTime": 437,
+          "fence": 1,
+          "mxActive": 267,
+          "mxBubble": 103,
+          "mxInst": 5,
+          "rawInst": 32
+        },
+        "a110": {
+          "dmaActive": 76,
+          "dmaInst": 4,
+          "execTime": 437,
+          "fence": 1,
+          "mxActive": 267,
+          "mxBubble": 103,
+          "mxInst": 5,
+          "rawInst": 32
+        }
+      },
+      "instructions_sha256": "317de176b8fbd0796f04b5b0c44228a5738cf40f33287f6c7b34ef8e07f174ac",
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "a9c44bec009a848ef115730e7ec045ddf78597cb6260a2a613eacd7d8e98edd7",
+          "shape": [
+            16,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "99d8dc89dfe81120c7057c6abcf55efeafd3dced5ccfc53ddac24be487ac7ff2",
+          "shape": [
+            16,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "6680dbcdc2574a2c63c60de2f7009a141e43ce360cb62ceaa51c07e8a0b7ae64",
+          "shape": [
+            16,
+            16
+          ]
+        }
+      },
+      "actual_sha256_raw": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d"
+    },
+    {
+      "seq": 32,
+      "seed": 0,
+      "counters": {
+        "p2": {
+          "dmaActive": 271,
+          "dmaInst": 12,
+          "execTime": 1109,
+          "fence": 1,
+          "mxActive": 610,
+          "mxBubble": 550,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "p3": {
+          "dmaActive": 260,
+          "dmaInst": 12,
+          "execTime": 1157,
+          "fence": 1,
+          "mxActive": 754,
+          "mxBubble": 421,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "a100": {
+          "dmaActive": 220,
+          "dmaInst": 12,
+          "execTime": 1152,
+          "fence": 1,
+          "mxActive": 824,
+          "mxBubble": 295,
+          "mxInst": 16,
+          "rawInst": 97
+        },
+        "a110": {
+          "dmaActive": 220,
+          "dmaInst": 12,
+          "execTime": 1152,
+          "fence": 1,
+          "mxActive": 824,
+          "mxBubble": 295,
+          "mxInst": 16,
+          "rawInst": 97
+        }
+      },
+      "instructions_sha256": "f633f909593e240257b95792aead6cdff935c592d0e79f9f2021a3ab409b2865",
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "59d43f7c7b44fb146d59d3eb224086e80c40cbb96beb6cd4ebe8d21fe0e552a0",
+          "shape": [
+            32,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "4c2713892b923f089dbd9d57863dffd8e4495941e9f06fc6cea2a9b533fdefe7",
+          "shape": [
+            32,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "83fa4d1c41d6e3de0b87d11a7dcf6be9c542fb3e431e276f6f366f661c168c99",
+          "shape": [
+            32,
+            16
+          ]
+        }
+      },
+      "actual_sha256_raw": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3"
+    },
+    {
+      "seq": 64,
+      "seed": 0,
+      "counters": {
+        "p2": {
+          "dmaActive": 827,
+          "dmaInst": 40,
+          "execTime": 3661,
+          "fence": 1,
+          "mxActive": 2228,
+          "mxBubble": 1890,
+          "mxInst": 56,
+          "rawInst": 329
+        },
+        "p3": {
+          "dmaActive": 794,
+          "dmaInst": 40,
+          "execTime": 3709,
+          "fence": 1,
+          "mxActive": 2532,
+          "mxBubble": 1599,
+          "mxInst": 56,
+          "rawInst": 329
+        },
+        "a100": {
+          "dmaActive": 712,
+          "dmaInst": 40,
+          "execTime": 3704,
+          "fence": 1,
+          "mxActive": 2808,
+          "mxBubble": 997,
+          "mxInst": 56,
+          "rawInst": 329
+        },
+        "a110": {
+          "dmaActive": 712,
+          "dmaInst": 40,
+          "execTime": 3704,
+          "fence": 1,
+          "mxActive": 2808,
+          "mxBubble": 997,
+          "mxInst": 56,
+          "rawInst": 329
+        }
+      },
+      "instructions_sha256": "30fafa6720c1d323a1bd4bac416d938fc6e29dfe69da149128bab423cc0b52bd",
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "b09a3797d8cee46d4a510e47a20c773ac1915cd109b7c3ef61e84e8ace7cec42",
+          "shape": [
+            64,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "60515e8c1a763b43d6636132b48749dbcb9ce67e6677c98bb174a18282abea2d",
+          "shape": [
+            64,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "2686d563ae43a81638c565ef08abee05d88a40bb3ffe441e3433ddb730bce33c",
+          "shape": [
+            64,
+            16
+          ]
+        }
+      },
+      "actual_sha256_raw": "d9b1a5feea470367d00a3eb02f3530e555df09ce0aacadac737494156c294ec2"
+    }
+  ],
+  "a110_binary_provenance": {
+    "build_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+    "build_sha256": "f262579e75146e476c751a6e1a3aed100c3833161a825305fe668d556f1b30fc",
+    "sim16_seal_sha256": "36937a234e6e47d70dcb84f09ce599e9095ec811ad78e4c27bc285320c3980fa",
+    "all_seal_files_verified": 263,
+    "simulator_sha256": "e5ac59b248bd6927dd8f3d56cc840c1ab589eea54940f7994fb740869af1245d"
+  }
+}

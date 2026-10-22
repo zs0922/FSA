@@ -1,0 +1,25 @@
+{
+  "status": "completed_naturally_but_superseded_not_final_delivery",
+  "integration_commit": "3bd71c91bda0d3218664945a1942f1fc568abea1",
+  "correction": "Tool session exit130 did not terminate writer children. Both subsequently reached their final receipt/log after archive write and stream validation; final independent rehash now matches.",
+  "stable_interval_seconds": 49.807290121,
+  "archives": {
+    "board": {
+      "archive_bytes": 1434497473,
+      "archive_sha256": "8e0b576c58578261449288727e9963af659ae4ff9138c4cdd57db79539b7523d",
+      "mtime_ns": 1792667212262831080,
+      "receipt_and_terminal_log_match": true,
+      "stable_during_independent_rehash": true
+    },
+    "source": {
+      "archive_bytes": 6176286574,
+      "archive_sha256": "3a8480b9605a30304496d2042b1f2520c99105d2fff72e26a6e7569ed34ddf2e",
+      "mtime_ns": 1792667263184176058,
+      "receipt_and_terminal_log_match": true,
+      "stable_during_independent_rehash": true
+    }
+  },
+  "payload_writer_final_code_path": "After archive closure and verification, each writer wrote the matching final receipt and printed it; no payload mutation follows.",
+  "preserved_attempt": true,
+  "successor_integration_commit": "d589b230b975730c108426591e552c056008e82a"
+}

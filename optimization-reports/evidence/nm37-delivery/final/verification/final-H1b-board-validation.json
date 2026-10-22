@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "integration_commit": "d589b230b975730c108426591e552c056008e82a",
+  "official_packager": true,
+  "archive": {
+    "archive": "nm37-a70-rebuild-20261022/delivery-final/nm37-board-transfer.tar.gz",
+    "sha256": "d6916f7a272e7b1fb73410776ab78d50f10a720a1ba071f4fda68333aaa98330",
+    "bytes": 1434503752
+  },
+  "package_sha256": "5c4f9c3d769d255bfdc4d163cb80ccb9d740f3512418931597bc2d412e8ee943",
+  "extract": {
+    "verified": true,
+    "files": 1808,
+    "configurations": [
+      "A100",
+      "A110-APB55",
+      "A70-P3"
+    ]
+  },
+  "verify": {
+    "verified": true,
+    "files": 1808,
+    "configurations": [
+      "A100",
+      "A110-APB55",
+      "A70-P3"
+    ]
+  },
+  "dry_runs": [
+    {
+      "configuration_id": "A70-P3",
+      "manifest_sha256": "c03efbeacef54c70a25d5b3c5da6433de03ab8e3c59c590449da0d04e3f040ed",
+      "bit_sha256": "2ad3d1602f4a8b13f4ac64df03e18ff81208feb6d691bb69080558dd76ba993a",
+      "hardware_source_commit": "73b3e42f3006818d13bc059818e11cc803f78dba",
+      "identity_kind": "built_commit",
+      "result": {
+        "dry_run": true,
+        "hardware_tested": false,
+        "files_verified": true
+      },
+      "run_metadata_sha256": "538d7ec9de9ce6cd5e3fddef4ab2d498f7155686fda105a1570377175e7f5024"
+    },
+    {
+      "configuration_id": "A100",
+      "manifest_sha256": "37d5d8cafe8d2818baabe79ec73e891bc8b6546f4db647235cfe03fd5fa9358d",
+      "bit_sha256": "f698413a3379cdc2b1155fbce9dc4acdb417935f711058654e2663151659c0cf",
+      "hardware_source_commit": "0f1a643a58894dc52b46d4058f39d12205405644",
+      "identity_kind": "reconstructed_source_snapshot",
+      "result": {
+        "dry_run": true,
+        "hardware_tested": false,
+        "files_verified": true
+      },
+      "run_metadata_sha256": "441560330425de217c5a810097889785b981ebb4ffd4cc22f917c826d78260ac"
+    },
+    {
+      "configuration_id": "A110-APB55",
+      "manifest_sha256": "fc48464369244b64a2c4d4d373ecd16cf5937327746211a061f3009d48877132",
+      "bit_sha256": "f3ffe9b90b60fb9ea00594381174bbf47e1f1bb435f2e98cfd32ca292fe11f86",
+      "hardware_source_commit": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+      "identity_kind": "built_commit",
+      "result": {
+        "dry_run": true,
+        "hardware_tested": false,
+        "files_verified": true
+      },
+      "run_metadata_sha256": "01dc08092c4e0dc0ead32ee230b9419d6fb40c56a6364c0acb9f8b41b3214b8d"
+    }
+  ],
+  "offline_device_arguments_are_fixtures": true,
+  "hardware_tested": false,
+  "relative_report_and_tool_links_verified": 109,
+  "historical_absolute_links_preserved": [
+    {
+      "report": "docs/repository/optimization-reports/NM37_A110_APB.md",
+      "historical_absolute_link": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/bitstream04/export/NM37_A110.bit"
+    }
+  ],
+  "normalized_pax_metadata_verified": true,
+  "long_basename_files": [
+    "docs/repository/optimization-reports/evidence/nm37-a110-apb/build/A110/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.xdma_master_lite_axi_clock_converter_0.vivado.tcl"
+  ],
+  "nm37_delivery_evidence_present": true,
+  "extracted_root": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/migration-final-board-extract-v2"
+}

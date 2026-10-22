@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "integration_commit": "d589b230b975730c108426591e552c056008e82a",
+  "archive_sha256": "e6d651e42f5608a2afb827cd7981387bfbeda186582c89d3d9acc341f81db825",
+  "archive_bytes": 6176289879,
+  "all_archive_members_stream_hashed": 178,
+  "payload_bytes": 6399384713,
+  "regular_unique_relative_members_only": true,
+  "normalized_metadata_verified": true,
+  "final_main_bundle_verified_in_empty_object_database": true,
+  "profiles": {
+    "a100-reproduction": "0a3a2656df66043ea513a45bab8275c1be0ba76c",
+    "a100-source-snapshot": "0f1a643a58894dc52b46d4058f39d12205405644",
+    "a110-apb55": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67",
+    "a110-audited": "25673838e66ddef9031748ca40f7220c65acedaf",
+    "historical-p2": "f7d31bb197b93eef9dc416d0508e550894531665",
+    "historical-p2-clean": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37",
+    "historical-p3": "73b3e42f3006818d13bc059818e11cc803f78dba",
+    "historical-p3-clean": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+    "integration": "d589b230b975730c108426591e552c056008e82a"
+  },
+  "main_bundle_sha256": "acfde27a74229b67c7b0299fed6eefa1323ff1b44548de7140479abdc36c7cc0",
+  "dependency_bundle_empty_verification_in_archive_finalizer": true,
+  "prior_full_175_dependency_restore": "review/source-bundle-full-restore-acceptance.json",
+  "full_restore_not_repeated": true
+}

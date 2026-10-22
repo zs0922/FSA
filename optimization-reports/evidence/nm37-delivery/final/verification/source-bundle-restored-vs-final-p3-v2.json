@@ -1,0 +1,124 @@
+{
+  "reference_lock_sha256": "8bc85973204dd0a2f37582367b62c28585104dc8682a3f714dde981ad7735d9b",
+  "restored_lock_sha256": "9c118558c2c0c40dddbac1d8e4fec3e346096b4520d0455ceb8f26a0bd6a4a0e",
+  "root_commit": {
+    "reference": "73b3e42f3006818d13bc059818e11cc803f78dba",
+    "restored": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b"
+  },
+  "dependencies_equal": true,
+  "excluded_dependencies_equal": true,
+  "input_policy_equal": true,
+  "reference_files": 478173,
+  "restored_files": 478176,
+  "added": {
+    "scripts/nm37-a70-build.sh": {
+      "mode": 33261,
+      "sha256": "8162d11b28640d69e2ad5c9f3db926bedb7df3881de340befe999b9a7a8a1bbd"
+    },
+    "scripts/nm37-a70-install.py": {
+      "mode": 33261,
+      "sha256": "be9161fc928243b527adff62b6b58687297ae4778d9bed0ea228c9f68f4a36cc"
+    },
+    "scripts/nm37-a70-source-lock.py": {
+      "mode": 33261,
+      "sha256": "74e3fbb7979f18923421a58ac702ecc60011fe9b453b26597af6048335aa036b"
+    }
+  },
+  "removed": {},
+  "content_changed": {},
+  "mode_only_or_also_changed_count": 8,
+  "mode_groups": [
+    {
+      "modes": {
+        "reference": {
+          "mode": 33204
+        },
+        "restored": {
+          "mode": 33188
+        }
+      },
+      "count": 7
+    },
+    {
+      "modes": {
+        "reference": {
+          "mode": 33204
+        },
+        "restored": {
+          "mode": 33261
+        }
+      },
+      "count": 1
+    }
+  ],
+  "mode_changes": {
+    ".gitignore": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "fpga/Makefile": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "generators/chipyard/src/main/scala/config/A70SinglePortConfig.scala": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "generators/fsa/src/test/scala/fsa/A70AccumulatorVerification.scala": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "generators/fsa/src/test/scala/fsa/A70LegacyExp2.scala": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "generators/fsa/src/test/scala/fsa/A70LegacyFMA.scala": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "generators/fsa/src/test/scala/fsa/A70LegacyReciprocal.scala": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33188
+      }
+    },
+    "scripts/nm37-a70-prepare.py": {
+      "reference": {
+        "mode": 33204
+      },
+      "restored": {
+        "mode": 33261
+      }
+    }
+  },
+  "executable_mode_changes": [
+    "scripts/nm37-a70-prepare.py"
+  ],
+  "common_content_equal_count": 478173
+}

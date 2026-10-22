@@ -1,0 +1,134 @@
+{
+  "A70-P2": {
+    "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p2/sim16/build/gen-collateral/AXI4FSA.sv",
+    "sha256": "6359b266f90815858f73ec8fdd6e3a2d4fb9893295c0f1dac120f3d65f2c1d92",
+    "ports": [
+      {
+        "line": 64,
+        "msb": 255,
+        "width": 256,
+        "name": "auto_dma_out_w_bits_data"
+      }
+    ]
+  },
+  "A70-P3": {
+    "file": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/final-p3-v2/sim16/build/gen-collateral/AXI4FSA.sv",
+    "sha256": "6359b266f90815858f73ec8fdd6e3a2d4fb9893295c0f1dac120f3d65f2c1d92",
+    "ports": [
+      {
+        "line": 64,
+        "msb": 255,
+        "width": 256,
+        "name": "auto_dma_out_w_bits_data"
+      }
+    ]
+  },
+  "A100": {
+    "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/A/sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/gen-collateral/AXI4FSA.sv",
+    "sha256": "f1f905e8a0c97166b270f03bc5b0be63130098f6e1b1fa2cf272115b9469b044",
+    "ports": [
+      {
+        "line": 64,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_7_w_bits_data"
+      },
+      {
+        "line": 84,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_6_w_bits_data"
+      },
+      {
+        "line": 104,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_5_w_bits_data"
+      },
+      {
+        "line": 124,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_4_w_bits_data"
+      },
+      {
+        "line": 144,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_3_w_bits_data"
+      },
+      {
+        "line": 164,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_2_w_bits_data"
+      },
+      {
+        "line": 184,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_1_w_bits_data"
+      },
+      {
+        "line": 204,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_0_w_bits_data"
+      }
+    ]
+  },
+  "A110-APB55": {
+    "file": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/build04/sim16/generated-src/chipyard.harness.TestHarness.AXI4FSA16X16Fp16Config/gen-collateral/AXI4FSA.sv",
+    "sha256": "f1f905e8a0c97166b270f03bc5b0be63130098f6e1b1fa2cf272115b9469b044",
+    "ports": [
+      {
+        "line": 64,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_7_w_bits_data"
+      },
+      {
+        "line": 84,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_6_w_bits_data"
+      },
+      {
+        "line": 104,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_5_w_bits_data"
+      },
+      {
+        "line": 124,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_4_w_bits_data"
+      },
+      {
+        "line": 144,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_3_w_bits_data"
+      },
+      {
+        "line": 164,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_2_w_bits_data"
+      },
+      {
+        "line": 184,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_1_w_bits_data"
+      },
+      {
+        "line": 204,
+        "msb": 63,
+        "width": 64,
+        "name": "auto_dma_out_0_w_bits_data"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "Fix official archive entry for real A110 evidence basenames longer than USTAR supports",
+  "reproduced_before_fix": {
+    "log": "package-long-basename-before-fix.log",
+    "failure": "ValueError: name is too long"
+  },
+  "package_tests": 14,
+  "all_board_tests": 59,
+  "package_test_log": "package-pax-after-fix.log",
+  "full_test_log": "nm37-board-pax-full-tests.log",
+  "full_test_log_sha256": "7848c3a6611ecf25ed4b5375638e24ac554e6465d123fc189092405a2e174202",
+  "format": "PAX tar + deterministic gzip",
+  "metadata_normalized": [
+    "uid",
+    "gid",
+    "mtime",
+    "uname",
+    "gname",
+    "mode",
+    "initial pax_headers"
+  ],
+  "long_basename_case_checks": [
+    "actual A110 path shape",
+    "original name/content unchanged",
+    "only path PAX field",
+    "normalized metadata",
+    "two archives same SHA",
+    "safe extract and verify",
+    "content tamper rejected"
+  ],
+  "files": {
+    "scripts/nm37-board/package.py": "3145e78e333eaae9dc1cc92cb1de44b7a17ee3d74884ea87e229aae28c1e9244",
+    "scripts/nm37-board/test_package.py": "dd7bc707f9fc8660b44dc0f73881a666fb54ab52c988c530ac5c0f9952626387"
+  },
+  "old_H1_archives_not_deliverable": true,
+  "final_H1b_archives_created": false,
+  "commit_performed": false,
+  "push_performed": false
+}

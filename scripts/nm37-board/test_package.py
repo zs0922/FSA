@@ -50,6 +50,30 @@ class PackageTest(unittest.TestCase):
             if path.is_file():
                 self.assertNotIn(str(self.root).encode(), path.read_bytes())
 
+    def test_actual_source_reproduction_doc_is_bound_and_safely_extracted(self):
+        original = Path(pkg.__file__).resolve().parent / 'docs/source-reproduction.md'
+        self.assertTrue(original.is_file())
+        self.build()
+        name = 'board-tools/docs/source-reproduction.md'
+        self.assertEqual((self.output / name).read_bytes(), original.read_bytes())
+        info = json.loads((self.output / 'package.json').read_text())
+        self.assertEqual(info['files'][name]['sha256'], b.sha(original))
+        self.assertIn(b.sha(original) + '  ' + name,
+                      (self.output / 'SHA256SUMS').read_text().splitlines())
+        self.assertTrue(pkg.verify(self.output)['verified'])
+        archive = self.root / 'with-docs.tar.gz'
+        packaged = pkg.archive(self.output, archive)
+        with tarfile.open(archive) as tar:
+            member = tar.getmember(name)
+            self.assertTrue(member.isfile())
+            self.assertEqual(tar.extractfile(member).read(), original.read_bytes())
+        extracted = self.root / 'extracted-with-docs'
+        self.assertTrue(pkg.extract(archive, extracted, packaged['sha256'])['verified'])
+        self.assertEqual((extracted / name).read_bytes(), original.read_bytes())
+        (extracted / name).write_text('changed documentation')
+        with self.assertRaises(ValueError):
+            pkg.verify(extracted)
+
     def test_easyfloat_changes_are_rejected_by_both_verifiers(self):
         self.build()
         easy = self.output / 'software/generators/easyfloat/pyeasyfloat/backend.py'

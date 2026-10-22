@@ -278,6 +278,28 @@ def clone_bundle(bundle, target, commit, refs):
     git(target, 'fsck', '--connectivity-only', '--no-dangling')
 
 
+def register_submodule(parent, relative, commit):
+    """Mark a restored gitlink active, without copying an upstream/local URL.
+
+    Legacy build gates use `git submodule status`; an independent child .git
+    alone is otherwise shown as uninitialized even when its HEAD is correct.
+    """
+    config = git(parent, 'config', '-z', '--file', '.gitmodules',
+                 '--get-regexp', r'^submodule\..*\.path$')
+    names = []
+    for item in config.split('\0'):
+        if item:
+            key, path = item.split('\n', 1)
+            if path == relative:
+                names.append(key[len('submodule.'):-len('.path')])
+    if len(names) != 1:
+        raise ValueError('Restored gitlink requires one .gitmodules path entry: ' + relative)
+    git(parent, 'config', '--local', 'submodule.' + names[0] + '.active', 'true')
+    status = git(parent, 'submodule', 'status', '--', relative)
+    if not status or status.split()[0] != commit:
+        raise ValueError('Restored gitlink is not active at its exact pin: ' + relative)
+
+
 def load_dependencies(path):
     path = Path(path).resolve(strict=True)
     data = json.loads(path.read_text())
@@ -313,6 +335,8 @@ def restore_dependencies(manifest_path, output, selection):
             if links(parent, git(parent, 'rev-parse', 'HEAD')).get(record['parent_relative_gitlink']) != record['commit']:
                 raise ValueError('Restored parent gitlink mismatch')
         clone_bundle(checked_bundle(root, record), output / name, record['commit'], record['refs'])
+        if record['parent'] != '.':
+            register_submodule(output / record['parent'], record['parent_relative_gitlink'], record['commit'])
         restored[name] = record['commit']
     save(output / 'restore.json', {'kind': 'dependency-only-smoke', 'restored': restored,
                                  'hardware_built': False, 'no_remotes_or_alternates': True})
@@ -356,6 +380,7 @@ def restore(main_path, dependencies_path, profile, output):
             if record is None:
                 raise ValueError('Incomplete dependency export for profile: ' + name)
             clone_bundle(checked_bundle(deps_root, record), output / name, commit, record['refs'])
+            register_submodule(output if parent == '.' else output / parent, relative, commit)
             restored[name] = commit
             queue.append((name, commit, links(output / name, commit)))
     result = {'profile': profile, 'root_commit': selected['commit'], 'restored_dependencies': restored,

@@ -137,7 +137,7 @@ python3 /path/to/new-transfer/board-tools/package.py verify --root /path/to/new-
 sha256sum /path/to/new-transfer.tar.gz
 ```
 
-包内 `SHA256SUMS` 覆盖每个有效载荷和 `package.json`，后者记录逐文件 SHA/大小及配置列表。归档不带原机器目录、uid/gid/mtime，固定文件内容时可复现。仅拷贝 Python 源码、README、pyproject/uv.lock，不带 `.venv`、缓存、RTL build 产物。源代码仓库 bundle、submodule 对象、板级配置/报告需作为附件显式加入；Vivado/toolchain/wheels 默认不在包里，所以本工具不能单独保证离线完整重新编译 FPGA。
+工具自带的 `docs/*.md` 原样进入 `board-tools/docs/`，README 的相对文档链接在解包后仍有效。包内 `SHA256SUMS` 覆盖每个有效载荷和 `package.json`，后者记录逐文件 SHA/大小及配置列表。归档不带原机器目录、uid/gid/mtime，固定文件内容时可复现。仅拷贝 Python 源码、README、pyproject/uv.lock，不带 `.venv`、缓存、RTL build 产物。源代码仓库 bundle、submodule 对象、板级配置/报告需作为附件显式加入；Vivado/toolchain/wheels 默认不在包里，所以本工具不能单独保证离线完整重新编译 FPGA。
 
 把 archive SHA 通过可信通道保存。目标服务器先比较 SHA，再使用可审查的 `package.py extract` 解包：
 
@@ -158,7 +158,7 @@ PCIe ID 证据：本次 A110 已生成 `obj/ip/nm37_xdma/nm37_xdma.xci` 的 `PAR
 
 只下载主仓或主仓 `.bundle` 不包含 submodule Git 对象。离线环境也不能靠 `.gitmodules` 的 remote URL 获取内容；本工作区还有 shared alternates，直接复制小 `.git` 目录会保留对原机器路径的依赖。
 
-`source_bundle.py` 从每个精确 commit 获取完整可达对象到独立临时 bare 仓，再导出独立 bundle；在空对象库执行 `git bundle verify`，不修改原仓库/分支。相同 commit 的递归库共用一个 bundle，清单路径相对，不携带原机器 alternates。源码 Git 历史中原有 URL/文本保留，但恢复命令不使用网络；恢复仓库删除 origin、检查没有 alternates、核对 HEAD 和父仓 gitlink，并执行 connectivity fsck。
+`source_bundle.py` 从每个精确 commit 获取完整可达对象到独立临时 bare 仓，再导出独立 bundle；在空对象库执行 `git bundle verify`，不修改原仓库/分支。相同 commit 的递归库共用一个 bundle，清单路径相对，不携带原机器 alternates。源码 Git 历史中原有 URL/文本保留，但恢复命令不使用网络；恢复仓库删除 origin、检查没有 alternates、核对 HEAD 和父仓 gitlink，并执行 connectivity fsck。恢复器仅在父仓本地配置中标记已恢复子模块 `active=true`，不写入 remote/URL，确保旧构建门禁的 `git submodule status` 能识别其已初始化状态。
 
 依赖从实际构建 source-lock 的 `dependencies` 导出。该任务锁定 175 个依赖路径、11 个显式递归排除；主仓另外 20 个不在 NM37 构建锁内的 root gitlinks（如软件 workload 和无关工具仓库）单列为 out-of-scope，不下载、不冒充已经恢复。是否“完整”指这个构建 scope，不能声称整个 Chipyard 所有子模块已填满。源码 bundle 不包含编译缓存、安装后的工具链、Vivado 或许可证。版本化的 toolchain *源码* 若实际存在于锁内则依锁保留。
 
@@ -178,10 +178,14 @@ python3 scripts/nm37-board/source_bundle.py dependencies \
 {
   "profiles": {
     "integration": {"repository": "/path/to/integration", "revision": "FINAL_COMMIT"},
+    "historical-p2-clean": {"repository": "/path/to/stages/p2", "revision": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37"},
+    "historical-p3-clean": {"repository": "/path/to/stages/p3", "revision": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b"},
     "historical-p2": {"repository": "/path/to/stages/p2", "revision": "f7d31bb197b93eef9dc416d0508e550894531665"},
     "historical-p3": {"repository": "/path/to/stages/p3", "revision": "73b3e42f3006818d13bc059818e11cc803f78dba"},
     "a100-source-snapshot": {"repository": "/path/to/integration", "revision": "0f1a643a58894dc52b46d4058f39d12205405644"},
-    "a110-apb55": {"repository": "/path/to/integration", "revision": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67"}
+    "a110-apb55": {"repository": "/path/to/integration", "revision": "eeb1a1d0ac6f47497eb2806e412d9df9ad4b6b67"},
+    "a100-reproduction": {"repository": "/path/to/integration", "revision": "0a3a2656df66043ea513a45bab8275c1be0ba76c"},
+    "a110-audited": {"repository": "/path/to/integration", "revision": "25673838e66ddef9031748ca40f7220c65acedaf"}
   }
 }
 ```
@@ -211,4 +215,26 @@ python3 source_bundle.py restore-dependencies \
 
 该检查只恢复选定的依赖及递归子库，不含主仓，输出明确标为 dependency-only smoke。`test_source_bundle.py` 还用小型 Git fixtures 验证原仓被移走后仍能恢复、shared alternates 的独立导出、主仓多 profile/父链、精确 gitlinks、integration 跟踪目录不被旧子模块覆盖，以及缺失/损坏 bundle 拒绝。
 
-历史 source-lock 可能记录了原工作区的组写权限（例如 0664），Git 则只版本化普通文件的可执行位。跨机器对比应分别列出内容 SHA、可执行位和完整权限位，不能把 umask 造成的模式差异误报为 RTL 内容变化，也不能直接声称两个完整 source-lock JSON 相同。
+历史 source-lock 可能记录了原工作区的组写权限（例如 0664），Git 则只版本化普通文件的可执行位。跨机器对比应分别列出内容 SHA、可执行位和完整权限位，不能把 umask 造成的模式差异误报为 RTL 内容变化，也不能直接声称两个完整 source-lock JSON 相同。少数上游测试文件还通过 `.gitattributes` 显式使用 `text eol=crlf`；工作树原始 SHA 应与实际源锁比较，Git blob 校验则按声明归一化并记录，不能把 CRLF 转换默默忽略。
+
+完整历史 P3 安装入口恢复示例（`integration-tools` 指经审核的 integration 主仓代码，可由 main bundle 的 integration profile 检出；这些工具本身不需要先填满其子模块）：
+
+```bash
+python3 source_bundle.py restore --main migration-main/main.json \
+  --dependencies migration-source-deps/dependencies.json \
+  --profile historical-p3-clean --out /path/to/restored-p3
+python3 /path/to/integration-tools/scripts/nm37-a70/install_historical.py drycheck \
+  --root /path/to/restored-p3 --stage p3
+python3 /path/to/integration-tools/scripts/nm37-a70/install_historical.py install \
+  --root /path/to/restored-p3 --stage p3
+python3 /path/to/integration-tools/scripts/nm37-a70/install_historical.py verify \
+  --root /path/to/restored-p3 --stage p3
+python3 /path/to/restored-p3/scripts/nm37-a70-source-lock.py capture \
+  --source /path/to/restored-p3 --lock /path/to/restored-p3-source-lock.json
+```
+
+这里从原始 `45d859c1...` 安装，固定 P3 `73b3e42f...` profile 保留已验证构建的提交和父链；两者不是同一个 Git HEAD。验收比较实际产品源内容，单列 installer 新增工具、权限和 root commit 差异。P2 使用 `historical-p2-clean` 和 `--stage p2`。不能直接在已修复提交上再次执行要求原始 HEAD 的 installer。
+
+已核对本任务的 A100 `0f1a643a...`、A110 `eeb1a1d0...` 以及工具集成 `47a123fe...`：它们的递归 gitlinks 使用此包中的相同 173 个依赖 pin，FSA/easyfloat 两个目录已直接版本化，不使用对应历史子仓 bundle；各自仍明确保留 11 个递归排除和 20 个 root 范围外 gitlinks。这只是源对象兼容性结论，完整编译、布局布线还需要各 profile 的构建入口、工具链和独立验收。
+
+目标服务器的分阶段编译、验证、布局布线与 A110 历史 reaudit 命令见 [源码恢复与比特流重建](docs/source-reproduction.md)。A100 使用修复门禁后的 `a100-reproduction`，A110 新构建/旧DCP审计使用 `a110-audited`，不要在加入新工具后的 integration checkout 上直接运行历史锁定入口。

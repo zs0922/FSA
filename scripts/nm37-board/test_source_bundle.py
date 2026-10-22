@@ -43,6 +43,8 @@ class SourceBundleTest(unittest.TestCase):
 
     def link(self, path, name, commit):
         s.git(path, 'update-index', '--add', '--cacheinfo', '160000', commit, name)
+        s.git(path, 'config', '--file', '.gitmodules', 'submodule.fixture.' + name + '.path', name)
+        s.git(path, 'add', '.gitmodules')
 
     def export_deps(self, **kwargs):
         with contextlib.redirect_stdout(io.StringIO()):
@@ -69,6 +71,11 @@ class SourceBundleTest(unittest.TestCase):
             self.assertEqual(s.git(repo, 'remote'), '')
             self.assertFalse((repo / '.git/objects/info/alternates').exists())
         self.assertEqual((restored / 'lib/nested/nested.txt').read_text(), 'nested content')
+        statuses = s.git(restored, 'submodule', 'status', '--recursive').splitlines()
+        self.assertEqual({line.split()[0] for line in statuses}, {self.lib, self.nested})
+        for parent, key in [(restored, 'fixture.lib'), (restored / 'lib', 'fixture.nested')]:
+            self.assertEqual(s.git(parent, 'config', '--local', 'submodule.' + key + '.active'), 'true')
+            self.assertNotIn('.url=', s.git(parent, 'config', '--local', '--list'))
 
     def test_export_from_shared_alternates_is_self_contained(self):
         shared = self.root / 'shared'

@@ -1,0 +1,162 @@
+{
+  "helper_sha256": "be9161fc928243b527adff62b6b58687297ae4778d9bed0ea228c9f68f4a36cc",
+  "tests": [
+    {
+      "stage": "p2",
+      "test": "drycheck",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: drycheck historical NM37 p2\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p2",
+      "test": "drycheck",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 185, in main\n    fresh_check(root, a.stage)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 113, in fresh_check\n    require(not git(root, 'status', '--porcelain', '--untracked-files=all'), 'Historical checkout must be clean before installation')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 50, in require\n    raise RuntimeError(message)\nRuntimeError: Historical checkout must be clean before installation\n"
+    },
+    {
+      "stage": "p2",
+      "test": "install",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: complete historical patches applied before generator compilation\nPASS: exact historical patched trees unchanged\nPASS: install historical NM37 p2\n",
+      "stderr": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2/fpga/patches/p0p1/fpga-shells-p0p1.patch:176: new blank line at EOF.\n+\nwarning: 1 line adds whitespace errors.\n/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2/fpga/patches/nm37/fpga-shells-nm37.patch:29: new blank line at EOF.\n+\nwarning: 1 line adds whitespace errors.\n"
+    },
+    {
+      "stage": "p2",
+      "test": "install",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: install historical NM37 p2\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p2",
+      "test": "prepare_before_build",
+      "pass": true,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: verify historical NM37 p2\nBUILD_ENTRY_STARTED\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p2",
+      "test": "matches_existing_corrected_Makefile",
+      "pass": true
+    },
+    {
+      "stage": "p2",
+      "test": "verify",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 189, in main\n    verify(root, a.stage)\n    ~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 136, in verify\n    require(fingerprint(root / name) == expected, f'Installed payload changed: {name}')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 50, in require\n    raise RuntimeError(message)\nRuntimeError: Installed payload changed: fpga/Makefile\n"
+    },
+    {
+      "stage": "p2",
+      "test": "verify",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2/scripts/nm37-a70-prepare.py\", line 79, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2/scripts/nm37-a70-prepare.py\", line 62, in main\n    assert recorded['files'] == snapshot(root, steps), 'Patched source changed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Patched source changed\nTraceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 189, in main\n    verify(root, a.stage)\n    ~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 139, in verify\n    subprocess.run([sys.executable, str(root / 'scripts/nm37-a70-prepare.py'), '--root', str(root), '--stage', stage], check=True)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/subprocess.py\", line 578, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/home/zhangsi/miniconda3/bin/python3', '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2/scripts/nm37-a70-prepare.py', '--root', '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p2', '--stage', 'p2']' returned non-zero exit status 1.\n"
+    },
+    {
+      "stage": "p2",
+      "test": "reject_other_stage",
+      "pass": true
+    },
+    {
+      "stage": "p2",
+      "test": "verify",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: verify historical NM37 p2\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p2",
+      "test": "test_overlay_stage_scope",
+      "pass": true
+    },
+    {
+      "stage": "p3",
+      "test": "drycheck",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: drycheck historical NM37 p3\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p3",
+      "test": "drycheck",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 185, in main\n    fresh_check(root, a.stage)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 113, in fresh_check\n    require(not git(root, 'status', '--porcelain', '--untracked-files=all'), 'Historical checkout must be clean before installation')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 50, in require\n    raise RuntimeError(message)\nRuntimeError: Historical checkout must be clean before installation\n"
+    },
+    {
+      "stage": "p3",
+      "test": "install",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: complete historical patches applied before generator compilation\nPASS: exact historical patched trees unchanged\nPASS: install historical NM37 p3\n",
+      "stderr": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3/fpga/patches/p0p1/fpga-shells-p0p1.patch:176: new blank line at EOF.\n+\nwarning: 1 line adds whitespace errors.\n/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3/fpga/patches/nm37/fpga-shells-nm37.patch:29: new blank line at EOF.\n+\nwarning: 1 line adds whitespace errors.\n"
+    },
+    {
+      "stage": "p3",
+      "test": "install",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: install historical NM37 p3\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p3",
+      "test": "prepare_before_build",
+      "pass": true,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: verify historical NM37 p3\nBUILD_ENTRY_STARTED\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p3",
+      "test": "matches_existing_corrected_Makefile",
+      "pass": true
+    },
+    {
+      "stage": "p3",
+      "test": "verify",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 189, in main\n    verify(root, a.stage)\n    ~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 136, in verify\n    require(fingerprint(root / name) == expected, f'Installed payload changed: {name}')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 50, in require\n    raise RuntimeError(message)\nRuntimeError: Installed payload changed: fpga/Makefile\n"
+    },
+    {
+      "stage": "p3",
+      "test": "verify",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3/scripts/nm37-a70-prepare.py\", line 79, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3/scripts/nm37-a70-prepare.py\", line 62, in main\n    assert recorded['files'] == snapshot(root, steps), 'Patched source changed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Patched source changed\nTraceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 193, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 189, in main\n    verify(root, a.stage)\n    ~~~~~~^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/install_historical.py\", line 139, in verify\n    subprocess.run([sys.executable, str(root / 'scripts/nm37-a70-prepare.py'), '--root', str(root), '--stage', stage], check=True)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/subprocess.py\", line 578, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/home/zhangsi/miniconda3/bin/python3', '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3/scripts/nm37-a70-prepare.py', '--root', '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/installer-fixtures/p3', '--stage', 'p3']' returned non-zero exit status 1.\n"
+    },
+    {
+      "stage": "p3",
+      "test": "reject_other_stage",
+      "pass": true
+    },
+    {
+      "stage": "p3",
+      "test": "verify",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: exact historical patched trees unchanged\nPASS: verify historical NM37 p3\n",
+      "stderr": ""
+    },
+    {
+      "stage": "p3",
+      "test": "test_overlay_stage_scope",
+      "pass": true
+    }
+  ],
+  "failures": []
+}

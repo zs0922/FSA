@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "review_date": "2026-10-22",
+  "scope": "Read-only source, archived report and bitstream audit; no new implementation or board run",
+  "stages": [
+    {
+      "stage": "baseline",
+      "intended_commit": "490dd7477eab88f5682af4c5a6beffafbb6906ef",
+      "intended_commit_is_not_proof_of_bitstream_rtl": true,
+      "bitstream": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/baseline/NM37FPGATestHarness-baseline.bit",
+        "sha256": "3b569340c37e0c33d11c0743fbab64d04f4ec9cab18740c5382f393f105c8e7b",
+        "bytes": 84989293,
+        "header": {
+          "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+          "b": "xcvu37p_CIV-fsvh2892-2L-e",
+          "c": "2026/09/28",
+          "d": "04:45:31"
+        },
+        "payload_offset": 137,
+        "payload_bytes": 84989156,
+        "payload_sha256": "1953518c81ca6224bfb008d9ccbdc7eddd0eeb40bccd179ee58520e329de36e6"
+      },
+      "timing": {
+        "global_setup_ns": 0.001,
+        "global_hold_ns": 0.01,
+        "dut_setup_ns": 0.001,
+        "dut_hold_ns": 0.01,
+        "dut_frequency_mhz": 70,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/baseline/report/timing.txt",
+          "sha256": "94e35f8cf85bfa40da9e6230bcad4ded7c4afc9f03cc683f426cf56be742d42c",
+          "line": 203
+        },
+        "global_summary_line": 132
+      },
+      "resources": {
+        "total_lut": 380891,
+        "logic_lut": 375522,
+        "lutram": 3814,
+        "srl": 1555,
+        "ff": 72500,
+        "ramb36": 80,
+        "ramb18": 3,
+        "uram": 0,
+        "dsp": 320,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/baseline/report/utilization.txt",
+          "sha256": "5307cde4fe53e70a0466106505c004e19f7ff42034d67137627b806596d5f41a",
+          "line": 24
+        }
+      },
+      "build_log": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/logs/baseline.log",
+        "sha256": "e4551328a9fd954cee5be862d2132b335c1d18f0297f43f3d76f54a010ff859b"
+      }
+    },
+    {
+      "stage": "p1",
+      "intended_commit": "ab0a602b63114d972bbd62ef58f99133bc2d0b06",
+      "intended_commit_is_not_proof_of_bitstream_rtl": true,
+      "bitstream": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/p1/NM37FPGATestHarness-p1.bit",
+        "sha256": "18c25d71ddef0b2e12fae1e59172216752e1eebf4b4629ed5edd53a64f9a5407",
+        "bytes": 84989293,
+        "header": {
+          "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+          "b": "xcvu37p_CIV-fsvh2892-2L-e",
+          "c": "2026/09/29",
+          "d": "02:47:25"
+        },
+        "payload_offset": 137,
+        "payload_bytes": 84989156,
+        "payload_sha256": "fbaf11e278f86e9c5268bd4c60507a8d3dcb9637d9ad104938228d298a4cf269"
+      },
+      "timing": {
+        "global_setup_ns": 0.023,
+        "global_hold_ns": 0.01,
+        "dut_setup_ns": 0.023,
+        "dut_hold_ns": 0.01,
+        "dut_frequency_mhz": 70,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p1/report/timing.txt",
+          "sha256": "93073ef8c0f14d59b14cdd7bfb37a9a2feee2ba19c66e05be76f3b6bcb930606",
+          "line": 201
+        },
+        "global_summary_line": 132
+      },
+      "resources": {
+        "total_lut": 377252,
+        "logic_lut": 372967,
+        "lutram": 3774,
+        "srl": 511,
+        "ff": 64464,
+        "ramb36": 60,
+        "ramb18": 0,
+        "uram": 0,
+        "dsp": 320,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p1/report/utilization.txt",
+          "sha256": "11040b6d73f37e1da72eee50f81157fe48902fededb75ec15beec8d1b8c7ecc5",
+          "line": 24
+        }
+      },
+      "build_log": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/logs/p1.log",
+        "sha256": "5fb1e73c107a34214155a1552378734ba7a2678e301b64765dd5440ee6699e7c"
+      }
+    },
+    {
+      "stage": "p2",
+      "intended_commit": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37",
+      "intended_commit_is_not_proof_of_bitstream_rtl": true,
+      "bitstream": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/p2/NM37FPGATestHarness-p2.bit",
+        "sha256": "d0fe83ce0ba1d9b3249fa1c9236cc622cdadcd144905eb0124664feca5f6e658",
+        "bytes": 84989293,
+        "header": {
+          "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+          "b": "xcvu37p_CIV-fsvh2892-2L-e",
+          "c": "2026/09/29",
+          "d": "04:16:40"
+        },
+        "payload_offset": 137,
+        "payload_bytes": 84989156,
+        "payload_sha256": "3f2f77a21926b6257114900759f86b403baeeda79153230e1b80c92f2d65fc45"
+      },
+      "timing": {
+        "global_setup_ns": 0.021,
+        "global_hold_ns": 0.01,
+        "dut_setup_ns": 0.054,
+        "dut_hold_ns": 0.01,
+        "dut_frequency_mhz": 70,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p2/report/timing.txt",
+          "sha256": "d1b96983460b64764eb31b0217ce13a90436e4a57719a756353c6f030695d7fe",
+          "line": 201
+        },
+        "global_summary_line": 132
+      },
+      "resources": {
+        "total_lut": 376452,
+        "logic_lut": 372167,
+        "lutram": 3774,
+        "srl": 511,
+        "ff": 64457,
+        "ramb36": 60,
+        "ramb18": 0,
+        "uram": 0,
+        "dsp": 320,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p2/report/utilization.txt",
+          "sha256": "d21e05c35869a9323f3219865f00a45bfe1566482126b987e128f340d5b60e96",
+          "line": 24
+        }
+      },
+      "build_log": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/logs/p2.log",
+        "sha256": "c1c1765214f746d28a7a8ff163d2be81f6daca576327ca601ba90a5cf708703f"
+      }
+    },
+    {
+      "stage": "p3",
+      "intended_commit": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b",
+      "intended_commit_is_not_proof_of_bitstream_rtl": true,
+      "bitstream": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/p3/NM37FPGATestHarness-p3.bit",
+        "sha256": "7c4f144144ddf3802cee797be3437488bb189e6b4d5e663048bb018dd3689367",
+        "bytes": 84989293,
+        "header": {
+          "a": "NM37FPGATestHarness;UserID=0XFFFFFFFF;Version=2020.2_AR75986",
+          "b": "xcvu37p_CIV-fsvh2892-2L-e",
+          "c": "2026/09/29",
+          "d": "05:44:23"
+        },
+        "payload_offset": 137,
+        "payload_bytes": 84989156,
+        "payload_sha256": "3f2f77a21926b6257114900759f86b403baeeda79153230e1b80c92f2d65fc45"
+      },
+      "timing": {
+        "global_setup_ns": 0.021,
+        "global_hold_ns": 0.01,
+        "dut_setup_ns": 0.054,
+        "dut_hold_ns": 0.01,
+        "dut_frequency_mhz": 70,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p3/report/timing.txt",
+          "sha256": "8852f008676052730c48649e0c21c8c31842bfb4ceb4d607477f0eaa0eaf1e41",
+          "line": 201
+        },
+        "global_summary_line": 132
+      },
+      "resources": {
+        "total_lut": 376452,
+        "logic_lut": 372167,
+        "lutram": 3774,
+        "srl": 511,
+        "ff": 64457,
+        "ramb36": 60,
+        "ramb18": 0,
+        "uram": 0,
+        "dsp": 320,
+        "source": {
+          "path": "/home/zhangsi/FSA/nm37-stage-results/p3/report/utilization.txt",
+          "sha256": "46605cfd7c377204f848e55d4c7c0610db2b9e6b3e7d7e66e5fd5029fdad7628",
+          "line": 24
+        }
+      },
+      "build_log": {
+        "path": "/home/zhangsi/FSA/nm37-stage-results/logs/p3.log",
+        "sha256": "a3692e8c7727adc10727e6d83bf6c27ddb72f6e1dc180f41006148a0255825de"
+      }
+    }
+  ],
+  "p2_p3_payload_byte_identical": true,
+  "p2_p3_header_only_difference": true,
+  "build_order_evidence": {
+    "p2": {
+      "generator_line": 59,
+      "patch_line": 342
+    },
+    "p3": {
+      "generator_line": 59,
+      "patch_line": 344,
+      "easyfloat_patch_line": 346
+    }
+  },
+  "source_evidence": [
+    {
+      "path": "/home/zhangsi/FSA/nm37-stage-results/build_nm37_stages.sh",
+      "sha256": "1577ee46eaee6ec909e60cea1d5813f1c8300d1a530637c5a3291cf3d94a2c39"
+    },
+    {
+      "path": "/home/zhangsi/FSA/fpga/Makefile",
+      "sha256": "a8e551e68a7560391bcdcd19a8ca6771a35a01b57f23de7001fe9cea53846bae",
+      "line": 212
+    },
+    {
+      "path": "/home/zhangsi/FSA/fpga/patches/p2/fsa-p2.patch",
+      "sha256": "b422affc0bedf7ce33a42ec8c6819941d853210adb8d0eabb6c94d9e6567c8d5"
+    },
+    {
+      "path": "/home/zhangsi/FSA/fpga/patches/p3/fsa-p3.patch",
+      "sha256": "79916c7c156fbb398b53162af9bccdfd6cf62106d048c32c90046f92f6acc15b"
+    },
+    {
+      "path": "/home/zhangsi/FSA/fpga/patches/p3/easyfloat-p3.patch",
+      "sha256": "0443364192ba1017d873f319b5917f8920b0ccd778c0967241916b9722af855c"
+    },
+    {
+      "path": "/home/zhangsi/FSA/nm37-stage-results/logs/overall.log",
+      "sha256": "8f89a1dbfa1118e3999447216d4f3b14b1b42bb72b40ffa1718c1318f7b8e7b1"
+    }
+  ],
+  "limits": [
+    "No proof of intended P2/P3 source inclusion in generated hardware; patches run after elaboration in archived logs.",
+    "Source commit messages contain U280 results; these are not NM37 measurements.",
+    "No bitstream-bound board execution counters found in the supplied stage archive.",
+    "Historical stages are distinct from later M1 A70 and M1 A70 plus ShiftRightJam."
+  ]
+}

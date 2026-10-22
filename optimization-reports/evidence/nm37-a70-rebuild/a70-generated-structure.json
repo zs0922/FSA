@@ -1,0 +1,4115 @@
+{
+  "passed": true,
+  "scope": "Read-only structural source/actual-generated-RTL inspection, before P&R completion; not a new behavioral proof.",
+  "stages": {
+    "p2": {
+      "actual_output": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config",
+      "source_stage": "stages/p2",
+      "configuration": {
+        "sa_rows": 16,
+        "sa_cols": 16,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 0,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 3072,
+        "acc_base": 0,
+        "acc_size": 1088
+      },
+      "control_pipeline": {
+        "cycles": 1,
+        "source": {
+          "file": "stages/p2/generators/fsa/src/main/scala/fsa/MatrixEngineController.scala",
+          "sha256": "34bef842afef80e9e3f54d4e7da3150a044452e0d10e2a5451a5ef72054e95a5",
+          "matches": [
+            {
+              "line": 252,
+              "text": "io.sp_read := Pipe(sp_read_all)"
+            },
+            {
+              "line": 253,
+              "text": "io.acc_read := Pipe(acc_read_all)"
+            },
+            {
+              "line": 254,
+              "text": "io.cmp_ctrl := Pipe(cmp_ctrl_all)"
+            },
+            {
+              "line": 255,
+              "text": "io.acc_ctrl := Pipe(acc_ctrl_all)"
+            },
+            {
+              "line": 256,
+              "text": "io.sem_release := Pipe(sem_release_all)"
+            },
+            {
+              "line": 257,
+              "text": "io.pe_ctrl := VecInit(pe_ctrl_all.map(Pipe(_)))"
+            }
+          ]
+        },
+        "all_21_control_groups": {
+          "sp_read": {
+            "fields": 6,
+            "output_registers": {
+              "io_sp_read_valid": "io_sp_read_pipe_v",
+              "io_sp_read_bits_is_constant": "io_sp_read_pipe_b_is_constant",
+              "io_sp_read_bits_addr": "io_sp_read_pipe_b_addr",
+              "io_sp_read_bits_rev_sram_out": "io_sp_read_pipe_b_rev_sram_out",
+              "io_sp_read_bits_delay_sram_out": "io_sp_read_pipe_b_delay_sram_out",
+              "io_sp_read_bits_rev_delayer_out": "io_sp_read_pipe_b_rev_delayer_out"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1063,
+                  "text": "io_sp_read_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1129,
+                  "text": "io_sp_read_pipe_v <= |_sp_read_all_valid_T;"
+                },
+                {
+                  "line": 1984,
+                  "text": "assign io_sp_read_valid = io_sp_read_pipe_v;"
+                },
+                {
+                  "line": 1985,
+                  "text": "assign io_sp_read_bits_is_constant = io_sp_read_pipe_b_is_constant;"
+                },
+                {
+                  "line": 1986,
+                  "text": "assign io_sp_read_bits_addr = io_sp_read_pipe_b_addr;"
+                },
+                {
+                  "line": 1987,
+                  "text": "assign io_sp_read_bits_rev_sram_out = io_sp_read_pipe_b_rev_sram_out;"
+                },
+                {
+                  "line": 1988,
+                  "text": "assign io_sp_read_bits_delay_sram_out = io_sp_read_pipe_b_delay_sram_out;"
+                },
+                {
+                  "line": 1989,
+                  "text": "assign io_sp_read_bits_rev_delayer_out = io_sp_read_pipe_b_rev_delayer_out;"
+                }
+              ]
+            }
+          },
+          "acc_read": {
+            "fields": 4,
+            "output_registers": {
+              "io_acc_read_valid": "io_acc_read_pipe_v",
+              "io_acc_read_bits_is_constant": "io_acc_read_pipe_b_is_constant",
+              "io_acc_read_bits_addr": "io_acc_read_pipe_b_addr",
+              "io_acc_read_bits_rmw": "io_acc_read_pipe_b_rmw"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1064,
+                  "text": "io_acc_read_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1130,
+                  "text": "io_acc_read_pipe_v <= |_acc_read_all_valid_T;"
+                },
+                {
+                  "line": 1990,
+                  "text": "assign io_acc_read_valid = io_acc_read_pipe_v;"
+                },
+                {
+                  "line": 1991,
+                  "text": "assign io_acc_read_bits_is_constant = io_acc_read_pipe_b_is_constant;"
+                },
+                {
+                  "line": 1992,
+                  "text": "assign io_acc_read_bits_addr = io_acc_read_pipe_b_addr;"
+                },
+                {
+                  "line": 1993,
+                  "text": "assign io_acc_read_bits_rmw = io_acc_read_pipe_b_rmw;"
+                }
+              ]
+            }
+          },
+          "cmp_ctrl": {
+            "fields": 2,
+            "output_registers": {
+              "io_cmp_ctrl_valid": "io_cmp_ctrl_pipe_v",
+              "io_cmp_ctrl_bits_cmd": "io_cmp_ctrl_pipe_b_cmd"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1065,
+                  "text": "io_cmp_ctrl_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1131,
+                  "text": "io_cmp_ctrl_pipe_v <= |_cmp_ctrl_all_valid_T;"
+                },
+                {
+                  "line": 1994,
+                  "text": "assign io_cmp_ctrl_valid = io_cmp_ctrl_pipe_v;"
+                },
+                {
+                  "line": 1995,
+                  "text": "assign io_cmp_ctrl_bits_cmd = io_cmp_ctrl_pipe_b_cmd;"
+                }
+              ]
+            }
+          },
+          "acc_ctrl": {
+            "fields": 2,
+            "output_registers": {
+              "io_acc_ctrl_valid": "io_acc_ctrl_pipe_v",
+              "io_acc_ctrl_bits_cmd": "io_acc_ctrl_pipe_b_cmd"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1066,
+                  "text": "io_acc_ctrl_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1132,
+                  "text": "io_acc_ctrl_pipe_v <= |_acc_ctrl_all_valid_T;"
+                },
+                {
+                  "line": 2156,
+                  "text": "assign io_acc_ctrl_valid = io_acc_ctrl_pipe_v;"
+                },
+                {
+                  "line": 2157,
+                  "text": "assign io_acc_ctrl_bits_cmd = io_acc_ctrl_pipe_b_cmd;"
+                }
+              ]
+            }
+          },
+          "sem_release": {
+            "fields": 3,
+            "output_registers": {
+              "io_sem_release_valid": "io_sem_release_pipe_v",
+              "io_sem_release_bits_id": "io_sem_release_pipe_b_id",
+              "io_sem_release_bits_value": "io_sem_release_pipe_b_value"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1067,
+                  "text": "io_sem_release_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1133,
+                  "text": "io_sem_release_pipe_v <= |_sem_release_all_valid_T;"
+                },
+                {
+                  "line": 2158,
+                  "text": "assign io_sem_release_valid = io_sem_release_pipe_v;"
+                },
+                {
+                  "line": 2159,
+                  "text": "assign io_sem_release_bits_id = io_sem_release_pipe_b_id;"
+                },
+                {
+                  "line": 2160,
+                  "text": "assign io_sem_release_bits_value = io_sem_release_pipe_b_value;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_0": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_0_valid": "pipe_v",
+              "io_pe_ctrl_0_bits_mac": "pipe_b_mac",
+              "io_pe_ctrl_0_bits_acc_ui": "pipe_b_acc_ui",
+              "io_pe_ctrl_0_bits_load_reg_li": "pipe_b_load_reg_li",
+              "io_pe_ctrl_0_bits_load_reg_ui": "pipe_b_load_reg_ui",
+              "io_pe_ctrl_0_bits_flow_lr": "pipe_b_flow_lr",
+              "io_pe_ctrl_0_bits_flow_ud": "pipe_b_flow_ud",
+              "io_pe_ctrl_0_bits_flow_du": "pipe_b_flow_du",
+              "io_pe_ctrl_0_bits_update_reg": "pipe_b_update_reg",
+              "io_pe_ctrl_0_bits_exp2": "pipe_b_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1068,
+                  "text": "pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1134,
+                  "text": "pipe_v <= |_pe_ctrl_all_0_valid_T;"
+                },
+                {
+                  "line": 1996,
+                  "text": "assign io_pe_ctrl_0_valid = pipe_v;"
+                },
+                {
+                  "line": 1997,
+                  "text": "assign io_pe_ctrl_0_bits_mac = pipe_b_mac;"
+                },
+                {
+                  "line": 1998,
+                  "text": "assign io_pe_ctrl_0_bits_acc_ui = pipe_b_acc_ui;"
+                },
+                {
+                  "line": 1999,
+                  "text": "assign io_pe_ctrl_0_bits_load_reg_li = pipe_b_load_reg_li;"
+                },
+                {
+                  "line": 2000,
+                  "text": "assign io_pe_ctrl_0_bits_load_reg_ui = pipe_b_load_reg_ui;"
+                },
+                {
+                  "line": 2001,
+                  "text": "assign io_pe_ctrl_0_bits_flow_lr = pipe_b_flow_lr;"
+                },
+                {
+                  "line": 2002,
+                  "text": "assign io_pe_ctrl_0_bits_flow_ud = pipe_b_flow_ud;"
+                },
+                {
+                  "line": 2003,
+                  "text": "assign io_pe_ctrl_0_bits_flow_du = pipe_b_flow_du;"
+                },
+                {
+                  "line": 2004,
+                  "text": "assign io_pe_ctrl_0_bits_update_reg = pipe_b_update_reg;"
+                },
+                {
+                  "line": 2005,
+                  "text": "assign io_pe_ctrl_0_bits_exp2 = pipe_b_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_1": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_1_valid": "pipe_v_1",
+              "io_pe_ctrl_1_bits_mac": "pipe_b_1_mac",
+              "io_pe_ctrl_1_bits_acc_ui": "pipe_b_1_acc_ui",
+              "io_pe_ctrl_1_bits_load_reg_li": "pipe_b_1_load_reg_li",
+              "io_pe_ctrl_1_bits_load_reg_ui": "pipe_b_1_load_reg_ui",
+              "io_pe_ctrl_1_bits_flow_lr": "pipe_b_1_flow_lr",
+              "io_pe_ctrl_1_bits_flow_ud": "pipe_b_1_flow_ud",
+              "io_pe_ctrl_1_bits_flow_du": "pipe_b_1_flow_du",
+              "io_pe_ctrl_1_bits_update_reg": "pipe_b_1_update_reg",
+              "io_pe_ctrl_1_bits_exp2": "pipe_b_1_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1069,
+                  "text": "pipe_v_1 <= 1'h0;"
+                },
+                {
+                  "line": 1135,
+                  "text": "pipe_v_1 <= |_pe_ctrl_all_1_valid_T;"
+                },
+                {
+                  "line": 2006,
+                  "text": "assign io_pe_ctrl_1_valid = pipe_v_1;"
+                },
+                {
+                  "line": 2007,
+                  "text": "assign io_pe_ctrl_1_bits_mac = pipe_b_1_mac;"
+                },
+                {
+                  "line": 2008,
+                  "text": "assign io_pe_ctrl_1_bits_acc_ui = pipe_b_1_acc_ui;"
+                },
+                {
+                  "line": 2009,
+                  "text": "assign io_pe_ctrl_1_bits_load_reg_li = pipe_b_1_load_reg_li;"
+                },
+                {
+                  "line": 2010,
+                  "text": "assign io_pe_ctrl_1_bits_load_reg_ui = pipe_b_1_load_reg_ui;"
+                },
+                {
+                  "line": 2011,
+                  "text": "assign io_pe_ctrl_1_bits_flow_lr = pipe_b_1_flow_lr;"
+                },
+                {
+                  "line": 2012,
+                  "text": "assign io_pe_ctrl_1_bits_flow_ud = pipe_b_1_flow_ud;"
+                },
+                {
+                  "line": 2013,
+                  "text": "assign io_pe_ctrl_1_bits_flow_du = pipe_b_1_flow_du;"
+                },
+                {
+                  "line": 2014,
+                  "text": "assign io_pe_ctrl_1_bits_update_reg = pipe_b_1_update_reg;"
+                },
+                {
+                  "line": 2015,
+                  "text": "assign io_pe_ctrl_1_bits_exp2 = pipe_b_1_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_2": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_2_valid": "pipe_v_2",
+              "io_pe_ctrl_2_bits_mac": "pipe_b_2_mac",
+              "io_pe_ctrl_2_bits_acc_ui": "pipe_b_2_acc_ui",
+              "io_pe_ctrl_2_bits_load_reg_li": "pipe_b_2_load_reg_li",
+              "io_pe_ctrl_2_bits_load_reg_ui": "pipe_b_2_load_reg_ui",
+              "io_pe_ctrl_2_bits_flow_lr": "pipe_b_2_flow_lr",
+              "io_pe_ctrl_2_bits_flow_ud": "pipe_b_2_flow_ud",
+              "io_pe_ctrl_2_bits_flow_du": "pipe_b_2_flow_du",
+              "io_pe_ctrl_2_bits_update_reg": "pipe_b_2_update_reg",
+              "io_pe_ctrl_2_bits_exp2": "pipe_b_2_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1070,
+                  "text": "pipe_v_2 <= 1'h0;"
+                },
+                {
+                  "line": 1136,
+                  "text": "pipe_v_2 <= |_pe_ctrl_all_2_valid_T;"
+                },
+                {
+                  "line": 2016,
+                  "text": "assign io_pe_ctrl_2_valid = pipe_v_2;"
+                },
+                {
+                  "line": 2017,
+                  "text": "assign io_pe_ctrl_2_bits_mac = pipe_b_2_mac;"
+                },
+                {
+                  "line": 2018,
+                  "text": "assign io_pe_ctrl_2_bits_acc_ui = pipe_b_2_acc_ui;"
+                },
+                {
+                  "line": 2019,
+                  "text": "assign io_pe_ctrl_2_bits_load_reg_li = pipe_b_2_load_reg_li;"
+                },
+                {
+                  "line": 2020,
+                  "text": "assign io_pe_ctrl_2_bits_load_reg_ui = pipe_b_2_load_reg_ui;"
+                },
+                {
+                  "line": 2021,
+                  "text": "assign io_pe_ctrl_2_bits_flow_lr = pipe_b_2_flow_lr;"
+                },
+                {
+                  "line": 2022,
+                  "text": "assign io_pe_ctrl_2_bits_flow_ud = pipe_b_2_flow_ud;"
+                },
+                {
+                  "line": 2023,
+                  "text": "assign io_pe_ctrl_2_bits_flow_du = pipe_b_2_flow_du;"
+                },
+                {
+                  "line": 2024,
+                  "text": "assign io_pe_ctrl_2_bits_update_reg = pipe_b_2_update_reg;"
+                },
+                {
+                  "line": 2025,
+                  "text": "assign io_pe_ctrl_2_bits_exp2 = pipe_b_2_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_3": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_3_valid": "pipe_v_3",
+              "io_pe_ctrl_3_bits_mac": "pipe_b_3_mac",
+              "io_pe_ctrl_3_bits_acc_ui": "pipe_b_3_acc_ui",
+              "io_pe_ctrl_3_bits_load_reg_li": "pipe_b_3_load_reg_li",
+              "io_pe_ctrl_3_bits_load_reg_ui": "pipe_b_3_load_reg_ui",
+              "io_pe_ctrl_3_bits_flow_lr": "pipe_b_3_flow_lr",
+              "io_pe_ctrl_3_bits_flow_ud": "pipe_b_3_flow_ud",
+              "io_pe_ctrl_3_bits_flow_du": "pipe_b_3_flow_du",
+              "io_pe_ctrl_3_bits_update_reg": "pipe_b_3_update_reg",
+              "io_pe_ctrl_3_bits_exp2": "pipe_b_3_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1071,
+                  "text": "pipe_v_3 <= 1'h0;"
+                },
+                {
+                  "line": 1137,
+                  "text": "pipe_v_3 <= |_pe_ctrl_all_3_valid_T;"
+                },
+                {
+                  "line": 2026,
+                  "text": "assign io_pe_ctrl_3_valid = pipe_v_3;"
+                },
+                {
+                  "line": 2027,
+                  "text": "assign io_pe_ctrl_3_bits_mac = pipe_b_3_mac;"
+                },
+                {
+                  "line": 2028,
+                  "text": "assign io_pe_ctrl_3_bits_acc_ui = pipe_b_3_acc_ui;"
+                },
+                {
+                  "line": 2029,
+                  "text": "assign io_pe_ctrl_3_bits_load_reg_li = pipe_b_3_load_reg_li;"
+                },
+                {
+                  "line": 2030,
+                  "text": "assign io_pe_ctrl_3_bits_load_reg_ui = pipe_b_3_load_reg_ui;"
+                },
+                {
+                  "line": 2031,
+                  "text": "assign io_pe_ctrl_3_bits_flow_lr = pipe_b_3_flow_lr;"
+                },
+                {
+                  "line": 2032,
+                  "text": "assign io_pe_ctrl_3_bits_flow_ud = pipe_b_3_flow_ud;"
+                },
+                {
+                  "line": 2033,
+                  "text": "assign io_pe_ctrl_3_bits_flow_du = pipe_b_3_flow_du;"
+                },
+                {
+                  "line": 2034,
+                  "text": "assign io_pe_ctrl_3_bits_update_reg = pipe_b_3_update_reg;"
+                },
+                {
+                  "line": 2035,
+                  "text": "assign io_pe_ctrl_3_bits_exp2 = pipe_b_3_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_4": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_4_valid": "pipe_v_4",
+              "io_pe_ctrl_4_bits_mac": "pipe_b_4_mac",
+              "io_pe_ctrl_4_bits_acc_ui": "pipe_b_4_acc_ui",
+              "io_pe_ctrl_4_bits_load_reg_li": "pipe_b_4_load_reg_li",
+              "io_pe_ctrl_4_bits_load_reg_ui": "pipe_b_4_load_reg_ui",
+              "io_pe_ctrl_4_bits_flow_lr": "pipe_b_4_flow_lr",
+              "io_pe_ctrl_4_bits_flow_ud": "pipe_b_4_flow_ud",
+              "io_pe_ctrl_4_bits_flow_du": "pipe_b_4_flow_du",
+              "io_pe_ctrl_4_bits_update_reg": "pipe_b_4_update_reg",
+              "io_pe_ctrl_4_bits_exp2": "pipe_b_4_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1072,
+                  "text": "pipe_v_4 <= 1'h0;"
+                },
+                {
+                  "line": 1138,
+                  "text": "pipe_v_4 <= |_pe_ctrl_all_4_valid_T;"
+                },
+                {
+                  "line": 2036,
+                  "text": "assign io_pe_ctrl_4_valid = pipe_v_4;"
+                },
+                {
+                  "line": 2037,
+                  "text": "assign io_pe_ctrl_4_bits_mac = pipe_b_4_mac;"
+                },
+                {
+                  "line": 2038,
+                  "text": "assign io_pe_ctrl_4_bits_acc_ui = pipe_b_4_acc_ui;"
+                },
+                {
+                  "line": 2039,
+                  "text": "assign io_pe_ctrl_4_bits_load_reg_li = pipe_b_4_load_reg_li;"
+                },
+                {
+                  "line": 2040,
+                  "text": "assign io_pe_ctrl_4_bits_load_reg_ui = pipe_b_4_load_reg_ui;"
+                },
+                {
+                  "line": 2041,
+                  "text": "assign io_pe_ctrl_4_bits_flow_lr = pipe_b_4_flow_lr;"
+                },
+                {
+                  "line": 2042,
+                  "text": "assign io_pe_ctrl_4_bits_flow_ud = pipe_b_4_flow_ud;"
+                },
+                {
+                  "line": 2043,
+                  "text": "assign io_pe_ctrl_4_bits_flow_du = pipe_b_4_flow_du;"
+                },
+                {
+                  "line": 2044,
+                  "text": "assign io_pe_ctrl_4_bits_update_reg = pipe_b_4_update_reg;"
+                },
+                {
+                  "line": 2045,
+                  "text": "assign io_pe_ctrl_4_bits_exp2 = pipe_b_4_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_5": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_5_valid": "pipe_v_5",
+              "io_pe_ctrl_5_bits_mac": "pipe_b_5_mac",
+              "io_pe_ctrl_5_bits_acc_ui": "pipe_b_5_acc_ui",
+              "io_pe_ctrl_5_bits_load_reg_li": "pipe_b_5_load_reg_li",
+              "io_pe_ctrl_5_bits_load_reg_ui": "pipe_b_5_load_reg_ui",
+              "io_pe_ctrl_5_bits_flow_lr": "pipe_b_5_flow_lr",
+              "io_pe_ctrl_5_bits_flow_ud": "pipe_b_5_flow_ud",
+              "io_pe_ctrl_5_bits_flow_du": "pipe_b_5_flow_du",
+              "io_pe_ctrl_5_bits_update_reg": "pipe_b_5_update_reg",
+              "io_pe_ctrl_5_bits_exp2": "pipe_b_5_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1073,
+                  "text": "pipe_v_5 <= 1'h0;"
+                },
+                {
+                  "line": 1139,
+                  "text": "pipe_v_5 <= |_pe_ctrl_all_5_valid_T;"
+                },
+                {
+                  "line": 2046,
+                  "text": "assign io_pe_ctrl_5_valid = pipe_v_5;"
+                },
+                {
+                  "line": 2047,
+                  "text": "assign io_pe_ctrl_5_bits_mac = pipe_b_5_mac;"
+                },
+                {
+                  "line": 2048,
+                  "text": "assign io_pe_ctrl_5_bits_acc_ui = pipe_b_5_acc_ui;"
+                },
+                {
+                  "line": 2049,
+                  "text": "assign io_pe_ctrl_5_bits_load_reg_li = pipe_b_5_load_reg_li;"
+                },
+                {
+                  "line": 2050,
+                  "text": "assign io_pe_ctrl_5_bits_load_reg_ui = pipe_b_5_load_reg_ui;"
+                },
+                {
+                  "line": 2051,
+                  "text": "assign io_pe_ctrl_5_bits_flow_lr = pipe_b_5_flow_lr;"
+                },
+                {
+                  "line": 2052,
+                  "text": "assign io_pe_ctrl_5_bits_flow_ud = pipe_b_5_flow_ud;"
+                },
+                {
+                  "line": 2053,
+                  "text": "assign io_pe_ctrl_5_bits_flow_du = pipe_b_5_flow_du;"
+                },
+                {
+                  "line": 2054,
+                  "text": "assign io_pe_ctrl_5_bits_update_reg = pipe_b_5_update_reg;"
+                },
+                {
+                  "line": 2055,
+                  "text": "assign io_pe_ctrl_5_bits_exp2 = pipe_b_5_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_6": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_6_valid": "pipe_v_6",
+              "io_pe_ctrl_6_bits_mac": "pipe_b_6_mac",
+              "io_pe_ctrl_6_bits_acc_ui": "pipe_b_6_acc_ui",
+              "io_pe_ctrl_6_bits_load_reg_li": "pipe_b_6_load_reg_li",
+              "io_pe_ctrl_6_bits_load_reg_ui": "pipe_b_6_load_reg_ui",
+              "io_pe_ctrl_6_bits_flow_lr": "pipe_b_6_flow_lr",
+              "io_pe_ctrl_6_bits_flow_ud": "pipe_b_6_flow_ud",
+              "io_pe_ctrl_6_bits_flow_du": "pipe_b_6_flow_du",
+              "io_pe_ctrl_6_bits_update_reg": "pipe_b_6_update_reg",
+              "io_pe_ctrl_6_bits_exp2": "pipe_b_6_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1074,
+                  "text": "pipe_v_6 <= 1'h0;"
+                },
+                {
+                  "line": 1140,
+                  "text": "pipe_v_6 <= |_pe_ctrl_all_6_valid_T;"
+                },
+                {
+                  "line": 2056,
+                  "text": "assign io_pe_ctrl_6_valid = pipe_v_6;"
+                },
+                {
+                  "line": 2057,
+                  "text": "assign io_pe_ctrl_6_bits_mac = pipe_b_6_mac;"
+                },
+                {
+                  "line": 2058,
+                  "text": "assign io_pe_ctrl_6_bits_acc_ui = pipe_b_6_acc_ui;"
+                },
+                {
+                  "line": 2059,
+                  "text": "assign io_pe_ctrl_6_bits_load_reg_li = pipe_b_6_load_reg_li;"
+                },
+                {
+                  "line": 2060,
+                  "text": "assign io_pe_ctrl_6_bits_load_reg_ui = pipe_b_6_load_reg_ui;"
+                },
+                {
+                  "line": 2061,
+                  "text": "assign io_pe_ctrl_6_bits_flow_lr = pipe_b_6_flow_lr;"
+                },
+                {
+                  "line": 2062,
+                  "text": "assign io_pe_ctrl_6_bits_flow_ud = pipe_b_6_flow_ud;"
+                },
+                {
+                  "line": 2063,
+                  "text": "assign io_pe_ctrl_6_bits_flow_du = pipe_b_6_flow_du;"
+                },
+                {
+                  "line": 2064,
+                  "text": "assign io_pe_ctrl_6_bits_update_reg = pipe_b_6_update_reg;"
+                },
+                {
+                  "line": 2065,
+                  "text": "assign io_pe_ctrl_6_bits_exp2 = pipe_b_6_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_7": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_7_valid": "pipe_v_7",
+              "io_pe_ctrl_7_bits_mac": "pipe_b_7_mac",
+              "io_pe_ctrl_7_bits_acc_ui": "pipe_b_7_acc_ui",
+              "io_pe_ctrl_7_bits_load_reg_li": "pipe_b_7_load_reg_li",
+              "io_pe_ctrl_7_bits_load_reg_ui": "pipe_b_7_load_reg_ui",
+              "io_pe_ctrl_7_bits_flow_lr": "pipe_b_7_flow_lr",
+              "io_pe_ctrl_7_bits_flow_ud": "pipe_b_7_flow_ud",
+              "io_pe_ctrl_7_bits_flow_du": "pipe_b_7_flow_du",
+              "io_pe_ctrl_7_bits_update_reg": "pipe_b_7_update_reg",
+              "io_pe_ctrl_7_bits_exp2": "pipe_b_7_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1075,
+                  "text": "pipe_v_7 <= 1'h0;"
+                },
+                {
+                  "line": 1141,
+                  "text": "pipe_v_7 <= |_pe_ctrl_all_7_valid_T;"
+                },
+                {
+                  "line": 2066,
+                  "text": "assign io_pe_ctrl_7_valid = pipe_v_7;"
+                },
+                {
+                  "line": 2067,
+                  "text": "assign io_pe_ctrl_7_bits_mac = pipe_b_7_mac;"
+                },
+                {
+                  "line": 2068,
+                  "text": "assign io_pe_ctrl_7_bits_acc_ui = pipe_b_7_acc_ui;"
+                },
+                {
+                  "line": 2069,
+                  "text": "assign io_pe_ctrl_7_bits_load_reg_li = pipe_b_7_load_reg_li;"
+                },
+                {
+                  "line": 2070,
+                  "text": "assign io_pe_ctrl_7_bits_load_reg_ui = pipe_b_7_load_reg_ui;"
+                },
+                {
+                  "line": 2071,
+                  "text": "assign io_pe_ctrl_7_bits_flow_lr = pipe_b_7_flow_lr;"
+                },
+                {
+                  "line": 2072,
+                  "text": "assign io_pe_ctrl_7_bits_flow_ud = pipe_b_7_flow_ud;"
+                },
+                {
+                  "line": 2073,
+                  "text": "assign io_pe_ctrl_7_bits_flow_du = pipe_b_7_flow_du;"
+                },
+                {
+                  "line": 2074,
+                  "text": "assign io_pe_ctrl_7_bits_update_reg = pipe_b_7_update_reg;"
+                },
+                {
+                  "line": 2075,
+                  "text": "assign io_pe_ctrl_7_bits_exp2 = pipe_b_7_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_8": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_8_valid": "pipe_v_8",
+              "io_pe_ctrl_8_bits_mac": "pipe_b_8_mac",
+              "io_pe_ctrl_8_bits_acc_ui": "pipe_b_8_acc_ui",
+              "io_pe_ctrl_8_bits_load_reg_li": "pipe_b_8_load_reg_li",
+              "io_pe_ctrl_8_bits_load_reg_ui": "pipe_b_8_load_reg_ui",
+              "io_pe_ctrl_8_bits_flow_lr": "pipe_b_8_flow_lr",
+              "io_pe_ctrl_8_bits_flow_ud": "pipe_b_8_flow_ud",
+              "io_pe_ctrl_8_bits_flow_du": "pipe_b_8_flow_du",
+              "io_pe_ctrl_8_bits_update_reg": "pipe_b_8_update_reg",
+              "io_pe_ctrl_8_bits_exp2": "pipe_b_8_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1076,
+                  "text": "pipe_v_8 <= 1'h0;"
+                },
+                {
+                  "line": 1142,
+                  "text": "pipe_v_8 <= |_pe_ctrl_all_8_valid_T;"
+                },
+                {
+                  "line": 2076,
+                  "text": "assign io_pe_ctrl_8_valid = pipe_v_8;"
+                },
+                {
+                  "line": 2077,
+                  "text": "assign io_pe_ctrl_8_bits_mac = pipe_b_8_mac;"
+                },
+                {
+                  "line": 2078,
+                  "text": "assign io_pe_ctrl_8_bits_acc_ui = pipe_b_8_acc_ui;"
+                },
+                {
+                  "line": 2079,
+                  "text": "assign io_pe_ctrl_8_bits_load_reg_li = pipe_b_8_load_reg_li;"
+                },
+                {
+                  "line": 2080,
+                  "text": "assign io_pe_ctrl_8_bits_load_reg_ui = pipe_b_8_load_reg_ui;"
+                },
+                {
+                  "line": 2081,
+                  "text": "assign io_pe_ctrl_8_bits_flow_lr = pipe_b_8_flow_lr;"
+                },
+                {
+                  "line": 2082,
+                  "text": "assign io_pe_ctrl_8_bits_flow_ud = pipe_b_8_flow_ud;"
+                },
+                {
+                  "line": 2083,
+                  "text": "assign io_pe_ctrl_8_bits_flow_du = pipe_b_8_flow_du;"
+                },
+                {
+                  "line": 2084,
+                  "text": "assign io_pe_ctrl_8_bits_update_reg = pipe_b_8_update_reg;"
+                },
+                {
+                  "line": 2085,
+                  "text": "assign io_pe_ctrl_8_bits_exp2 = pipe_b_8_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_9": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_9_valid": "pipe_v_9",
+              "io_pe_ctrl_9_bits_mac": "pipe_b_9_mac",
+              "io_pe_ctrl_9_bits_acc_ui": "pipe_b_9_acc_ui",
+              "io_pe_ctrl_9_bits_load_reg_li": "pipe_b_9_load_reg_li",
+              "io_pe_ctrl_9_bits_load_reg_ui": "pipe_b_9_load_reg_ui",
+              "io_pe_ctrl_9_bits_flow_lr": "pipe_b_9_flow_lr",
+              "io_pe_ctrl_9_bits_flow_ud": "pipe_b_9_flow_ud",
+              "io_pe_ctrl_9_bits_flow_du": "pipe_b_9_flow_du",
+              "io_pe_ctrl_9_bits_update_reg": "pipe_b_9_update_reg",
+              "io_pe_ctrl_9_bits_exp2": "pipe_b_9_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1077,
+                  "text": "pipe_v_9 <= 1'h0;"
+                },
+                {
+                  "line": 1143,
+                  "text": "pipe_v_9 <= |_pe_ctrl_all_9_valid_T;"
+                },
+                {
+                  "line": 2086,
+                  "text": "assign io_pe_ctrl_9_valid = pipe_v_9;"
+                },
+                {
+                  "line": 2087,
+                  "text": "assign io_pe_ctrl_9_bits_mac = pipe_b_9_mac;"
+                },
+                {
+                  "line": 2088,
+                  "text": "assign io_pe_ctrl_9_bits_acc_ui = pipe_b_9_acc_ui;"
+                },
+                {
+                  "line": 2089,
+                  "text": "assign io_pe_ctrl_9_bits_load_reg_li = pipe_b_9_load_reg_li;"
+                },
+                {
+                  "line": 2090,
+                  "text": "assign io_pe_ctrl_9_bits_load_reg_ui = pipe_b_9_load_reg_ui;"
+                },
+                {
+                  "line": 2091,
+                  "text": "assign io_pe_ctrl_9_bits_flow_lr = pipe_b_9_flow_lr;"
+                },
+                {
+                  "line": 2092,
+                  "text": "assign io_pe_ctrl_9_bits_flow_ud = pipe_b_9_flow_ud;"
+                },
+                {
+                  "line": 2093,
+                  "text": "assign io_pe_ctrl_9_bits_flow_du = pipe_b_9_flow_du;"
+                },
+                {
+                  "line": 2094,
+                  "text": "assign io_pe_ctrl_9_bits_update_reg = pipe_b_9_update_reg;"
+                },
+                {
+                  "line": 2095,
+                  "text": "assign io_pe_ctrl_9_bits_exp2 = pipe_b_9_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_10": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_10_valid": "pipe_v_10",
+              "io_pe_ctrl_10_bits_mac": "pipe_b_10_mac",
+              "io_pe_ctrl_10_bits_acc_ui": "pipe_b_10_acc_ui",
+              "io_pe_ctrl_10_bits_load_reg_li": "pipe_b_10_load_reg_li",
+              "io_pe_ctrl_10_bits_load_reg_ui": "pipe_b_10_load_reg_ui",
+              "io_pe_ctrl_10_bits_flow_lr": "pipe_b_10_flow_lr",
+              "io_pe_ctrl_10_bits_flow_ud": "pipe_b_10_flow_ud",
+              "io_pe_ctrl_10_bits_flow_du": "pipe_b_10_flow_du",
+              "io_pe_ctrl_10_bits_update_reg": "pipe_b_10_update_reg",
+              "io_pe_ctrl_10_bits_exp2": "pipe_b_10_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1078,
+                  "text": "pipe_v_10 <= 1'h0;"
+                },
+                {
+                  "line": 1144,
+                  "text": "pipe_v_10 <= |_pe_ctrl_all_10_valid_T;"
+                },
+                {
+                  "line": 2096,
+                  "text": "assign io_pe_ctrl_10_valid = pipe_v_10;"
+                },
+                {
+                  "line": 2097,
+                  "text": "assign io_pe_ctrl_10_bits_mac = pipe_b_10_mac;"
+                },
+                {
+                  "line": 2098,
+                  "text": "assign io_pe_ctrl_10_bits_acc_ui = pipe_b_10_acc_ui;"
+                },
+                {
+                  "line": 2099,
+                  "text": "assign io_pe_ctrl_10_bits_load_reg_li = pipe_b_10_load_reg_li;"
+                },
+                {
+                  "line": 2100,
+                  "text": "assign io_pe_ctrl_10_bits_load_reg_ui = pipe_b_10_load_reg_ui;"
+                },
+                {
+                  "line": 2101,
+                  "text": "assign io_pe_ctrl_10_bits_flow_lr = pipe_b_10_flow_lr;"
+                },
+                {
+                  "line": 2102,
+                  "text": "assign io_pe_ctrl_10_bits_flow_ud = pipe_b_10_flow_ud;"
+                },
+                {
+                  "line": 2103,
+                  "text": "assign io_pe_ctrl_10_bits_flow_du = pipe_b_10_flow_du;"
+                },
+                {
+                  "line": 2104,
+                  "text": "assign io_pe_ctrl_10_bits_update_reg = pipe_b_10_update_reg;"
+                },
+                {
+                  "line": 2105,
+                  "text": "assign io_pe_ctrl_10_bits_exp2 = pipe_b_10_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_11": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_11_valid": "pipe_v_11",
+              "io_pe_ctrl_11_bits_mac": "pipe_b_11_mac",
+              "io_pe_ctrl_11_bits_acc_ui": "pipe_b_11_acc_ui",
+              "io_pe_ctrl_11_bits_load_reg_li": "pipe_b_11_load_reg_li",
+              "io_pe_ctrl_11_bits_load_reg_ui": "pipe_b_11_load_reg_ui",
+              "io_pe_ctrl_11_bits_flow_lr": "pipe_b_11_flow_lr",
+              "io_pe_ctrl_11_bits_flow_ud": "pipe_b_11_flow_ud",
+              "io_pe_ctrl_11_bits_flow_du": "pipe_b_11_flow_du",
+              "io_pe_ctrl_11_bits_update_reg": "pipe_b_11_update_reg",
+              "io_pe_ctrl_11_bits_exp2": "pipe_b_11_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1079,
+                  "text": "pipe_v_11 <= 1'h0;"
+                },
+                {
+                  "line": 1145,
+                  "text": "pipe_v_11 <= |_pe_ctrl_all_11_valid_T;"
+                },
+                {
+                  "line": 2106,
+                  "text": "assign io_pe_ctrl_11_valid = pipe_v_11;"
+                },
+                {
+                  "line": 2107,
+                  "text": "assign io_pe_ctrl_11_bits_mac = pipe_b_11_mac;"
+                },
+                {
+                  "line": 2108,
+                  "text": "assign io_pe_ctrl_11_bits_acc_ui = pipe_b_11_acc_ui;"
+                },
+                {
+                  "line": 2109,
+                  "text": "assign io_pe_ctrl_11_bits_load_reg_li = pipe_b_11_load_reg_li;"
+                },
+                {
+                  "line": 2110,
+                  "text": "assign io_pe_ctrl_11_bits_load_reg_ui = pipe_b_11_load_reg_ui;"
+                },
+                {
+                  "line": 2111,
+                  "text": "assign io_pe_ctrl_11_bits_flow_lr = pipe_b_11_flow_lr;"
+                },
+                {
+                  "line": 2112,
+                  "text": "assign io_pe_ctrl_11_bits_flow_ud = pipe_b_11_flow_ud;"
+                },
+                {
+                  "line": 2113,
+                  "text": "assign io_pe_ctrl_11_bits_flow_du = pipe_b_11_flow_du;"
+                },
+                {
+                  "line": 2114,
+                  "text": "assign io_pe_ctrl_11_bits_update_reg = pipe_b_11_update_reg;"
+                },
+                {
+                  "line": 2115,
+                  "text": "assign io_pe_ctrl_11_bits_exp2 = pipe_b_11_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_12": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_12_valid": "pipe_v_12",
+              "io_pe_ctrl_12_bits_mac": "pipe_b_12_mac",
+              "io_pe_ctrl_12_bits_acc_ui": "pipe_b_12_acc_ui",
+              "io_pe_ctrl_12_bits_load_reg_li": "pipe_b_12_load_reg_li",
+              "io_pe_ctrl_12_bits_load_reg_ui": "pipe_b_12_load_reg_ui",
+              "io_pe_ctrl_12_bits_flow_lr": "pipe_b_12_flow_lr",
+              "io_pe_ctrl_12_bits_flow_ud": "pipe_b_12_flow_ud",
+              "io_pe_ctrl_12_bits_flow_du": "pipe_b_12_flow_du",
+              "io_pe_ctrl_12_bits_update_reg": "pipe_b_12_update_reg",
+              "io_pe_ctrl_12_bits_exp2": "pipe_b_12_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1080,
+                  "text": "pipe_v_12 <= 1'h0;"
+                },
+                {
+                  "line": 1146,
+                  "text": "pipe_v_12 <= |_pe_ctrl_all_12_valid_T;"
+                },
+                {
+                  "line": 2116,
+                  "text": "assign io_pe_ctrl_12_valid = pipe_v_12;"
+                },
+                {
+                  "line": 2117,
+                  "text": "assign io_pe_ctrl_12_bits_mac = pipe_b_12_mac;"
+                },
+                {
+                  "line": 2118,
+                  "text": "assign io_pe_ctrl_12_bits_acc_ui = pipe_b_12_acc_ui;"
+                },
+                {
+                  "line": 2119,
+                  "text": "assign io_pe_ctrl_12_bits_load_reg_li = pipe_b_12_load_reg_li;"
+                },
+                {
+                  "line": 2120,
+                  "text": "assign io_pe_ctrl_12_bits_load_reg_ui = pipe_b_12_load_reg_ui;"
+                },
+                {
+                  "line": 2121,
+                  "text": "assign io_pe_ctrl_12_bits_flow_lr = pipe_b_12_flow_lr;"
+                },
+                {
+                  "line": 2122,
+                  "text": "assign io_pe_ctrl_12_bits_flow_ud = pipe_b_12_flow_ud;"
+                },
+                {
+                  "line": 2123,
+                  "text": "assign io_pe_ctrl_12_bits_flow_du = pipe_b_12_flow_du;"
+                },
+                {
+                  "line": 2124,
+                  "text": "assign io_pe_ctrl_12_bits_update_reg = pipe_b_12_update_reg;"
+                },
+                {
+                  "line": 2125,
+                  "text": "assign io_pe_ctrl_12_bits_exp2 = pipe_b_12_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_13": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_13_valid": "pipe_v_13",
+              "io_pe_ctrl_13_bits_mac": "pipe_b_13_mac",
+              "io_pe_ctrl_13_bits_acc_ui": "pipe_b_13_acc_ui",
+              "io_pe_ctrl_13_bits_load_reg_li": "pipe_b_13_load_reg_li",
+              "io_pe_ctrl_13_bits_load_reg_ui": "pipe_b_13_load_reg_ui",
+              "io_pe_ctrl_13_bits_flow_lr": "pipe_b_13_flow_lr",
+              "io_pe_ctrl_13_bits_flow_ud": "pipe_b_13_flow_ud",
+              "io_pe_ctrl_13_bits_flow_du": "pipe_b_13_flow_du",
+              "io_pe_ctrl_13_bits_update_reg": "pipe_b_13_update_reg",
+              "io_pe_ctrl_13_bits_exp2": "pipe_b_13_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1081,
+                  "text": "pipe_v_13 <= 1'h0;"
+                },
+                {
+                  "line": 1147,
+                  "text": "pipe_v_13 <= |_pe_ctrl_all_13_valid_T;"
+                },
+                {
+                  "line": 2126,
+                  "text": "assign io_pe_ctrl_13_valid = pipe_v_13;"
+                },
+                {
+                  "line": 2127,
+                  "text": "assign io_pe_ctrl_13_bits_mac = pipe_b_13_mac;"
+                },
+                {
+                  "line": 2128,
+                  "text": "assign io_pe_ctrl_13_bits_acc_ui = pipe_b_13_acc_ui;"
+                },
+                {
+                  "line": 2129,
+                  "text": "assign io_pe_ctrl_13_bits_load_reg_li = pipe_b_13_load_reg_li;"
+                },
+                {
+                  "line": 2130,
+                  "text": "assign io_pe_ctrl_13_bits_load_reg_ui = pipe_b_13_load_reg_ui;"
+                },
+                {
+                  "line": 2131,
+                  "text": "assign io_pe_ctrl_13_bits_flow_lr = pipe_b_13_flow_lr;"
+                },
+                {
+                  "line": 2132,
+                  "text": "assign io_pe_ctrl_13_bits_flow_ud = pipe_b_13_flow_ud;"
+                },
+                {
+                  "line": 2133,
+                  "text": "assign io_pe_ctrl_13_bits_flow_du = pipe_b_13_flow_du;"
+                },
+                {
+                  "line": 2134,
+                  "text": "assign io_pe_ctrl_13_bits_update_reg = pipe_b_13_update_reg;"
+                },
+                {
+                  "line": 2135,
+                  "text": "assign io_pe_ctrl_13_bits_exp2 = pipe_b_13_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_14": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_14_valid": "pipe_v_14",
+              "io_pe_ctrl_14_bits_mac": "pipe_b_14_mac",
+              "io_pe_ctrl_14_bits_acc_ui": "pipe_b_14_acc_ui",
+              "io_pe_ctrl_14_bits_load_reg_li": "pipe_b_14_load_reg_li",
+              "io_pe_ctrl_14_bits_load_reg_ui": "pipe_b_14_load_reg_ui",
+              "io_pe_ctrl_14_bits_flow_lr": "pipe_b_14_flow_lr",
+              "io_pe_ctrl_14_bits_flow_ud": "pipe_b_14_flow_ud",
+              "io_pe_ctrl_14_bits_flow_du": "pipe_b_14_flow_du",
+              "io_pe_ctrl_14_bits_update_reg": "pipe_b_14_update_reg",
+              "io_pe_ctrl_14_bits_exp2": "pipe_b_14_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1082,
+                  "text": "pipe_v_14 <= 1'h0;"
+                },
+                {
+                  "line": 1148,
+                  "text": "pipe_v_14 <= |_pe_ctrl_all_14_valid_T;"
+                },
+                {
+                  "line": 2136,
+                  "text": "assign io_pe_ctrl_14_valid = pipe_v_14;"
+                },
+                {
+                  "line": 2137,
+                  "text": "assign io_pe_ctrl_14_bits_mac = pipe_b_14_mac;"
+                },
+                {
+                  "line": 2138,
+                  "text": "assign io_pe_ctrl_14_bits_acc_ui = pipe_b_14_acc_ui;"
+                },
+                {
+                  "line": 2139,
+                  "text": "assign io_pe_ctrl_14_bits_load_reg_li = pipe_b_14_load_reg_li;"
+                },
+                {
+                  "line": 2140,
+                  "text": "assign io_pe_ctrl_14_bits_load_reg_ui = pipe_b_14_load_reg_ui;"
+                },
+                {
+                  "line": 2141,
+                  "text": "assign io_pe_ctrl_14_bits_flow_lr = pipe_b_14_flow_lr;"
+                },
+                {
+                  "line": 2142,
+                  "text": "assign io_pe_ctrl_14_bits_flow_ud = pipe_b_14_flow_ud;"
+                },
+                {
+                  "line": 2143,
+                  "text": "assign io_pe_ctrl_14_bits_flow_du = pipe_b_14_flow_du;"
+                },
+                {
+                  "line": 2144,
+                  "text": "assign io_pe_ctrl_14_bits_update_reg = pipe_b_14_update_reg;"
+                },
+                {
+                  "line": 2145,
+                  "text": "assign io_pe_ctrl_14_bits_exp2 = pipe_b_14_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_15": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_15_valid": "pipe_v_15",
+              "io_pe_ctrl_15_bits_mac": "pipe_b_15_mac",
+              "io_pe_ctrl_15_bits_acc_ui": "pipe_b_15_acc_ui",
+              "io_pe_ctrl_15_bits_load_reg_li": "pipe_b_15_load_reg_li",
+              "io_pe_ctrl_15_bits_load_reg_ui": "pipe_b_15_load_reg_ui",
+              "io_pe_ctrl_15_bits_flow_lr": "pipe_b_15_flow_lr",
+              "io_pe_ctrl_15_bits_flow_ud": "pipe_b_15_flow_ud",
+              "io_pe_ctrl_15_bits_flow_du": "pipe_b_15_flow_du",
+              "io_pe_ctrl_15_bits_update_reg": "pipe_b_15_update_reg",
+              "io_pe_ctrl_15_bits_exp2": "pipe_b_15_exp2"
+            },
+            "evidence": {
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1083,
+                  "text": "pipe_v_15 <= 1'h0;"
+                },
+                {
+                  "line": 1149,
+                  "text": "pipe_v_15 <= |_pe_ctrl_all_15_valid_T;"
+                },
+                {
+                  "line": 2146,
+                  "text": "assign io_pe_ctrl_15_valid = pipe_v_15;"
+                },
+                {
+                  "line": 2147,
+                  "text": "assign io_pe_ctrl_15_bits_mac = pipe_b_15_mac;"
+                },
+                {
+                  "line": 2148,
+                  "text": "assign io_pe_ctrl_15_bits_acc_ui = pipe_b_15_acc_ui;"
+                },
+                {
+                  "line": 2149,
+                  "text": "assign io_pe_ctrl_15_bits_load_reg_li = pipe_b_15_load_reg_li;"
+                },
+                {
+                  "line": 2150,
+                  "text": "assign io_pe_ctrl_15_bits_load_reg_ui = pipe_b_15_load_reg_ui;"
+                },
+                {
+                  "line": 2151,
+                  "text": "assign io_pe_ctrl_15_bits_flow_lr = pipe_b_15_flow_lr;"
+                },
+                {
+                  "line": 2152,
+                  "text": "assign io_pe_ctrl_15_bits_flow_ud = pipe_b_15_flow_ud;"
+                },
+                {
+                  "line": 2153,
+                  "text": "assign io_pe_ctrl_15_bits_flow_du = pipe_b_15_flow_du;"
+                },
+                {
+                  "line": 2154,
+                  "text": "assign io_pe_ctrl_15_bits_update_reg = pipe_b_15_update_reg;"
+                },
+                {
+                  "line": 2155,
+                  "text": "assign io_pe_ctrl_15_bits_exp2 = pipe_b_15_exp2;"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "accumulator_pipeline": {
+        "cycles": 0,
+        "fpacc_instance": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+          "sha256": "1eb22ef7202c174186362c37aae64427007071c01e49fb4b265efb34a92c7f4e",
+          "matches": [
+            {
+              "line": 50,
+              "text": "RawFloat_MulAddExp2_1 mulAddExp2 ("
+            }
+          ]
+        },
+        "source": {
+          "file": "stages/p2/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+          "sha256": "871caeb64c8612538e97ea9f5f6692710ef65d14a403a5ead530bc60cc56b343",
+          "matches": [
+            {
+              "line": 53,
+              "text": "1 + addEW, 1 + addMW, 1 + addEW, 1 + addMW, Left(pwlConst)"
+            }
+          ]
+        },
+        "entry_cycles": 0,
+        "internal_fma_cycles": 0,
+        "arithmetic_modules": [
+          "RawFloat_FMA",
+          "RawFloat_MulAddExp2_1",
+          "RawFloat_SplitIF_1",
+          "ShiftRightJam"
+        ],
+        "fma_instance": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+          "sha256": "d2b4e54846bd06bd1e5d56f0668b95e2486ceab8cfab6be44fccfcc8feb9c989",
+          "matches": [
+            {
+              "line": 46,
+              "text": "RawFloat_FMA fma ("
+            }
+          ]
+        }
+      },
+      "accRAM_alignment": {
+        "read_latency_cycles": 1,
+        "acc_datapath_cycles": 0,
+        "write_valid_delay_cycles": 1,
+        "write_address_delay_cycles": 1,
+        "aligned": true,
+        "source": {
+          "file": "stages/p2/generators/fsa/src/main/scala/fsa/FSA.scala",
+          "sha256": "febb1860ccc88e573dfa34cfd2c4870acd3cde52305c1926bf0232f51470ca89",
+          "matches": [
+            {
+              "line": 184,
+              "text": "accRAM.fullWrite.head.valid := RegNext(mxControl.io.acc_read.valid && mxControl.io.acc_read.bits.rmw, false.B)"
+            },
+            {
+              "line": 185,
+              "text": "accRAM.fullWrite.head.addr := RegNext(mxControl.io.acc_read.bits.addr)"
+            },
+            {
+              "line": 186,
+              "text": "accRAM.fullWrite.head.data := accumulator.io.sram_out.asTypeOf(accRAM.fullWrite.head.data)"
+            }
+          ]
+        },
+        "valid_chain": [
+          {
+            "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+            "matches": [
+              {
+                "line": 549,
+                "text": "sram_accRAM_fullWrite_0_valid_REG <= _mxControl_io_acc_read_valid & _mxControl_io_acc_read_bits_rmw;"
+              }
+            ]
+          }
+        ],
+        "address_chain": [
+          {
+            "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+            "matches": [
+              {
+                "line": 558,
+                "text": "sram_accRAM_fullWrite_0_addr_REG <= _mxControl_io_acc_read_bits_addr;"
+              }
+            ]
+          }
+        ],
+        "actual_ram_connection": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+          "matches": [
+            {
+              "line": 1459,
+              "text": ".io_fullWrite_0_valid       (sram_accRAM_fullWrite_0_valid_REG),"
+            },
+            {
+              "line": 1460,
+              "text": ".io_fullWrite_0_addr        (sram_accRAM_fullWrite_0_addr_REG),"
+            }
+          ]
+        },
+        "actual_data_connection": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+          "matches": [
+            {
+              "line": 1461,
+              "text": ".io_fullWrite_0_data_0      ({_accumulator_io_sram_out_0_sign, _accumulator_io_sram_out_0_exp, _accumulator_io_sram_out_0_mantissa}),"
+            }
+          ]
+        },
+        "actual_sram_interface": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AccumulationSRAM.sv",
+          "sha256": "3cd97e38d498ce618b6145aaddb036db70c8b788e37d633949aaefc3de5f432a",
+          "matches": [
+            {
+              "line": 145,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 146,
+              "text": ".W0_en   (io_fullWrite_0_valid & ~(io_fullWrite_0_addr[0])),"
+            },
+            {
+              "line": 155,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 156,
+              "text": ".W0_en   (io_fullWrite_0_valid & ~(io_fullWrite_0_addr[0])),"
+            },
+            {
+              "line": 165,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 166,
+              "text": ".W0_en   (io_fullWrite_0_valid & io_fullWrite_0_addr[0]),"
+            },
+            {
+              "line": 175,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 176,
+              "text": ".W0_en   (io_fullWrite_0_valid & io_fullWrite_0_addr[0]),"
+            }
+          ]
+        },
+        "registered_read_evidence": {
+          "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v",
+          "sha256": "8664d82e896211c5304058d34a2c543d2f30909832e3ad62a9cef5a98c244213",
+          "matches": [
+            {
+              "line": 260,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 279,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 370,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 389,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 480,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 499,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 590,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 609,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 700,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 719,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 810,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 829,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            }
+          ]
+        }
+      },
+      "pe_cmp_no_a100_pipeline": {
+        "PE": {
+          "arithmetic_pipeline_cycles": 0,
+          "arithmetic_root": "FPMacUnit",
+          "arithmetic_modules": [
+            {
+              "module": "FPMacUnit",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPMacUnit.sv",
+              "sha256": "e8d00e977ab435074cabb82ed2ff8b1eb7192de6851fed1a942ec4638ba1e14c",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_MulAddExp2",
+                  "mulAddExp2"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_FMA_16",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_16.sv",
+              "sha256": "2f671944e848ecdd439dafcca84429f6ef34507358fda0d5bb95e48aa9e4a079",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "ShiftRightJam_16",
+                  "shiftRightJam"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_MulAddExp2",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2.sv",
+              "sha256": "a331dec9310159d2da676a12fcb0332b3254eebff2a6ea2378bc2d18444924fa",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_FMA_16",
+                  "fma"
+                ],
+                [
+                  "RawFloat_SplitIF",
+                  "split"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_SplitIF",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF.sv",
+              "sha256": "65f8e9cf20d720c78624138db9ec1c42f7be4fc6394fd3c990346ca1b87e4b3d",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            },
+            {
+              "module": "ShiftRightJam_16",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam_16.sv",
+              "sha256": "2a30b1168f2d9d58261831ca863729dc613ad29ac6b875515557ef2bab9b88e9",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            }
+          ],
+          "wrapper_evidence": {
+            "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/PE.sv",
+            "sha256": "3ba50d81df2ade3df8405d455c5e99e814b3679b2842a8ac9208399ef0ad1c03",
+            "matches": [
+              {
+                "line": 104,
+                "text": "always @(posedge clock) begin"
+              },
+              {
+                "line": 145,
+                "text": "FPMacUnit macUnit ("
+              },
+              {
+                "line": 164,
+                "text": "assign io_out_ctrl_valid = io_in_ctrl_valid;"
+              },
+              {
+                "line": 165,
+                "text": "assign io_out_ctrl_bits_mac = io_in_ctrl_bits_mac;"
+              },
+              {
+                "line": 166,
+                "text": "assign io_out_ctrl_bits_acc_ui = io_in_ctrl_bits_acc_ui;"
+              },
+              {
+                "line": 167,
+                "text": "assign io_out_ctrl_bits_load_reg_li = io_in_ctrl_bits_load_reg_li;"
+              },
+              {
+                "line": 168,
+                "text": "assign io_out_ctrl_bits_load_reg_ui = io_in_ctrl_bits_load_reg_ui;"
+              },
+              {
+                "line": 169,
+                "text": "assign io_out_ctrl_bits_flow_lr = io_in_ctrl_bits_flow_lr;"
+              },
+              {
+                "line": 170,
+                "text": "assign io_out_ctrl_bits_flow_ud = io_in_ctrl_bits_flow_ud;"
+              },
+              {
+                "line": 171,
+                "text": "assign io_out_ctrl_bits_flow_du = io_in_ctrl_bits_flow_du;"
+              },
+              {
+                "line": 172,
+                "text": "assign io_out_ctrl_bits_update_reg = io_in_ctrl_bits_update_reg;"
+              },
+              {
+                "line": 173,
+                "text": "assign io_out_ctrl_bits_exp2 = io_in_ctrl_bits_exp2;"
+              }
+            ]
+          },
+          "source_evidence": {
+            "file": "stages/p2/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+            "sha256": "871caeb64c8612538e97ea9f5f6692710ef65d14a403a5ead530bc60cc56b343",
+            "matches": [
+              {
+                "line": 18,
+                "text": "class FPMacUnit(mulEW: Int, mulMW: Int, addEW: Int, addMW: Int, pwlPieces: Int) extends"
+              },
+              {
+                "line": 22,
+                "text": "1 + mulEW, 1 + mulMW, 1 + addEW, 1 + addMW, Right(pwlPieces)"
+              },
+              {
+                "line": 77,
+                "text": "class FPCmpUnit(ew: Int, mw: Int) extends CmpUnit(FloatPoint(ew, mw)) {"
+              },
+              {
+                "line": 78,
+                "text": "val fma = Module(new FMA(ew, mw, ew, mw))"
+              }
+            ]
+          }
+        },
+        "CMP": {
+          "arithmetic_pipeline_cycles": 0,
+          "arithmetic_root": "FPCmpUnit",
+          "arithmetic_modules": [
+            {
+              "module": "FMA",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FMA.sv",
+              "sha256": "f120732bca3b0cd9ec76178bf244509f21817003cc0a4ebd7233b0db5686bb1a",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_FMA",
+                  "rawFMA"
+                ]
+              ]
+            },
+            {
+              "module": "FPCmpUnit",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPCmpUnit.sv",
+              "sha256": "0b372a80480dada4013e101b48b494a399a8d127098c6be5927d565a674ce7b8",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "FMA",
+                  "fma"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_FMA",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA.sv",
+              "sha256": "aac8fcafbc0ff3fe762660cd4b1dc37076df8181a0758de36450697ea4c52ed4",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "ShiftRightJam",
+                  "shiftRightJam"
+                ]
+              ]
+            },
+            {
+              "module": "ShiftRightJam",
+              "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam.sv",
+              "sha256": "5001184b41758e26c7d6fd73b3b8185139575ae2516cec51ea1cb09e41dfe826",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            }
+          ],
+          "wrapper_evidence": {
+            "file": "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CMP.sv",
+            "sha256": "f261831b3ebcf277d648ee0e8bcd1ab2b971ed419130aec0af14d2bb70f1d493",
+            "matches": [
+              {
+                "line": 92,
+                "text": "always @(posedge clock) begin"
+              },
+              {
+                "line": 155,
+                "text": "FPCmpUnit cmpUnit ("
+              },
+              {
+                "line": 173,
+                "text": "assign io_out_ctrl_valid = io_in_ctrl_valid;"
+              },
+              {
+                "line": 174,
+                "text": "assign io_out_ctrl_bits_cmd = io_in_ctrl_bits_cmd;"
+              }
+            ]
+          },
+          "source_evidence": {
+            "file": "stages/p2/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+            "sha256": "871caeb64c8612538e97ea9f5f6692710ef65d14a403a5ead530bc60cc56b343",
+            "matches": [
+              {
+                "line": 18,
+                "text": "class FPMacUnit(mulEW: Int, mulMW: Int, addEW: Int, addMW: Int, pwlPieces: Int) extends"
+              },
+              {
+                "line": 22,
+                "text": "1 + mulEW, 1 + mulMW, 1 + addEW, 1 + addMW, Right(pwlPieces)"
+              },
+              {
+                "line": 77,
+                "text": "class FPCmpUnit(ew: Int, mw: Int) extends CmpUnit(FloatPoint(ew, mw)) {"
+              },
+              {
+                "line": 78,
+                "text": "val fma = Module(new FMA(ew, mw, ew, mw))"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "p3": {
+      "actual_output": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config",
+      "source_stage": "stages/p3",
+      "configuration": {
+        "sa_rows": 16,
+        "sa_cols": 16,
+        "inst_queue_size": 256,
+        "e_type": "fp16",
+        "a_type": "fp32",
+        "mem_base": 0,
+        "mem_size": 268435456,
+        "mem_align": 8,
+        "spad_base": 0,
+        "spad_size": 3072,
+        "acc_base": 0,
+        "acc_size": 1088
+      },
+      "control_pipeline": {
+        "cycles": 1,
+        "source": {
+          "file": "stages/p3/generators/fsa/src/main/scala/fsa/MatrixEngineController.scala",
+          "sha256": "34bef842afef80e9e3f54d4e7da3150a044452e0d10e2a5451a5ef72054e95a5",
+          "matches": [
+            {
+              "line": 252,
+              "text": "io.sp_read := Pipe(sp_read_all)"
+            },
+            {
+              "line": 253,
+              "text": "io.acc_read := Pipe(acc_read_all)"
+            },
+            {
+              "line": 254,
+              "text": "io.cmp_ctrl := Pipe(cmp_ctrl_all)"
+            },
+            {
+              "line": 255,
+              "text": "io.acc_ctrl := Pipe(acc_ctrl_all)"
+            },
+            {
+              "line": 256,
+              "text": "io.sem_release := Pipe(sem_release_all)"
+            },
+            {
+              "line": 257,
+              "text": "io.pe_ctrl := VecInit(pe_ctrl_all.map(Pipe(_)))"
+            }
+          ]
+        },
+        "all_21_control_groups": {
+          "sp_read": {
+            "fields": 6,
+            "output_registers": {
+              "io_sp_read_valid": "io_sp_read_pipe_v",
+              "io_sp_read_bits_is_constant": "io_sp_read_pipe_b_is_constant",
+              "io_sp_read_bits_addr": "io_sp_read_pipe_b_addr",
+              "io_sp_read_bits_rev_sram_out": "io_sp_read_pipe_b_rev_sram_out",
+              "io_sp_read_bits_delay_sram_out": "io_sp_read_pipe_b_delay_sram_out",
+              "io_sp_read_bits_rev_delayer_out": "io_sp_read_pipe_b_rev_delayer_out"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1063,
+                  "text": "io_sp_read_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1129,
+                  "text": "io_sp_read_pipe_v <= |_sp_read_all_valid_T;"
+                },
+                {
+                  "line": 1984,
+                  "text": "assign io_sp_read_valid = io_sp_read_pipe_v;"
+                },
+                {
+                  "line": 1985,
+                  "text": "assign io_sp_read_bits_is_constant = io_sp_read_pipe_b_is_constant;"
+                },
+                {
+                  "line": 1986,
+                  "text": "assign io_sp_read_bits_addr = io_sp_read_pipe_b_addr;"
+                },
+                {
+                  "line": 1987,
+                  "text": "assign io_sp_read_bits_rev_sram_out = io_sp_read_pipe_b_rev_sram_out;"
+                },
+                {
+                  "line": 1988,
+                  "text": "assign io_sp_read_bits_delay_sram_out = io_sp_read_pipe_b_delay_sram_out;"
+                },
+                {
+                  "line": 1989,
+                  "text": "assign io_sp_read_bits_rev_delayer_out = io_sp_read_pipe_b_rev_delayer_out;"
+                }
+              ]
+            }
+          },
+          "acc_read": {
+            "fields": 4,
+            "output_registers": {
+              "io_acc_read_valid": "io_acc_read_pipe_v",
+              "io_acc_read_bits_is_constant": "io_acc_read_pipe_b_is_constant",
+              "io_acc_read_bits_addr": "io_acc_read_pipe_b_addr",
+              "io_acc_read_bits_rmw": "io_acc_read_pipe_b_rmw"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1064,
+                  "text": "io_acc_read_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1130,
+                  "text": "io_acc_read_pipe_v <= |_acc_read_all_valid_T;"
+                },
+                {
+                  "line": 1990,
+                  "text": "assign io_acc_read_valid = io_acc_read_pipe_v;"
+                },
+                {
+                  "line": 1991,
+                  "text": "assign io_acc_read_bits_is_constant = io_acc_read_pipe_b_is_constant;"
+                },
+                {
+                  "line": 1992,
+                  "text": "assign io_acc_read_bits_addr = io_acc_read_pipe_b_addr;"
+                },
+                {
+                  "line": 1993,
+                  "text": "assign io_acc_read_bits_rmw = io_acc_read_pipe_b_rmw;"
+                }
+              ]
+            }
+          },
+          "cmp_ctrl": {
+            "fields": 2,
+            "output_registers": {
+              "io_cmp_ctrl_valid": "io_cmp_ctrl_pipe_v",
+              "io_cmp_ctrl_bits_cmd": "io_cmp_ctrl_pipe_b_cmd"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1065,
+                  "text": "io_cmp_ctrl_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1131,
+                  "text": "io_cmp_ctrl_pipe_v <= |_cmp_ctrl_all_valid_T;"
+                },
+                {
+                  "line": 1994,
+                  "text": "assign io_cmp_ctrl_valid = io_cmp_ctrl_pipe_v;"
+                },
+                {
+                  "line": 1995,
+                  "text": "assign io_cmp_ctrl_bits_cmd = io_cmp_ctrl_pipe_b_cmd;"
+                }
+              ]
+            }
+          },
+          "acc_ctrl": {
+            "fields": 2,
+            "output_registers": {
+              "io_acc_ctrl_valid": "io_acc_ctrl_pipe_v",
+              "io_acc_ctrl_bits_cmd": "io_acc_ctrl_pipe_b_cmd"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1066,
+                  "text": "io_acc_ctrl_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1132,
+                  "text": "io_acc_ctrl_pipe_v <= |_acc_ctrl_all_valid_T;"
+                },
+                {
+                  "line": 2156,
+                  "text": "assign io_acc_ctrl_valid = io_acc_ctrl_pipe_v;"
+                },
+                {
+                  "line": 2157,
+                  "text": "assign io_acc_ctrl_bits_cmd = io_acc_ctrl_pipe_b_cmd;"
+                }
+              ]
+            }
+          },
+          "sem_release": {
+            "fields": 3,
+            "output_registers": {
+              "io_sem_release_valid": "io_sem_release_pipe_v",
+              "io_sem_release_bits_id": "io_sem_release_pipe_b_id",
+              "io_sem_release_bits_value": "io_sem_release_pipe_b_value"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1067,
+                  "text": "io_sem_release_pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1133,
+                  "text": "io_sem_release_pipe_v <= |_sem_release_all_valid_T;"
+                },
+                {
+                  "line": 2158,
+                  "text": "assign io_sem_release_valid = io_sem_release_pipe_v;"
+                },
+                {
+                  "line": 2159,
+                  "text": "assign io_sem_release_bits_id = io_sem_release_pipe_b_id;"
+                },
+                {
+                  "line": 2160,
+                  "text": "assign io_sem_release_bits_value = io_sem_release_pipe_b_value;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_0": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_0_valid": "pipe_v",
+              "io_pe_ctrl_0_bits_mac": "pipe_b_mac",
+              "io_pe_ctrl_0_bits_acc_ui": "pipe_b_acc_ui",
+              "io_pe_ctrl_0_bits_load_reg_li": "pipe_b_load_reg_li",
+              "io_pe_ctrl_0_bits_load_reg_ui": "pipe_b_load_reg_ui",
+              "io_pe_ctrl_0_bits_flow_lr": "pipe_b_flow_lr",
+              "io_pe_ctrl_0_bits_flow_ud": "pipe_b_flow_ud",
+              "io_pe_ctrl_0_bits_flow_du": "pipe_b_flow_du",
+              "io_pe_ctrl_0_bits_update_reg": "pipe_b_update_reg",
+              "io_pe_ctrl_0_bits_exp2": "pipe_b_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1068,
+                  "text": "pipe_v <= 1'h0;"
+                },
+                {
+                  "line": 1134,
+                  "text": "pipe_v <= |_pe_ctrl_all_0_valid_T;"
+                },
+                {
+                  "line": 1996,
+                  "text": "assign io_pe_ctrl_0_valid = pipe_v;"
+                },
+                {
+                  "line": 1997,
+                  "text": "assign io_pe_ctrl_0_bits_mac = pipe_b_mac;"
+                },
+                {
+                  "line": 1998,
+                  "text": "assign io_pe_ctrl_0_bits_acc_ui = pipe_b_acc_ui;"
+                },
+                {
+                  "line": 1999,
+                  "text": "assign io_pe_ctrl_0_bits_load_reg_li = pipe_b_load_reg_li;"
+                },
+                {
+                  "line": 2000,
+                  "text": "assign io_pe_ctrl_0_bits_load_reg_ui = pipe_b_load_reg_ui;"
+                },
+                {
+                  "line": 2001,
+                  "text": "assign io_pe_ctrl_0_bits_flow_lr = pipe_b_flow_lr;"
+                },
+                {
+                  "line": 2002,
+                  "text": "assign io_pe_ctrl_0_bits_flow_ud = pipe_b_flow_ud;"
+                },
+                {
+                  "line": 2003,
+                  "text": "assign io_pe_ctrl_0_bits_flow_du = pipe_b_flow_du;"
+                },
+                {
+                  "line": 2004,
+                  "text": "assign io_pe_ctrl_0_bits_update_reg = pipe_b_update_reg;"
+                },
+                {
+                  "line": 2005,
+                  "text": "assign io_pe_ctrl_0_bits_exp2 = pipe_b_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_1": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_1_valid": "pipe_v_1",
+              "io_pe_ctrl_1_bits_mac": "pipe_b_1_mac",
+              "io_pe_ctrl_1_bits_acc_ui": "pipe_b_1_acc_ui",
+              "io_pe_ctrl_1_bits_load_reg_li": "pipe_b_1_load_reg_li",
+              "io_pe_ctrl_1_bits_load_reg_ui": "pipe_b_1_load_reg_ui",
+              "io_pe_ctrl_1_bits_flow_lr": "pipe_b_1_flow_lr",
+              "io_pe_ctrl_1_bits_flow_ud": "pipe_b_1_flow_ud",
+              "io_pe_ctrl_1_bits_flow_du": "pipe_b_1_flow_du",
+              "io_pe_ctrl_1_bits_update_reg": "pipe_b_1_update_reg",
+              "io_pe_ctrl_1_bits_exp2": "pipe_b_1_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1069,
+                  "text": "pipe_v_1 <= 1'h0;"
+                },
+                {
+                  "line": 1135,
+                  "text": "pipe_v_1 <= |_pe_ctrl_all_1_valid_T;"
+                },
+                {
+                  "line": 2006,
+                  "text": "assign io_pe_ctrl_1_valid = pipe_v_1;"
+                },
+                {
+                  "line": 2007,
+                  "text": "assign io_pe_ctrl_1_bits_mac = pipe_b_1_mac;"
+                },
+                {
+                  "line": 2008,
+                  "text": "assign io_pe_ctrl_1_bits_acc_ui = pipe_b_1_acc_ui;"
+                },
+                {
+                  "line": 2009,
+                  "text": "assign io_pe_ctrl_1_bits_load_reg_li = pipe_b_1_load_reg_li;"
+                },
+                {
+                  "line": 2010,
+                  "text": "assign io_pe_ctrl_1_bits_load_reg_ui = pipe_b_1_load_reg_ui;"
+                },
+                {
+                  "line": 2011,
+                  "text": "assign io_pe_ctrl_1_bits_flow_lr = pipe_b_1_flow_lr;"
+                },
+                {
+                  "line": 2012,
+                  "text": "assign io_pe_ctrl_1_bits_flow_ud = pipe_b_1_flow_ud;"
+                },
+                {
+                  "line": 2013,
+                  "text": "assign io_pe_ctrl_1_bits_flow_du = pipe_b_1_flow_du;"
+                },
+                {
+                  "line": 2014,
+                  "text": "assign io_pe_ctrl_1_bits_update_reg = pipe_b_1_update_reg;"
+                },
+                {
+                  "line": 2015,
+                  "text": "assign io_pe_ctrl_1_bits_exp2 = pipe_b_1_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_2": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_2_valid": "pipe_v_2",
+              "io_pe_ctrl_2_bits_mac": "pipe_b_2_mac",
+              "io_pe_ctrl_2_bits_acc_ui": "pipe_b_2_acc_ui",
+              "io_pe_ctrl_2_bits_load_reg_li": "pipe_b_2_load_reg_li",
+              "io_pe_ctrl_2_bits_load_reg_ui": "pipe_b_2_load_reg_ui",
+              "io_pe_ctrl_2_bits_flow_lr": "pipe_b_2_flow_lr",
+              "io_pe_ctrl_2_bits_flow_ud": "pipe_b_2_flow_ud",
+              "io_pe_ctrl_2_bits_flow_du": "pipe_b_2_flow_du",
+              "io_pe_ctrl_2_bits_update_reg": "pipe_b_2_update_reg",
+              "io_pe_ctrl_2_bits_exp2": "pipe_b_2_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1070,
+                  "text": "pipe_v_2 <= 1'h0;"
+                },
+                {
+                  "line": 1136,
+                  "text": "pipe_v_2 <= |_pe_ctrl_all_2_valid_T;"
+                },
+                {
+                  "line": 2016,
+                  "text": "assign io_pe_ctrl_2_valid = pipe_v_2;"
+                },
+                {
+                  "line": 2017,
+                  "text": "assign io_pe_ctrl_2_bits_mac = pipe_b_2_mac;"
+                },
+                {
+                  "line": 2018,
+                  "text": "assign io_pe_ctrl_2_bits_acc_ui = pipe_b_2_acc_ui;"
+                },
+                {
+                  "line": 2019,
+                  "text": "assign io_pe_ctrl_2_bits_load_reg_li = pipe_b_2_load_reg_li;"
+                },
+                {
+                  "line": 2020,
+                  "text": "assign io_pe_ctrl_2_bits_load_reg_ui = pipe_b_2_load_reg_ui;"
+                },
+                {
+                  "line": 2021,
+                  "text": "assign io_pe_ctrl_2_bits_flow_lr = pipe_b_2_flow_lr;"
+                },
+                {
+                  "line": 2022,
+                  "text": "assign io_pe_ctrl_2_bits_flow_ud = pipe_b_2_flow_ud;"
+                },
+                {
+                  "line": 2023,
+                  "text": "assign io_pe_ctrl_2_bits_flow_du = pipe_b_2_flow_du;"
+                },
+                {
+                  "line": 2024,
+                  "text": "assign io_pe_ctrl_2_bits_update_reg = pipe_b_2_update_reg;"
+                },
+                {
+                  "line": 2025,
+                  "text": "assign io_pe_ctrl_2_bits_exp2 = pipe_b_2_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_3": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_3_valid": "pipe_v_3",
+              "io_pe_ctrl_3_bits_mac": "pipe_b_3_mac",
+              "io_pe_ctrl_3_bits_acc_ui": "pipe_b_3_acc_ui",
+              "io_pe_ctrl_3_bits_load_reg_li": "pipe_b_3_load_reg_li",
+              "io_pe_ctrl_3_bits_load_reg_ui": "pipe_b_3_load_reg_ui",
+              "io_pe_ctrl_3_bits_flow_lr": "pipe_b_3_flow_lr",
+              "io_pe_ctrl_3_bits_flow_ud": "pipe_b_3_flow_ud",
+              "io_pe_ctrl_3_bits_flow_du": "pipe_b_3_flow_du",
+              "io_pe_ctrl_3_bits_update_reg": "pipe_b_3_update_reg",
+              "io_pe_ctrl_3_bits_exp2": "pipe_b_3_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1071,
+                  "text": "pipe_v_3 <= 1'h0;"
+                },
+                {
+                  "line": 1137,
+                  "text": "pipe_v_3 <= |_pe_ctrl_all_3_valid_T;"
+                },
+                {
+                  "line": 2026,
+                  "text": "assign io_pe_ctrl_3_valid = pipe_v_3;"
+                },
+                {
+                  "line": 2027,
+                  "text": "assign io_pe_ctrl_3_bits_mac = pipe_b_3_mac;"
+                },
+                {
+                  "line": 2028,
+                  "text": "assign io_pe_ctrl_3_bits_acc_ui = pipe_b_3_acc_ui;"
+                },
+                {
+                  "line": 2029,
+                  "text": "assign io_pe_ctrl_3_bits_load_reg_li = pipe_b_3_load_reg_li;"
+                },
+                {
+                  "line": 2030,
+                  "text": "assign io_pe_ctrl_3_bits_load_reg_ui = pipe_b_3_load_reg_ui;"
+                },
+                {
+                  "line": 2031,
+                  "text": "assign io_pe_ctrl_3_bits_flow_lr = pipe_b_3_flow_lr;"
+                },
+                {
+                  "line": 2032,
+                  "text": "assign io_pe_ctrl_3_bits_flow_ud = pipe_b_3_flow_ud;"
+                },
+                {
+                  "line": 2033,
+                  "text": "assign io_pe_ctrl_3_bits_flow_du = pipe_b_3_flow_du;"
+                },
+                {
+                  "line": 2034,
+                  "text": "assign io_pe_ctrl_3_bits_update_reg = pipe_b_3_update_reg;"
+                },
+                {
+                  "line": 2035,
+                  "text": "assign io_pe_ctrl_3_bits_exp2 = pipe_b_3_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_4": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_4_valid": "pipe_v_4",
+              "io_pe_ctrl_4_bits_mac": "pipe_b_4_mac",
+              "io_pe_ctrl_4_bits_acc_ui": "pipe_b_4_acc_ui",
+              "io_pe_ctrl_4_bits_load_reg_li": "pipe_b_4_load_reg_li",
+              "io_pe_ctrl_4_bits_load_reg_ui": "pipe_b_4_load_reg_ui",
+              "io_pe_ctrl_4_bits_flow_lr": "pipe_b_4_flow_lr",
+              "io_pe_ctrl_4_bits_flow_ud": "pipe_b_4_flow_ud",
+              "io_pe_ctrl_4_bits_flow_du": "pipe_b_4_flow_du",
+              "io_pe_ctrl_4_bits_update_reg": "pipe_b_4_update_reg",
+              "io_pe_ctrl_4_bits_exp2": "pipe_b_4_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1072,
+                  "text": "pipe_v_4 <= 1'h0;"
+                },
+                {
+                  "line": 1138,
+                  "text": "pipe_v_4 <= |_pe_ctrl_all_4_valid_T;"
+                },
+                {
+                  "line": 2036,
+                  "text": "assign io_pe_ctrl_4_valid = pipe_v_4;"
+                },
+                {
+                  "line": 2037,
+                  "text": "assign io_pe_ctrl_4_bits_mac = pipe_b_4_mac;"
+                },
+                {
+                  "line": 2038,
+                  "text": "assign io_pe_ctrl_4_bits_acc_ui = pipe_b_4_acc_ui;"
+                },
+                {
+                  "line": 2039,
+                  "text": "assign io_pe_ctrl_4_bits_load_reg_li = pipe_b_4_load_reg_li;"
+                },
+                {
+                  "line": 2040,
+                  "text": "assign io_pe_ctrl_4_bits_load_reg_ui = pipe_b_4_load_reg_ui;"
+                },
+                {
+                  "line": 2041,
+                  "text": "assign io_pe_ctrl_4_bits_flow_lr = pipe_b_4_flow_lr;"
+                },
+                {
+                  "line": 2042,
+                  "text": "assign io_pe_ctrl_4_bits_flow_ud = pipe_b_4_flow_ud;"
+                },
+                {
+                  "line": 2043,
+                  "text": "assign io_pe_ctrl_4_bits_flow_du = pipe_b_4_flow_du;"
+                },
+                {
+                  "line": 2044,
+                  "text": "assign io_pe_ctrl_4_bits_update_reg = pipe_b_4_update_reg;"
+                },
+                {
+                  "line": 2045,
+                  "text": "assign io_pe_ctrl_4_bits_exp2 = pipe_b_4_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_5": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_5_valid": "pipe_v_5",
+              "io_pe_ctrl_5_bits_mac": "pipe_b_5_mac",
+              "io_pe_ctrl_5_bits_acc_ui": "pipe_b_5_acc_ui",
+              "io_pe_ctrl_5_bits_load_reg_li": "pipe_b_5_load_reg_li",
+              "io_pe_ctrl_5_bits_load_reg_ui": "pipe_b_5_load_reg_ui",
+              "io_pe_ctrl_5_bits_flow_lr": "pipe_b_5_flow_lr",
+              "io_pe_ctrl_5_bits_flow_ud": "pipe_b_5_flow_ud",
+              "io_pe_ctrl_5_bits_flow_du": "pipe_b_5_flow_du",
+              "io_pe_ctrl_5_bits_update_reg": "pipe_b_5_update_reg",
+              "io_pe_ctrl_5_bits_exp2": "pipe_b_5_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1073,
+                  "text": "pipe_v_5 <= 1'h0;"
+                },
+                {
+                  "line": 1139,
+                  "text": "pipe_v_5 <= |_pe_ctrl_all_5_valid_T;"
+                },
+                {
+                  "line": 2046,
+                  "text": "assign io_pe_ctrl_5_valid = pipe_v_5;"
+                },
+                {
+                  "line": 2047,
+                  "text": "assign io_pe_ctrl_5_bits_mac = pipe_b_5_mac;"
+                },
+                {
+                  "line": 2048,
+                  "text": "assign io_pe_ctrl_5_bits_acc_ui = pipe_b_5_acc_ui;"
+                },
+                {
+                  "line": 2049,
+                  "text": "assign io_pe_ctrl_5_bits_load_reg_li = pipe_b_5_load_reg_li;"
+                },
+                {
+                  "line": 2050,
+                  "text": "assign io_pe_ctrl_5_bits_load_reg_ui = pipe_b_5_load_reg_ui;"
+                },
+                {
+                  "line": 2051,
+                  "text": "assign io_pe_ctrl_5_bits_flow_lr = pipe_b_5_flow_lr;"
+                },
+                {
+                  "line": 2052,
+                  "text": "assign io_pe_ctrl_5_bits_flow_ud = pipe_b_5_flow_ud;"
+                },
+                {
+                  "line": 2053,
+                  "text": "assign io_pe_ctrl_5_bits_flow_du = pipe_b_5_flow_du;"
+                },
+                {
+                  "line": 2054,
+                  "text": "assign io_pe_ctrl_5_bits_update_reg = pipe_b_5_update_reg;"
+                },
+                {
+                  "line": 2055,
+                  "text": "assign io_pe_ctrl_5_bits_exp2 = pipe_b_5_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_6": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_6_valid": "pipe_v_6",
+              "io_pe_ctrl_6_bits_mac": "pipe_b_6_mac",
+              "io_pe_ctrl_6_bits_acc_ui": "pipe_b_6_acc_ui",
+              "io_pe_ctrl_6_bits_load_reg_li": "pipe_b_6_load_reg_li",
+              "io_pe_ctrl_6_bits_load_reg_ui": "pipe_b_6_load_reg_ui",
+              "io_pe_ctrl_6_bits_flow_lr": "pipe_b_6_flow_lr",
+              "io_pe_ctrl_6_bits_flow_ud": "pipe_b_6_flow_ud",
+              "io_pe_ctrl_6_bits_flow_du": "pipe_b_6_flow_du",
+              "io_pe_ctrl_6_bits_update_reg": "pipe_b_6_update_reg",
+              "io_pe_ctrl_6_bits_exp2": "pipe_b_6_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1074,
+                  "text": "pipe_v_6 <= 1'h0;"
+                },
+                {
+                  "line": 1140,
+                  "text": "pipe_v_6 <= |_pe_ctrl_all_6_valid_T;"
+                },
+                {
+                  "line": 2056,
+                  "text": "assign io_pe_ctrl_6_valid = pipe_v_6;"
+                },
+                {
+                  "line": 2057,
+                  "text": "assign io_pe_ctrl_6_bits_mac = pipe_b_6_mac;"
+                },
+                {
+                  "line": 2058,
+                  "text": "assign io_pe_ctrl_6_bits_acc_ui = pipe_b_6_acc_ui;"
+                },
+                {
+                  "line": 2059,
+                  "text": "assign io_pe_ctrl_6_bits_load_reg_li = pipe_b_6_load_reg_li;"
+                },
+                {
+                  "line": 2060,
+                  "text": "assign io_pe_ctrl_6_bits_load_reg_ui = pipe_b_6_load_reg_ui;"
+                },
+                {
+                  "line": 2061,
+                  "text": "assign io_pe_ctrl_6_bits_flow_lr = pipe_b_6_flow_lr;"
+                },
+                {
+                  "line": 2062,
+                  "text": "assign io_pe_ctrl_6_bits_flow_ud = pipe_b_6_flow_ud;"
+                },
+                {
+                  "line": 2063,
+                  "text": "assign io_pe_ctrl_6_bits_flow_du = pipe_b_6_flow_du;"
+                },
+                {
+                  "line": 2064,
+                  "text": "assign io_pe_ctrl_6_bits_update_reg = pipe_b_6_update_reg;"
+                },
+                {
+                  "line": 2065,
+                  "text": "assign io_pe_ctrl_6_bits_exp2 = pipe_b_6_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_7": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_7_valid": "pipe_v_7",
+              "io_pe_ctrl_7_bits_mac": "pipe_b_7_mac",
+              "io_pe_ctrl_7_bits_acc_ui": "pipe_b_7_acc_ui",
+              "io_pe_ctrl_7_bits_load_reg_li": "pipe_b_7_load_reg_li",
+              "io_pe_ctrl_7_bits_load_reg_ui": "pipe_b_7_load_reg_ui",
+              "io_pe_ctrl_7_bits_flow_lr": "pipe_b_7_flow_lr",
+              "io_pe_ctrl_7_bits_flow_ud": "pipe_b_7_flow_ud",
+              "io_pe_ctrl_7_bits_flow_du": "pipe_b_7_flow_du",
+              "io_pe_ctrl_7_bits_update_reg": "pipe_b_7_update_reg",
+              "io_pe_ctrl_7_bits_exp2": "pipe_b_7_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1075,
+                  "text": "pipe_v_7 <= 1'h0;"
+                },
+                {
+                  "line": 1141,
+                  "text": "pipe_v_7 <= |_pe_ctrl_all_7_valid_T;"
+                },
+                {
+                  "line": 2066,
+                  "text": "assign io_pe_ctrl_7_valid = pipe_v_7;"
+                },
+                {
+                  "line": 2067,
+                  "text": "assign io_pe_ctrl_7_bits_mac = pipe_b_7_mac;"
+                },
+                {
+                  "line": 2068,
+                  "text": "assign io_pe_ctrl_7_bits_acc_ui = pipe_b_7_acc_ui;"
+                },
+                {
+                  "line": 2069,
+                  "text": "assign io_pe_ctrl_7_bits_load_reg_li = pipe_b_7_load_reg_li;"
+                },
+                {
+                  "line": 2070,
+                  "text": "assign io_pe_ctrl_7_bits_load_reg_ui = pipe_b_7_load_reg_ui;"
+                },
+                {
+                  "line": 2071,
+                  "text": "assign io_pe_ctrl_7_bits_flow_lr = pipe_b_7_flow_lr;"
+                },
+                {
+                  "line": 2072,
+                  "text": "assign io_pe_ctrl_7_bits_flow_ud = pipe_b_7_flow_ud;"
+                },
+                {
+                  "line": 2073,
+                  "text": "assign io_pe_ctrl_7_bits_flow_du = pipe_b_7_flow_du;"
+                },
+                {
+                  "line": 2074,
+                  "text": "assign io_pe_ctrl_7_bits_update_reg = pipe_b_7_update_reg;"
+                },
+                {
+                  "line": 2075,
+                  "text": "assign io_pe_ctrl_7_bits_exp2 = pipe_b_7_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_8": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_8_valid": "pipe_v_8",
+              "io_pe_ctrl_8_bits_mac": "pipe_b_8_mac",
+              "io_pe_ctrl_8_bits_acc_ui": "pipe_b_8_acc_ui",
+              "io_pe_ctrl_8_bits_load_reg_li": "pipe_b_8_load_reg_li",
+              "io_pe_ctrl_8_bits_load_reg_ui": "pipe_b_8_load_reg_ui",
+              "io_pe_ctrl_8_bits_flow_lr": "pipe_b_8_flow_lr",
+              "io_pe_ctrl_8_bits_flow_ud": "pipe_b_8_flow_ud",
+              "io_pe_ctrl_8_bits_flow_du": "pipe_b_8_flow_du",
+              "io_pe_ctrl_8_bits_update_reg": "pipe_b_8_update_reg",
+              "io_pe_ctrl_8_bits_exp2": "pipe_b_8_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1076,
+                  "text": "pipe_v_8 <= 1'h0;"
+                },
+                {
+                  "line": 1142,
+                  "text": "pipe_v_8 <= |_pe_ctrl_all_8_valid_T;"
+                },
+                {
+                  "line": 2076,
+                  "text": "assign io_pe_ctrl_8_valid = pipe_v_8;"
+                },
+                {
+                  "line": 2077,
+                  "text": "assign io_pe_ctrl_8_bits_mac = pipe_b_8_mac;"
+                },
+                {
+                  "line": 2078,
+                  "text": "assign io_pe_ctrl_8_bits_acc_ui = pipe_b_8_acc_ui;"
+                },
+                {
+                  "line": 2079,
+                  "text": "assign io_pe_ctrl_8_bits_load_reg_li = pipe_b_8_load_reg_li;"
+                },
+                {
+                  "line": 2080,
+                  "text": "assign io_pe_ctrl_8_bits_load_reg_ui = pipe_b_8_load_reg_ui;"
+                },
+                {
+                  "line": 2081,
+                  "text": "assign io_pe_ctrl_8_bits_flow_lr = pipe_b_8_flow_lr;"
+                },
+                {
+                  "line": 2082,
+                  "text": "assign io_pe_ctrl_8_bits_flow_ud = pipe_b_8_flow_ud;"
+                },
+                {
+                  "line": 2083,
+                  "text": "assign io_pe_ctrl_8_bits_flow_du = pipe_b_8_flow_du;"
+                },
+                {
+                  "line": 2084,
+                  "text": "assign io_pe_ctrl_8_bits_update_reg = pipe_b_8_update_reg;"
+                },
+                {
+                  "line": 2085,
+                  "text": "assign io_pe_ctrl_8_bits_exp2 = pipe_b_8_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_9": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_9_valid": "pipe_v_9",
+              "io_pe_ctrl_9_bits_mac": "pipe_b_9_mac",
+              "io_pe_ctrl_9_bits_acc_ui": "pipe_b_9_acc_ui",
+              "io_pe_ctrl_9_bits_load_reg_li": "pipe_b_9_load_reg_li",
+              "io_pe_ctrl_9_bits_load_reg_ui": "pipe_b_9_load_reg_ui",
+              "io_pe_ctrl_9_bits_flow_lr": "pipe_b_9_flow_lr",
+              "io_pe_ctrl_9_bits_flow_ud": "pipe_b_9_flow_ud",
+              "io_pe_ctrl_9_bits_flow_du": "pipe_b_9_flow_du",
+              "io_pe_ctrl_9_bits_update_reg": "pipe_b_9_update_reg",
+              "io_pe_ctrl_9_bits_exp2": "pipe_b_9_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1077,
+                  "text": "pipe_v_9 <= 1'h0;"
+                },
+                {
+                  "line": 1143,
+                  "text": "pipe_v_9 <= |_pe_ctrl_all_9_valid_T;"
+                },
+                {
+                  "line": 2086,
+                  "text": "assign io_pe_ctrl_9_valid = pipe_v_9;"
+                },
+                {
+                  "line": 2087,
+                  "text": "assign io_pe_ctrl_9_bits_mac = pipe_b_9_mac;"
+                },
+                {
+                  "line": 2088,
+                  "text": "assign io_pe_ctrl_9_bits_acc_ui = pipe_b_9_acc_ui;"
+                },
+                {
+                  "line": 2089,
+                  "text": "assign io_pe_ctrl_9_bits_load_reg_li = pipe_b_9_load_reg_li;"
+                },
+                {
+                  "line": 2090,
+                  "text": "assign io_pe_ctrl_9_bits_load_reg_ui = pipe_b_9_load_reg_ui;"
+                },
+                {
+                  "line": 2091,
+                  "text": "assign io_pe_ctrl_9_bits_flow_lr = pipe_b_9_flow_lr;"
+                },
+                {
+                  "line": 2092,
+                  "text": "assign io_pe_ctrl_9_bits_flow_ud = pipe_b_9_flow_ud;"
+                },
+                {
+                  "line": 2093,
+                  "text": "assign io_pe_ctrl_9_bits_flow_du = pipe_b_9_flow_du;"
+                },
+                {
+                  "line": 2094,
+                  "text": "assign io_pe_ctrl_9_bits_update_reg = pipe_b_9_update_reg;"
+                },
+                {
+                  "line": 2095,
+                  "text": "assign io_pe_ctrl_9_bits_exp2 = pipe_b_9_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_10": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_10_valid": "pipe_v_10",
+              "io_pe_ctrl_10_bits_mac": "pipe_b_10_mac",
+              "io_pe_ctrl_10_bits_acc_ui": "pipe_b_10_acc_ui",
+              "io_pe_ctrl_10_bits_load_reg_li": "pipe_b_10_load_reg_li",
+              "io_pe_ctrl_10_bits_load_reg_ui": "pipe_b_10_load_reg_ui",
+              "io_pe_ctrl_10_bits_flow_lr": "pipe_b_10_flow_lr",
+              "io_pe_ctrl_10_bits_flow_ud": "pipe_b_10_flow_ud",
+              "io_pe_ctrl_10_bits_flow_du": "pipe_b_10_flow_du",
+              "io_pe_ctrl_10_bits_update_reg": "pipe_b_10_update_reg",
+              "io_pe_ctrl_10_bits_exp2": "pipe_b_10_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1078,
+                  "text": "pipe_v_10 <= 1'h0;"
+                },
+                {
+                  "line": 1144,
+                  "text": "pipe_v_10 <= |_pe_ctrl_all_10_valid_T;"
+                },
+                {
+                  "line": 2096,
+                  "text": "assign io_pe_ctrl_10_valid = pipe_v_10;"
+                },
+                {
+                  "line": 2097,
+                  "text": "assign io_pe_ctrl_10_bits_mac = pipe_b_10_mac;"
+                },
+                {
+                  "line": 2098,
+                  "text": "assign io_pe_ctrl_10_bits_acc_ui = pipe_b_10_acc_ui;"
+                },
+                {
+                  "line": 2099,
+                  "text": "assign io_pe_ctrl_10_bits_load_reg_li = pipe_b_10_load_reg_li;"
+                },
+                {
+                  "line": 2100,
+                  "text": "assign io_pe_ctrl_10_bits_load_reg_ui = pipe_b_10_load_reg_ui;"
+                },
+                {
+                  "line": 2101,
+                  "text": "assign io_pe_ctrl_10_bits_flow_lr = pipe_b_10_flow_lr;"
+                },
+                {
+                  "line": 2102,
+                  "text": "assign io_pe_ctrl_10_bits_flow_ud = pipe_b_10_flow_ud;"
+                },
+                {
+                  "line": 2103,
+                  "text": "assign io_pe_ctrl_10_bits_flow_du = pipe_b_10_flow_du;"
+                },
+                {
+                  "line": 2104,
+                  "text": "assign io_pe_ctrl_10_bits_update_reg = pipe_b_10_update_reg;"
+                },
+                {
+                  "line": 2105,
+                  "text": "assign io_pe_ctrl_10_bits_exp2 = pipe_b_10_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_11": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_11_valid": "pipe_v_11",
+              "io_pe_ctrl_11_bits_mac": "pipe_b_11_mac",
+              "io_pe_ctrl_11_bits_acc_ui": "pipe_b_11_acc_ui",
+              "io_pe_ctrl_11_bits_load_reg_li": "pipe_b_11_load_reg_li",
+              "io_pe_ctrl_11_bits_load_reg_ui": "pipe_b_11_load_reg_ui",
+              "io_pe_ctrl_11_bits_flow_lr": "pipe_b_11_flow_lr",
+              "io_pe_ctrl_11_bits_flow_ud": "pipe_b_11_flow_ud",
+              "io_pe_ctrl_11_bits_flow_du": "pipe_b_11_flow_du",
+              "io_pe_ctrl_11_bits_update_reg": "pipe_b_11_update_reg",
+              "io_pe_ctrl_11_bits_exp2": "pipe_b_11_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1079,
+                  "text": "pipe_v_11 <= 1'h0;"
+                },
+                {
+                  "line": 1145,
+                  "text": "pipe_v_11 <= |_pe_ctrl_all_11_valid_T;"
+                },
+                {
+                  "line": 2106,
+                  "text": "assign io_pe_ctrl_11_valid = pipe_v_11;"
+                },
+                {
+                  "line": 2107,
+                  "text": "assign io_pe_ctrl_11_bits_mac = pipe_b_11_mac;"
+                },
+                {
+                  "line": 2108,
+                  "text": "assign io_pe_ctrl_11_bits_acc_ui = pipe_b_11_acc_ui;"
+                },
+                {
+                  "line": 2109,
+                  "text": "assign io_pe_ctrl_11_bits_load_reg_li = pipe_b_11_load_reg_li;"
+                },
+                {
+                  "line": 2110,
+                  "text": "assign io_pe_ctrl_11_bits_load_reg_ui = pipe_b_11_load_reg_ui;"
+                },
+                {
+                  "line": 2111,
+                  "text": "assign io_pe_ctrl_11_bits_flow_lr = pipe_b_11_flow_lr;"
+                },
+                {
+                  "line": 2112,
+                  "text": "assign io_pe_ctrl_11_bits_flow_ud = pipe_b_11_flow_ud;"
+                },
+                {
+                  "line": 2113,
+                  "text": "assign io_pe_ctrl_11_bits_flow_du = pipe_b_11_flow_du;"
+                },
+                {
+                  "line": 2114,
+                  "text": "assign io_pe_ctrl_11_bits_update_reg = pipe_b_11_update_reg;"
+                },
+                {
+                  "line": 2115,
+                  "text": "assign io_pe_ctrl_11_bits_exp2 = pipe_b_11_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_12": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_12_valid": "pipe_v_12",
+              "io_pe_ctrl_12_bits_mac": "pipe_b_12_mac",
+              "io_pe_ctrl_12_bits_acc_ui": "pipe_b_12_acc_ui",
+              "io_pe_ctrl_12_bits_load_reg_li": "pipe_b_12_load_reg_li",
+              "io_pe_ctrl_12_bits_load_reg_ui": "pipe_b_12_load_reg_ui",
+              "io_pe_ctrl_12_bits_flow_lr": "pipe_b_12_flow_lr",
+              "io_pe_ctrl_12_bits_flow_ud": "pipe_b_12_flow_ud",
+              "io_pe_ctrl_12_bits_flow_du": "pipe_b_12_flow_du",
+              "io_pe_ctrl_12_bits_update_reg": "pipe_b_12_update_reg",
+              "io_pe_ctrl_12_bits_exp2": "pipe_b_12_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1080,
+                  "text": "pipe_v_12 <= 1'h0;"
+                },
+                {
+                  "line": 1146,
+                  "text": "pipe_v_12 <= |_pe_ctrl_all_12_valid_T;"
+                },
+                {
+                  "line": 2116,
+                  "text": "assign io_pe_ctrl_12_valid = pipe_v_12;"
+                },
+                {
+                  "line": 2117,
+                  "text": "assign io_pe_ctrl_12_bits_mac = pipe_b_12_mac;"
+                },
+                {
+                  "line": 2118,
+                  "text": "assign io_pe_ctrl_12_bits_acc_ui = pipe_b_12_acc_ui;"
+                },
+                {
+                  "line": 2119,
+                  "text": "assign io_pe_ctrl_12_bits_load_reg_li = pipe_b_12_load_reg_li;"
+                },
+                {
+                  "line": 2120,
+                  "text": "assign io_pe_ctrl_12_bits_load_reg_ui = pipe_b_12_load_reg_ui;"
+                },
+                {
+                  "line": 2121,
+                  "text": "assign io_pe_ctrl_12_bits_flow_lr = pipe_b_12_flow_lr;"
+                },
+                {
+                  "line": 2122,
+                  "text": "assign io_pe_ctrl_12_bits_flow_ud = pipe_b_12_flow_ud;"
+                },
+                {
+                  "line": 2123,
+                  "text": "assign io_pe_ctrl_12_bits_flow_du = pipe_b_12_flow_du;"
+                },
+                {
+                  "line": 2124,
+                  "text": "assign io_pe_ctrl_12_bits_update_reg = pipe_b_12_update_reg;"
+                },
+                {
+                  "line": 2125,
+                  "text": "assign io_pe_ctrl_12_bits_exp2 = pipe_b_12_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_13": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_13_valid": "pipe_v_13",
+              "io_pe_ctrl_13_bits_mac": "pipe_b_13_mac",
+              "io_pe_ctrl_13_bits_acc_ui": "pipe_b_13_acc_ui",
+              "io_pe_ctrl_13_bits_load_reg_li": "pipe_b_13_load_reg_li",
+              "io_pe_ctrl_13_bits_load_reg_ui": "pipe_b_13_load_reg_ui",
+              "io_pe_ctrl_13_bits_flow_lr": "pipe_b_13_flow_lr",
+              "io_pe_ctrl_13_bits_flow_ud": "pipe_b_13_flow_ud",
+              "io_pe_ctrl_13_bits_flow_du": "pipe_b_13_flow_du",
+              "io_pe_ctrl_13_bits_update_reg": "pipe_b_13_update_reg",
+              "io_pe_ctrl_13_bits_exp2": "pipe_b_13_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1081,
+                  "text": "pipe_v_13 <= 1'h0;"
+                },
+                {
+                  "line": 1147,
+                  "text": "pipe_v_13 <= |_pe_ctrl_all_13_valid_T;"
+                },
+                {
+                  "line": 2126,
+                  "text": "assign io_pe_ctrl_13_valid = pipe_v_13;"
+                },
+                {
+                  "line": 2127,
+                  "text": "assign io_pe_ctrl_13_bits_mac = pipe_b_13_mac;"
+                },
+                {
+                  "line": 2128,
+                  "text": "assign io_pe_ctrl_13_bits_acc_ui = pipe_b_13_acc_ui;"
+                },
+                {
+                  "line": 2129,
+                  "text": "assign io_pe_ctrl_13_bits_load_reg_li = pipe_b_13_load_reg_li;"
+                },
+                {
+                  "line": 2130,
+                  "text": "assign io_pe_ctrl_13_bits_load_reg_ui = pipe_b_13_load_reg_ui;"
+                },
+                {
+                  "line": 2131,
+                  "text": "assign io_pe_ctrl_13_bits_flow_lr = pipe_b_13_flow_lr;"
+                },
+                {
+                  "line": 2132,
+                  "text": "assign io_pe_ctrl_13_bits_flow_ud = pipe_b_13_flow_ud;"
+                },
+                {
+                  "line": 2133,
+                  "text": "assign io_pe_ctrl_13_bits_flow_du = pipe_b_13_flow_du;"
+                },
+                {
+                  "line": 2134,
+                  "text": "assign io_pe_ctrl_13_bits_update_reg = pipe_b_13_update_reg;"
+                },
+                {
+                  "line": 2135,
+                  "text": "assign io_pe_ctrl_13_bits_exp2 = pipe_b_13_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_14": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_14_valid": "pipe_v_14",
+              "io_pe_ctrl_14_bits_mac": "pipe_b_14_mac",
+              "io_pe_ctrl_14_bits_acc_ui": "pipe_b_14_acc_ui",
+              "io_pe_ctrl_14_bits_load_reg_li": "pipe_b_14_load_reg_li",
+              "io_pe_ctrl_14_bits_load_reg_ui": "pipe_b_14_load_reg_ui",
+              "io_pe_ctrl_14_bits_flow_lr": "pipe_b_14_flow_lr",
+              "io_pe_ctrl_14_bits_flow_ud": "pipe_b_14_flow_ud",
+              "io_pe_ctrl_14_bits_flow_du": "pipe_b_14_flow_du",
+              "io_pe_ctrl_14_bits_update_reg": "pipe_b_14_update_reg",
+              "io_pe_ctrl_14_bits_exp2": "pipe_b_14_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1082,
+                  "text": "pipe_v_14 <= 1'h0;"
+                },
+                {
+                  "line": 1148,
+                  "text": "pipe_v_14 <= |_pe_ctrl_all_14_valid_T;"
+                },
+                {
+                  "line": 2136,
+                  "text": "assign io_pe_ctrl_14_valid = pipe_v_14;"
+                },
+                {
+                  "line": 2137,
+                  "text": "assign io_pe_ctrl_14_bits_mac = pipe_b_14_mac;"
+                },
+                {
+                  "line": 2138,
+                  "text": "assign io_pe_ctrl_14_bits_acc_ui = pipe_b_14_acc_ui;"
+                },
+                {
+                  "line": 2139,
+                  "text": "assign io_pe_ctrl_14_bits_load_reg_li = pipe_b_14_load_reg_li;"
+                },
+                {
+                  "line": 2140,
+                  "text": "assign io_pe_ctrl_14_bits_load_reg_ui = pipe_b_14_load_reg_ui;"
+                },
+                {
+                  "line": 2141,
+                  "text": "assign io_pe_ctrl_14_bits_flow_lr = pipe_b_14_flow_lr;"
+                },
+                {
+                  "line": 2142,
+                  "text": "assign io_pe_ctrl_14_bits_flow_ud = pipe_b_14_flow_ud;"
+                },
+                {
+                  "line": 2143,
+                  "text": "assign io_pe_ctrl_14_bits_flow_du = pipe_b_14_flow_du;"
+                },
+                {
+                  "line": 2144,
+                  "text": "assign io_pe_ctrl_14_bits_update_reg = pipe_b_14_update_reg;"
+                },
+                {
+                  "line": 2145,
+                  "text": "assign io_pe_ctrl_14_bits_exp2 = pipe_b_14_exp2;"
+                }
+              ]
+            }
+          },
+          "pe_ctrl_15": {
+            "fields": 10,
+            "output_registers": {
+              "io_pe_ctrl_15_valid": "pipe_v_15",
+              "io_pe_ctrl_15_bits_mac": "pipe_b_15_mac",
+              "io_pe_ctrl_15_bits_acc_ui": "pipe_b_15_acc_ui",
+              "io_pe_ctrl_15_bits_load_reg_li": "pipe_b_15_load_reg_li",
+              "io_pe_ctrl_15_bits_load_reg_ui": "pipe_b_15_load_reg_ui",
+              "io_pe_ctrl_15_bits_flow_lr": "pipe_b_15_flow_lr",
+              "io_pe_ctrl_15_bits_flow_ud": "pipe_b_15_flow_ud",
+              "io_pe_ctrl_15_bits_flow_du": "pipe_b_15_flow_du",
+              "io_pe_ctrl_15_bits_update_reg": "pipe_b_15_update_reg",
+              "io_pe_ctrl_15_bits_exp2": "pipe_b_15_exp2"
+            },
+            "evidence": {
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv",
+              "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+              "matches": [
+                {
+                  "line": 1083,
+                  "text": "pipe_v_15 <= 1'h0;"
+                },
+                {
+                  "line": 1149,
+                  "text": "pipe_v_15 <= |_pe_ctrl_all_15_valid_T;"
+                },
+                {
+                  "line": 2146,
+                  "text": "assign io_pe_ctrl_15_valid = pipe_v_15;"
+                },
+                {
+                  "line": 2147,
+                  "text": "assign io_pe_ctrl_15_bits_mac = pipe_b_15_mac;"
+                },
+                {
+                  "line": 2148,
+                  "text": "assign io_pe_ctrl_15_bits_acc_ui = pipe_b_15_acc_ui;"
+                },
+                {
+                  "line": 2149,
+                  "text": "assign io_pe_ctrl_15_bits_load_reg_li = pipe_b_15_load_reg_li;"
+                },
+                {
+                  "line": 2150,
+                  "text": "assign io_pe_ctrl_15_bits_load_reg_ui = pipe_b_15_load_reg_ui;"
+                },
+                {
+                  "line": 2151,
+                  "text": "assign io_pe_ctrl_15_bits_flow_lr = pipe_b_15_flow_lr;"
+                },
+                {
+                  "line": 2152,
+                  "text": "assign io_pe_ctrl_15_bits_flow_ud = pipe_b_15_flow_ud;"
+                },
+                {
+                  "line": 2153,
+                  "text": "assign io_pe_ctrl_15_bits_flow_du = pipe_b_15_flow_du;"
+                },
+                {
+                  "line": 2154,
+                  "text": "assign io_pe_ctrl_15_bits_update_reg = pipe_b_15_update_reg;"
+                },
+                {
+                  "line": 2155,
+                  "text": "assign io_pe_ctrl_15_bits_exp2 = pipe_b_15_exp2;"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "accumulator_pipeline": {
+        "cycles": 3,
+        "fpacc_instance": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+          "sha256": "9c96fba5307847379d44c430982b526efba7aa9e5f60a06e01a7331a41fd4f3d",
+          "matches": [
+            {
+              "line": 50,
+              "text": "RawFloat_MulAddExp2_1 mulAddExp2 ("
+            }
+          ]
+        },
+        "source": {
+          "file": "stages/p3/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+          "sha256": "2f6c735ab921e7b651c97831deda8b25e0a96244c2f07832088d5dae4cbddc7c",
+          "matches": [
+            {
+              "line": 53,
+              "text": "1 + addEW, 1 + addMW, 1 + addEW, 1 + addMW, Left(pwlConst),"
+            },
+            {
+              "line": 54,
+              "text": "pipeline = true"
+            },
+            {
+              "line": 86,
+              "text": "def latency: Int = 3"
+            },
+            {
+              "line": 124,
+              "text": "override val accLatency: Int = FPAccUnit.latency"
+            }
+          ]
+        },
+        "entry_cycles": 1,
+        "internal_fma_cycles": 2,
+        "source_entry": {
+          "file": "stages/p3/generators/easyfloat/src/main/scala/easyfloat/Exp2.scala",
+          "sha256": "f437156090e9709aba925b7adcee0efcda1253d9cb9678b69269da622af0f59f",
+          "matches": [
+            {
+              "line": 71,
+              "text": "pipeline: Boolean = false"
+            },
+            {
+              "line": 78,
+              "text": "nStages = if (pipeline) 2 else 0"
+            },
+            {
+              "line": 131,
+              "text": "val faR = Reg(chiselTypeOf(fa)); faR := fa"
+            },
+            {
+              "line": 132,
+              "text": "val fbR = Reg(chiselTypeOf(fb)); fbR := fb"
+            },
+            {
+              "line": 133,
+              "text": "val fcR = Reg(chiselTypeOf(fc)); fcR := fc"
+            },
+            {
+              "line": 139,
+              "text": "val inExp2D = ShiftRegister(io.in_exp2, 3)"
+            },
+            {
+              "line": 140,
+              "text": "val outIntD = ShiftRegister(split.io.outInt, 3)"
+            }
+          ]
+        },
+        "source_internal": {
+          "file": "stages/p3/generators/easyfloat/src/main/scala/easyfloat/FMA.scala",
+          "sha256": "fde5dadba9d8f960789729714b035c190794e35ec69b4b6fd4f6e6f238ff64b5",
+          "matches": [
+            {
+              "line": 11,
+              "text": "nStages: Int = 0"
+            },
+            {
+              "line": 74,
+              "text": "val prodMantissa = stageReg(prodMantissa_s1)"
+            },
+            {
+              "line": 105,
+              "text": "val adderOutAbs = stageReg(adderOutAbs_s1)"
+            },
+            {
+              "line": 110,
+              "text": "val expDiff2 = stageReg2(expDiff)"
+            }
+          ]
+        },
+        "entry_registers": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+          "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+          "matches": [
+            {
+              "line": 119,
+              "text": "faR_sign <= io_in_exp2 ? _split_io_outRawFloat_sign : io_in_a_sign;"
+            },
+            {
+              "line": 120,
+              "text": "faR_exp <= io_in_exp2 ? _split_io_outRawFloat_exp : io_in_a_exp;"
+            },
+            {
+              "line": 121,
+              "text": "faR_mantissa <= io_in_exp2 ? _split_io_outRawFloat_mantissa : io_in_a_mantissa;"
+            },
+            {
+              "line": 125,
+              "text": "fbR_sign <= io_in_exp2 ? _GEN_1[31] : io_in_b_sign;"
+            },
+            {
+              "line": 126,
+              "text": "fbR_exp <= io_in_exp2 ? {1'h0, _GEN_1[30:23]} - 9'h7F : io_in_b_exp;"
+            },
+            {
+              "line": 127,
+              "text": "fbR_mantissa <= io_in_exp2 ? {1'h1, _GEN_1[22:0]} : io_in_b_mantissa;"
+            },
+            {
+              "line": 131,
+              "text": "fcR_sign <= io_in_exp2 ? _GEN_2[31] : io_in_c_sign;"
+            },
+            {
+              "line": 132,
+              "text": "fcR_exp <= io_in_exp2 ? {1'h0, _GEN_2[30:23]} - 9'h7F : io_in_c_exp;"
+            },
+            {
+              "line": 133,
+              "text": "fcR_mantissa <= io_in_exp2 ? {1'h1, _GEN_2[22:0]} : io_in_c_mantissa;"
+            }
+          ]
+        },
+        "fma_instance": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+          "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+          "matches": [
+            {
+              "line": 184,
+              "text": "RawFloat_FMA_17 fma ("
+            },
+            {
+              "line": 191,
+              "text": ".io_a_mantissa   (faR_mantissa),"
+            },
+            {
+              "line": 197,
+              "text": ".io_b_mantissa   (fbR_mantissa),"
+            },
+            {
+              "line": 203,
+              "text": ".io_c_mantissa   (fcR_mantissa),"
+            }
+          ]
+        },
+        "internal_registers": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_17.sv",
+          "sha256": "9ed35f9541a89441327e8657c291ebb545383e2c131db975c5badd062cf07e8b",
+          "matches": [
+            {
+              "line": 129,
+              "text": "prodMantissa <= {24'h0, io_a_mantissa} * {24'h0, io_b_mantissa};"
+            },
+            {
+              "line": 146,
+              "text": "adderOutAbs <= _pMinusC_T_4[75] ? {cShift, cSticky} - _addProd_T_1 : _pMinusC_T_4[74:0];"
+            },
+            {
+              "line": 148,
+              "text": "expDiff2 <= expDiff;"
+            },
+            {
+              "line": 156,
+              "text": "prodExp2 <= prodExp;"
+            }
+          ]
+        },
+        "combinational_rounding": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv",
+          "sha256": "9c96fba5307847379d44c430982b526efba7aa9e5f60a06e01a7331a41fd4f3d",
+          "matches": [
+            {
+              "line": 101,
+              "text": "assign io_out_accType_sign = io_out_accType_resSign;"
+            },
+            {
+              "line": 102,
+              "text": "assign io_out_accType_exp = io_out_accType_resExp;"
+            },
+            {
+              "line": 103,
+              "text": "assign io_out_accType_mantissa = io_out_accType_resMantissa;"
+            }
+          ]
+        },
+        "exp2_control_chain": [
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 134,
+                "text": "inExp2D_r <= io_in_exp2;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 135,
+                "text": "inExp2D_r_1 <= inExp2D_r;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 136,
+                "text": "inExp2D <= inExp2D_r_1;"
+              }
+            ]
+          }
+        ],
+        "exp2_integer_chain": [
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 137,
+                "text": "outIntD_r <= _split_io_outInt;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 138,
+                "text": "outIntD_r_1 <= outIntD_r;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv",
+            "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+            "matches": [
+              {
+                "line": 139,
+                "text": "outIntD <= outIntD_r_1;"
+              }
+            ]
+          }
+        ],
+        "accumulator_control_alignment": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv",
+          "sha256": "5df70422efdebe477ed119a638a81e5d10681f7f2a3fa1ab339c95f2814d880b",
+          "matches": [
+            {
+              "line": 792,
+              "text": "validD_r <= io_ctrl_in_valid;"
+            },
+            {
+              "line": 793,
+              "text": "validD_r_1 <= validD_r;"
+            },
+            {
+              "line": 794,
+              "text": "validD <= validD_r_1;"
+            },
+            {
+              "line": 795,
+              "text": "expS1D_r <= exp_s1;"
+            },
+            {
+              "line": 796,
+              "text": "expS1D_r_1 <= expS1D_r;"
+            },
+            {
+              "line": 797,
+              "text": "expS1D <= expS1D_r_1;"
+            },
+            {
+              "line": 798,
+              "text": "expS2D_r <= exp_s2;"
+            },
+            {
+              "line": 799,
+              "text": "expS2D_r_1 <= expS2D_r;"
+            },
+            {
+              "line": 800,
+              "text": "expS2D <= expS2D_r_1;"
+            },
+            {
+              "line": 801,
+              "text": "setD_r <= io_ctrl_in_bits_cmd == 3'h4;"
+            },
+            {
+              "line": 802,
+              "text": "setD_r_1 <= setD_r;"
+            },
+            {
+              "line": 803,
+              "text": "setD <= setD_r_1;"
+            }
+          ]
+        }
+      },
+      "accRAM_alignment": {
+        "read_latency_cycles": 1,
+        "acc_datapath_cycles": 3,
+        "write_valid_delay_cycles": 4,
+        "write_address_delay_cycles": 4,
+        "aligned": true,
+        "source": {
+          "file": "stages/p3/generators/fsa/src/main/scala/fsa/FSA.scala",
+          "sha256": "edee847eef5f21fdcd4364c0590142a7a830bd67c31eafb29d83676c986595f3",
+          "matches": [
+            {
+              "line": 187,
+              "text": "accRAM.fullWrite.head.valid := ShiftRegister("
+            },
+            {
+              "line": 189,
+              "text": "ev.accLatency + 1, false.B, true.B"
+            },
+            {
+              "line": 191,
+              "text": "accRAM.fullWrite.head.addr := ShiftRegister("
+            },
+            {
+              "line": 192,
+              "text": "mxControl.io.acc_read.bits.addr, ev.accLatency + 1"
+            },
+            {
+              "line": 194,
+              "text": "accRAM.fullWrite.head.data := accumulator.io.sram_out.asTypeOf(accRAM.fullWrite.head.data)"
+            }
+          ]
+        },
+        "valid_chain": [
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 558,
+                "text": "sram_accRAM_fullWrite_0_valid_r <= _mxControl_io_acc_read_valid & _mxControl_io_acc_read_bits_rmw;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 559,
+                "text": "sram_accRAM_fullWrite_0_valid_r_1 <= sram_accRAM_fullWrite_0_valid_r;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 560,
+                "text": "sram_accRAM_fullWrite_0_valid_r_2 <= sram_accRAM_fullWrite_0_valid_r_1;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 561,
+                "text": "sram_accRAM_fullWrite_0_valid_r_3 <= sram_accRAM_fullWrite_0_valid_r_2;"
+              }
+            ]
+          }
+        ],
+        "address_chain": [
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 570,
+                "text": "sram_accRAM_fullWrite_0_addr_r <= _mxControl_io_acc_read_bits_addr;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 571,
+                "text": "sram_accRAM_fullWrite_0_addr_r_1 <= sram_accRAM_fullWrite_0_addr_r;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 572,
+                "text": "sram_accRAM_fullWrite_0_addr_r_2 <= sram_accRAM_fullWrite_0_addr_r_1;"
+              }
+            ]
+          },
+          {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+            "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+            "matches": [
+              {
+                "line": 573,
+                "text": "sram_accRAM_fullWrite_0_addr_r_3 <= sram_accRAM_fullWrite_0_addr_r_2;"
+              }
+            ]
+          }
+        ],
+        "actual_ram_connection": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+          "matches": [
+            {
+              "line": 1482,
+              "text": ".io_fullWrite_0_valid       (sram_accRAM_fullWrite_0_valid_r_3),"
+            },
+            {
+              "line": 1483,
+              "text": ".io_fullWrite_0_addr        (sram_accRAM_fullWrite_0_addr_r_3),"
+            }
+          ]
+        },
+        "actual_data_connection": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv",
+          "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+          "matches": [
+            {
+              "line": 1484,
+              "text": ".io_fullWrite_0_data_0      ({_accumulator_io_sram_out_0_sign, _accumulator_io_sram_out_0_exp, _accumulator_io_sram_out_0_mantissa}),"
+            }
+          ]
+        },
+        "actual_sram_interface": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AccumulationSRAM.sv",
+          "sha256": "3cd97e38d498ce618b6145aaddb036db70c8b788e37d633949aaefc3de5f432a",
+          "matches": [
+            {
+              "line": 145,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 146,
+              "text": ".W0_en   (io_fullWrite_0_valid & ~(io_fullWrite_0_addr[0])),"
+            },
+            {
+              "line": 155,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 156,
+              "text": ".W0_en   (io_fullWrite_0_valid & ~(io_fullWrite_0_addr[0])),"
+            },
+            {
+              "line": 165,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 166,
+              "text": ".W0_en   (io_fullWrite_0_valid & io_fullWrite_0_addr[0]),"
+            },
+            {
+              "line": 175,
+              "text": ".W0_addr (io_fullWrite_0_addr),"
+            },
+            {
+              "line": 176,
+              "text": ".W0_en   (io_fullWrite_0_valid & io_fullWrite_0_addr[0]),"
+            }
+          ]
+        },
+        "registered_read_evidence": {
+          "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v",
+          "sha256": "8664d82e896211c5304058d34a2c543d2f30909832e3ad62a9cef5a98c244213",
+          "matches": [
+            {
+              "line": 260,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 279,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 370,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 389,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 480,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 499,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 590,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 609,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 700,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 719,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            },
+            {
+              "line": 810,
+              "text": "assign ram_R_0_addr = ram_R_0_addr_pipe_0;"
+            },
+            {
+              "line": 829,
+              "text": "ram_R_0_addr_pipe_0 <= R0_addr;"
+            }
+          ]
+        }
+      },
+      "pe_cmp_no_a100_pipeline": {
+        "PE": {
+          "arithmetic_pipeline_cycles": 0,
+          "arithmetic_root": "FPMacUnit",
+          "arithmetic_modules": [
+            {
+              "module": "FPMacUnit",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPMacUnit.sv",
+              "sha256": "e8d00e977ab435074cabb82ed2ff8b1eb7192de6851fed1a942ec4638ba1e14c",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_MulAddExp2",
+                  "mulAddExp2"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_FMA_16",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_16.sv",
+              "sha256": "29ffe5eeffad6495b9d47ceb62f385cfed769c0fc0dc1da12ad108f085954127",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "ShiftRightJam_16",
+                  "shiftRightJam"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_MulAddExp2",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2.sv",
+              "sha256": "7f7b8891eab68ed37f17c7bea1f459890d5acdc6abffa15640e503ae32934a55",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_FMA_16",
+                  "fma"
+                ],
+                [
+                  "RawFloat_SplitIF",
+                  "split"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_SplitIF",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF.sv",
+              "sha256": "65f8e9cf20d720c78624138db9ec1c42f7be4fc6394fd3c990346ca1b87e4b3d",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            },
+            {
+              "module": "ShiftRightJam_16",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam_16.sv",
+              "sha256": "2a30b1168f2d9d58261831ca863729dc613ad29ac6b875515557ef2bab9b88e9",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            }
+          ],
+          "wrapper_evidence": {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/PE.sv",
+            "sha256": "f92cc24fcde96ae5ff16a969b6d2ad4ed2867f456115650ad45176bd10db8d98",
+            "matches": [
+              {
+                "line": 104,
+                "text": "always @(posedge clock) begin"
+              },
+              {
+                "line": 145,
+                "text": "FPMacUnit macUnit ("
+              },
+              {
+                "line": 164,
+                "text": "assign io_out_ctrl_valid = io_in_ctrl_valid;"
+              },
+              {
+                "line": 165,
+                "text": "assign io_out_ctrl_bits_mac = io_in_ctrl_bits_mac;"
+              },
+              {
+                "line": 166,
+                "text": "assign io_out_ctrl_bits_acc_ui = io_in_ctrl_bits_acc_ui;"
+              },
+              {
+                "line": 167,
+                "text": "assign io_out_ctrl_bits_load_reg_li = io_in_ctrl_bits_load_reg_li;"
+              },
+              {
+                "line": 168,
+                "text": "assign io_out_ctrl_bits_load_reg_ui = io_in_ctrl_bits_load_reg_ui;"
+              },
+              {
+                "line": 169,
+                "text": "assign io_out_ctrl_bits_flow_lr = io_in_ctrl_bits_flow_lr;"
+              },
+              {
+                "line": 170,
+                "text": "assign io_out_ctrl_bits_flow_ud = io_in_ctrl_bits_flow_ud;"
+              },
+              {
+                "line": 171,
+                "text": "assign io_out_ctrl_bits_flow_du = io_in_ctrl_bits_flow_du;"
+              },
+              {
+                "line": 172,
+                "text": "assign io_out_ctrl_bits_update_reg = io_in_ctrl_bits_update_reg;"
+              },
+              {
+                "line": 173,
+                "text": "assign io_out_ctrl_bits_exp2 = io_in_ctrl_bits_exp2;"
+              }
+            ]
+          },
+          "source_evidence": {
+            "file": "stages/p3/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+            "sha256": "2f6c735ab921e7b651c97831deda8b25e0a96244c2f07832088d5dae4cbddc7c",
+            "matches": [
+              {
+                "line": 18,
+                "text": "class FPMacUnit(mulEW: Int, mulMW: Int, addEW: Int, addMW: Int, pwlPieces: Int) extends"
+              },
+              {
+                "line": 22,
+                "text": "1 + mulEW, 1 + mulMW, 1 + addEW, 1 + addMW, Right(pwlPieces)"
+              },
+              {
+                "line": 89,
+                "text": "class FPCmpUnit(ew: Int, mw: Int) extends CmpUnit(FloatPoint(ew, mw)) {"
+              },
+              {
+                "line": 90,
+                "text": "val fma = Module(new FMA(ew, mw, ew, mw))"
+              }
+            ]
+          }
+        },
+        "CMP": {
+          "arithmetic_pipeline_cycles": 0,
+          "arithmetic_root": "FPCmpUnit",
+          "arithmetic_modules": [
+            {
+              "module": "FMA",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FMA.sv",
+              "sha256": "fcc76397578d08edc50501da8055962eaea1ebe50b88df83acc525be6a8bae66",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "RawFloat_FMA",
+                  "rawFMA"
+                ]
+              ]
+            },
+            {
+              "module": "FPCmpUnit",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPCmpUnit.sv",
+              "sha256": "e568a9112a0813515a7d7dd66d359b21912bffa9694851d7768a488ef4841afa",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "FMA",
+                  "fma"
+                ]
+              ]
+            },
+            {
+              "module": "RawFloat_FMA",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA.sv",
+              "sha256": "5f5fad55235a549101c8434faa1ed5511fb7ddd15e63ce938027026d8ff85e77",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": [
+                [
+                  "ShiftRightJam",
+                  "shiftRightJam"
+                ]
+              ]
+            },
+            {
+              "module": "ShiftRightJam",
+              "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam.sv",
+              "sha256": "5001184b41758e26c7d6fd73b3b8185139575ae2516cec51ea1cb09e41dfe826",
+              "clock_ports": 0,
+              "edge_triggered_blocks": 0,
+              "children": []
+            }
+          ],
+          "wrapper_evidence": {
+            "file": "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CMP.sv",
+            "sha256": "c0adaae5278e9cfd5436b56c8de4785472d6c72ff972ad6732bc3a70bffbe4bd",
+            "matches": [
+              {
+                "line": 92,
+                "text": "always @(posedge clock) begin"
+              },
+              {
+                "line": 155,
+                "text": "FPCmpUnit cmpUnit ("
+              },
+              {
+                "line": 173,
+                "text": "assign io_out_ctrl_valid = io_in_ctrl_valid;"
+              },
+              {
+                "line": 174,
+                "text": "assign io_out_ctrl_bits_cmd = io_in_ctrl_bits_cmd;"
+              }
+            ]
+          },
+          "source_evidence": {
+            "file": "stages/p3/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala",
+            "sha256": "2f6c735ab921e7b651c97831deda8b25e0a96244c2f07832088d5dae4cbddc7c",
+            "matches": [
+              {
+                "line": 18,
+                "text": "class FPMacUnit(mulEW: Int, mulMW: Int, addEW: Int, addMW: Int, pwlPieces: Int) extends"
+              },
+              {
+                "line": 22,
+                "text": "1 + mulEW, 1 + mulMW, 1 + addEW, 1 + addMW, Right(pwlPieces)"
+              },
+              {
+                "line": 89,
+                "text": "class FPCmpUnit(ew: Int, mw: Int) extends CmpUnit(FloatPoint(ew, mw)) {"
+              },
+              {
+                "line": 90,
+                "text": "val fma = Module(new FMA(ew, mw, ew, mw))"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cross_stage": {
+    "control_rtl_byte_identical": true,
+    "pe_cmp_wrapper_logic_identical": {
+      "PE": true,
+      "CMP": true,
+      "FPMacUnit": true,
+      "FPCmpUnit": true
+    }
+  },
+  "files": {
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.FSAConfig.json": {
+      "sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "lines": 16
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv": {
+      "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+      "lines": 2163
+    },
+    "stages/p2/generators/fsa/src/main/scala/fsa/MatrixEngineController.scala": {
+      "sha256": "34bef842afef80e9e3f54d4e7da3150a044452e0d10e2a5451a5ef72054e95a5",
+      "lines": 276
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPMacUnit.sv": {
+      "sha256": "e8d00e977ab435074cabb82ed2ff8b1eb7192de6851fed1a942ec4638ba1e14c",
+      "lines": 76
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2.sv": {
+      "sha256": "a331dec9310159d2da676a12fcb0332b3254eebff2a6ea2378bc2d18444924fa",
+      "lines": 89
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF.sv": {
+      "sha256": "65f8e9cf20d720c78624138db9ec1c42f7be4fc6394fd3c990346ca1b87e4b3d",
+      "lines": 39
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_16.sv": {
+      "sha256": "2f671944e848ecdd439dafcca84429f6ef34507358fda0d5bb95e48aa9e4a079",
+      "lines": 67
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam_16.sv": {
+      "sha256": "2a30b1168f2d9d58261831ca863729dc613ad29ac6b875515557ef2bab9b88e9",
+      "lines": 14
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/PE.sv": {
+      "sha256": "3ba50d81df2ade3df8405d455c5e99e814b3679b2842a8ac9208399ef0ad1c03",
+      "lines": 187
+    },
+    "stages/p2/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala": {
+      "sha256": "871caeb64c8612538e97ea9f5f6692710ef65d14a403a5ead530bc60cc56b343",
+      "lines": 174
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPCmpUnit.sv": {
+      "sha256": "0b372a80480dada4013e101b48b494a399a8d127098c6be5927d565a674ce7b8",
+      "lines": 30
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FMA.sv": {
+      "sha256": "f120732bca3b0cd9ec76178bf244509f21817003cc0a4ebd7233b0db5686bb1a",
+      "lines": 46
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA.sv": {
+      "sha256": "aac8fcafbc0ff3fe762660cd4b1dc37076df8181a0758de36450697ea4c52ed4",
+      "lines": 67
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam.sv": {
+      "sha256": "5001184b41758e26c7d6fd73b3b8185139575ae2516cec51ea1cb09e41dfe826",
+      "lines": 14
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CMP.sv": {
+      "sha256": "f261831b3ebcf277d648ee0e8bcd1ab2b971ed419130aec0af14d2bb70f1d493",
+      "lines": 176
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv": {
+      "sha256": "1eb22ef7202c174186362c37aae64427007071c01e49fb4b265efb34a92c7f4e",
+      "lines": 104
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv": {
+      "sha256": "d2b4e54846bd06bd1e5d56f0668b95e2486ceab8cfab6be44fccfcc8feb9c989",
+      "lines": 93
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF_1.sv": {
+      "sha256": "04fc94823469dd4c24e32633d9b56bf6121d4e0c46c7529c07bd9cd9bbb9d1b0",
+      "lines": 38
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv": {
+      "sha256": "ccc3dab88e2f5b5faafb833ab3389363b717bfd6220724ce7648cf900312d8ac",
+      "lines": 1491
+    },
+    "stages/p2/generators/fsa/src/main/scala/fsa/FSA.scala": {
+      "sha256": "febb1860ccc88e573dfa34cfd2c4870acd3cde52305c1926bf0232f51470ca89",
+      "lines": 188
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AccumulationSRAM.sv": {
+      "sha256": "3cd97e38d498ce618b6145aaddb036db70c8b788e37d633949aaefc3de5f432a",
+      "lines": 206
+    },
+    "final-p2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v": {
+      "sha256": "8664d82e896211c5304058d34a2c543d2f30909832e3ad62a9cef5a98c244213",
+      "lines": 887
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.FSAConfig.json": {
+      "sha256": "d8c3330d60ee335601401365e6fa4de774b53bb099dccc0afd464048b262a6ba",
+      "lines": 16
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/MatrixEngineController.sv": {
+      "sha256": "460c1753a7978b99d1359a4442ac0cea944f921a5f7826d27eddd7fae5270be3",
+      "lines": 2163
+    },
+    "stages/p3/generators/fsa/src/main/scala/fsa/MatrixEngineController.scala": {
+      "sha256": "34bef842afef80e9e3f54d4e7da3150a044452e0d10e2a5451a5ef72054e95a5",
+      "lines": 276
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPMacUnit.sv": {
+      "sha256": "e8d00e977ab435074cabb82ed2ff8b1eb7192de6851fed1a942ec4638ba1e14c",
+      "lines": 76
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2.sv": {
+      "sha256": "7f7b8891eab68ed37f17c7bea1f459890d5acdc6abffa15640e503ae32934a55",
+      "lines": 89
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_SplitIF.sv": {
+      "sha256": "65f8e9cf20d720c78624138db9ec1c42f7be4fc6394fd3c990346ca1b87e4b3d",
+      "lines": 39
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_16.sv": {
+      "sha256": "29ffe5eeffad6495b9d47ceb62f385cfed769c0fc0dc1da12ad108f085954127",
+      "lines": 67
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam_16.sv": {
+      "sha256": "2a30b1168f2d9d58261831ca863729dc613ad29ac6b875515557ef2bab9b88e9",
+      "lines": 14
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/PE.sv": {
+      "sha256": "f92cc24fcde96ae5ff16a969b6d2ad4ed2867f456115650ad45176bd10db8d98",
+      "lines": 187
+    },
+    "stages/p3/generators/fsa/src/main/scala/fsa/arithmetic/FPArithmeticImpl.scala": {
+      "sha256": "2f6c735ab921e7b651c97831deda8b25e0a96244c2f07832088d5dae4cbddc7c",
+      "lines": 187
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPCmpUnit.sv": {
+      "sha256": "e568a9112a0813515a7d7dd66d359b21912bffa9694851d7768a488ef4841afa",
+      "lines": 30
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FMA.sv": {
+      "sha256": "fcc76397578d08edc50501da8055962eaea1ebe50b88df83acc525be6a8bae66",
+      "lines": 40
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA.sv": {
+      "sha256": "5f5fad55235a549101c8434faa1ed5511fb7ddd15e63ce938027026d8ff85e77",
+      "lines": 59
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/ShiftRightJam.sv": {
+      "sha256": "5001184b41758e26c7d6fd73b3b8185139575ae2516cec51ea1cb09e41dfe826",
+      "lines": 14
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/CMP.sv": {
+      "sha256": "c0adaae5278e9cfd5436b56c8de4785472d6c72ff972ad6732bc3a70bffbe4bd",
+      "lines": 176
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FPAccUnit.sv": {
+      "sha256": "9c96fba5307847379d44c430982b526efba7aa9e5f60a06e01a7331a41fd4f3d",
+      "lines": 105
+    },
+    "stages/p3/generators/easyfloat/src/main/scala/easyfloat/Exp2.scala": {
+      "sha256": "f437156090e9709aba925b7adcee0efcda1253d9cb9678b69269da622af0f59f",
+      "lines": 222
+    },
+    "stages/p3/generators/easyfloat/src/main/scala/easyfloat/FMA.scala": {
+      "sha256": "fde5dadba9d8f960789729714b035c190794e35ec69b4b6fd4f6e6f238ff64b5",
+      "lines": 207
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_MulAddExp2_1.sv": {
+      "sha256": "463afcb4b6340eacb1e34f29335075f7f27bb6479829038143d6313685ae486d",
+      "lines": 232
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/RawFloat_FMA_17.sv": {
+      "sha256": "9ed35f9541a89441327e8657c291ebb545383e2c131db975c5badd062cf07e8b",
+      "lines": 226
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/Accumulator.sv": {
+      "sha256": "5df70422efdebe477ed119a638a81e5d10681f7f2a3fa1ab339c95f2814d880b",
+      "lines": 1382
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/FSA.sv": {
+      "sha256": "861d3d547f506421b4d4ba69cb0b2ec676a316b8898f61cdb034f4557eda7854",
+      "lines": 1514
+    },
+    "stages/p3/generators/fsa/src/main/scala/fsa/FSA.scala": {
+      "sha256": "edee847eef5f21fdcd4364c0590142a7a830bd67c31eafb29d83676c986595f3",
+      "lines": 196
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/AccumulationSRAM.sv": {
+      "sha256": "3cd97e38d498ce618b6145aaddb036db70c8b788e37d633949aaefc3de5f432a",
+      "lines": 206
+    },
+    "final-p3-v2/A70/fpga/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config/gen-collateral/chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config.model.mems.v": {
+      "sha256": "8664d82e896211c5304058d34a2c543d2f30909832e3ad62a9cef5a98c244213",
+      "lines": 887
+    }
+  },
+  "inspector_sha256": "bf7a1b0d4943a7ca77340c27f914a41e3084b0be0e2cccfd1a3e472a3e23ab0c",
+  "conclusion": "PASS: P2/P3 controlPipe=1; P2 ACC arithmetic=0, P3 ACC=1 entry+2 internal=3; accRAM valid/address alignment P2=1/P3=4=read1+ACC latency; both PE/CMP arithmetic subtrees remain combinational (no A100 arithmetic pipeline)."
+}

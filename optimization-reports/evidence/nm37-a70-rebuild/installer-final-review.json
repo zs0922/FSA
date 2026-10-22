@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "installer_sha256": "be9161fc928243b527adff62b6b58687297ae4778d9bed0ea228c9f68f4a36cc",
+  "tests": 22,
+  "test_result": "review/installer-independent-tests.json",
+  "test_result_sha256": "7ff0c06b2c57868fae65d8206a9d9a31f564a49e18a3a637e65e3698d0332f9f",
+  "readme_sha256": "6585ba7305b80dc95edbb0ae73850aa2c5f347ac37fbc65aecceb3991fad07e8",
+  "stage_commits": {
+    "p2": {
+      "head": "6902c6dec64c7f8266fc9c46386eb79b0c99bdde",
+      "parent": "5acd5e8d5e61729090fc89a7e92d68bd01abcc37"
+    },
+    "p3": {
+      "head": "de77b562022ca74c6bf9f9718f76ffe88d37708c",
+      "parent": "45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b"
+    }
+  },
+  "scope": [
+    "Installer and README only; no existing historical stage source edits",
+    "Two fresh independent local clones tested at exact original P2/P3 HEAD; only pinned three patch consumers restored for installer checks",
+    "Generated wrappers executed lightweight command after successful prepare verification; compilation/P&R not claimed by these installer tests",
+    "P3 four oracle Scala additions only; legacy ControlSignalTest not modified or executed",
+    "No Git commit, network access, board access or push performed"
+  ]
+}

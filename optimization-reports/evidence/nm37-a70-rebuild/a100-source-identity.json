@@ -1,0 +1,19 @@
+{
+  "snapshot_commit": "0f1a643a58894dc52b46d4058f39d12205405644",
+  "snapshot_kind": "reconstructed_source_snapshot",
+  "snapshot_files": 142,
+  "snapshot_hash_mismatches": [],
+  "original_source_hash_common": 113,
+  "original_to_snapshot_changed": [],
+  "original_shell_equals_snapshot": false,
+  "original_jar": "55d04ff753195966be9d0cec4eac68cc61c9e5907a3354814e4fa321a21794d4",
+  "snapshot_historical_jar": "55d04ff753195966be9d0cec4eac68cc61c9e5907a3354814e4fa321a21794d4",
+  "shell_comparison_normalized": {
+    "original_files": 55,
+    "snapshot_files": 55,
+    "common": 55,
+    "changed": [],
+    "only_original": [],
+    "only_snapshot": []
+  }
+}

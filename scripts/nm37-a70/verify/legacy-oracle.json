@@ -1,0 +1,17 @@
+{
+  "FMA.scala": {
+    "source_commit": "44e1c369659c2c397548d2aecfc4ded3a74a111e",
+    "source_sha256": "b4784088d6522a2ed1459d695102ce192b953a2e37fd9b668bdacd8ec53db0c5",
+    "overlay_sha256": "40bb608a3699956b4ea8b9aafd7f4ff70eb515354bb52b09e93f5ae06918a390"
+  },
+  "Exp2.scala": {
+    "source_commit": "44e1c369659c2c397548d2aecfc4ded3a74a111e",
+    "source_sha256": "6865eacc518359b1839c78fc0b504cb590015206100fafaa8f2eeb016c3f79a8",
+    "overlay_sha256": "63b2798559340d9809d7b535cb66b3c1c96459013e001c2caf290d5f5c031312"
+  },
+  "Reciprocal.scala": {
+    "source_commit": "44e1c369659c2c397548d2aecfc4ded3a74a111e",
+    "source_sha256": "c7a5dfbda31a6bf3291c8b6447baf465704b33551249cb352d4f03fc1d07c4de",
+    "overlay_sha256": "c00f9262d8550b0a59a2ee691001c9eec944c3c640460a1c5bc651138a9e30e8"
+  }
+}

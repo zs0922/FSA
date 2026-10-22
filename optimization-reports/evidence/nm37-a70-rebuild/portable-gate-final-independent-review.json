@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "tests": 24,
+  "failures": [],
+  "helpers": {
+    "artifacts.py": "08f4a74aa5a1f9909f90d033793fc3666f969dd0931634da47394e2ccc829e65",
+    "physical.py": "de198f0200106a2dc4a8eeeb74612de0531e044cc45e97c51a9760b97deec44d"
+  },
+  "evidence": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-negative-tests-v2.json",
+  "evidence_sha256": "a55a98e71b04e45154e9c5dd88e028c0a7526b630ba4aab109dbd06607de3a3b",
+  "scope": "Synthetic parser/gate tests with native check_timing format, not real design signoff. Includes empty endpoint/no_clock rejection, exact output source/stage binding, new IP Tcl rejection, missing artifacts/seals/review rejection, checkpoint/constraint/source review hash mismatch rejection, and matching bound synthetic review acceptance."
+}

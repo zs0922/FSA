@@ -1,0 +1,109 @@
+{
+  "helper_sha256": "74e3fbb7979f18923421a58ac702ecc60011fe9b453b26597af6048335aa036b",
+  "tests": [
+    {
+      "test": "unchanged",
+      "changed_detected": false,
+      "expected": false,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "ignored_scala",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "tracked_mutation",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "mode",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "deleted",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "top_dependency_head",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": "Wrong dependency generators/dep: expected 5ede9168e9c385f9b92de0c1834c00dafbc73d39, got 372f308b323f7226941e5d01e42968151a644b11"
+    },
+    {
+      "test": "recursive_dependency_head",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": "Wrong dependency generators/dep/nested: expected 12171995bca371f3cd331493d976a2a8b6ee1c76, got 5fd34258db02d2a88f03a75af67c8de8e3a7b781"
+    },
+    {
+      "test": "recursive_extensionless_resource",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "root_unmanaged_jar",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "untracked_resource_hex",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "untracked_symlink_source_directory",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "root_untracked_sbt",
+      "changed_detected": true,
+      "expected": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "restored",
+      "changed_detected": false,
+      "expected": false,
+      "pass": true,
+      "error": null
+    },
+    {
+      "test": "symlink_target_content_change",
+      "pass": true
+    },
+    {
+      "test": "cyclic_directory_rejected",
+      "pass": true
+    },
+    {
+      "test": "file_symlink_target_content_change",
+      "pass": true
+    }
+  ],
+  "failures": []
+}

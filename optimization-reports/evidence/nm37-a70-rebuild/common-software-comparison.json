@@ -1,0 +1,177 @@
+{
+  "hardware_tested": false,
+  "scope": "same common board software executed on separate historical RTL simulators; not host/PCIe/HBM board timing",
+  "rows": [
+    {
+      "seq": 16,
+      "seed": 0,
+      "p2": {
+        "dmaActive": 101,
+        "dmaInst": 4,
+        "execTime": 394,
+        "fence": 1,
+        "mxActive": 179,
+        "mxBubble": 167,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "p3": {
+        "dmaActive": 101,
+        "dmaInst": 4,
+        "execTime": 442,
+        "fence": 1,
+        "mxActive": 249,
+        "mxBubble": 111,
+        "mxInst": 5,
+        "rawInst": 32
+      },
+      "p3_minus_p2_exec_cycles": 48,
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "a9c44bec009a848ef115730e7ec045ddf78597cb6260a2a613eacd7d8e98edd7",
+          "shape": [
+            16,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "99d8dc89dfe81120c7057c6abcf55efeafd3dced5ccfc53ddac24be487ac7ff2",
+          "shape": [
+            16,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "6680dbcdc2574a2c63c60de2f7009a141e43ce360cb62ceaa51c07e8a0b7ae64",
+          "shape": [
+            16,
+            16
+          ]
+        }
+      },
+      "instructions_sha256": "317de176b8fbd0796f04b5b0c44228a5738cf40f33287f6c7b34ef8e07f174ac",
+      "actual_sha256_raw": "8301342a7ede27a230080c6aa86ec4f393e99b421cab234ac64436dd17488e0d",
+      "evidence_sha256": {
+        "nm37-a70-rebuild-20261022/review/common-software-p2/seq16/result.json": "a209d01f2fac285d784a212eadd8dbfc79592eaeb4dee323cd5ff42edf8aa888",
+        "nm37-a70-rebuild-20261022/review/common-software-p3/seq16/result.json": "a3426ba5c03c663ad36ee64e0a721276c14a0d7037204d72fefc3ef5904c4c43"
+      }
+    },
+    {
+      "seq": 32,
+      "seed": 0,
+      "p2": {
+        "dmaActive": 271,
+        "dmaInst": 12,
+        "execTime": 1109,
+        "fence": 1,
+        "mxActive": 610,
+        "mxBubble": 550,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "p3": {
+        "dmaActive": 260,
+        "dmaInst": 12,
+        "execTime": 1157,
+        "fence": 1,
+        "mxActive": 754,
+        "mxBubble": 421,
+        "mxInst": 16,
+        "rawInst": 97
+      },
+      "p3_minus_p2_exec_cycles": 48,
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "59d43f7c7b44fb146d59d3eb224086e80c40cbb96beb6cd4ebe8d21fe0e552a0",
+          "shape": [
+            32,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "4c2713892b923f089dbd9d57863dffd8e4495941e9f06fc6cea2a9b533fdefe7",
+          "shape": [
+            32,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "83fa4d1c41d6e3de0b87d11a7dcf6be9c542fb3e431e276f6f366f661c168c99",
+          "shape": [
+            32,
+            16
+          ]
+        }
+      },
+      "instructions_sha256": "f633f909593e240257b95792aead6cdff935c592d0e79f9f2021a3ab409b2865",
+      "actual_sha256_raw": "4cbe4b2e2c63af6ba4c8a28086b07503164c29ee900817c5f61d991f7f204cb3",
+      "evidence_sha256": {
+        "nm37-a70-rebuild-20261022/review/common-software-p2/seq32/result.json": "0eb9a155f193c72f841d073b268a60954c4845b20d04154fb3b5734fe95bf515",
+        "nm37-a70-rebuild-20261022/review/common-software-p3/seq32/result.json": "f53615195d965efef074ee5972422a880a0dc26e2483056651f0c11b62a2ef7b"
+      }
+    },
+    {
+      "seq": 64,
+      "seed": 0,
+      "p2": {
+        "dmaActive": 827,
+        "dmaInst": 40,
+        "execTime": 3661,
+        "fence": 1,
+        "mxActive": 2228,
+        "mxBubble": 1890,
+        "mxInst": 56,
+        "rawInst": 329
+      },
+      "p3": {
+        "dmaActive": 794,
+        "dmaInst": 40,
+        "execTime": 3709,
+        "fence": 1,
+        "mxActive": 2532,
+        "mxBubble": 1599,
+        "mxInst": 56,
+        "rawInst": 329
+      },
+      "p3_minus_p2_exec_cycles": 48,
+      "inputs": {
+        "K": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "b09a3797d8cee46d4a510e47a20c773ac1915cd109b7c3ef61e84e8ace7cec42",
+          "shape": [
+            64,
+            16
+          ]
+        },
+        "Q": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "60515e8c1a763b43d6636132b48749dbcb9ce67e6677c98bb174a18282abea2d",
+          "shape": [
+            64,
+            16
+          ]
+        },
+        "V": {
+          "dtype": "<f2",
+          "sha256_raw_c_order": "2686d563ae43a81638c565ef08abee05d88a40bb3ffe441e3433ddb730bce33c",
+          "shape": [
+            64,
+            16
+          ]
+        }
+      },
+      "instructions_sha256": "30fafa6720c1d323a1bd4bac416d938fc6e29dfe69da149128bab423cc0b52bd",
+      "actual_sha256_raw": "d9b1a5feea470367d00a3eb02f3530e555df09ce0aacadac737494156c294ec2",
+      "evidence_sha256": {
+        "nm37-a70-rebuild-20261022/review/common-software-p2/seq64/result.json": "e8ab936a44073fcf046da289b3dfd6c8314850b1f517a7032906e913cf9eafee",
+        "nm37-a70-rebuild-20261022/review/common-software-p3/seq64/result.json": "c5ea6d524e40c3274297777715a2f6a2237ec555aff9e712424318702d1c7e08"
+      }
+    }
+  ]
+}

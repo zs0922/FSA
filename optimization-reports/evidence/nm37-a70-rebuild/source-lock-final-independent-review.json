@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "status": "helper-validated-not-production-seal",
+  "helper": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/source_lock.py",
+  "helper_sha256": "74e3fbb7979f18923421a58ac702ecc60011fe9b453b26597af6048335aa036b",
+  "negative_tests": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/source-lock-negative-tests-v4.json",
+  "negative_tests_sha256": "9cf56edbfbe62c7bf116c9cc39efa71dbdf6408f69438402a4e16fb0dbdbeb63",
+  "tests": 16,
+  "failures": 0,
+  "candidate": "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/source-lock-p2-candidate.json",
+  "candidate_sha256": "bd3d641f4b459d55985fd9f6d20fe0b0696ca6e6e23d84fad50197e408db5124",
+  "candidate_bytes": 106014446,
+  "files": 478167,
+  "dependencies": 175,
+  "excluded_dependencies": {
+    "sims/firesim/platforms/f1/aws-fpga": {
+      "gitlink": "53223d71ce20f02925c74b81da3e6ff0deb79fe2",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/platforms/rhsresearch_nitefury_ii/NiteFury-and-LiteFury-firesim": {
+      "gitlink": "dfed09d33196ba4c96bca0ca2b078ce1bdb16c8c",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/platforms/xilinx_vcu118/garnet-firesim": {
+      "gitlink": "e0bb020ac0ff6c3731cb82cfc9789963a0e1c382",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/berkeley-hardfloat": {
+      "gitlink": "26f00d00c3f3f57480065e02bfcfde3d3b41ec51",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/cde": {
+      "gitlink": "2bcaeae2b9914bd25497ce3c6fa62dc5ca80e09f",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/diplomacy": {
+      "gitlink": "a042ff6df083624ceba471367d4292c91b43f7e6",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/sim/rocket-chip": {
+      "gitlink": "1b9f43352c7fd6e4e81cb244b422f6c605ffd3df",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "sims/firesim/utils/fireperf/FlameGraph": {
+      "gitlink": "cd9ee4c4449775a2f867acf31c84b7fe4b132ad5",
+      "reason": "Outside build.sbt FireSim library scopes"
+    },
+    "tools/dsptools/fixedpoint": {
+      "gitlink": "ef164009e40ce5a5abe61ebcc11c12ff82e34014",
+      "reason": "build.sbt: dsptools.dependsOn(fixedpoint), tools/fixedpoint"
+    },
+    "tools/rocket-dsp-utils/tools/dsptools": {
+      "gitlink": "8f4336639578d2e2dbaf61e542ee1f0fa8d79e63",
+      "reason": "build.sbt: rocket_dsp_utils.dependsOn(dsptools), tools/dsptools"
+    },
+    "tools/rocket-dsp-utils/tools/rocket-chip": {
+      "gitlink": "281e5c8f2e1cca68439fe04799d7be855db92517",
+      "reason": "build.sbt: rocket_dsp_utils.dependsOn(rocketchip), generators/rocket-chip"
+    }
+  },
+  "real_p2_verification": "PASS",
+  "verify_time_seconds": 39.54,
+  "verify_max_rss_kb": 884524,
+  "limitations": [
+    "Candidate probe was produced with independent reviewer helper, but snapshots the current stage tree; root must copy final helper and recapture formal source-lock before treating it as production gate.",
+    "Explicit excludes cover only three standalone dependency copies replaced in top-level build.sbt and FireSim gitlinks outside the two consumed library scopes.",
+    "External tool binaries, resolved Maven dependencies and runtime environment must be bound by separate tool/environment records; source-lock is not a hermetic toolchain archive."
+  ]
+}

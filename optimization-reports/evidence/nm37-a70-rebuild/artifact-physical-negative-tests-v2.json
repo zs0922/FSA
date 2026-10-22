@@ -1,0 +1,175 @@
+{
+  "helpers": {
+    "artifacts.py": "08f4a74aa5a1f9909f90d033793fc3666f969dd0931634da47394e2ccc829e65",
+    "physical.py": "de198f0200106a2dc4a8eeeb74612de0531e044cc45e97c51a9760b97deec44d"
+  },
+  "native_check_timing_fixture": {
+    "path": "/home/zhangsi/tmp/FSA-m1/nm37-m1-pipeline/apb110-20261020/reaudit04/obj/audit/check_timing.txt",
+    "sha256": "8b5e38fdd1da900fec443410a5d4c79ecede562c5e02f46517bb6b3905800305"
+  },
+  "tests": [
+    {
+      "test": "record",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "test": "wrong_stage",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 48, in main\n    assert os.environ['A70_STAGE'] == manifest['stage'], 'Output belongs to another historical stage'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Output belongs to another historical stage\n"
+    },
+    {
+      "test": "wrong_source",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 47, in main\n    assert Path(os.environ['A70_SOURCE']).resolve() == Path(manifest['source']).resolve(), 'Output belongs to another checkout'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Output belongs to another checkout\n"
+    },
+    {
+      "test": "seal_assembly",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": ""
+    },
+    {
+      "test": "seal_sim4",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": ""
+    },
+    {
+      "test": "seal_sim16",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": ""
+    },
+    {
+      "test": "seal_elaborate",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": ""
+    },
+    {
+      "test": "gate",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\nPASS: required verification and elaboration bound to the same source\n",
+      "stderr": ""
+    },
+    {
+      "test": "missing_implementation_export",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 76, in main\n    data = json.loads((out / (phase + '.passed.json')).read_text())\n                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/pathlib/__init__.py\", line 787, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/out/implement.passed.json'\n"
+    },
+    {
+      "test": "reject_new_elaboration_input",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 80, in main\n    assert data['files'] and data['files'] == inventory(paths, out, exclusions), 'Phase artifacts changed: ' + phase\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Phase artifacts changed: elaborate\n"
+    },
+    {
+      "test": "reject_missing_requested_payload",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 68, in main\n    'files': inventory(paths, out, exclusions)})\n             ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 28, in inventory\n    assert path.exists(), 'Missing required artifact: ' + str(path)\n           ~~~~~~~~~~~^^\nAssertionError: Missing required artifact: /home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/out/missingpath\n"
+    },
+    {
+      "test": "reject_empty_seal",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 80, in main\n    assert data['files'] and data['files'] == inventory(paths, out, exclusions), 'Phase artifacts changed: ' + phase\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Phase artifacts changed: assembly\n"
+    },
+    {
+      "test": "valid_synthetic_STA",
+      "pass": true,
+      "accepted": true,
+      "error": null
+    },
+    {
+      "test": "checkpoint_replacement",
+      "pass": true,
+      "accepted": false,
+      "error": "Checkpoint differs from reported routed design"
+    },
+    {
+      "test": "pulse_width_failure",
+      "pass": true,
+      "accepted": false,
+      "error": "[0.1, 0.0, 0.0, 100.0, 0.01, 0.0, 0.0, 100.0, -0.1, -1.0, 1.0, 100.0]"
+    },
+    {
+      "test": "nan_timing",
+      "pass": true,
+      "accepted": false,
+      "error": "[nan, 0.0, 0.0, 100.0, 0.01, 0.0, 0.0, 100.0, 0.1, 0.0, 0.0, 100.0]"
+    },
+    {
+      "test": "no_timed_endpoints",
+      "pass": true,
+      "accepted": false,
+      "error": "No endpoints actually timed"
+    },
+    {
+      "test": "new_unconstrained_registers",
+      "pass": true,
+      "accepted": false,
+      "error": "Missing/nonzero constraint check: no_clock"
+    },
+    {
+      "test": "seal_implementation",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": ""
+    },
+    {
+      "test": "reject_missing_review",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 82, in main\n    review = json.loads((out / 'cdc-constraint-review.json').read_text())\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/pathlib/__init__.py\", line 787, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zhangsi/miniconda3/lib/python3.14/pathlib/__init__.py\", line 771, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/out/cdc-constraint-review.json'\n"
+    },
+    {
+      "test": "accept_bound_synthetic_review",
+      "pass": true,
+      "returncode": 0,
+      "stdout": "PASS: verify: 1 actual input files\nPASS: required verification and elaboration bound to the same source\n",
+      "stderr": ""
+    },
+    {
+      "test": "reject_review_wrong_checkpoint_hash",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 89, in main\n    assert review['evidence_sha256'] == {name: sha(obj / name) for name in required}, 'Review is for different reports/checkpoint'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Review is for different reports/checkpoint\n"
+    },
+    {
+      "test": "reject_review_wrong_constraint_hash",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 89, in main\n    assert review['evidence_sha256'] == {name: sha(obj / name) for name in required}, 'Review is for different reports/checkpoint'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Review is for different reports/checkpoint\n"
+    },
+    {
+      "test": "reject_review_wrong_source_hash",
+      "pass": true,
+      "returncode": 1,
+      "stdout": "PASS: verify: 1 actual input files\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 94, in <module>\n    main()\n    ~~~~^^\n  File \"/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/review/artifact-physical-fixture-v2/helper/artifacts.py\", line 84, in main\n    assert review['source_lock_sha256'] == sha(lock)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    }
+  ],
+  "failures": []
+}

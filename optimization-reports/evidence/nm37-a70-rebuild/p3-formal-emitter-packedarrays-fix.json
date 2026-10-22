@@ -1,0 +1,9 @@
+{
+  "change": "Formal emitter lowering only; DUT and directed test logic unchanged",
+  "old_sha256": "459216c21b9f3a73748bacd9b7005229c233e05ca3c6638d312732d6bb77cb2b",
+  "new_sha256": "8e43a1847c00af32b2241e4b63e59af7e87c0145358637638b9f64e510df7d6c",
+  "files": [
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/src/scripts/nm37-a70/verify/scala/A70AccumulatorVerification.scala",
+    "/home/zhangsi/tmp/FSA-m1/nm37-a70-rebuild-20261022/stages/p3/generators/fsa/src/test/scala/fsa/A70AccumulatorVerification.scala"
+  ]
+}

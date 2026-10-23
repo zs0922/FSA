@@ -240,3 +240,14 @@ python3 /path/to/restored-p3/scripts/nm37-a70-source-lock.py capture \
 目标服务器的分阶段编译、验证、布局布线与 A110 历史 reaudit 命令见 [源码恢复与比特流重建](docs/source-reproduction.md)。A100 使用修复门禁后的 `a100-reproduction`，A110 新构建/旧DCP审计使用 `a110-audited`，不要在加入新工具后的 integration checkout 上直接运行历史锁定入口。
 
 目标服务器的简洁操作顺序见 [151 板测操作单](docs/151-board-test.md)，包含 USER 占位、手动加载确认、三配置一致测试及结果保存要求。
+
+## 板测结果汇总
+
+新增 `summarize_results.py` 读取一个完整三配置板测批次（Python + numpy），核对原始证据、排除预热和低重复次数 smoke，生成 Markdown、CSV 与 JSON。默认要求三配置同工作负载/软件/环境，缺失、失败或重复记录会拒绝汇总。
+
+```bash
+/path/to/fsa/python/.venv/bin/python scripts/nm37-board/summarize_results.py \
+  --results /path/to/campaign --min-repeat 20 --out /path/to/new-summary
+```
+
+完整传输、烧录、执行、补充工具传输及汇总命令见 [151 操作单](docs/151-board-test.md)。已有正式迁移包不变，新脚本单独传到目标机 `~/nm37-tools/`；不要覆盖归档清单内文件。测试均为离线模拟证据验证，不能替代板测。

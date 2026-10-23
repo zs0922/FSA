@@ -1,3 +1,22 @@
+# FSA / NM37 FPGA 复现入口
+
+本仓库的 NM37 交付包含 A70-P3（70 MHz）、A100（100 MHz）和 A110/APB55（DUT110 MHz / HBM APB55 MHz）。**完整命令及每一步的作用见 [NM37 复现 README](scripts/nm37-board/README.md)**，从 Git 获取源码开始，直到新 bit 上板和时间/bubble 对比。
+
+| 顺序 | 做什么 | 得到什么 |
+|---|---|---|
+| 1 | 独立 clone 工具与三个硬件版本，checkout 文档中的精确 commit | 可追溯、互不混用的源码工作区 |
+| 2 | 配置固定工具链，初始化锁定依赖；A70应用历史P3补丁，A100/A110恢复shell | 与各版本匹配的完整构建输入 |
+| 3 | 编译生成器、定向/形式验证、Verilator系统仿真 | JAR、逐位比较结果及阶段通过记录；另有A70 seq1024命令 |
+| 4 | elaborate、完整综合布局布线，人工审查本次STA/CDC | 本次RTL、DCP、时序/资源/CDC报告和验收证据 |
+| 5 | 导出bit，绑定对应配置和统一板测软件 | 三份新bit及带校验和的板测包 |
+| 6 | 在151确认JTAG/PCIe/XDMA，依次烧录、smoke及重复计时 | 正确性、运行时间、加速比和bubble对比表 |
+
+已有151工程缺少 `assembly.passed.json`，但留下日志/JAR时，先执行 [A70安全恢复流程](scripts/nm37-board/docs/a70-build-recovery.md)。保留原工具、源码、缓存和构建目录；不要直接更新被冻结的驱动或补写成功标记。`sim 4/16` 指阵列尺寸，序列长度1024使用文档中的 `--seq 1024`。
+
+只有一个主仓 `zs0922/FSA`，三个硬件版本对应不同分支/提交。复现分支已发布，151从源码完整复现并板测通过后再创建验收标签。下面保留本项目所基于的 Chipyard 框架说明。
+
+---
+
 ![CHIPYARD](https://github.com/ucb-bar/chipyard/raw/main/docs/_static/images/chipyard-logo-full.png)
 
 # Chipyard Framework [![Test](https://github.com/ucb-bar/chipyard/actions/workflows/chipyard-run-tests.yml/badge.svg)](https://github.com/ucb-bar/chipyard/actions)

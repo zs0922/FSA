@@ -1,6 +1,442 @@
-# NM37 统一板测与迁移 manifest
+# NM37：从源码复现 A70-P3、A100、A110/APB55 到板测
 
-通过 GitHub 获取源码、切换 A70/A100/A110 并执行仿真/生成 bit/板测，请从 [Git 复现主入口](docs/git-reproduction.md) 开始。离线源码包路线见 [源码到板测完整复现](docs/from-source-to-board.md)。直接使用现成 bit 的板测流程不能替代源码复现。
+本 README 是完整执行入口：获取固定源码 → 安装依赖 → 编译/验证 → 综合布局布线 → 审查本次时序/CDC → 导出新 bit → 烧录 → 正确性/性能测试。下面命令在有 NM37 的 **10.128.157.151** 执行；工具安装路径、JTAG target 和 PCIe 设备必须按该服务器实际情况填写。现有结果不能代替接收方的新构建与板测记录。
+
+**151 已经开始的 A70 工程先看 [失败诊断与安全恢复](docs/a70-build-recovery.md)，不要直接重跑本节的新建命令，也不要在被冻结的 `integration-tools` 中 `git pull`。**该文档说明缺少 `assembly.passed.json` 时如何检查失败日志/JAR、保留依赖和已完成阶段，再用原冻结驱动重试。下面新建流程要求新源码和新输出目录。
+
+只有一个主仓 [`zs0922/FSA`](https://github.com/zs0922/FSA)，以下分支是同一仓库的不同版本。每个版本用独立 clone，避免切换源码时混入上一版本的补丁、JAR 或 RTL。复现分支已发布，**151 完整复现及板测通过后再打验收标签**。
+
+| 用途 | 分支 | 固定硬件 commit |
+|---|---|---|
+| 当前说明、A70 外置驱动、恢复/板测工具 | `codex/nm37-reproduction` | clone 后记录并固定工具 HEAD |
+| A70-P3（历史 P3 优化，70 MHz） | `codex/nm37-a70-p3-source` | `45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b` |
+| A100（100 MHz） | `codex/nm37-a100-source` | `0a3a2656df66043ea513a45bab8275c1be0ba76c` |
+| A110/APB55（DUT 110 MHz，HBM APB 55 MHz） | `codex/nm37-a110-apb55-source` | `25673838e66ddef9031748ca40f7220c65acedaf` |
+
+A70-P3 需要安装器将锁定的历史优化补丁应用到上述安装前提交；实际源码身份由 HEAD、安装记录、source-lock 和工具提交共同确定。它与后来的 M1 ShiftRightJam A70 不同。A100/A110 的 FSA/easyfloat 已直接纳入主仓，其余 Chipyard 依赖仍有子模块。
+
+## 1. 建立新工作区、固定工具版本
+
+作用：把复现工具与三个硬件源码目录分开；后续构建期间不更新工具目录。已有同名目录时选择新路径，保留原工程。
+
+```bash
+set -euo pipefail
+umask 022
+export NM37_REPO=https://github.com/zs0922/FSA.git
+export NM37_WORK="$HOME/nm37-git-reproduce-fresh"
+mkdir "$NM37_WORK"
+export NM37_TOOLS="$NM37_WORK/integration-tools"
+git clone --branch codex/nm37-reproduction --single-branch "$NM37_REPO" "$NM37_TOOLS"
+git -C "$NM37_TOOLS" rev-parse HEAD | tee "$NM37_WORK/tools-commit.txt"
+git -C "$NM37_TOOLS" checkout --detach
+```
+
+这些变量供后续全部章节使用；换终端后恢复同一组变量。`checkout --detach <commit>` 就是切换到精确版本，不能将文档中的硬件 commit 替换成分支最新 HEAD。
+
+## 2. 配置工具链与共享下载缓存
+
+作用：确定编译/仿真/P&R 使用的工具版本。需要提前安装 Java 20.0.2、firtool 1.75.0、Verilator 5.022、Vivado 2020.2_AR75986（支持 NM37 `xcvu37p_CIV-fsvh2892-2L-e`，具备许可）、RISC-V/libfesvr/libriscv、Git/make、GCC/G++、uv。FSA Python 环境使用 Python 3.13；下方普通 `python3` 是脚本解释器。历史构建使用 GCC/G++ 13.3.0。
+
+下面 `/opt/...` 和编译器路径须替换为实际安装位置。源码仓库不包含 Vivado、工具链安装包或许可证；缺少这些工具时先安装，再开始构建。
+
+```bash
+source /opt/your-vivado/2020.2/settings64.sh
+export RISCV=/opt/your-riscv
+export PATH=/opt/java-20.0.2/bin:/opt/firtool-1.75.0/bin:/opt/verilator-5.022/bin:$RISCV/bin:$PATH
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+export LD_LIBRARY_PATH="$RISCV/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+export CHISEL_FIRTOOL_PATH="$(dirname "$(command -v firtool)")"
+export XDG_CACHE_HOME="$NM37_WORK/cache"
+export XDG_RUNTIME_DIR="$NM37_WORK/runtime"
+mkdir -p "$XDG_CACHE_HOME" "$XDG_RUNTIME_DIR"
+chmod 700 "$XDG_RUNTIME_DIR"
+export JAVA_TOOL_OPTIONS='-Dsbt.supershell=false -Dsbt.server.forcestart=false -Dsbt.server.autostart=false'
+unset JDK_JAVA_OPTIONS _JAVA_OPTIONS
+{
+  java -version
+  firtool --version
+  verilator --version
+  vivado -version
+  "$CC" --version
+  "$CXX" --version
+  uv --version
+} > "$NM37_WORK/tool-versions.txt" 2>&1
+cat "$NM37_WORK/tool-versions.txt"
+test -s "$RISCV/lib/libfesvr.a"
+test -s "$RISCV/lib/libriscv.so"
+python3 -m venv "$NM37_WORK/formal-env"
+"$NM37_WORK/formal-env/bin/pip" install -r "$NM37_TOOLS/scripts/nm37-a100/formal-requirements.txt"
+export YOSYS="$NM37_WORK/formal-env/bin/yowasp-yosys"
+"$YOSYS" -V
+```
+
+A100/A110 的 prepare 会检查上述四个主要工具版本；A70 记录工具版本，也须使用同一环境。Maven/sbt、uv 和 Git 依赖首次下载需要网络或预备缓存。缓存可以保留和复用，已生成的 JAR/RTL/仿真器/DCP 必须由本次对应源码产生。
+
+## 3. A70-P3：下载源码、应用优化、验证、生成 bit
+
+### 3.1 下载固定源码和依赖，安装历史优化
+
+`init_git_dependencies.py` 按锁定 commit 初始化依赖；不能用任意最新子模块替代。不要执行不加选择的递归 submodule update。A70 初始化后再运行安装器，顺序不可交换。
+
+```bash
+export A70_TOOLS="$NM37_TOOLS/scripts/nm37-a70"
+export A70_SOURCE="$NM37_WORK/a70-p3-source"
+export A70_OUT="$NM37_WORK/a70-p3-build"
+export A70_STAGE=p3
+export A70_JOBS=16
+git clone --branch codex/nm37-a70-p3-source --single-branch "$NM37_REPO" "$A70_SOURCE"
+git -C "$A70_SOURCE" checkout --detach 45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b
+python3 "$NM37_TOOLS/scripts/nm37-board/init_git_dependencies.py" \
+  --root "$A70_SOURCE" --profile A70-P3 --report "$NM37_WORK/a70-dependencies.json"
+# drycheck 检查安装前提；install 应用锁定补丁；verify 校验最终树。
+python3 "$A70_TOOLS/install_historical.py" drycheck --root "$A70_SOURCE" --stage p3
+python3 "$A70_TOOLS/install_historical.py" install --root "$A70_SOURCE" --stage p3
+python3 "$A70_TOOLS/install_historical.py" verify --root "$A70_SOURCE" --stage p3
+uv sync --frozen --python 3.13 --project "$A70_SOURCE/generators/fsa/python"
+export FSA_PYTHON="$A70_SOURCE/generators/fsa/python/.venv/bin/python"
+export PYTHONPATH="$A70_SOURCE/generators/easyfloat"
+```
+
+上游网络不可用时，可给依赖初始化命令追加 `--bundles /实际路径/migration-source-deps`，使用已校验的离线依赖包。不要在已经安装补丁的 A70 树上重复初始化。下载失败保留现场，诊断连接/认证，不改 pin 绕过。
+
+### 3.2 逐阶段编译与验证
+
+新前端区分源检查与阶段完成；只有返回 0 且出现对应 `COMPLETE`/通过记录才能继续。一个阶段失败即停止，按 [恢复文档](docs/a70-build-recovery.md) 排查，不补写 passed 文件。
+
+```bash
+# prepare：冻结源码、驱动和 shell 身份；本阶段尚未编译 JAR。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" prepare
+# assembly：编译 Chisel/Scala 生成器，保存 generator.jar 和 assembly.passed.json。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" assembly
+# units：定向功能回归并生成 formal RTL；formal：针对 P3 算术窗口做等价证明。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" units
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" formal
+# sim：编译并运行 Verilator。4/16 是阵列尺寸，不是序列长度。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" sim --array-size 4
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" sim --array-size 16
+```
+
+固定回归分别为 4×4 的 seq4/8 和 16×16 的 seq16/32，要求结果逐位一致。**序列长度 1024 仍支持**；不能写成 `run.sh sim 1024`。在 sim16 通过后，用已校验的同一仿真器额外运行1024，结果存到原构建目录以外，保留原 sim16 封印：
+
+```bash
+timeout --signal=TERM --kill-after=10s 7200s \
+  python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" \
+  sim --array-size 16 --seq 1024 --max-cycles 10000000 \
+  --result-out "$NM37_WORK/a70-extra-seq1024-attempt01"
+```
+
+`--max-cycles` 是仿真周期预算，7200s 是主机时间预算；均不代表运行性能，超时应保留输出并另取新目录重试。定向/形式验证的覆盖范围不是完整 FSA 调度证明；seq1024 的入口测试也不等于实际 RTL 已执行通过。
+
+### 3.3 生成 FPGA RTL、完整综合布局布线、审查并导出
+
+```bash
+# elaborate：由已封印 JAR 生成 NM37 FPGA RTL、配置 JSON、IP Tcl。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" elaborate
+# implement：运行 Vivado 综合、布局、布线及物理检查，保存 routed DCP/报告。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" implement
+```
+
+先检查 `$A70_OUT/physical.passed.json`、`implement.passed.json`、`implementation-generated.passed.json` 和本次 `A70/fpga/*/obj/{report,audit}/`。在源码复现文档的 [A70 CDC/约束复核及导出](docs/git-reproduction.md#a70-cdc约束复核及导出) 中有生成待审模板的完整命令。也可直接在此生成同一模板：
+
+```bash
+python3 - <<'PY'
+import os, json, hashlib
+from pathlib import Path
+out = Path(os.environ['A70_OUT'])
+obj, = list((out / 'A70/fpga').glob('*/obj'))
+def sha(p):
+    h = hashlib.sha256()
+    with p.open('rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
+    return h.hexdigest()
+names = ['post_route.dcp', 'audit/cdc.txt', 'audit/check_timing.txt',
+         'audit/clock_interaction.txt', 'audit/exceptions.txt']
+review = {'accepted_for_board_test': False, 'board_tested': False,
+          'source_lock_sha256': sha(out / 'source-lock.json'),
+          'analysis': '', 'known_boundaries': [],
+          'evidence_sha256': {n: sha(obj / n) for n in names}}
+with (out / 'cdc-constraint-review.pending.json').open('x') as f:
+    json.dump(review, f, indent=2)
+PY
+```
+
+**此处需要人工审查本次 routed 报告。**核对全板 setup/hold/pulse、DRC、无约束端点、时钟关系、复位释放和 CDC 结构，填写真实分析、边界、审查者和证据。确认可进入受控板测后，保存 `$A70_OUT/cdc-constraint-review.json`，其中 `accepted_for_board_test=true`；`board_tested` 此时仍为 false。不能只改布尔值、复制旧报告 hash 或忽略实际 CDC 错误。
+
+```bash
+# bitstream：重新检查阶段/CDC门禁，通过后由本次 routed DCP 导出新 bit。
+python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" bitstream
+sha256sum "$A70_OUT/bitstream/NM37_A70.bit"
+```
+
+## 4. A100：独立源码、验证、完整 P&R 和 bit
+
+作用：固定100MHz硬件版本，重新生成该版本的所有产物。A100 的 `prepare` **已经包含 assembly**，不同于 A70 的两步入口。先串行完成 A70 再执行本节，避免同时占满内存/许可。
+
+```bash
+export A100_SOURCE="$NM37_WORK/a100-source"
+export A100_OUT="$NM37_WORK/a100-build"
+export A100_JOBS=8
+git clone --branch codex/nm37-a100-source --single-branch "$NM37_REPO" "$A100_SOURCE"
+git -C "$A100_SOURCE" checkout --detach 0a3a2656df66043ea513a45bab8275c1be0ba76c
+python3 "$NM37_TOOLS/scripts/nm37-board/init_git_dependencies.py" \
+  --root "$A100_SOURCE" --profile A100 --report "$NM37_WORK/a100-dependencies.json"
+cd "$A100_SOURCE"
+# 恢复指定 shell 补丁；安装此版本的 Python 参考/调度环境。
+python3 scripts/nm37-a100/prepare-shell.py
+uv sync --frozen --python 3.13 --project generators/fsa/python
+export FSA_PYTHON="$A100_SOURCE/generators/fsa/python/.venv/bin/python"
+export PYTHONPATH="$A100_SOURCE/generators/easyfloat"
+bash scripts/nm37-a100/run.sh check       # 核对硬件源码和 shell。
+bash scripts/nm37-a100/run.sh prepare     # 冻结来源、记录工具并编译 JAR。
+bash scripts/nm37-a100/run.sh units       # 流水/控制调度定向回归。
+bash scripts/nm37-a100/run.sh formal      # 对生成的 formal RTL 运行等价证明。
+bash scripts/nm37-a100/run.sh sim 4       # 4×4，seq4/8。
+bash scripts/nm37-a100/run.sh sim 8       # 8×8，seq8/16。
+bash scripts/nm37-a100/run.sh sim 16      # 16×16，seq16/32。
+bash scripts/nm37-a100/run.sh elaborate  # 生成 NM37 FPGA RTL/IP 配置。
+bash scripts/nm37-a100/run.sh implement  # 完整综合布局布线和物理验收。
+```
+
+要求 units/formal/sim 对应记录及 `physical.passed.json` 通过，并人工复核本次 `A100/fpga/*/obj/audit/` 的 CDC/约束报告，记录审查结论。物理门禁通过不等于已经板测。完成后导出：
+
+```bash
+bash "$A100_SOURCE/scripts/nm37-a100/run.sh" bitstream
+sha256sum "$A100_OUT/bitstream/NM37_A100.bit"
+```
+
+## 5. A110/APB55：增加跨时钟启动验证与 CDC 验收
+
+作用：重建 DUT110/APB55 版本，保持本版本的固定 PE 流水深度。与 A100 相同，`prepare` 包含 JAR 编译；增加 `hbm-startup` 检查复位释放和跨时钟启动。
+
+```bash
+export A110_SOURCE="$NM37_WORK/a110-source"
+export A110_OUT="$NM37_WORK/a110-build"
+export A110_JOBS=8
+git clone --branch codex/nm37-a110-apb55-source --single-branch "$NM37_REPO" "$A110_SOURCE"
+git -C "$A110_SOURCE" checkout --detach 25673838e66ddef9031748ca40f7220c65acedaf
+python3 "$NM37_TOOLS/scripts/nm37-board/init_git_dependencies.py" \
+  --root "$A110_SOURCE" --profile A110-APB55 --report "$NM37_WORK/a110-dependencies.json"
+cd "$A110_SOURCE"
+python3 scripts/nm37-a110/prepare-shell.py
+uv sync --frozen --python 3.13 --project generators/fsa/python
+export FSA_PYTHON="$A110_SOURCE/generators/fsa/python/.venv/bin/python"
+export PYTHONPATH="$A110_SOURCE/generators/easyfloat"
+bash scripts/nm37-a110/run.sh check
+bash scripts/nm37-a110/run.sh prepare
+bash scripts/nm37-a110/run.sh units
+bash scripts/nm37-a110/run.sh formal
+bash scripts/nm37-a110/run.sh hbm-startup # 验证跨时钟启动和复位关系。
+bash scripts/nm37-a110/run.sh sim 4
+bash scripts/nm37-a110/run.sh sim 8
+bash scripts/nm37-a110/run.sh sim 16
+bash scripts/nm37-a110/run.sh elaborate
+bash scripts/nm37-a110/run.sh implement
+```
+
+A110 可能已完成布局布线，但因 CDC 审查未完成而让 implement 返回非零。此时保留现场，检查 `$A110_OUT/cdc-review.required.json`；不要重复 implement 覆盖 DCP。人工逐项复核本次 finding，在 `cdc-review.json` 填写 reviewer、classification、rationale、evidence，保留 build/checkpoint/CDC SHA 绑定。具体分类由该固定版本的 `scripts/nm37-a110/physical_audit.py` 定义，真实 CDC 缺陷必须修复，不能作为识别问题豁免。
+
+```bash
+# 审查完成后重跑物理验收，不重跑布局布线；通过后才导出 bit。
+bash "$A110_SOURCE/scripts/nm37-a110/run.sh" physical
+bash "$A110_SOURCE/scripts/nm37-a110/run.sh" bitstream
+sha256sum "$A110_OUT/bitstream/NM37_A110.bit"
+```
+
+## 6. 检查和保存本次构建证据
+
+每个阶段必须命令返回0并有预期结果，不能把“源文件校验 PASS”或存在一个 JAR/DCP 当成阶段成功。STA 要检查整板，不只 DUT WNS。此流程重建全部网表，不走旧 DCP 的 reaudit 导出路线。
+
+令 `TOP=chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config`：
+
+| 配置 | 本次 bit | 对应配置 JSON | routed DCP/时序/资源/CDC |
+|---|---|---|---|
+| A70-P3 | `$A70_OUT/bitstream/NM37_A70.bit` | `$A70_OUT/A70/fpga/$TOP/$TOP.FSAConfig.json` | 同目录 `obj/post_route.dcp`、`obj/report/`、`obj/audit/` |
+| A100 | `$A100_OUT/bitstream/NM37_A100.bit` | `$A100_OUT/A100/fpga/$TOP/$TOP.FSAConfig.json` | 同上 |
+| A110/APB55 | `$A110_OUT/bitstream/NM37_A110.bit` | `$A110_OUT/A110/fpga/$TOP/$TOP.FSAConfig.json` | 同上 |
+
+保留三个完整 OUT、工具 commit/版本、依赖报告、实际源码差异，以及 A70 源码中的 `.nm37-a70/` 安装记录。额外 seq1024 结果单独保存。失败日志也是证据，不删除来制造“全部通过”。重新构建使用新输出目录和新 build_id。
+
+## 7. 将自己生成的三份新 bit 组成板测包
+
+作用：将本次 bit、各自配置、来源和验收元数据与**同一套板测软件**绑定。仅在三条构建全部验收/导出后执行。完整大体积 OUT 另行归档，板测包不默认包含工具链和完整 DCP。
+
+```bash
+export NM37_REBUILT_BOARD="$NM37_WORK/rebuilt-board"
+export NM37_BUILD_BATCH="151-rebuild-$(date -u +%Y%m%dT%H%M%SZ)"
+python3 - <<'PY'
+import os, json, hashlib, subprocess
+from pathlib import Path
+work, tools = Path(os.environ['NM37_WORK']), Path(os.environ['NM37_TOOLS'])
+top = 'chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config'
+def item(p):
+    h = hashlib.sha256()
+    with p.open('rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
+    return {'path': str(p), 'sha256': h.hexdigest()}
+configs, attachments = [], []
+for cfg, prefix in [('A70-P3', 'A70'), ('A100', 'A100'), ('A110-APB55', 'A110')]:
+    source, out = Path(os.environ[prefix + '_SOURCE']), Path(os.environ[prefix + '_OUT'])
+    commit = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
+    configs.append({'configuration_id': cfg, 'hardware_source_commit': commit,
+        'build_id': os.environ['NM37_BUILD_BATCH'] + '-' + cfg, 'source_identity_kind': 'built_commit',
+        'bitstream': item(out / 'bitstream' / ('NM37_' + prefix + '.bit')),
+        'config': item(out / prefix / 'fpga' / top / (top + '.FSAConfig.json'))})
+    for p in sorted(list(out.glob('*.json')) + list((out / 'logs').glob('*.json'))):
+        attachments.append(dict(**item(p), destination='evidence/' + cfg + '/' + p.relative_to(out).as_posix()))
+    if prefix == 'A70':
+        for p in sorted((source / '.nm37-a70').glob('*.json')):
+            attachments.append(dict(**item(p), destination='evidence/' + cfg + '/install/' + p.name))
+for name in ['tools-commit.txt', 'tool-versions.txt', 'a70-dependencies.json', 'a100-dependencies.json', 'a110-dependencies.json']:
+    attachments.append(dict(**item(work / name), destination='evidence/reproduction/' + name))
+spec = {'schema_version': 1, 'software_root': str(tools), 'configurations': configs, 'attachments': attachments}
+with (work / 'rebuilt-board-spec.json').open('x') as f: json.dump(spec, f, indent=2)
+PY
+python3 "$NM37_TOOLS/scripts/nm37-board/package.py" build \
+  --spec "$NM37_WORK/rebuilt-board-spec.json" --out "$NM37_REBUILT_BOARD" \
+  --archive "$NM37_WORK/rebuilt-board.tar.gz"
+python3 "$NM37_REBUILT_BOARD/board-tools/package.py" verify --root "$NM37_REBUILT_BOARD"
+sha256sum "$NM37_WORK/rebuilt-board.tar.gz" > "$NM37_WORK/rebuilt-board.tar.gz.sha256"
+```
+
+打包的文件校验不代替 P&R/CDC 审查。A70 的 manifest HEAD 是安装前提交，安装记录与 source-lock 共同说明实际优化源码。不要将旧构建的 build_id/bit/配置混入新包。
+
+## 8. 环境检查与烧录新 bit
+
+作用：建立本次板测批次，检查 XDMA/JTAG，手动加载第7节的**新 bit**。这一节需要真实 NM37，前面的工具测试不会访问板卡。
+
+```bash
+export NM37_BOARD="$NM37_REBUILT_BOARD"
+export NM37_RESULTS="$HOME/nm37-results/rebuilt-$(date -u +%Y%m%dT%H%M%SZ)"
+mkdir -p "$NM37_RESULTS/programming"
+cd "$NM37_BOARD"
+python3 board-tools/package.py verify --root .
+uv sync --frozen --python 3.13 --project software/generators/fsa/python
+export FSA_PYTHON="$NM37_BOARD/software/generators/fsa/python/.venv/bin/python"
+# 防止之前某个硬件版本的 Python 模块路径混入统一板测环境。
+unset PYTHONPATH
+uv pip freeze --python "$FSA_PYTHON" > "$NM37_RESULTS/python-packages.txt"
+{
+  date -u
+  hostname
+  uname -a
+  cat /etc/os-release
+  vivado -version
+  uv --version
+  "$FSA_PYTHON" --version
+  lspci -Dnn
+  modinfo xdma
+  ls -l /dev/xdma*
+} > "$NM37_RESULTS/environment.txt" 2>&1
+vivado -mode gui -log "$NM37_RESULTS/programming/vivado.log" \
+  -journal "$NM37_RESULTS/programming/vivado.jou" &
+```
+
+GUI 在后台启动，保留当前终端的环境变量供第9节使用。先停止其他访问同一板卡的程序，在 Vivado Hardware Manager 的 Tcl Console 执行。将两个中文占位符替换成确认过的真实 target/器件；保留板卡序列号、编程时间、日志和 SHA。
+
+```tcl
+open_hw_manager
+connect_hw_server
+get_hw_targets
+open_hw_target [get_hw_targets {实际完整target名称}]
+get_hw_devices
+set dev [get_hw_devices {实际器件名}]
+current_hw_device $dev
+set_property PROGRAM.FILE [file join $::env(NM37_BOARD) bitstreams A70-P3.bit] $dev
+program_hw_devices $dev
+refresh_hw_device $dev
+```
+
+依次测试 A70-P3、A100、A110-APB55。换配置时把 Tcl 中 `A70-P3.bit` 改为相应文件，重新 program/refresh，再重复第9节；不能只更改终端 CFG。以上是易失 FPGA 配置，不写 Flash。枚举异常需按151实际环境恢复 PCIe/XDMA，再确认设备；不提供猜测的解绑/卸载命令。
+
+## 9. 每个配置：设备确认、smoke、统一性能测试
+
+下面以已烧录 A70-P3 为例；`DEVICE`/`BDF` 是占位示例，必须按当前板卡确认。每次换 bit 重新检查，XDMA 编号可能变化。
+
+```bash
+lspci -Dnn -d 10ee:9038
+ls -l /dev/xdma* /sys/class/xdma/
+export CFG=A70-P3
+export DEVICE=xdma0
+export BDF=0000:81:00.0
+readlink -f "/sys/bus/pci/devices/$BDF/driver"
+cd "$NM37_BOARD"
+export BIT_SHA=$(sha256sum "bitstreams/$CFG.bit" | cut -d ' ' -f1)
+export CFG_RESULTS="$NM37_RESULTS/$CFG"
+mkdir "$CFG_RESULTS"
+{
+  date -u
+  echo "configuration=$CFG device=$DEVICE bdf=$BDF"
+  sha256sum "bitstreams/$CFG.bit"
+  lspci -Dnn -s "$BDF"
+  readlink -f "/sys/bus/pci/devices/$BDF/driver"
+  ls -l "/dev/${DEVICE}_user" "/dev/${DEVICE}_h2c_0" "/dev/${DEVICE}_c2h_0"
+} > "$CFG_RESULTS/device-and-bit.txt" 2>&1
+cp "$CFG.manifest.json" "$CFG_RESULTS/"
+# dry-run 只校验身份/参数，不访问硬件，不代表通过板测。
+python3 board-tools/board_test.py --manifest "$CFG.manifest.json" \
+  --device "$DEVICE" --bdf "$BDF" --loaded-bitstream-sha256 "$BIT_SHA" \
+  --seq 16 --seed 0 --out "$CFG_RESULTS/preflight" --dry-run
+# 一次小规模真实测试；管道失败也保存退出码。
+if timeout --signal=TERM --kill-after=10s 600s "$FSA_PYTHON" board-tools/board_test.py \
+  --manifest "$CFG.manifest.json" --device "$DEVICE" --bdf "$BDF" \
+  --loaded-bitstream-sha256 "$BIT_SHA" --seq 16 --seed 0 --warmup 0 --repeat 1 \
+  --out "$CFG_RESULTS/smoke-seq16" 2>&1 | tee "$CFG_RESULTS/smoke-seq16.console.log"; then
+  NM37_RC=0
+else
+  NM37_RC=$?
+fi
+printf '%s\n' "$NM37_RC" > "$CFG_RESULTS/smoke-seq16.exit-code.txt"
+test "$NM37_RC" -eq 0
+"$FSA_PYTHON" - "$CFG_RESULTS/smoke-seq16/result.json" <<'PY'
+import json, sys
+r = json.load(open(sys.argv[1]))
+assert r['passed'] is True and r['hardware_tested'] is True
+print('Hardware smoke test PASS')
+PY
+# 相同 seq/seed/软件；预热1次、正式20次。每个输出目录必须是新目录。
+for SEQ in 16 32 64 256 1024; do
+  if timeout --signal=TERM --kill-after=10s 3600s "$FSA_PYTHON" board-tools/board_test.py \
+    --manifest "$CFG.manifest.json" --device "$DEVICE" --bdf "$BDF" \
+    --loaded-bitstream-sha256 "$BIT_SHA" --seq "$SEQ" --seed 0 --warmup 1 --repeat 20 \
+    --out "$CFG_RESULTS/seq${SEQ}-seed0" \
+    2>&1 | tee "$CFG_RESULTS/seq${SEQ}-seed0.console.log"; then
+    NM37_RC=0
+  else
+    NM37_RC=$?
+  fi
+  printf '%s\n' "$NM37_RC" > "$CFG_RESULTS/seq${SEQ}-seed0.exit-code.txt"
+  test "$NM37_RC" -eq 0 || break
+done
+```
+
+要求真实三个字符设备映射到给定 BDF、驱动为 xdma、用户有访问权限；板测脚本会核对映射。`--loaded-bitstream-sha256` 是操作者对已烧录文件的声明，不是硬件读回。任何失败/超时立即停止后续测试，保存现场；timeout 不证明 FPGA 已停。复位/重新烧录并确认设备后，用新批次重试，不覆盖旧结果。A110 失锁/冷复位后重新初始化和装载数据。
+
+## 10. 汇总时间、加速比、bubble，保存交付证据
+
+三配置第9节全部完成后，使用包内同版本汇总器。它不访问硬件；只接受同一批次三配置的完整、可比、逐位通过记录。`--min-repeat 20` 排除单次 smoke。
+
+```bash
+"$FSA_PYTHON" "$NM37_BOARD/board-tools/summarize_results.py" \
+  --results "$NM37_RESULTS" --min-repeat 20 --out "${NM37_RESULTS}-summary"
+cat "${NM37_RESULTS}-summary/comparison.md"
+# 关闭 Vivado 后归档完整原始结果和汇总；失败时仍保留原始结果。
+cp "$NM37_BOARD/board-tools/summarize_results.py" "${NM37_RESULTS}-summary/"
+tar -czf "${NM37_RESULTS}.tar.gz" -C "$(dirname "$NM37_RESULTS")" "$(basename "$NM37_RESULTS")"
+tar -czf "${NM37_RESULTS}-summary.tar.gz" -C "$(dirname "$NM37_RESULTS")" "$(basename "$NM37_RESULTS")-summary"
+sha256sum "${NM37_RESULTS}.tar.gz" "${NM37_RESULTS}-summary.tar.gz" \
+  > "${NM37_RESULTS}-archives.sha256"
+```
+
+输出 `comparison.md/csv`、逐次 `measurements.csv` 和带证据的 `summary.json`。`exec_us=execTime/clock_mhz`，频率分别为70/100/110；FPGA加速比以 A70-P3 时间为基准，主机执行时间单独比较。`mxBubble` 是矩阵指令接口 `ready && !valid` 周期，`100*mxBubble/execTime` 不是PE总空闲率；依赖等待需要结合波形分析。资源、STA 来自各自 P&R 报告，不能从板测计数反推。
+
+交付需保留：三版本完整构建输出/源锁/工具版本/CDC审查/bit SHA；统一板测包；环境与烧录日志；每配置设备映射、manifest、控制台/退出码；全部 run.json、输入、指令、reference、actual、逐次及根 result.json；失败记录和汇总。接收方三配置完整复现并板测通过后，再按实际构建提交和证据创建验收标签。
+
+---
+
+# 板测工具与迁移格式参考
+
+以下保留各工具的格式、约束和离线迁移细节。其他入口：[Git复现详解](docs/git-reproduction.md)、[A70恢复](docs/a70-build-recovery.md)、[现成迁移包在151板测](docs/151-board-test.md)、[离线源码重建](docs/from-source-to-board.md)。现成 bit 板测不能替代上面的源码重建。
 
 此目录用于 A70-P2、A70-P3、A100、A110-APB55 的统一输入/指令、逐位校验与计时。
 不会自动连接服务器、烧录、解绑 PCIe、加载驱动或 push。只有实际板测通过后，才能把结果称为上板验证通过。

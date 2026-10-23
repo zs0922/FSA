@@ -100,9 +100,12 @@ def preflight(driver, source, out, stage, phase):
         raise ValueError(f'{phase} 已有成功记录或记录残留：{existing_markers[0]}。不要重跑覆盖；'
                          '先用 status 查看，记录存在不等于已重新验收；若要复验使用新构建。')
     occupied = [p for p in artifacts(out,phase) if p.exists() or p.is_symlink()]
+    recovery = ('assembly 可按 docs/a70-build-recovery.md 使用 a70_recover_assembly.py 先预览归档；'
+                '没有下游产物可原地恢复，否则同一源码配新输出，保留下载缓存。' if phase == 'assembly' else
+                '如需重新构建，使用独立源码和新的 A70_OUT；原成功结果保留。')
     need(not occupied, f'{phase} 已有产物：'+', '.join(map(str,occupied))+
          '。可能是之前失败/中断或已完成的阶段。先查看日志并保留目录；不要删除日志以绕过门禁，'
-         '也不要复制封印。如需重新构建，使用独立源码和新的 A70_OUT；原成功结果保留。')
+         '也不要复制封印。'+recovery)
     if phase == 'bitstream':
         review = out/'cdc-constraint-review.json'
         need(review.is_file(), f'缺少本次 CDC/约束审查 {review}。按复现文档审查实际 routed 报告后填写，不能沿用旧 DCP 审查。')

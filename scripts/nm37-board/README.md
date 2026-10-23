@@ -253,3 +253,5 @@ python3 /path/to/restored-p3/scripts/nm37-a70-source-lock.py capture \
 ```
 
 完整传输、烧录、执行、补充工具传输及汇总命令见 [151 操作单](docs/151-board-test.md)。已有正式迁移包不变，新脚本单独传到目标机 `~/nm37-tools/`；不要覆盖归档清单内文件。测试均为离线模拟证据验证，不能替代板测。
+
+A70 构建阶段诊断、保留旧结果的更新方式，以及阵列尺寸与seq1024的区分，见 [A70构建诊断与恢复](docs/a70-build-recovery.md)。

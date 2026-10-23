@@ -1,16 +1,18 @@
 # NM37 源码离线恢复与比特流重建
 
+首次在新机器从源码复现，请先使用 [从源码到板测的完整流程](from-source-to-board.md)。该入口补齐实际源码包解包、精确commit、A70 CDC待审模板、新bit打包与板测衔接；本文保留阶段细节及历史DCP只读审计参考。
+
 本说明供迁移到 `10.128.157.151` 后使用。路径均为目标服务器的示例，由操作者替换；本说明未执行 SSH、烧录或该服务器上的测试。板测使用上一层 [README](../README.md) 的统一 manifest 入口，不使用历史脚本中的固定设备编号。
 
 ## 交付边界与 profile
 
 需要同时搬运 `migration-main/`、`migration-source-deps/` 和经过审核的 `source_bundle.py`；先核验外层归档及逐文件 SHA。主仓 Git bundle **不包含**子模块对象。不能复制依赖原机器 alternates 的 `.git`，也不能把 `.gitmodules` URL 当成离线源码。
 
-最终主仓清单应提供这些 profile；`integration` 的完整提交以最终交付 `main.json` 为准，不在这里猜测：
+已交付源码包提供以下 profile；其 `integration` 固定为 `d589b230b975730c108426591e552c056008e82a`，不是当前分支最新 HEAD：
 
 | profile | 精确 root commit / 用途 |
 |---|---|
-| `integration` | 最终本地提交；提供本迁移工具和 A70 新入口 |
+| `integration` | `d589b230b975730c108426591e552c056008e82a`；提供本迁移工具和 A70 新入口 |
 | `historical-p2-clean` | `5acd5e8d5e61729090fc89a7e92d68bd01abcc37`，原始 P2，供 installer 使用 |
 | `historical-p3-clean` | `45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b`，原始 P3，供 installer 使用 |
 | `historical-p2` | `f7d31bb197b93eef9dc416d0508e550894531665`，保留实际阶段修复提交及父链 |

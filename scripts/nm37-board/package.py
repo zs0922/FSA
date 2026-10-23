@@ -109,7 +109,7 @@ def build(spec_path, output):
             manifests.append(name)
         tool_root = Path(__file__).resolve().parent
         for path in sorted(tool_root.iterdir()):
-            if path.is_file() and (path.suffix == '.py' or path.name == 'README.md'):
+            if path.is_file() and (path.suffix == '.py' or path.name in ('README.md', 'git-dependencies.json')):
                 copy_checked({'path': str(path), 'sha256': sha(path)}, tmp / 'board-tools' / path.name)
         docs = tool_root / 'docs'
         if docs.exists():

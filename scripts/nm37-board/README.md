@@ -1,6 +1,6 @@
 # NM37 统一板测与迁移 manifest
 
-要从源码重新编译、执行仿真、生成 bit 再上板，请从 [源码到板测完整复现](docs/from-source-to-board.md) 开始；直接使用现成 bit 的板测流程不能替代源码复现。
+通过 GitHub 获取源码、切换 A70/A100/A110 并执行仿真/生成 bit/板测，请从 [Git 复现主入口](docs/git-reproduction.md) 开始。离线源码包路线见 [源码到板测完整复现](docs/from-source-to-board.md)。直接使用现成 bit 的板测流程不能替代源码复现。
 
 此目录用于 A70-P2、A70-P3、A100、A110-APB55 的统一输入/指令、逐位校验与计时。
 不会自动连接服务器、烧录、解绑 PCIe、加载驱动或 push。只有实际板测通过后，才能把结果称为上板验证通过。

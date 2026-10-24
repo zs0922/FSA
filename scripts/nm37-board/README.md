@@ -2,7 +2,11 @@
 
 本 README 是完整执行入口：获取固定源码 → 安装依赖 → 编译/验证 → 综合布局布线 → 审查本次时序/CDC → 导出新 bit → 烧录 → 正确性/性能测试。下面命令在有 NM37 的 **10.128.157.151** 执行；工具安装路径、JTAG target 和 PCIe 设备必须按该服务器实际情况填写。现有结果不能代替接收方的新构建与板测记录。
 
-**151 已经开始的 A70 工程先看 [失败诊断与安全恢复](docs/a70-build-recovery.md)，不要直接重跑本节的新建命令，也不要在被冻结的 `integration-tools` 中 `git pull`。**该文档说明缺少 `assembly.passed.json` 时如何检查失败日志/JAR、保留依赖和已完成阶段，再用原冻结驱动重试。下面新建流程要求新源码和新输出目录。
+**决定从零重建时，直接从本页第1节开始，顺序执行第1–10节，不需要先执行旧工程恢复流程。**使用全新 `NM37_WORK`，新工具、新源码和新输出均在其中；本流程不引用旧失败目录。无需为了得到干净构建而删除旧工程；若自行删除旧工程，其中的日志、本地依赖缓存和已完成结果也会丢失。不要把工具链安装目录、许可证或离线依赖包一并当作构建输出删除。
+
+只有准备继续原构建时才看 [失败诊断与安全恢复](docs/a70-build-recovery.md)，保留原冻结驱动，不在其目录中 `git pull`。两条路线不要混用。
+
+本页已按固定提交的脚本接口核对，但尚未在151从空工作区完整执行通过，不能承诺该机无需环境调整就一次成功。按小节执行，某个阶段非零退出即停下检查；不要整篇一次性粘贴。三个需要人工处理的位置是：第2节填写实际工具安装路径，第3–5节审查本次 routed CDC/约束报告，第8–9节确认真实JTAG器件和PCIe/XDMA映射。验收通过之前不创建验收标签。
 
 只有一个主仓 [`zs0922/FSA`](https://github.com/zs0922/FSA)，以下分支是同一仓库的不同版本。每个版本用独立 clone，避免切换源码时混入上一版本的补丁、JAR 或 RTL。复现分支已发布，**151 完整复现及板测通过后再打验收标签**。
 
@@ -35,7 +39,7 @@ git -C "$NM37_TOOLS" checkout --detach
 
 ## 2. 配置工具链与共享下载缓存
 
-作用：确定编译/仿真/P&R 使用的工具版本。需要提前安装 Java 20.0.2、firtool 1.75.0、Verilator 5.022、Vivado 2020.2_AR75986（支持 NM37 `xcvu37p_CIV-fsvh2892-2L-e`，具备许可）、RISC-V/libfesvr/libriscv、Git/make、GCC/G++、uv。FSA Python 环境使用 Python 3.13；下方普通 `python3` 是脚本解释器。历史构建使用 GCC/G++ 13.3.0。
+作用：确定编译/仿真/P&R 使用的工具版本。需要提前安装 Java 20.0.2、firtool 1.75.0、Verilator 5.022、Vivado 2020.2_AR75986（支持 NM37 `xcvu37p_CIV-fsvh2892-2L-e`，具备许可）、RISC-V/libfesvr/libriscv、Git/make、GCC/G++、uv。FSA Python 环境使用 Python 3.13；下方普通 `python3` 是脚本解释器，使用3.10及以上（151现有3.12可以）。历史构建使用 GCC/G++ 13.3.0。原构建脚本给JVM配置16GiB堆，此外仿真C++编译和Vivado还需要内存；并行度按机器资源选择，不能将16GiB误当作整机内存需求。
 
 下面 `/opt/...` 和编译器路径须替换为实际安装位置。源码仓库不包含 Vivado、工具链安装包或许可证；缺少这些工具时先安装，再开始构建。
 
@@ -63,6 +67,19 @@ unset JDK_JAVA_OPTIONS _JAVA_OPTIONS
   uv --version
 } > "$NM37_WORK/tool-versions.txt" 2>&1
 cat "$NM37_WORK/tool-versions.txt"
+# 在下载硬件依赖和创建构建输出之前检查，避免到prepare才发现版本不符。
+python3 - <<'PY'
+import os, subprocess, sys
+from pathlib import Path
+assert sys.version_info >= (3, 10), 'python3 must be >= 3.10'
+versions = (Path(os.environ['NM37_WORK']) / 'tool-versions.txt').read_text()
+for expected in ['2020.2_AR75986', '20.0.2', 'firtool-1.75.0', 'Verilator 5.022']:
+    assert expected in versions, 'Required tool version missing: ' + expected
+for key, command in [('CC', os.environ['CC']), ('CXX', os.environ['CXX']), ('PATH g++', 'g++')]:
+    version = subprocess.check_output([command, '-dumpfullversion'], text=True).strip()
+    assert version == '13.3.0', f'{key}: expected 13.3.0, got {version}; set the actual compiler path'
+print('PASS: documented tool versions; this does not test Vivado licensing or FPGA device support')
+PY
 test -s "$RISCV/lib/libfesvr.a"
 test -s "$RISCV/lib/libriscv.so"
 python3 -m venv "$NM37_WORK/formal-env"

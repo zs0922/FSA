@@ -1,33 +1,37 @@
-# NM37：从源码复现 A70-P3、A100、A110/APB55 到板测
+# NM37：从源码复现到实验 bitstream、上板及 RelErr 测试
 
-本 README 是完整执行入口：获取固定源码 → 安装依赖 → 编译/验证 → 综合布局布线 → 审查本次时序/CDC → 导出新 bit → 烧录 → 正确性/性能测试。下面命令在有 NM37 的 **10.128.157.151** 执行；工具安装路径、JTAG target 和 PCIe 设备必须按该服务器实际情况填写。现有结果不能代替接收方的新构建与板测记录。
+按第1～9节完成：获取固定源码 → 配置工具 → 三版本编译/验证/布局布线 → 实验bit导出 → 烧录 → RelErr测试。每一步都说明用途。先完成一个版本也可进入第6～8节测试，不必等三版本全部完成。
 
-**决定从零重建时，直接从本页第1节开始，顺序执行第1–10节，不需要先执行旧工程恢复流程。**使用全新 `NM37_WORK`，新工具、新源码和新输出均在其中；本流程不引用旧失败目录。无需为了得到干净构建而删除旧工程；若自行删除旧工程，其中的日志、本地依赖缓存和已完成结果也会丢失。不要把工具链安装目录、许可证或离线依赖包一并当作构建输出删除。
+**上板实验不需要手写CDC审查JSON。** 实验导出会自动记录构建身份、原有审查状态、DCP/bit校验和，重新检查整板/DUT setup、hold、脉宽和DRC。它不会把未关闭CDC项目改成通过。正式交付的CDC/约束验收与实验测试分开，见第9节。
 
-只有准备继续原构建时才看 [失败诊断与安全恢复](docs/a70-build-recovery.md)，保留原冻结驱动，不在其目录中 `git pull`。两条路线不要混用。
+此文档使用接收方自行选择的工作目录。构建可在无板卡的服务器完成；烧录和计算测试必须在实际安装NM37的主机上完成。如果分机执行，按第9节迁移，不复制`.venv`代替安装环境。
 
-本页已按固定提交的脚本接口核对，但尚未在151从空工作区完整执行通过，不能承诺该机无需环境调整就一次成功。按小节执行，某个阶段非零退出即停下检查；不要整篇一次性粘贴。三个需要人工处理的位置是：第2节填写实际工具安装路径，第3–5节审查本次 routed CDC/约束报告，第8–9节确认真实JTAG器件和PCIe/XDMA映射。验收通过之前不创建验收标签。
+逐段执行；某阶段失败先看日志，不继续依赖该阶段的操作。**不要把整篇粘贴执行，也不要在交互式tmux终端设置 `set -euo pipefail`**，否则Ctrl+C/补全脚本返回非零可能导致shell退出。需要严格退出的命令放在独立脚本或子shell中。
 
-只有一个主仓 [`zs0922/FSA`](https://github.com/zs0922/FSA)，以下分支是同一仓库的不同版本。每个版本用独立 clone，避免切换源码时混入上一版本的补丁、JAR 或 RTL。复现分支已发布，**151 完整复现及板测通过后再打验收标签**。
+只有一个主仓 `https://github.com/zs0922/FSA`；工具与三个硬件版本独立检出。GitHub中旧commit的README页面不可变，请从复现分支取得本版，再记录工具HEAD；构建过程中不更新冻结工具。
 
-| 用途 | 分支 | 固定硬件 commit |
+| 用途 | 分支 | 固定硬件commit |
 |---|---|---|
-| 当前说明、A70 外置驱动、恢复/板测工具 | `codex/nm37-reproduction` | clone 后记录并固定工具 HEAD |
-| A70-P3（历史 P3 优化，70 MHz） | `codex/nm37-a70-p3-source` | `45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b` |
-| A100（100 MHz） | `codex/nm37-a100-source` | `0a3a2656df66043ea513a45bab8275c1be0ba76c` |
-| A110/APB55（DUT 110 MHz，HBM APB 55 MHz） | `codex/nm37-a110-apb55-source` | `25673838e66ddef9031748ca40f7220c65acedaf` |
+| 本文档、导出/板测工具、A70外置驱动 | `codex/nm37-reproduction` | 第1节记录工具HEAD |
+| A70-P3 | `codex/nm37-a70-p3-source` | `45d859c1c1bdbd282d0c4ac1e465c0fa0b4e296b` |
+| A100 | `codex/nm37-a100-source` | `0a3a2656df66043ea513a45bab8275c1be0ba76c` |
+| A110/APB55 | `codex/nm37-a110-apb55-source` | `25673838e66ddef9031748ca40f7220c65acedaf` |
 
-A70-P3 需要安装器将锁定的历史优化补丁应用到上述安装前提交；实际源码身份由 HEAD、安装记录、source-lock 和工具提交共同确定。它与后来的 M1 ShiftRightJam A70 不同。A100/A110 的 FSA/easyfloat 已直接纳入主仓，其余 Chipyard 依赖仍有子模块。
+A70-P3会在固定提交上安装锁定的历史P3补丁；其身份由HEAD、安装记录与source-lock共同确定。它不是M1 ShiftRightJam A70。A100/A110的FSA/easyfloat由主仓跟踪，其余依赖按固定清单初始化。
+
+接收方仍需安装相同版本工具和器件支持、许可证及XDMA驱动；尚未声称在任意新服务器上零配置复现通过。
+
+已有构建只需更新工具时：独立克隆复现分支到新工具目录，使用其中的实验导出/RelErr入口，并将`--build-out`指向已有实际输出。不要在旧冻结驱动中git pull，不修改原`drivers.json`或任何passed标记。尤其已有A70构建的`A70_TOOLS`仍指向prepare时的原驱动；新前端不要求改它。
 
 ## 1. 建立新工作区、固定工具版本
 
 作用：把复现工具与三个硬件源码目录分开；后续构建期间不更新工具目录。已有同名目录时选择新路径，保留原工程。
 
 ```bash
-set -euo pipefail
 umask 022
 export NM37_REPO=https://github.com/zs0922/FSA.git
 export NM37_WORK="$HOME/nm37-git-reproduce-fresh"
+mkdir -p "$(dirname "$NM37_WORK")"
 mkdir "$NM37_WORK"
 export NM37_TOOLS="$NM37_WORK/integration-tools"
 git clone --branch codex/nm37-reproduction --single-branch "$NM37_REPO" "$NM37_TOOLS"
@@ -90,7 +94,7 @@ export YOSYS="$NM37_WORK/formal-env/bin/yowasp-yosys"
 
 A100/A110 的 prepare 会检查上述四个主要工具版本；A70 记录工具版本，也须使用同一环境。Maven/sbt、uv 和 Git 依赖首次下载需要网络或预备缓存。缓存可以保留和复用，已生成的 JAR/RTL/仿真器/DCP 必须由本次对应源码产生。
 
-## 3. A70-P3：下载源码、应用优化、验证、生成 bit
+## 3. A70-P3：下载源码、应用优化、验证、布局布线
 
 ### 3.1 下载固定源码和依赖，安装历史优化
 
@@ -145,7 +149,7 @@ timeout --signal=TERM --kill-after=10s 7200s \
 
 `--max-cycles` 是仿真周期预算，7200s 是主机时间预算；均不代表运行性能，超时应保留输出并另取新目录重试。定向/形式验证的覆盖范围不是完整 FSA 调度证明；seq1024 的入口测试也不等于实际 RTL 已执行通过。
 
-### 3.3 生成 FPGA RTL、完整综合布局布线、审查并导出
+### 3.3 生成 FPGA RTL、完整综合布局布线
 
 ```bash
 # elaborate：由已封印 JAR 生成 NM37 FPGA RTL、配置 JSON、IP Tcl。
@@ -154,37 +158,7 @@ python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" elab
 python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" implement
 ```
 
-先检查 `$A70_OUT/physical.passed.json`、`implement.passed.json`、`implementation-generated.passed.json` 和本次 `A70/fpga/*/obj/{report,audit}/`。在源码复现文档的 [A70 CDC/约束复核及导出](docs/git-reproduction.md#a70-cdc约束复核及导出) 中有生成待审模板的完整命令。也可直接在此生成同一模板：
-
-```bash
-python3 - <<'PY'
-import os, json, hashlib
-from pathlib import Path
-out = Path(os.environ['A70_OUT'])
-obj, = list((out / 'A70/fpga').glob('*/obj'))
-def sha(p):
-    h = hashlib.sha256()
-    with p.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
-    return h.hexdigest()
-names = ['post_route.dcp', 'audit/cdc.txt', 'audit/check_timing.txt',
-         'audit/clock_interaction.txt', 'audit/exceptions.txt']
-review = {'accepted_for_board_test': False, 'board_tested': False,
-          'source_lock_sha256': sha(out / 'source-lock.json'),
-          'analysis': '', 'known_boundaries': [],
-          'evidence_sha256': {n: sha(obj / n) for n in names}}
-with (out / 'cdc-constraint-review.pending.json').open('x') as f:
-    json.dump(review, f, indent=2)
-PY
-```
-
-**此处需要人工审查本次 routed 报告。**核对全板 setup/hold/pulse、DRC、无约束端点、时钟关系、复位释放和 CDC 结构，填写真实分析、边界、审查者和证据。确认可进入受控板测后，保存 `$A70_OUT/cdc-constraint-review.json`，其中 `accepted_for_board_test=true`；`board_tested` 此时仍为 false。不能只改布尔值、复制旧报告 hash 或忽略实际 CDC 错误。
-
-```bash
-# bitstream：重新检查阶段/CDC门禁，通过后由本次 routed DCP 导出新 bit。
-python3 "$NM37_TOOLS/scripts/nm37-board/a70_build.py" --driver "$A70_TOOLS" bitstream
-sha256sum "$A70_OUT/bitstream/NM37_A70.bit"
-```
+确认`implement`完成且本次`obj/post_route.dcp`存在，再进入第6节。旧`a70_build.py bitstream`是审查门禁入口，本页实验流程不调用它。已有失败assembly需要继续恢复时见[恢复文档](docs/a70-build-recovery.md)，不删除依赖缓存或手工补通过标记。
 
 ## 4. A100：独立源码、验证、完整 P&R 和 bit
 
@@ -215,12 +189,7 @@ bash scripts/nm37-a100/run.sh elaborate  # 生成 NM37 FPGA RTL/IP 配置。
 bash scripts/nm37-a100/run.sh implement  # 完整综合布局布线和物理验收。
 ```
 
-要求 units/formal/sim 对应记录及 `physical.passed.json` 通过，并人工复核本次 `A100/fpga/*/obj/audit/` 的 CDC/约束报告，记录审查结论。物理门禁通过不等于已经板测。完成后导出：
-
-```bash
-bash "$A100_SOURCE/scripts/nm37-a100/run.sh" bitstream
-sha256sum "$A100_OUT/bitstream/NM37_A100.bit"
-```
+保留本次生成物和物理报告；导出实验bit用第6节。
 
 ## 5. A110/APB55：增加跨时钟启动验证与 CDC 验收
 
@@ -251,105 +220,60 @@ bash scripts/nm37-a110/run.sh elaborate
 bash scripts/nm37-a110/run.sh implement
 ```
 
-A110 可能已完成布局布线，但因 CDC 审查未完成而让 implement 返回非零。此时保留现场，检查 `$A110_OUT/cdc-review.required.json`；不要重复 implement 覆盖 DCP。人工逐项复核本次 finding，在 `cdc-review.json` 填写 reviewer、classification、rationale、evidence，保留 build/checkpoint/CDC SHA 绑定。具体分类由该固定版本的 `scripts/nm37-a110/physical_audit.py` 定义，真实 CDC 缺陷必须修复，不能作为识别问题豁免。
+A110的`implement`可能已成功完成布局布线，却在随后人工CDC审查处返回非零。若错误明确为缺少`cdc-review.json`，保留`cdc-review.required.json`和routed DCP，不重复implement覆盖结果，可进入第6节尝试实验导出。**其他编译/P&R/时序失败不能按这种情况处理**；实验导出仍会检查实际时序和DRC。
+
+## 6. 导出本次实验 bitstream
+
+作用：从本次完整布局布线得到的DCP生成bit；自动保存证据，无需填写审查JSON。以下三个目录须不存在；已有结果要保留，重试改用attempt02等新名字。先执行已完成构建的版本。
 
 ```bash
-# 审查完成后重跑物理验收，不重跑布局布线；通过后才导出 bit。
-bash "$A110_SOURCE/scripts/nm37-a110/run.sh" physical
-bash "$A110_SOURCE/scripts/nm37-a110/run.sh" bitstream
-sha256sum "$A110_OUT/bitstream/NM37_A110.bit"
+export TOP=chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config
+export NM37_BITS="$NM37_WORK/experimental-bits"
+python3 "$NM37_TOOLS/scripts/nm37-board/export_experimental_bitstream.py" \
+  --build-out "$A70_OUT" --profile A70-P3 --out "$NM37_BITS/A70-P3"
+python3 "$NM37_TOOLS/scripts/nm37-board/export_experimental_bitstream.py" \
+  --build-out "$A100_OUT" --profile A100 --out "$NM37_BITS/A100"
+python3 "$NM37_TOOLS/scripts/nm37-board/export_experimental_bitstream.py" \
+  --build-out "$A110_OUT" --profile A110-APB55 --out "$NM37_BITS/A110-APB55"
 ```
 
-## 6. 检查和保存本次构建证据
+Vivado应已通过第2节加入PATH，也可追加`--vivado /实际安装路径/bin/vivado`。成功打印`EXPORTED (experimental)`；`experiment.json`应为`status=exported`。失败读输出目录的console.log/vivado.log，不使用残留bit。
 
-每个阶段必须命令返回0并有预期结果，不能把“源文件校验 PASS”或存在一个 JAR/DCP 当成阶段成功。STA 要检查整板，不只 DUT WNS。此流程重建全部网表，不走旧 DCP 的 reaudit 导出路线。
-
-令 `TOP=chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config`：
-
-| 配置 | 本次 bit | 对应配置 JSON | routed DCP/时序/资源/CDC |
-|---|---|---|---|
-| A70-P3 | `$A70_OUT/bitstream/NM37_A70.bit` | `$A70_OUT/A70/fpga/$TOP/$TOP.FSAConfig.json` | 同目录 `obj/post_route.dcp`、`obj/report/`、`obj/audit/` |
-| A100 | `$A100_OUT/bitstream/NM37_A100.bit` | `$A100_OUT/A100/fpga/$TOP/$TOP.FSAConfig.json` | 同上 |
-| A110/APB55 | `$A110_OUT/bitstream/NM37_A110.bit` | `$A110_OUT/A110/fpga/$TOP/$TOP.FSAConfig.json` | 同上 |
-
-保留三个完整 OUT、工具 commit/版本、依赖报告、实际源码差异，以及 A70 源码中的 `.nm37-a70/` 安装记录。额外 seq1024 结果单独保存。失败日志也是证据，不删除来制造“全部通过”。重新构建使用新输出目录和新 build_id。
-
-## 7. 将自己生成的三份新 bit 组成板测包
-
-作用：将本次 bit、各自配置、来源和验收元数据与**同一套板测软件**绑定。仅在三条构建全部验收/导出后执行。完整大体积 OUT 另行归档，板测包不默认包含工具链和完整 DCP。
+| 版本 | bit路径（相对NM37_BITS） | 对应生成配置JSON |
+|---|---|---|
+| A70-P3 | `A70-P3/NM37_A70-P3_EXPERIMENTAL.bit` | `$A70_OUT/A70/fpga/$TOP/$TOP.FSAConfig.json` |
+| A100 | `A100/NM37_A100_EXPERIMENTAL.bit` | `$A100_OUT/A100/fpga/$TOP/$TOP.FSAConfig.json` |
+| A110/APB55 | `A110-APB55/NM37_A110-APB55_EXPERIMENTAL.bit` | `$A110_OUT/A110/fpga/$TOP/$TOP.FSAConfig.json` |
 
 ```bash
-export NM37_REBUILT_BOARD="$NM37_WORK/rebuilt-board"
-export NM37_BUILD_BATCH="151-rebuild-$(date -u +%Y%m%dT%H%M%SZ)"
-python3 - <<'PY'
-import os, json, hashlib, subprocess
-from pathlib import Path
-work, tools = Path(os.environ['NM37_WORK']), Path(os.environ['NM37_TOOLS'])
-top = 'chipyard.fpga.nm37.NM37FPGATestHarness.EmptyNM37Config'
-def item(p):
-    h = hashlib.sha256()
-    with p.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
-    return {'path': str(p), 'sha256': h.hexdigest()}
-configs, attachments = [], []
-for cfg, prefix in [('A70-P3', 'A70'), ('A100', 'A100'), ('A110-APB55', 'A110')]:
-    source, out = Path(os.environ[prefix + '_SOURCE']), Path(os.environ[prefix + '_OUT'])
-    commit = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
-    configs.append({'configuration_id': cfg, 'hardware_source_commit': commit,
-        'build_id': os.environ['NM37_BUILD_BATCH'] + '-' + cfg, 'source_identity_kind': 'built_commit',
-        'bitstream': item(out / 'bitstream' / ('NM37_' + prefix + '.bit')),
-        'config': item(out / prefix / 'fpga' / top / (top + '.FSAConfig.json'))})
-    for p in sorted(list(out.glob('*.json')) + list((out / 'logs').glob('*.json'))):
-        attachments.append(dict(**item(p), destination='evidence/' + cfg + '/' + p.relative_to(out).as_posix()))
-    if prefix == 'A70':
-        for p in sorted((source / '.nm37-a70').glob('*.json')):
-            attachments.append(dict(**item(p), destination='evidence/' + cfg + '/install/' + p.name))
-for name in ['tools-commit.txt', 'tool-versions.txt', 'a70-dependencies.json', 'a100-dependencies.json', 'a110-dependencies.json']:
-    attachments.append(dict(**item(work / name), destination='evidence/reproduction/' + name))
-spec = {'schema_version': 1, 'software_root': str(tools), 'configurations': configs, 'attachments': attachments}
-with (work / 'rebuilt-board-spec.json').open('x') as f: json.dump(spec, f, indent=2)
-PY
-python3 "$NM37_TOOLS/scripts/nm37-board/package.py" build \
-  --spec "$NM37_WORK/rebuilt-board-spec.json" --out "$NM37_REBUILT_BOARD" \
-  --archive "$NM37_WORK/rebuilt-board.tar.gz"
-python3 "$NM37_REBUILT_BOARD/board-tools/package.py" verify --root "$NM37_REBUILT_BOARD"
-sha256sum "$NM37_WORK/rebuilt-board.tar.gz" > "$NM37_WORK/rebuilt-board.tar.gz.sha256"
+(cd "$NM37_BITS/A70-P3" && sha256sum -c SHA256SUMS)
+(cd "$NM37_BITS/A100" && sha256sum -c SHA256SUMS)
+(cd "$NM37_BITS/A110-APB55" && sha256sum -c SHA256SUMS)
 ```
 
-打包的文件校验不代替 P&R/CDC 审查。A70 的 manifest HEAD 是安装前提交，安装记录与 source-lock 共同说明实际优化源码。不要将旧构建的 build_id/bit/配置混入新包。
+保留各版本的完整OUT、工具commit、依赖记录、安装记录、原始报告以及实验导出目录。综合时序估算不能代替布局布线后的时序；生成bit也不代表CDC已验收。
 
-## 8. 环境检查与烧录新 bit
+## 7. 选择版本并烧录到 NM37
 
-作用：建立本次板测批次，检查 XDMA/JTAG，手动加载第7节的**新 bit**。这一节需要真实 NM37，前面的工具测试不会访问板卡。
+作用：确保烧录bit、运行时源码、配置JSON属于同一版本。**在板卡所在服务器执行**，路径须指向本机文件。以下以A70为例，之后改PROFILE再完整执行本段来切换。
 
 ```bash
-export NM37_BOARD="$NM37_REBUILT_BOARD"
-export NM37_RESULTS="$HOME/nm37-results/rebuilt-$(date -u +%Y%m%dT%H%M%SZ)"
-mkdir -p "$NM37_RESULTS/programming"
-cd "$NM37_BOARD"
-python3 board-tools/package.py verify --root .
-uv sync --frozen --python 3.13 --project software/generators/fsa/python
-export FSA_PYTHON="$NM37_BOARD/software/generators/fsa/python/.venv/bin/python"
-# 防止之前某个硬件版本的 Python 模块路径混入统一板测环境。
+export PROFILE=A70-P3  # 或A100、A110-APB55
+case "$PROFILE" in
+  A70-P3) export SRC="$A70_SOURCE" BUILD="$A70_OUT" DESIGN=A70 ;;
+  A100) export SRC="$A100_SOURCE" BUILD="$A100_OUT" DESIGN=A100 ;;
+  A110-APB55) export SRC="$A110_SOURCE" BUILD="$A110_OUT" DESIGN=A110 ;;
+esac
+export CONFIG="$BUILD/$DESIGN/fpga/$TOP/$TOP.FSAConfig.json"
+export BIT="$NM37_BITS/$PROFILE/NM37_${PROFILE}_EXPERIMENTAL.bit"
+export FSA_PYTHON="$SRC/generators/fsa/python/.venv/bin/python"
 unset PYTHONPATH
-uv pip freeze --python "$FSA_PYTHON" > "$NM37_RESULTS/python-packages.txt"
-{
-  date -u
-  hostname
-  uname -a
-  cat /etc/os-release
-  vivado -version
-  uv --version
-  "$FSA_PYTHON" --version
-  lspci -Dnn
-  modinfo xdma
-  ls -l /dev/xdma*
-} > "$NM37_RESULTS/environment.txt" 2>&1
-vivado -mode gui -log "$NM37_RESULTS/programming/vivado.log" \
-  -journal "$NM37_RESULTS/programming/vivado.jou" &
+(cd "$NM37_BITS/$PROFILE" && sha256sum -c SHA256SUMS)
+printf '%s\n' "$BIT"
+vivado -mode gui
 ```
 
-GUI 在后台启动，保留当前终端的环境变量供第9节使用。先停止其他访问同一板卡的程序，在 Vivado Hardware Manager 的 Tcl Console 执行。将两个中文占位符替换成确认过的真实 target/器件；保留板卡序列号、编程时间、日志和 SHA。
+先停止其他访问此板卡的程序。在Hardware Manager选择实际NM37 target/器件，点击Program Device，选择上面打印的bit。也可在该GUI的Tcl Console执行：
 
 ```tcl
 open_hw_manager
@@ -357,97 +281,99 @@ connect_hw_server
 get_hw_targets
 open_hw_target [get_hw_targets {实际完整target名称}]
 get_hw_devices
-set dev [get_hw_devices {实际器件名}]
+set dev [get_hw_devices {实际NM37器件名称}]
 current_hw_device $dev
-set_property PROGRAM.FILE [file join $::env(NM37_BOARD) bitstreams A70-P3.bit] $dev
+set_property PROGRAM.FILE $::env(BIT) $dev
 program_hw_devices $dev
 refresh_hw_device $dev
 ```
 
-依次测试 A70-P3、A100、A110-APB55。换配置时把 Tcl 中 `A70-P3.bit` 改为相应文件，重新 program/refresh，再重复第9节；不能只更改终端 CFG。以上是易失 FPGA 配置，不写 Flash。枚举异常需按151实际环境恢复 PCIe/XDMA，再确认设备；不提供猜测的解绑/卸载命令。
+两个中文占位符必须替换为查询出的真实对象，不自动选择第一块板。GUI需从设置BIT的终端启动，否则直接填绝对bit路径。烧录日志另存到结果目录。这是JTAG易失配置，不写Flash；换PROFILE必须重新烧录。
 
-## 9. 每个配置：设备确认、smoke、统一性能测试
-
-下面以已烧录 A70-P3 为例；`DEVICE`/`BDF` 是占位示例，必须按当前板卡确认。每次换 bit 重新检查，XDMA 编号可能变化。
+确认PCIe/XDMA：
 
 ```bash
 lspci -Dnn -d 10ee:9038
-ls -l /dev/xdma* /sys/class/xdma/
-export CFG=A70-P3
+ls -l /dev/xdma*
+ls -l /sys/class/xdma/
 export DEVICE=xdma0
-export BDF=0000:81:00.0
+export BDF=0000:81:00.0  # 仅示例，替换成实际NM37完整BDF
 readlink -f "/sys/bus/pci/devices/$BDF/driver"
-cd "$NM37_BOARD"
-export BIT_SHA=$(sha256sum "bitstreams/$CFG.bit" | cut -d ' ' -f1)
-export CFG_RESULTS="$NM37_RESULTS/$CFG"
-mkdir "$CFG_RESULTS"
-{
-  date -u
-  echo "configuration=$CFG device=$DEVICE bdf=$BDF"
-  sha256sum "bitstreams/$CFG.bit"
-  lspci -Dnn -s "$BDF"
-  readlink -f "/sys/bus/pci/devices/$BDF/driver"
-  ls -l "/dev/${DEVICE}_user" "/dev/${DEVICE}_h2c_0" "/dev/${DEVICE}_c2h_0"
-} > "$CFG_RESULTS/device-and-bit.txt" 2>&1
-cp "$CFG.manifest.json" "$CFG_RESULTS/"
-# dry-run 只校验身份/参数，不访问硬件，不代表通过板测。
-python3 board-tools/board_test.py --manifest "$CFG.manifest.json" \
-  --device "$DEVICE" --bdf "$BDF" --loaded-bitstream-sha256 "$BIT_SHA" \
-  --seq 16 --seed 0 --out "$CFG_RESULTS/preflight" --dry-run
-# 一次小规模真实测试；管道失败也保存退出码。
-if timeout --signal=TERM --kill-after=10s 600s "$FSA_PYTHON" board-tools/board_test.py \
-  --manifest "$CFG.manifest.json" --device "$DEVICE" --bdf "$BDF" \
-  --loaded-bitstream-sha256 "$BIT_SHA" --seq 16 --seed 0 --warmup 0 --repeat 1 \
-  --out "$CFG_RESULTS/smoke-seq16" 2>&1 | tee "$CFG_RESULTS/smoke-seq16.console.log"; then
-  NM37_RC=0
-else
-  NM37_RC=$?
-fi
-printf '%s\n' "$NM37_RC" > "$CFG_RESULTS/smoke-seq16.exit-code.txt"
-test "$NM37_RC" -eq 0
-"$FSA_PYTHON" - "$CFG_RESULTS/smoke-seq16/result.json" <<'PY'
-import json, sys
-r = json.load(open(sys.argv[1]))
-assert r['passed'] is True and r['hardware_tested'] is True
-print('Hardware smoke test PASS')
-PY
-# 相同 seq/seed/软件；预热1次、正式20次。每个输出目录必须是新目录。
-for SEQ in 16 32 64 256 1024; do
-  if timeout --signal=TERM --kill-after=10s 3600s "$FSA_PYTHON" board-tools/board_test.py \
-    --manifest "$CFG.manifest.json" --device "$DEVICE" --bdf "$BDF" \
-    --loaded-bitstream-sha256 "$BIT_SHA" --seq "$SEQ" --seed 0 --warmup 1 --repeat 20 \
-    --out "$CFG_RESULTS/seq${SEQ}-seed0" \
-    2>&1 | tee "$CFG_RESULTS/seq${SEQ}-seed0.console.log"; then
-    NM37_RC=0
-  else
-    NM37_RC=$?
-  fi
-  printf '%s\n' "$NM37_RC" > "$CFG_RESULTS/seq${SEQ}-seed0.exit-code.txt"
-  test "$NM37_RC" -eq 0 || break
-done
 ```
 
-要求真实三个字符设备映射到给定 BDF、驱动为 xdma、用户有访问权限；板测脚本会核对映射。`--loaded-bitstream-sha256` 是操作者对已烧录文件的声明，不是硬件读回。任何失败/超时立即停止后续测试，保存现场；timeout 不证明 FPGA 已停。复位/重新烧录并确认设备后，用新批次重试，不覆盖旧结果。A110 失锁/冷复位后重新初始化和装载数据。
+驱动应为xdma，有user/h2c_0/c2h_0三个字符设备且当前用户有读写权限。测试工具会检查设备/BDF映射。重烧后设备不出现时先恢复枚举/驱动，不运行计算；不能盲目卸载其他板共用的驱动。XDMA驱动不由本文自动安装。
 
-## 10. 汇总时间、加速比、bubble，保存交付证据
+## 8. 上板运行 attention，查看 RelErr
 
-三配置第9节全部完成后，使用包内同版本汇总器。它不访问硬件；只接受同一批次三配置的完整、可比、逐位通过记录。`--min-repeat 20` 排除单次 smoke。
+作用：先用小输入检查实际板上计算，再运行1024序列。使用对应版本Python环境与生成配置，不允许默认配置回退。
 
 ```bash
-"$FSA_PYTHON" "$NM37_BOARD/board-tools/summarize_results.py" \
-  --results "$NM37_RESULTS" --min-repeat 20 --out "${NM37_RESULTS}-summary"
-cat "${NM37_RESULTS}-summary/comparison.md"
-# 关闭 Vivado 后归档完整原始结果和汇总；失败时仍保留原始结果。
-cp "$NM37_BOARD/board-tools/summarize_results.py" "${NM37_RESULTS}-summary/"
-tar -czf "${NM37_RESULTS}.tar.gz" -C "$(dirname "$NM37_RESULTS")" "$(basename "$NM37_RESULTS")"
-tar -czf "${NM37_RESULTS}-summary.tar.gz" -C "$(dirname "$NM37_RESULTS")" "$(basename "$NM37_RESULTS")-summary"
-sha256sum "${NM37_RESULTS}.tar.gz" "${NM37_RESULTS}-summary.tar.gz" \
-  > "${NM37_RESULTS}-archives.sha256"
+export RESULT="$NM37_WORK/board-experiments/$PROFILE/seq16-attempt01"
+"$FSA_PYTHON" "$NM37_TOOLS/scripts/nm37-board/run_experimental_attention.py" \
+  --source "$SRC" --config "$CONFIG" --bitstream "$BIT" \
+  --device "$DEVICE" --bdf "$BDF" --seq 16 --out "$RESULT" --dry-run
+# 上一步只验证文件/参数，不访问硬件，不证明板测通过。
+timeout --signal=TERM --kill-after=10s 600s \
+  "$FSA_PYTHON" -u "$NM37_TOOLS/scripts/nm37-board/run_experimental_attention.py" \
+  --source "$SRC" --config "$CONFIG" --bitstream "$BIT" \
+  --device "$DEVICE" --bdf "$BDF" --seq 16 --out "$RESULT"
 ```
 
-输出 `comparison.md/csv`、逐次 `measurements.csv` 和带证据的 `summary.json`。`exec_us=execTime/clock_mhz`，频率分别为70/100/110；FPGA加速比以 A70-P3 时间为基准，主机执行时间单独比较。`mxBubble` 是矩阵指令接口 `ready && !valid` 周期，`100*mxBubble/execTime` 不是PE总空闲率；依赖等待需要结合波形分析。资源、STA 来自各自 P&R 报告，不能从板测计数反推。
+新工具调用原main.py中的attention及参考模型，输出格式如下，省略号处为实际数值：
 
-交付需保留：三版本完整构建输出/源锁/工具版本/CDC审查/bit SHA；统一板测包；环境与烧录日志；每配置设备映射、manifest、控制台/退出码；全部 run.json、输入、指令、reference、actual、逐次及根 result.json；失败记录和汇总。接收方三配置完整复现并板测通过后，再按实际构建提交和证据创建验收标签。
+```text
+Execution time: ... cycles
+Max bubble cycles: ... cycles
+...
+Error of FSA vs torch: {'MAE': ..., 'MSE': ..., 'MaxErr': ..., 'RelErr': ...}
+Error of PyEasyFloat vs torch: {'MAE': ..., 'MSE': ..., 'MaxErr': ..., 'RelErr': ...}
+```
+
+- `RelErr = mean(abs((FSA-Torch)/(Torch+1e-8)))`，乘100才是百分比；不是最大误差。
+- 两行都以Torch为参考；不是FSA与PyEasyFloat逐位比较。FP16量化/运算近似会产生误差，不要求对Torch为0。
+- `completed_metrics_printed`只说明运行到打印指标，不自动代表误差达标。正式数值验收还要查看逐位回归。
+- `console.log`保存原始指标，`run.json`保存配置/bit哈希、设备和状态。bit哈希是操作者对烧录文件的声明，不是硬件读回。
+
+seq16正常后再运行：
+
+```bash
+timeout --signal=TERM --kill-after=10s 7200s \
+  "$FSA_PYTHON" -u "$NM37_TOOLS/scripts/nm37-board/run_experimental_attention.py" \
+  --source "$SRC" --config "$CONFIG" --bitstream "$BIT" \
+  --device "$DEVICE" --bdf "$BDF" --seq 1024 \
+  --out "$NM37_WORK/board-experiments/$PROFILE/seq1024-attempt01"
+```
+
+仍是16x16 PE阵列对1024x16的Q/K/V做分块attention，不是1024x1024阵列。PyEasyFloat主机参考可能较慢，不能把整个命令耗时当成FPGA耗时。`exec_us = cycles / clock_mhz`，三版本分别70/100/110；bubble计数不是所有PE空闲周期总和。
+
+失败/超时保留日志并停止后续测试，timeout不证明FPGA已停止。强制终止时run.json可能仍为started。重新确认状态或重烧后，改用新attempt目录，不覆盖结果。
+
+## 9. 跨服务器迁移、统一比较与正式交付
+
+若构建机与板卡机不同，迁移：本版工具目录、三个实验导出目录、三个配置JSON、**各版本的generators/fsa/python与generators/easyfloat**、构建来源记录。保持每个源码根下`generators/fsa/python`与`generators/easyfloat`的相对布局。文件复制可用rsync，目标路径按接收方实际目录设置：
+
+```bash
+# 构建机执行；下面以一个版本示例，先保证目标机目录存在。
+rsync -av --exclude=.venv --exclude=__pycache__ \
+  "$SRC/generators/fsa/python/" USER@BOARD_HOST:SOURCE_ROOT/generators/fsa/python/
+rsync -av --exclude=.venv --exclude=__pycache__ \
+  "$SRC/generators/easyfloat/" USER@BOARD_HOST:SOURCE_ROOT/generators/easyfloat/
+```
+
+`USER/BOARD_HOST/SOURCE_ROOT`必须替换；例如板卡主机可以是10.128.157.151。还需传输工具、bit与CONFIG，不能只复制以上两个软件目录。板卡机执行：
+
+```bash
+uv sync --frozen --python 3.13 --project "$SRC/generators/fsa/python"
+export FSA_PYTHON="$SRC/generators/fsa/python/.venv/bin/python"
+```
+
+在板卡机重新设置NM37_TOOLS、SRC、CONFIG、BIT和RESULT为本机路径，再执行第7～8节。无需在板卡机重新安装所有Chisel/Vivado实现依赖即可运行Python板测；如要在该机完整重建bit，则从第1节执行并安装全套工具。
+
+上面RelErr日志用于直观实验，不是`summarize_results.py`的统一结构化输入。统一输入、预热/重复运行、逐位校验、时间/加速比/bubble表使用下方工具参考中的`create_manifest.py`、`board_test.py`、`summarize_results.py`。manifest创建器只绑定文件身份，不等于签署CDC通过。
+
+正式交付需保留：工具commit、三个硬件commit与A70安装记录、依赖清单、所有构建/验证报告、bit校验和、烧录/设备记录、正确性和性能原始结果，并关闭实际CDC/约束开放项。现有`run.sh bitstream`/`a70_build.py bitstream`是带审查门槛的出口，仍可在审查完成后使用；模板与验收流程见[Git复现详解](docs/git-reproduction.md)。不要仅修改accepted布尔值以消除报错。
+
+当前工具自测与文件检查不等于在接收方板卡上测试通过。接收方完整重建、上板验收后再打验收标签。
 
 ---
 
